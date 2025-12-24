@@ -1,7 +1,7 @@
 const NUMERO_ZAP = "5531991668430"; // seu WhatsApp
 
-// URL base da planilha (usando gviz para trazer JSON)
-const GVIZ_URL = "https://docs.google.com/spreadsheets/d/1q5pgZ3OEpJhFjdbZ19xp1k2dUWzXhPL16SRMZnWaV-k/gviz/tq?sheet=Produtos";
+// gviz trazendo TODOS os dados da planilha
+const GVIZ_URL = "https://docs.google.com/spreadsheets/d/1q5pgZ3OEpJhFjdbZ19xp1k2dUWzXhPL16SRMZnWaV-k/gviz/tq?tq=SELECT%20*";
 
 const grid = document.getElementById("grid");
 const brandSelect = document.getElementById("brandSelect");
@@ -21,13 +21,13 @@ async function carregaDados() {
   const resp = await fetch(GVIZ_URL);
   const text = await resp.text();
 
-  // resposta vem como "/*O_o*/\ngoogle.visualization.Query.setResponse(...);"
   const jsonStr = text.substring(text.indexOf("{"), text.lastIndexOf("}") + 1);
   const data = JSON.parse(jsonStr);
 
   const cols = data.table.cols.map(c => c.label);
   const rows = data.table.rows;
 
+  // nomes exatos das colunas da aba Produtos
   const idxMarca = cols.indexOf("Marca");
   const idxProduto = cols.indexOf("Produto");
   const idxPreco = cols.indexOf("Preco_Venda");
@@ -48,7 +48,7 @@ async function carregaDados() {
       preco: precoLimpo,
       imagem
     };
-  }).filter(p => p.nome && p.preco); // some produtos sem preço
+  }).filter(p => p.nome && p.preco); // só com preço
 
   populaMarcas();
   renderGrid();
@@ -94,7 +94,6 @@ function renderGrid() {
       </a>
     `;
 
-    // clique na imagem abre lightbox com blur
     card.querySelector("img").addEventListener("click", e => {
       e.preventDefault();
       abreLightbox(p, imgSrc);
