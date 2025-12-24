@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Barra de aviso (texto já alterado por você) -->
+    <!-- Barra de aviso -->
     <header class="top-bar">
       <div class="top-bar-inner">
         <div class="top-message">
@@ -41,9 +41,7 @@
           <button id="brandsToggle" class="nav-button" type="button">
             Marcas
           </button>
-          <a href="contato.html" class="nav-button nav-link">
-            Contato
-          </a>
+          <a href="contato.html" class="nav-button nav-link">Contato</a>
         </nav>
       </div>
     </section>
@@ -52,9 +50,7 @@
       <!-- Painel de marcas flutuante -->
       <section id="marcas" class="brand-panel">
         <div class="brand-panel-inner">
-          <div class="brand-panel-header">
-            Marcas
-          </div>
+          <div class="brand-panel-header">Marcas</div>
           <div id="brandColumns" class="brand-columns"></div>
         </div>
       </section>
@@ -65,6 +61,17 @@
         <div id="perfumeGrid" class="product-grid"></div>
       </section>
     </main>
+
+    <!-- Modal de zoom da imagem -->
+    <div id="imageModal" class="image-modal">
+      <div class="image-modal-backdrop"></div>
+      <div class="image-modal-content">
+        <button id="imageModalClose" class="image-modal-close" type="button">
+          ✕
+        </button>
+        <img id="imageModalImg" src="" alt="" />
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>
