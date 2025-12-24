@@ -2,12 +2,12 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Detalhes do perfume | Le Bary Parfum</title>
+  <title>Detalhes do perfume | Zeidan Parfum</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- cole aqui a mesma top-bar + hero + menu da index, se quiser -->
+  <!-- se quiser, copie aqui a mesma top-bar + hero + menu da index -->
 
   <main class="page-content">
     <section class="product-detail">
@@ -41,19 +41,15 @@
 
   <script src="produtos.js"></script>
   <script>
-    // pega o id da URL: produto.html?id=algum-id
-    const params = new URLSearchParams(window.location.search); // [web:632][web:636]
+    const params = new URLSearchParams(window.location.search); // [web:632][web:645]
     const id = params.get("id");
 
-    // acha o produto no array
-    const produto = PRODUTOS.find(p => p.id === id);
+    const produto = PRODUTOS_DETALHE.find(p => p.id === id);
 
     if (!produto) {
-      // se não achar, mostra uma mensagem simples
       document.getElementById("produtoTitulo").textContent = "Produto não encontrado";
     } else {
-      // preenche a página com os dados do produto
-      document.title = produto.nome + " | Le Bary Parfum";
+      document.title = produto.nome + " | Zeidan Parfum";
 
       const img = document.getElementById("produtoImagem");
       img.src = produto.imagem;
@@ -61,14 +57,14 @@
 
       document.getElementById("produtoTitulo").textContent = produto.nome;
       document.getElementById("produtoMarca").textContent =
-        produto.marca + " • " + produto.categoria;
+        `${produto.marca} • ${produto.categoria}`;
       document.getElementById("produtoPreco").textContent = produto.preco;
       document.getElementById("produtoNotas").textContent = produto.notas;
       document.getElementById("produtoDescricao").textContent = produto.descricao;
 
       const wpp = document.getElementById("produtoWhatsapp");
-      const mensagem = encodeURIComponent(produto.whatsappTexto);
-      wpp.href = "https://wa.me/SEU_NUMERO?text=" + mensagem;
+      const msg = encodeURIComponent(produto.whatsappTexto);
+      wpp.href = "https://wa.me/5531991668430?text=" + msg;
     }
   </script>
 </body>
