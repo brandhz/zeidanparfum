@@ -114,53 +114,40 @@ function renderCards(selectedBrand, searchTerm, category) {
   });
 
   filtered.forEach((p) => {
-  const card = document.createElement("article");
-  card.className = "product-card";
+    const card = document.createElement("article");
+    card.className = "product-card";
 
-  const whatsappLink = buildWhatsAppLink(p);
+    const whatsappLink = buildWhatsAppLink(p);
 
-  card.innerHTML = `
-    <div class="product-image-wrap">
-      ${
-        p.Imagem
-          ? `<img src="${p.Imagem}" alt="${p.Produto ?? ""}" class="product-image" data-full="${p.Imagem}" />`
-          : ""
-      }
-    </div>
+    card.innerHTML = `
+      <div class="product-image-wrap">
+        ${
+          p.Imagem
+            ? `<img src="${p.Imagem}" alt="${p.Produto ?? ""}" class="product-image" data-full="${p.Imagem}" />`
+            : ""
+        }
+      </div>
 
-    <div class="product-name">
-      ${p.Produto ?? ""}
-    </div>
+      <div class="product-name">
+        ${p.Produto ?? ""}
+      </div>
 
-    <div class="product-meta">
-      <span class="product-brand">
-        ${p.Marca ?? ""}
-      </span>
-      <span class="product-price">
-        ${p.Preco_Venda ?? ""}
-      </span>
-    </div>
+      <div class="product-meta">
+        <span class="product-brand">
+          ${p.Marca ?? ""}
+        </span>
+        <span class="product-price">
+          ${p.Preco_Venda ?? ""}
+        </span>
+      </div>
 
-    <div class="product-actions">
-      <a class="product-btn" href="${whatsappLink}" target="_blank" rel="noopener noreferrer">
-        Encomende
-      </a>
-    </div>
-  `;
+      <div class="product-actions">
+        <a class="product-btn" href="${whatsappLink}" target="_blank" rel="noopener noreferrer">
+          Encomende
+        </a>
+      </div>
+    `;
 
-  const imgEl = card.querySelector(".product-image");
-  if (imgEl) {
-    imgEl.addEventListener("click", () => {
-      const fullSrc = imgEl.getAttribute("data-full");
-      imageModalImg.src = fullSrc;
-      imageModalImg.alt = imgEl.alt || "";
-      openImageModal();
-    });
-  }
-
-  perfumeGrid.appendChild(card);
-});
-  
     const imgEl = card.querySelector(".product-image");
     if (imgEl) {
       imgEl.addEventListener("click", () => {
@@ -256,5 +243,3 @@ document.addEventListener("keydown", (e) => {
 
 /* Inicia */
 loadPerfumes();
-
-
