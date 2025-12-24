@@ -1,0 +1,14 @@
+[
+  {
+    "marca": "LATTAFA",
+    "nome": "Fakhar Rose",
+    "preco": "249,90",
+    "imagem": "https://exemplo.com/fakhar.jpg"
+  },
+  {
+    "marca": "ARMAF",
+    "nome": "Club de Nuit",
+    "preco": "299,90",
+    "imagem": "https://exemplo.com/cdn.jpg"
+  }
+]
