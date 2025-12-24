@@ -100,16 +100,7 @@ body {
   letter-spacing: 0.16em;
 }
 
-.main-nav a {
-  color: rgba(255, 255, 255, 0.78);
-  text-decoration: none;
-}
-
-.main-nav a:hover {
-  color: #ffffff;
-}
-
-/* Botão de nav (Marcas) */
+/* Botão/Link de nav */
 .nav-button {
   background: none;
   border: none;
@@ -122,6 +113,10 @@ body {
 
 .nav-button:hover {
   color: #ffffff;
+}
+
+.nav-link {
+  text-decoration: none;
 }
 
 .page-content {
@@ -138,7 +133,7 @@ body {
   opacity: 0.8;
 }
 
-/* Painel de marcas flutuante (controlado via classe .open) */
+/* Painel de marcas flutuante */
 .brand-panel {
   position: relative;
   max-width: 1200px;
@@ -157,7 +152,6 @@ body {
   padding: 8px 4px;
 }
 
-/* Caixa flutuante de marcas */
 .brand-columns {
   position: absolute;
   left: 0;
@@ -176,7 +170,6 @@ body {
   font-size: 13px;
 }
 
-/* Mostra painel quando .open está na seção */
 .brand-panel.open .brand-columns {
   display: grid;
 }
@@ -265,17 +258,108 @@ body {
   justify-content: flex-end;
 }
 
+/* Botão Encomende – degradê verde/cinza */
 .product-btn {
   border-radius: 999px;
   border: none;
-  padding: 6px 14px;
+  padding: 6px 18px;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  background-color: #f3f3f3;
+  background-image: linear-gradient(135deg, #1db954, #a0a4ad);
   color: #041739;
   cursor: pointer;
   text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
+}
+
+.product-btn:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45);
+}
+
+.product-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.4);
+}
+
+/* Página de contato */
+.contact-body {
+  background-color: #041739;
+  color: #ffffff;
+}
+
+.contact-main {
+  min-height: calc(100vh - 40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+}
+
+.contact-card {
+  max-width: 420px;
+  width: 100%;
+  background: rgba(3, 12, 40, 0.96);
+  border-radius: 18px;
+  padding: 24px 24px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+  text-align: center;
+}
+
+.contact-card h1 {
+  font-size: 20px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.contact-card p {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+/* Botão principal de contato – mesmo degradê verde/cinza */
+.contact-btn {
+  display: inline-block;
+  padding: 10px 26px;
+  border-radius: 999px;
+  background-image: linear-gradient(135deg, #1db954, #a0a4ad);
+  color: #041739;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
+}
+
+.contact-btn:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.65);
+}
+
+.contact-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+}
+
+/* Link de voltar */
+.contact-back {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.78);
+  text-decoration: none;
+}
+
+.contact-back:hover {
+  color: #ffffff;
 }
 
 /* Mobile */
