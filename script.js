@@ -119,27 +119,39 @@ function renderCards(selectedBrand, searchTerm, category) {
 
     const whatsappLink = buildWhatsAppLink(p);
 
+    // tenta achar um id de detalhe pelo nome do produto
+    const detalhe = PRODUTOS_DETALHE.find(
+      (d) => d.nome.toLowerCase() === (p.Produto || "").toLowerCase()
+    );
+    const detalheHref = detalhe ? `produto.html?id=${detalhe.id}` : null;
+
     card.innerHTML = `
-      <div class="product-image-wrap">
-        ${
-          p.Imagem
-            ? `<img src="${p.Imagem}" alt="${p.Produto ?? ""}" class="product-image" data-full="${p.Imagem}" />`
-            : ""
-        }
-      </div>
+      ${
+        detalheHref
+          ? `<a href="${detalheHref}" class="product-link">`
+          : `<div class="product-link">`
+      }
+        <div class="product-image-wrap">
+          ${
+            p.Imagem
+              ? `<img src="${p.Imagem}" alt="${p.Produto ?? ""}" class="product-image" data-full="${p.Imagem}" />`
+              : ""
+          }
+        </div>
 
-      <div class="product-name">
-        ${p.Produto ?? ""}
-      </div>
+        <div class="product-name">
+          ${p.Produto ?? ""}
+        </div>
 
-      <div class="product-meta">
-        <span class="product-brand">
-          ${p.Marca ?? ""}
-        </span>
-        <span class="product-price">
-          ${p.Preco_Venda ?? ""}
-        </span>
-      </div>
+        <div class="product-meta">
+          <span class="product-brand">
+            ${p.Marca ?? ""}
+          </span>
+          <span class="product-price">
+            ${p.Preco_Venda ?? ""}
+          </span>
+        </div>
+      ${detalheHref ? `</a>` : `</div>`}
 
       <div class="product-actions">
         <a class="product-btn" href="${whatsappLink}" target="_blank" rel="noopener noreferrer">
@@ -243,3 +255,4 @@ document.addEventListener("keydown", (e) => {
 
 /* Inicia */
 loadPerfumes();
+
