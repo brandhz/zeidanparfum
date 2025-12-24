@@ -527,24 +527,23 @@ body {
     font-size: 11px;
   }
 
-  /* 1 card por linha no celular */
+  /* 2 cards por linha no celular */
   .product-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
   }
 
   .product-card {
-    padding: 10px 12px 14px;
-    min-height: 260px;
+    padding: 8px 8px 10px;
+    min-height: 0;
   }
 
-  /* imagem maior só no mobile */
   .product-image-wrap {
-    min-height: 220px;
+    min-height: 150px;
   }
 
   .product-image {
-    max-height: 220px;
-    max-width: 95%;
+    max-height: 150px;
+    max-width: 100%;
   }
 }
