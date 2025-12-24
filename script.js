@@ -4,6 +4,7 @@ const searchInput = document.getElementById("searchInput");
 const brandPanel = document.querySelector(".brand-panel");
 const brandsToggle = document.getElementById("brandsToggle");
 const homeLink = document.getElementById("homeLink");
+const categoryButtons = document.querySelectorAll(".category-btn");
 
 // modal de imagem
 const imageModal = document.getElementById("imageModal");
@@ -11,6 +12,7 @@ const imageModalImg = document.getElementById("imageModalImg");
 const imageModalClose = document.getElementById("imageModalClose");
 
 let perfumes = [];
+let currentCategory = "TODAS";
 
 // Seu número de WhatsApp
 const WHATSAPP_NUMBER = "5531991668430";
@@ -22,7 +24,7 @@ async function loadPerfumes() {
     perfumes = await response.json();
 
     populateBrandColumns();
-    renderCards("TODAS", "");
+    renderCards("TODAS", "", currentCategory);
   } catch (error) {
     console.error("Erro ao carregar data.json:", error);
   }
@@ -49,7 +51,7 @@ function populateBrandColumns() {
       const li = document.createElement("li");
       li.textContent = brand;
       li.addEventListener("click", () => {
-        renderCards(brand, searchInput.value);
+        renderCards(brand, searchInput.value, currentCategory);
         closeBrandPanel();
         document
           .getElementById("produtos")
@@ -76,15 +78,18 @@ Preço: ${preco}`;
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMsg}`;
 }
 
-// Renderiza cards (só com preço)
-function renderCards(selectedBrand, searchTerm) {
+// Renderiza cards (marca + texto + categoria)
+function renderCards(selectedBrand, searchTerm, category) {
   perfumeGrid.innerHTML = "";
   const term = (searchTerm || "").trim().toLowerCase();
+  const cat = (category || "TODAS").toUpperCase();
 
   const filtered = perfumes.filter((p) => {
     const brand = p.Marca || "";
     const name = p.Produto || "";
     const price = (p.Preco_Venda || "").trim();
+    const catValue = (p.Categoria || "").toString().toUpperCase();
+
     if (!price) return false;
 
     const matchBrand =
@@ -93,7 +98,10 @@ function renderCards(selectedBrand, searchTerm) {
     const combined = `${name} ${brand}`.toLowerCase();
     const matchText = combined.includes(term);
 
-    return matchBrand && matchText;
+    const matchCategory =
+      cat === "TODAS" || catValue === cat;
+
+    return matchBrand && matchText && matchCategory;
   });
 
   filtered.forEach((p) => {
@@ -102,7 +110,6 @@ function renderCards(selectedBrand, searchTerm) {
 
     const whatsappLink = buildWhatsAppLink(p);
 
-    // card + zoom na imagem
     card.innerHTML = `
       <div class="product-image-wrap">
         ${
@@ -132,7 +139,6 @@ function renderCards(selectedBrand, searchTerm) {
       </div>
     `;
 
-    // adiciona evento de zoom na imagem
     const imgEl = card.querySelector(".product-image");
     if (imgEl) {
       imgEl.addEventListener("click", () => {
@@ -178,13 +184,27 @@ document.addEventListener("click", (e) => {
 /* Início – volta para todos os perfumes */
 homeLink.addEventListener("click", () => {
   searchInput.value = "";
-  renderCards("TODAS", "");
+  currentCategory = "TODAS";
+  categoryButtons.forEach((btn) =>
+    btn.classList.toggle("active", btn.dataset.cat === "TODAS")
+  );
+  renderCards("TODAS", "", currentCategory);
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
 /* Busca por texto */
 searchInput.addEventListener("input", (e) => {
-  renderCards("TODAS", e.target.value);
+  renderCards("TODAS", e.target.value, currentCategory);
+});
+
+/* Filtro por categoria */
+categoryButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    categoryButtons.forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+    currentCategory = btn.dataset.cat;
+    renderCards("TODAS", searchInput.value, currentCategory);
+  });
 });
 
 /* Modal de imagem */
