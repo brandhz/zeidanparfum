@@ -15,7 +15,7 @@ const closeLightbox = document.getElementById("closeLightbox");
 
 let produtos = [];
 
-// --- CSV -> objetos ---
+// ------------------ CARREGAR DADOS DA PLANILHA (CSV) ------------------
 async function carregaDados() {
   const resp = await fetch(CSV_URL);
   const csvText = await resp.text();
@@ -30,18 +30,28 @@ async function carregaDados() {
 
   produtos = linhas.slice(1).map(linha => {
     const cols = linha.split(",");
+
+    const marca = cols[idxMarca] || "";
+    const nome = cols[idxProduto] || "";
+    const bruto = cols[idxPreco] || "";
+    const precoLimpo = bruto.replace("R$", "").trim();
+    const imagem = cols[idxImagem] || "";
+
     return {
-      marca: cols[idxMarca] || "",
-      nome: cols[idxProduto] || "",
-      preco: (cols[idxPreco] || "").replace("R$", "").trim(),
-      imagem: cols[idxImagem] || ""
+      marca,
+      nome,
+      preco: precoLimpo,
+      imagem
     };
-  }).filter(p => p.nome && p.preco); // tira linhas vazias
+  })
+  // mantém só linhas com nome e preço preenchido
+  .filter(p => p.nome && p.preco);
 
   populaMarcas();
   renderGrid();
 }
 
+// ------------------ POPULAR SELECT DE MARCAS ------------------
 function populaMarcas() {
   const marcas = Array.from(new Set(produtos.map(p => p.marca))).sort();
   marcas.forEach(m => {
@@ -53,6 +63,7 @@ function populaMarcas() {
   });
 }
 
+// ------------------ RENDERIZAR GRID ------------------
 function renderGrid() {
   const marca = brandSelect.value;
   grid.innerHTML = "";
@@ -80,6 +91,7 @@ function renderGrid() {
       </a>
     `;
 
+    // clique na imagem abre lightbox com blur
     card.querySelector("img").addEventListener("click", e => {
       e.preventDefault();
       abreLightbox(p, imgSrc);
@@ -89,6 +101,7 @@ function renderGrid() {
   });
 }
 
+// ------------------ WHATSAPP ------------------
 function montaLinkZap(p) {
   const msg = `Olá! Gostaria de encomendar o perfume *${p.nome}* (R$ ${p.preco}).`;
   const encoded = encodeURIComponent(msg);
@@ -96,6 +109,7 @@ function montaLinkZap(p) {
   return `https://wa.me/${num}?text=${encoded}`;
 }
 
+// ------------------ LIGHTBOX COM BLUR ------------------
 function abreLightbox(p, imgSrc) {
   lightboxImg.src = imgSrc;
   lightboxTitle.textContent = p.nome;
@@ -108,7 +122,7 @@ function fechaLightbox() {
   lightbox.classList.add("hidden");
 }
 
-brandSelect.addEventListener("change", renderGrid);
+// eventos do lightbox
 closeLightbox.addEventListener("click", fechaLightbox);
 lightbox.addEventListener("click", e => {
   if (e.target === lightbox || e.target.classList.contains("lightbox-backdrop")) {
@@ -119,4 +133,8 @@ document.addEventListener("keydown", e => {
   if (e.key === "Escape") fechaLightbox();
 });
 
+// mudança de marca
+brandSelect.addEventListener("change", renderGrid);
+
+// inicialização
 carregaDados().catch(console.error);
