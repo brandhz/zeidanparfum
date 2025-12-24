@@ -2,15 +2,12 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zeidan Parfum</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Barra de busca topo -->
+    <!-- Barra de aviso -->
     <header class="top-bar">
       <div class="top-bar-inner">
         <div class="top-message">
@@ -24,11 +21,7 @@
       <div class="hero-inner">
         <div class="hero-top">
           <div class="logo-wrap">
-            <img
-              src="logo.png"
-              alt="ZEIDAN PARFUM"
-              class="logo"
-            />
+            <img src="logo.png" alt="ZEIDAN PARFUM" class="logo" />
           </div>
 
           <div class="search-wrap">
@@ -37,9 +30,7 @@
               id="searchInput"
               placeholder="O que você está buscando?"
             />
-            <button class="search-btn" type="button">
-              🔍
-            </button>
+            <button class="search-btn" type="button">🔍</button>
           </div>
         </div>
 
@@ -53,7 +44,7 @@
     </section>
 
     <main id="inicio" class="page-content">
-      <!-- Select de marcas compacto -->
+      <!-- Filtro de marcas -->
       <section class="filters">
         <div class="filters-inner">
           <label for="brandSelect" class="filters-label">
@@ -68,27 +59,20 @@
       <!-- Lista de marcas em colunas -->
       <section id="marcas" class="brand-list-section">
         <h2 class="section-title">Marcas</h2>
-        <div id="brandColumns" class="brand-columns">
-          <!-- preenchido via JS -->
-        </div>
+        <div id="brandColumns" class="brand-columns"></div>
       </section>
 
       <!-- Grade de produtos -->
       <section id="produtos" class="product-section">
         <h2 class="section-title">Perfumes</h2>
-        <div
-          id="perfumeGrid"
-          class="product-grid"
-        >
-          <!-- cards via JS -->
-        </div>
+        <div id="perfumeGrid" class="product-grid"></div>
       </section>
 
-      <!-- Contato simples -->
+      <!-- Contato -->
       <section id="contato" class="contact-section">
         <p>
-          Para pedidos e dúvidas, entre em contato pelo WhatsApp ou Instagram
-          da Zeidan Parfum.
+          Para pedidos e dúvidas, entre em contato pelo WhatsApp ou Instagram da
+          Zeidan Parfum.
         </p>
       </section>
     </main>
