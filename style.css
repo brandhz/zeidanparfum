@@ -148,7 +148,7 @@ body {
   cursor: pointer;
 }
 
-/* Títulos de seção */
+/* Título de seção */
 .section-title {
   max-width: 1200px;
   margin: 0 auto 12px;
@@ -158,18 +158,49 @@ body {
   opacity: 0.8;
 }
 
-/* Marcas em colunas */
-.brand-list-section {
-  margin-bottom: 32px;
+/* Painel de marcas flutuante */
+.brand-panel {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto 8px;
 }
 
+.brand-panel-inner {
+  position: relative;
+}
+
+.brand-panel-header {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.8;
+  padding: 8px 4px;
+  cursor: pointer;
+}
+
+/* Caixa flutuante de marcas */
 .brand-columns {
-  max-width: 1200px;
-  margin: 0 auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  margin-top: 4px;
+  background: rgba(3, 12, 40, 0.98);
+  border-radius: 16px;
+  padding: 16px 18px 14px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+  display: none; /* oculto por padrão */
+  z-index: 20;
+
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 8px 24px;
   font-size: 13px;
+}
+
+/* Mostrar ao passar o mouse */
+.brand-panel-inner:hover .brand-columns {
+  display: grid;
 }
 
 .brand-columns ul {
@@ -266,14 +297,6 @@ body {
   background-color: #f3f3f3;
   color: #041739;
   cursor: pointer;
-}
-
-/* Contato */
-.contact-section {
-  max-width: 1200px;
-  margin: 0 auto;
-  font-size: 13px;
-  opacity: 0.8;
 }
 
 /* Mobile */
