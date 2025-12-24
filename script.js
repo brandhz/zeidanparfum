@@ -1,6 +1,7 @@
 const NUMERO_ZAP = "5531991668430"; // seu WhatsApp
 
-const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRddZ9ds8qVPuzf7NzxRhq0wUzcAUwQ0vJbGMX5He9TDxPFm4hCjF7lEPbOeaT6u31zhRsSFNi2HqVH/pub?gid=1902824264&single=true&output=csv";
+// URL base da planilha (usando gviz para trazer JSON)
+const GVIZ_URL = "https://docs.google.com/spreadsheets/d/1q5pgZ3OEpJhFjdbZ19xp1k2dUWzXhPL16SRMZnWaV-k/gviz/tq?sheet=Produtos";
 
 const grid = document.getElementById("grid");
 const brandSelect = document.getElementById("brandSelect");
@@ -15,27 +16,31 @@ const closeLightbox = document.getElementById("closeLightbox");
 
 let produtos = [];
 
-// ------------------ CARREGAR DADOS DA PLANILHA (CSV) ------------------
+// ------------------ CARREGAR DADOS DA PLANILHA (GVIZ JSON) ------------------
 async function carregaDados() {
-  const resp = await fetch(CSV_URL);
-  const csvText = await resp.text();
+  const resp = await fetch(GVIZ_URL);
+  const text = await resp.text();
 
-  const linhas = csvText.trim().split("\n");
-  const cabecalho = linhas[0].split(",");
+  // resposta vem como "/*O_o*/\ngoogle.visualization.Query.setResponse(...);"
+  const jsonStr = text.substring(text.indexOf("{"), text.lastIndexOf("}") + 1);
+  const data = JSON.parse(jsonStr);
 
-  const idxMarca = cabecalho.indexOf("Marca");
-  const idxProduto = cabecalho.indexOf("Produto");
-  const idxPreco = cabecalho.indexOf("Preco_Venda");
-  const idxImagem = cabecalho.indexOf("Imagem");
+  const cols = data.table.cols.map(c => c.label);
+  const rows = data.table.rows;
 
-  produtos = linhas.slice(1).map(linha => {
-    const cols = linha.split(",");
+  const idxMarca = cols.indexOf("Marca");
+  const idxProduto = cols.indexOf("Produto");
+  const idxPreco = cols.indexOf("Preco_Venda");
+  const idxImagem = cols.indexOf("Imagem");
 
-    const marca = cols[idxMarca] || "";
-    const nome = cols[idxProduto] || "";
-    const bruto = cols[idxPreco] || "";
-    const precoLimpo = bruto.replace("R$", "").trim();
-    const imagem = cols[idxImagem] || "";
+  produtos = rows.map(r => {
+    const c = r.c;
+
+    const marca = c[idxMarca]?.v || "";
+    const nome = c[idxProduto]?.v || "";
+    const bruto = c[idxPreco]?.v || "";
+    const precoLimpo = String(bruto).replace("R$", "").trim();
+    const imagem = c[idxImagem]?.v || "";
 
     return {
       marca,
@@ -43,9 +48,7 @@ async function carregaDados() {
       preco: precoLimpo,
       imagem
     };
-  })
-  // mantém só linhas com nome e preço preenchido
-  .filter(p => p.nome && p.preco);
+  }).filter(p => p.nome && p.preco); // some produtos sem preço
 
   populaMarcas();
   renderGrid();
