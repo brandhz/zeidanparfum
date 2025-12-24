@@ -321,7 +321,7 @@ body {
   cursor: pointer;
 
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
-  transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+  transition: filter 0.12s ease;
 }
 
 .product-btn::before {
@@ -329,13 +329,14 @@ body {
   font-size: 14px;
 }
 
+/* anima só enquanto o mouse está em cima */
 .product-btn:hover {
   filter: brightness(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+  animation: encomende-pulse-hover 0.7s ease-in-out;
 }
 
 .product-btn:active {
-  transform: translateY(1px);
+  transform: scale(0.98);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
@@ -501,5 +502,19 @@ body {
 
   .product-image {
     max-height: 140px;
+  }
+}
+@keyframes encomende-pulse-hover {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  }
+  50% {
+    transform: scale(1.04);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.55);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
   }
 }
