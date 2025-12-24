@@ -2,10 +2,15 @@ const brandSelect = document.getElementById("brandSelect");
 const perfumeGrid = document.getElementById("perfumeGrid");
 const brandColumns = document.getElementById("brandColumns");
 const searchInput = document.getElementById("searchInput");
+const brandPanel = document.querySelector(".brand-panel");
+const brandsToggle = document.getElementById("brandsToggle");
 
 let perfumes = [];
 
-// Carrega dados do data.json (array com Marca, Produto, Preco_Venda, Imagem)
+// Seu número de WhatsApp
+const WHATSAPP_NUMBER = "5531991668430";
+
+// Carrega dados do data.json
 async function loadPerfumes() {
   try {
     const response = await fetch("data.json");
@@ -19,7 +24,7 @@ async function loadPerfumes() {
   }
 }
 
-// Preenche o select de marcas
+// Preenche select
 function populateBrandSelect() {
   const brands = ["TODAS", ...new Set(perfumes.map((p) => p.Marca || ""))];
 
@@ -34,7 +39,7 @@ function populateBrandSelect() {
     });
 }
 
-// Lista de marcas em colunas clicáveis
+// Lista de marcas em colunas
 function populateBrandColumns() {
   const brands = [...new Set(perfumes.map((p) => p.Marca || ""))]
     .filter((b) => b && b.trim() !== "")
@@ -53,6 +58,7 @@ function populateBrandColumns() {
       li.addEventListener("click", () => {
         brandSelect.value = brand;
         renderCards(brand, searchInput.value);
+        closeBrandPanel();
         document
           .getElementById("produtos")
           .scrollIntoView({ behavior: "smooth" });
@@ -64,8 +70,21 @@ function populateBrandColumns() {
   }
 }
 
-// Renderiza cards usando marca + texto de busca
-// e IGNORA perfumes sem Preco_Venda preenchido
+// WhatsApp
+function buildWhatsAppLink(perfume) {
+  const nome = perfume.Produto || "";
+  const marca = perfume.Marca || "";
+  const preco = perfume.Preco_Venda || "";
+
+  const msg = `Olá, quero encomendar o perfume:
+${nome} - ${marca}
+Preço: ${preco}`;
+
+  const encodedMsg = encodeURIComponent(msg);
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMsg}`;
+}
+
+// Renderiza cards (só com preço)
 function renderCards(selectedBrand, searchTerm) {
   perfumeGrid.innerHTML = "";
   const term = searchTerm.trim().toLowerCase();
@@ -74,8 +93,6 @@ function renderCards(selectedBrand, searchTerm) {
     const brand = p.Marca || "";
     const name = p.Produto || "";
     const price = (p.Preco_Venda || "").trim();
-
-    // Só entra se tiver preço
     if (!price) return false;
 
     const matchBrand =
@@ -90,6 +107,8 @@ function renderCards(selectedBrand, searchTerm) {
   filtered.forEach((p) => {
     const card = document.createElement("article");
     card.className = "product-card";
+
+    const whatsappLink = buildWhatsAppLink(p);
 
     card.innerHTML = `
       <div class="product-image-wrap">
@@ -114,9 +133,9 @@ function renderCards(selectedBrand, searchTerm) {
       </div>
 
       <div class="product-actions">
-        <button class="product-btn" type="button">
-          Ver mais
-        </button>
+        <a class="product-btn" href="${whatsappLink}" target="_blank" rel="noopener noreferrer">
+          Encomende
+        </a>
       </div>
     `;
 
@@ -124,7 +143,36 @@ function renderCards(selectedBrand, searchTerm) {
   });
 }
 
-// Eventos
+/* Controle do painel de marcas */
+
+// abre/fecha ao clicar no botão do menu
+brandsToggle.addEventListener("click", () => {
+  const isOpen = brandPanel.classList.contains("open");
+  if (isOpen) {
+    closeBrandPanel();
+  } else {
+    openBrandPanel();
+  }
+});
+
+function openBrandPanel() {
+  brandPanel.classList.add("open");
+}
+
+function closeBrandPanel() {
+  brandPanel.classList.remove("open");
+}
+
+// fecha se clicar fora do painel
+document.addEventListener("click", (e) => {
+  const isInsidePanel = brandPanel.contains(e.target);
+  const isToggle = brandsToggle.contains(e.target);
+  if (!isInsidePanel && !isToggle) {
+    closeBrandPanel();
+  }
+});
+
+// Eventos de filtro/busca
 brandSelect.addEventListener("change", (e) => {
   renderCards(e.target.value, searchInput.value);
 });
