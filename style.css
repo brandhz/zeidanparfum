@@ -203,7 +203,7 @@ body {
   gap: 18px;
 }
 
-/* Card de produto – menor */
+/* Card de produto – mesma altura em todas as colunas */
 .product-card {
   background: rgba(3, 12, 40, 0.96);
   border-radius: 18px;
@@ -213,8 +213,11 @@ body {
   display: flex;
   flex-direction: column;
   gap: 6px;
+
+  min-height: 290px; /* ajusta aqui se quiser mais alto/baixo */
 }
 
+/* Imagem */
 .product-image-wrap {
   display: flex;
   justify-content: center;
@@ -232,6 +235,7 @@ body {
   cursor: pointer;
 }
 
+/* Textos */
 .product-name {
   font-size: 13px;
   font-weight: 600;
@@ -256,13 +260,14 @@ body {
   font-weight: 600;
 }
 
+/* Botão alinhado embaixo do card */
 .product-actions {
-  margin-top: 6px;
+  margin-top: auto;
   display: flex;
   justify-content: center;
 }
 
-/* Botão Encomendar – estilo pastilha larga */
+/* Botão Encomendar – estilo pastilha */
 .product-btn {
   display: inline-flex;
   align-items: center;
@@ -390,7 +395,7 @@ body {
   margin-bottom: 20px;
 }
 
-/* Botão principal de contato – mesmo estilo do Encomendar */
+/* Botão de contato – mesmo estilo do Encomendar */
 .contact-btn {
   display: inline-flex;
   align-items: center;
@@ -458,6 +463,7 @@ body {
 
   .product-card {
     padding: 8px 10px 12px;
+    min-height: 280px;
   }
 
   .product-image-wrap {
