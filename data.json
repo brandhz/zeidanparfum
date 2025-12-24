@@ -1,14 +1,5530 @@
 [
   {
-    "marca": "LATTAFA",
-    "nome": "Fakhar Rose",
-    "preco": "249,90",
-    "imagem": "https://exemplo.com/fakhar.jpg"
+    "Marca": "ADYAN",
+    "ID": "2844",
+    "Produto": "ADYAN AREEJ AL ARAB 100 ML",
+    "Custo_Padrao": "R$ 149,99",
+    "Preco_Venda": "R$ 249,90",
+    "Imagem": "https://ifperfumes.com.br/wp-content/uploads/2024/08/Adyan-Areej-Al-Arab-Eau-De-Parfume-2.jpg"
   },
   {
-    "marca": "ARMAF",
-    "nome": "Club de Nuit",
-    "preco": "299,90",
-    "imagem": "https://exemplo.com/cdn.jpg"
+    "Marca": "ADYAN",
+    "ID": "2851",
+    "Produto": "ADYAN ASLOOB 100 ML",
+    "Custo_Padrao": "R$ 155,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ADYAN",
+    "ID": "2875",
+    "Produto": "ADYAN MUSK ESSENTIAL 100 ML",
+    "Custo_Padrao": "R$ 150,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ADYAN",
+    "ID": "2882",
+    "Produto": "ADYAN NAMOOS 100 ML",
+    "Custo_Padrao": "R$ 139,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ADYAN",
+    "ID": "2929",
+    "Produto": "ADYAN SHARF 100 ML",
+    "Custo_Padrao": "R$ 149,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "17",
+    "Produto": "AFNAN ZIMAYA FATIMA EDP F 100 ML",
+    "Custo_Padrao": "R$ 119,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "24",
+    "Produto": "AFNAN ZIMAYA FATIMA VELVET EDP F 100 ML",
+    "Custo_Padrao": "R$ 149,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "48",
+    "Produto": "AFNAN ZIMAYA HAYAM EDP F 100 ML",
+    "Custo_Padrao": "R$ 125,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "3759",
+    "Produto": "AFNAN ZIMAYA NOOR JAZZ 100 ML",
+    "Custo_Padrao": "R$ 149,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "86",
+    "Produto": "AFNAN ZIMAYA ONLY YOU EDP F 100 ML",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "4145",
+    "Produto": "AFNAN ZIMAYA PARAGON PHANTOM EDP U 100 ML",
+    "Custo_Padrao": "R$ 89,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "4152",
+    "Produto": "AFNAN ZIMAYA PARAGON RED CA. EDP U 100 ML",
+    "Custo_Padrao": "R$ 89,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "2820",
+    "Produto": "AFNAN ZIMAYA STALLION M EDP 100 ML",
+    "Custo_Padrao": "R$ 150,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "5333",
+    "Produto": "AFNAN ZIMAYA TIRAMISU CARAMEL EDP 100 ML",
+    "Custo_Padrao": "R$ 195,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "5340",
+    "Produto": "AFNAN ZIMAYA TIRAMISU COCO EDP 100 ML",
+    "Custo_Padrao": "R$ 195,00",
+    "Preco_Venda": "R$ 299,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/83326w.webp"
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "3766",
+    "Produto": "AFNAN ZIMAYA WAMEED 90 ML",
+    "Custo_Padrao": "R$ 139,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "93",
+    "Produto": "AFNAN ZIMAYA YAA UMNREE EDP 100 ML",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "7177",
+    "Produto": "AFNAN ZIMAYA ZUKHRUF CHERRY EDP 100 ML",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "109",
+    "Produto": "AFNAN ZIMAYA ZUKHRUF EDP M 100 ML",
+    "Custo_Padrao": "R$ 119,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFEER",
+    "ID": "9386",
+    "Produto": "AFEER KIDS EDP 100 ML",
+    "Custo_Padrao": "R$ 80,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "6743",
+    "Produto": "AFNAN 9AM AMARELO 100 ML",
+    "Custo_Padrao": "R$ 170,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "116",
+    "Produto": "AFNAN 9AM DIVE EDP M 100 ML",
+    "Custo_Padrao": "R$ 200,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "123",
+    "Produto": "AFNAN 9PM BLACK MEN",
+    "Custo_Padrao": "R$ 189,99",
+    "Preco_Venda": "R$ 300,00",
+    "Imagem": "https://img.fragrancex.com/images/products/sku/large/afnapb.webp"
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "6675",
+    "Produto": "AFNAN 9PM EDP FEM 100 ML",
+    "Custo_Padrao": "R$ 205,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "9461",
+    "Produto": "AFNAN 9PM ELIXIR PARFUM INTENSE 100 ML",
+    "Custo_Padrao": "R$ 260,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "3261",
+    "Produto": "AFNAN 9PM REBEL EDP 100 ML",
+    "Custo_Padrao": "R$ 209,99",
+    "Preco_Venda": "R$ 319,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/83034m.webp"
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "130",
+    "Produto": "AFNAN BOUQ. CHERRY EDP F 80 ML",
+    "Custo_Padrao": "R$ 150,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "3278",
+    "Produto": "AFNAN HISTORIC DORIA 100 ML",
+    "Custo_Padrao": "R$ 210,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "3285",
+    "Produto": "AFNAN HISTORIC OLMEDA 100 ML",
+    "Custo_Padrao": "R$ 199,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "6491",
+    "Produto": "AFNAN KIAANA ANGEL EDP F 100 ML",
+    "Custo_Padrao": "R$ 199,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "6507",
+    "Produto": "AFNAN KIAANA CRUSH EDP F 100 ML",
+    "Custo_Padrao": "R$ 210,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "147",
+    "Produto": "AFNAN MODEST DEUX EDP F 100 ML",
+    "Custo_Padrao": "R$ 199,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "3308",
+    "Produto": "AFNAN RARE PASSION 100 ML",
+    "Custo_Padrao": "R$ 140,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "3315",
+    "Produto": "AFNAN RARE TIFFANY 100 ML",
+    "Custo_Padrao": "R$ 150,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "6514",
+    "Produto": "AFNAN RUE BROCA NEXA IMMORTAL M 100 ML",
+    "Custo_Padrao": "R$ 200,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "6521",
+    "Produto": "AFNAN RUE BROCA NEXA MUSEE F 100 ML",
+    "Custo_Padrao": "R$ 200,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "154",
+    "Produto": "AFNAN SOUV. BLOOMING B. EDP 100 ML",
+    "Custo_Padrao": "R$ 219,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "161",
+    "Produto": "AFNAN SOUV. DESERT R. EDP F 100 ML",
+    "Custo_Padrao": "R$ 199,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "3933",
+    "Produto": "AFNAN SOUV. FLORAL BOUQUET EDP F 100 ML",
+    "Custo_Padrao": "R$ 230,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "7443",
+    "Produto": "AFNAN SUPRE. COLLECTORS EDP 100ML",
+    "Custo_Padrao": "R$ 270,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "178",
+    "Produto": "AFNAN SUPRE. GALA EDP F 90 ML",
+    "Custo_Padrao": "R$ 250,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "185",
+    "Produto": "AFNAN SUPRE. NOIR EDP 100 ML",
+    "Custo_Padrao": "R$ 180,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "192",
+    "Produto": "AFNAN SUPRE. NOT ONLY INT. EDP M 100 ML",
+    "Custo_Padrao": "R$ 299,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "208",
+    "Produto": "AFNAN SUPRE. PINK EDP F 100 ML",
+    "Custo_Padrao": "R$ 149,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "215",
+    "Produto": "AFNAN SUPRE. PURPLE EDP F 100 ML",
+    "Custo_Padrao": "R$ 180,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "222",
+    "Produto": "AFNAN SUPRE. TAPIS ROUGE EDP F 90 ML",
+    "Custo_Padrao": "R$ 220,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "3322",
+    "Produto": "AFNAN SUPREMACY GOLD 100 ML",
+    "Custo_Padrao": "R$ 175,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "3339",
+    "Produto": "AFNAN SUPREMACY SILVER 100 ML",
+    "Custo_Padrao": "R$ 200,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "239",
+    "Produto": "AFNAN TURATHI BLUE EDP M 90 ML",
+    "Custo_Padrao": "R$ 220,00",
+    "Preco_Venda": "R$ 349,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/81491m.webp"
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "4121",
+    "Produto": "AFNAN TURATHI BROWN MAN 90 ML",
+    "Custo_Padrao": "R$ 199,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "7467",
+    "Produto": "AFNAN TURATHI ELECTRIC 90 ML",
+    "Custo_Padrao": "R$ 240,00",
+    "Preco_Venda": "R$ 379,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/83441m.webp"
+  },
+  {
+    "Marca": "AFNAN",
+    "ID": "4138",
+    "Produto": "AFNAN TURATHI RED WOMAN 90 ML",
+    "Custo_Padrao": "R$ 180,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL HARAMAIN",
+    "ID": "246",
+    "Produto": "AL HARAMAIN AM.OUD DUBAI NIGHT EDP M 100",
+    "Custo_Padrao": "R$ 289,90",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL HARAMAIN",
+    "ID": "2554",
+    "Produto": "AL HARAMAIN AM.OUD GOLD EXTREME EDP 100",
+    "Custo_Padrao": "R$ 389,90",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL HARAMAIN",
+    "ID": "7047",
+    "Produto": "AL HARAMAIN AMBER MUSK 100 ML",
+    "Custo_Padrao": "R$ 189,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL HARAMAIN",
+    "ID": "3803",
+    "Produto": "AL HARAMAIN AMBER OUD BLEU 100 ML",
+    "Custo_Padrao": "R$ 349,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL HARAMAIN",
+    "ID": "260",
+    "Produto": "AL HARAMAIN AMBER OUD GOLD 120 ML",
+    "Custo_Padrao": "R$ 430,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL HARAMAIN",
+    "ID": "3421",
+    "Produto": "AL HARAMAIN AMBER OUD ROUGE 120 ML",
+    "Custo_Padrao": "R$ 399,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL HARAMAIN",
+    "ID": "3995",
+    "Produto": "AL HARAMAIN DETOUR ECO EDP 100",
+    "Custo_Padrao": "R$ 149,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL HARAMAIN",
+    "ID": "3926",
+    "Produto": "AL HARAMAIN DETOUR INTENSE NOIR EDP 100",
+    "Custo_Padrao": "R$ 149,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL HARAMAIN",
+    "ID": "4008",
+    "Produto": "AL HARAMAIN DETOUR NOIR EDP 100 ML",
+    "Custo_Padrao": "R$ 139,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL HARAMAIN",
+    "ID": "4015",
+    "Produto": "AL HARAMAIN DETOUR NOIR EXCLUSIF EDP 100",
+    "Custo_Padrao": "R$ 229,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL HARAMAIN",
+    "ID": "3100",
+    "Produto": "AL HARAMAIN GREEN DUBAI EXTRAIT DE P 100",
+    "Custo_Padrao": "R$ 420,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL HARAMAIN",
+    "ID": "2493",
+    "Produto": "AL HARAMAIN L'AVENTURE CIEL EDP M 100 ML",
+    "Custo_Padrao": "R$ 240,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL HARAMAIN",
+    "ID": "277",
+    "Produto": "AL HARAMAIN L'AVENTURE EDP M 100 ML",
+    "Custo_Padrao": "R$ 200,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL HARAMAIN",
+    "ID": "2523",
+    "Produto": "AL HARAMAIN L'AVENTURE FRAICHE EDP M 100",
+    "Custo_Padrao": "R$ 220,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL HARAMAIN",
+    "ID": "2547",
+    "Produto": "AL HARAMAIN L'AVENTURE INTENSE EDP 100 M",
+    "Custo_Padrao": "R$ 200,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL HARAMAIN",
+    "ID": "3117",
+    "Produto": "AL HARAMAIN MIRACLE DUBAI EXTRAIT DE P 1",
+    "Custo_Padrao": "R$ 490,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL HARAMAIN",
+    "ID": "6699",
+    "Produto": "AL HARAMAIN PORTF.FLORAL EDP F 75ML",
+    "Custo_Padrao": "R$ 349,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL HARAMAIN",
+    "ID": "6682",
+    "Produto": "AL HARAMAIN PORTF.NEROLI EDP M 75ML",
+    "Custo_Padrao": "R$ 349,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL HARAMAIN",
+    "ID": "5739",
+    "Produto": "AL HARAMAIN PORTF.ROYALE STALLION M 75",
+    "Custo_Padrao": "R$ 349,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "6286",
+    "Produto": "AL WATANIAH ABYAT 100 ML",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "3667",
+    "Produto": "AL WATANIAH AMEERATI F EDP 100 ML",
+    "Custo_Padrao": "R$ 130,00",
+    "Preco_Venda": "R$ 209,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/ameerati-edp-2-259bc77f2cb97e935317501031825060-1024-1024.webp"
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "9683",
+    "Produto": "AL WATANIAH AMEERATI TESTER",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "3537",
+    "Produto": "AL WATANIAH AMEERI M EDP 100 ML",
+    "Custo_Padrao": "R$ 110,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "9690",
+    "Produto": "AL WATANIAH AMEERI TESTER",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "4916",
+    "Produto": "AL WATANIAH AMETHYST 100 ML",
+    "Custo_Padrao": "R$ 89,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "6606",
+    "Produto": "AL WATANIAH AMNIA EDP 100 ML",
+    "Custo_Padrao": "R$ 190,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "291",
+    "Produto": "AL WATANIAH ATTAR A. WES. EDP M 100 ML",
+    "Custo_Padrao": "R$ 170,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "9621",
+    "Produto": "AL WATANIAH ATTAR TESTER",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "5371",
+    "Produto": "AL WATANIAH BAREEQ AL DHAHAB EDP M 100 M",
+    "Custo_Padrao": "R$ 110,00",
+    "Preco_Venda": "R$ 189,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/bareeq-edp-2-79bcaa2b41db3b32e017244393107742-1024-1024.webp"
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "9652",
+    "Produto": "AL WATANIAH BAREEQ TESTER",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "3520",
+    "Produto": "AL WATANIAH DUHA F EDP 100 ML",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "9676",
+    "Produto": "AL WATANIAH DUHA TESTER",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "2417",
+    "Produto": "AL WATANIAH DURRAT AL AROOS F 85 ML",
+    "Custo_Padrao": "R$ 130,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "9645",
+    "Produto": "AL WATANIAH DURRAT AL AROOS TESTER",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "5999",
+    "Produto": "AL WATANIAH EQAAB EDP 100 ML",
+    "Custo_Padrao": "R$ 120,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "9713",
+    "Produto": "AL WATANIAH EQAAB TESTER",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "6002",
+    "Produto": "AL WATANIAH FILZA IMPERIAL EDP 100 ML",
+    "Custo_Padrao": "R$ 119,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "6309",
+    "Produto": "AL WATANIAH GHALA EDP 100 ML",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "9720",
+    "Produto": "AL WATANIAH GHALA TESTER",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "5029",
+    "Produto": "AL WATANIAH GRAPHITE 100 ML",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "2424",
+    "Produto": "AL WATANIAH KENZ AL MALIK M 100 ML",
+    "Custo_Padrao": "R$ 110,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "9669",
+    "Produto": "AL WATANIAH KENZ AL MALIK TESTER",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "6316",
+    "Produto": "AL WATANIAH LAZULI 100 ML",
+    "Custo_Padrao": "R$ 160,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "3551",
+    "Produto": "AL WATANIAH NOOR AL SABAH EDP 100 ML",
+    "Custo_Padrao": "R$ 149,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "6323",
+    "Produto": "AL WATANIAH OUD ELIXIR 100 ML",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "2431",
+    "Produto": "AL WATANIAH OUD MYSTERY INTENSE 100 ML",
+    "Custo_Padrao": "R$ 120,00",
+    "Preco_Venda": "R$ 199,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/oud-mistery-intense-2-bcf4e24427d1bdc57817063029171876-1024-1024.webp"
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "9706",
+    "Produto": "AL WATANIAH OUD MYSTERY INTENSE TESTER",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "6033",
+    "Produto": "AL WATANIAH QAHIR EDP 100 ML",
+    "Custo_Padrao": "R$ 119,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "3858",
+    "Produto": "AL WATANIAH ROOHI 85 ML",
+    "Custo_Padrao": "R$ 209,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "3674",
+    "Produto": "AL WATANIAH ROSE MYSTERY INTENSE 100 ML",
+    "Custo_Padrao": "R$ 99,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "307",
+    "Produto": "AL WATANIAH SABAH AL WARD EDP F 100 ML",
+    "Custo_Padrao": "R$ 160,00",
+    "Preco_Venda": "R$ 249,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/sabah-al-ward-edp-2-f261a8f2b838c07fed17394110034308-1024-1024.webp"
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "8266",
+    "Produto": "AL WATANIAH SABAH AL WARD SUGAR 100ML ED",
+    "Custo_Padrao": "R$ 270,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "6040",
+    "Produto": "AL WATANIAH SANDAL OUD EDP 100 ML",
+    "Custo_Padrao": "R$ 110,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "3865",
+    "Produto": "AL WATANIAH SHAGAF AL WARD FEM 100 ML",
+    "Custo_Padrao": "R$ 140,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "3544",
+    "Produto": "AL WATANIAH SHOUQ EDP 100 ML",
+    "Custo_Padrao": "R$ 110,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "9737",
+    "Produto": "AL WATANIAH SHOUQ TESTER",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "3681",
+    "Produto": "AL WATANIAH SPECIAL OUD 100 ML",
+    "Custo_Padrao": "R$ 110,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "9768",
+    "Produto": "AL WATANIAH SPECIAL OUD TESTER",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "2943",
+    "Produto": "AL WATANIAH SULTAN AL LAIL M 100 ML",
+    "Custo_Padrao": "R$ 95,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "6330",
+    "Produto": "AL WATANIAH SUROOR 100 ML",
+    "Custo_Padrao": "R$ 130,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "3513",
+    "Produto": "AL WATANIAH THAHAANI EDP 100 ML",
+    "Custo_Padrao": "R$ 110,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "9638",
+    "Produto": "AL WATANIAH THAHAANI TESTER",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "5036",
+    "Produto": "AL WATANIAH TIARA PINK 100 ML",
+    "Custo_Padrao": "R$ 110,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "9751",
+    "Produto": "AL WATANIAH TIARA PINK TESTER",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "3698",
+    "Produto": "AL WATANIAH TIBYAN 100 ML",
+    "Custo_Padrao": "R$ 110,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "9744",
+    "Produto": "AL WATANIAH TIBYAN TESTER",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "3704",
+    "Produto": "AL WATANIAH TIGER EYE 100 ML",
+    "Custo_Padrao": "R$ 140,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "5050",
+    "Produto": "AL WATANIAH WATANI NOIR 100 ML",
+    "Custo_Padrao": "R$ 99,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "3711",
+    "Produto": "AL WATANIAH WATANI PURPLE 100 ML",
+    "Custo_Padrao": "R$ 140,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AL WATANIAH",
+    "ID": "2776",
+    "Produto": "AL WATANIAH WATANI PURPLE TESTER",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AMARAN",
+    "ID": "3728",
+    "Produto": "AMARAN KINGS & QUEENS BLUE 100 ML",
+    "Custo_Padrao": "R$ 185,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "AMARAN",
+    "ID": "2936",
+    "Produto": "AMARAN KINGS & QUEENS PURE ARUBA 100 ML",
+    "Custo_Padrao": "R$ 200,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ANFAR",
+    "ID": "4596",
+    "Produto": "ANFAR LUNA POUR FEM EDP 100 ML",
+    "Custo_Padrao": "R$ 259,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARD AL ZAAFARAN",
+    "ID": "8662",
+    "Produto": "ARD AL ZAAFARAN AL HUR INTENSE",
+    "Custo_Padrao": "R$ 99,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "5777",
+    "Produto": "ARMAF BEACH PARTY EDP 100 ML",
+    "Custo_Padrao": "R$ 230,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "5845",
+    "Produto": "ARMAF CHECKMATE KING EDP 100 ML",
+    "Custo_Padrao": "R$ 270,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "5753",
+    "Produto": "ARMAF CHECKMATE QUEEN EDP 100 ML",
+    "Custo_Padrao": "R$ 279,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "11020",
+    "Produto": "ARMAF CLUB DE NUIT BLING M 75 ML",
+    "Custo_Padrao": "R$ 350,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "321",
+    "Produto": "ARMAF CLUB DE NUIT ICONIC 105ML",
+    "Custo_Padrao": "R$ 280,00",
+    "Preco_Venda": "R$ 399,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/82239m.webp"
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "338",
+    "Produto": "ARMAF CLUB DE NUIT IMPERIALE EDP F 105 M",
+    "Custo_Padrao": "R$ 280,00",
+    "Preco_Venda": "R$ 379,90",
+    "Imagem": "https://img.fragrancex.com/images/products/sku/large/cluaw7.webp"
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "5807",
+    "Produto": "ARMAF CLUB DE NUIT INT UAE EDT 105 ML",
+    "Custo_Padrao": "R$ 200,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "3810",
+    "Produto": "ARMAF CLUB DE NUIT INT. EDP M 200 ML",
+    "Custo_Padrao": "R$ 369,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "345",
+    "Produto": "ARMAF CLUB DE NUIT INT. EDT M 105 ML",
+    "Custo_Padrao": "R$ 210,00",
+    "Preco_Venda": "R$ 299,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/club-de-nuit-intense-men-edt-2-4ab1dc7560a4e9e14b17248939100504-1024-1024.webp"
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "9102",
+    "Produto": "ARMAF CLUB DE NUIT INT. EXTRAIT 70 ML",
+    "Custo_Padrao": "R$ 330,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "352",
+    "Produto": "ARMAF CLUB DE NUIT INT. PARF. M 105 ML",
+    "Custo_Padrao": "R$ 430,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "6583",
+    "Produto": "ARMAF CLUB DE NUIT LIONHEART EDP 100 ML",
+    "Custo_Padrao": "R$ 300,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "7337",
+    "Produto": "ARMAF CLUB DE NUIT LIONHEART EDP FEM 100",
+    "Custo_Padrao": "R$ 220,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "7092",
+    "Produto": "ARMAF CLUB DE NUIT MALEKA EDP 100 ML",
+    "Custo_Padrao": "R$ 280,00",
+    "Preco_Venda": "R$ 399,90",
+    "Imagem": "https://img.fragrancex.com/images/products/sku/large/cluaa9.webp"
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "369",
+    "Produto": "ARMAF CLUB DE NUIT MILESTONE",
+    "Custo_Padrao": "R$ 190,00",
+    "Preco_Venda": "R$ 289,90",
+    "Imagem": "https://img.fragrancex.com/images/products/sku/large/cnm36uni.webp"
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "376",
+    "Produto": "ARMAF CLUB DE NUIT OUD PARF. 105 ML",
+    "Custo_Padrao": "R$ 389,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "383",
+    "Produto": "ARMAF CLUB DE NUIT PRECIEUX I EXT. 55 M",
+    "Custo_Padrao": "R$ 290,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "9072",
+    "Produto": "ARMAF CLUB DE NUIT PRECIEUX IV EXT. 55",
+    "Custo_Padrao": "R$ 380,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "5289",
+    "Produto": "ARMAF CLUB DE NUIT SILLAGE EDP 105 ML",
+    "Custo_Padrao": "R$ 240,00",
+    "Preco_Venda": "R$ 379,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/80410m.webp"
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "390",
+    "Produto": "ARMAF CLUB DE NUIT UNTOLD EDP U 105 ML",
+    "Custo_Padrao": "R$ 260,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "406",
+    "Produto": "ARMAF CLUB DE NUIT URBAN ELIX 105 ML",
+    "Custo_Padrao": "R$ 220,00",
+    "Preco_Venda": "R$ 319,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/81724m.webp"
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "413",
+    "Produto": "ARMAF CLUB DE NUIT WOMAN 105 ML",
+    "Custo_Padrao": "R$ 180,00",
+    "Preco_Venda": "R$ 259,90",
+    "Imagem": "https://img.fragrancex.com/images/products/sku/large/cdnar36w.webp"
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "9119",
+    "Produto": "ARMAF CLUB DE NUIT WOMAN EXTRAIT 70 ML",
+    "Custo_Padrao": "R$ 310,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "10689",
+    "Produto": "ARMAF CLUB DE NUIT WOMAN TESTER",
+    "Custo_Padrao": "R$ 190,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "5760",
+    "Produto": "ARMAF DUBAI MIDNIGHT EDP M 100 ML",
+    "Custo_Padrao": "R$ 270,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "7450",
+    "Produto": "ARMAF EGO TIGRE EDP M 100 ML",
+    "Custo_Padrao": "R$ 189,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "5128",
+    "Produto": "ARMAF INFINITY GOLD 105 ML",
+    "Custo_Padrao": "R$ 320,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "5821",
+    "Produto": "ARMAF INFINITY SILVER EDP M 105 ML",
+    "Custo_Padrao": "R$ 279,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "7276",
+    "Produto": "ARMAF ISLAND BLISS EDP F 100 ML",
+    "Custo_Padrao": "R$ 330,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "5814",
+    "Produto": "ARMAF MAGNIFICENT JARDIN EDP F 100 ML",
+    "Custo_Padrao": "R$ 210,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "9058",
+    "Produto": "ARMAF MINI CDN EDP 10X5ML",
+    "Custo_Padrao": "R$ 430,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "8976",
+    "Produto": "ARMAF MINI CDN INTENSE EDP M 10ML",
+    "Custo_Padrao": "R$ 45,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "9041",
+    "Produto": "ARMAF MINI CDN MILESTONE EDP 10 ML",
+    "Custo_Padrao": "R$ 45,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "8983",
+    "Produto": "ARMAF MINI CDN SILLAGE EDP 10 ML",
+    "Custo_Padrao": "R$ 45,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "6668",
+    "Produto": "ARMAF MISS ATTITUDE EDP F 100 ML",
+    "Custo_Padrao": "R$ 199,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "6187",
+    "Produto": "ARMAF MISS CATWALK EDP 100 ML",
+    "Custo_Padrao": "R$ 209,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "6651",
+    "Produto": "ARMAF MISS CHIC EDP F 100 ML",
+    "Custo_Padrao": "R$ 219,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "7160",
+    "Produto": "ARMAF MISS DAZZLING EDP F 100 ML",
+    "Custo_Padrao": "R$ 199,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "7153",
+    "Produto": "ARMAF MISS GRANDEUR EDP F 100 ML",
+    "Custo_Padrao": "R$ 200,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "7146",
+    "Produto": "ARMAF MISS MAGNIFIQ EDP F 100 ML",
+    "Custo_Padrao": "R$ 200,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "5302",
+    "Produto": "ARMAF MISS MYSTIQUE EDP F 100 ML",
+    "Custo_Padrao": "R$ 200,00",
+    "Preco_Venda": "R$ 319,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/82747w.webp"
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "6194",
+    "Produto": "ARMAF MISS VOCE VIVA EDP 100 ML",
+    "Custo_Padrao": "R$ 200,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "3346",
+    "Produto": "ARMAF ODYSSEY CANDEE EDP 100 ML",
+    "Custo_Padrao": "R$ 200,00",
+    "Preco_Venda": "R$ 309,90",
+    "Imagem": "https://img.fragrancex.com/images/products/sku/large/armaw34ed0.webp"
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "5838",
+    "Produto": "ARMAF ODYSSEY CHOCOLATE EDITION EDP 100",
+    "Custo_Padrao": "R$ 240,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "3353",
+    "Produto": "ARMAF ODYSSEY FOR MEN 100 ML",
+    "Custo_Padrao": "R$ 160,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "3360",
+    "Produto": "ARMAF ODYSSEY HOMME WHITE 100 ML",
+    "Custo_Padrao": "R$ 170,00",
+    "Preco_Venda": "R$ 269,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/79140m.webp"
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "3377",
+    "Produto": "ARMAF ODYSSEY LIMONI 100 ML",
+    "Custo_Padrao": "R$ 179,00",
+    "Preco_Venda": "R$ 279,90",
+    "Imagem": "https://img.fragrancex.com/images/products/sku/large/armam33ed.webp"
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "3384",
+    "Produto": "ARMAF ODYSSEY MANDARIN 100 ML",
+    "Custo_Padrao": "R$ 165,00",
+    "Preco_Venda": "R$ 269,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/83915m.webp"
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "6712",
+    "Produto": "ARMAF ODYSSEY MEGA LIMITED EDITION EDP",
+    "Custo_Padrao": "R$ 179,00",
+    "Preco_Venda": "R$ 279,90",
+    "Imagem": "https://img.fragrancex.com/images/products/sku/large/armam34edga.webp"
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "3391",
+    "Produto": "ARMAF ODYSSEY SPECTRA 100 ML",
+    "Custo_Padrao": "R$ 179,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "3407",
+    "Produto": "ARMAF ODYSSEY TYRANT 100 ML",
+    "Custo_Padrao": "R$ 179,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "7115",
+    "Produto": "ARMAF TAG DONNA COLORATA EDP F",
+    "Custo_Padrao": "R$ 150,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "5319",
+    "Produto": "ARMAF TAG ROSSO EDP M 100 ML",
+    "Custo_Padrao": "R$ 150,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "5784",
+    "Produto": "ARMAF UNIQ OUD FOREVER EDP 100 ML",
+    "Custo_Padrao": "R$ 190,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ARMAF",
+    "ID": "6590",
+    "Produto": "ARMAF YUM YUM EDP 100 ML",
+    "Custo_Padrao": "R$ 329,99",
+    "Preco_Venda": "R$ 459,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/83660w.webp"
+  },
+  {
+    "Marca": "ASTEN",
+    "ID": "4558",
+    "Produto": "ASTEN EAU DE COLOGNE 100 ML",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "BIDAYA",
+    "ID": "8846",
+    "Produto": "BIDAYA AISHA QUEEN EDP 100 ML",
+    "Custo_Padrao": "R$ 150,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "BIDAYA",
+    "ID": "8853",
+    "Produto": "BIDAYA HABIBI KING EDP 100 ML",
+    "Custo_Padrao": "R$ 150,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "BIDAYA",
+    "ID": "8860",
+    "Produto": "BIDAYA MAKTUB LA VIE EDP 100 ML",
+    "Custo_Padrao": "R$ 150,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "9850",
+    "Produto": "BODY AND HAIR PERFUME ANGEL 200 ML",
+    "Custo_Padrao": "R$ 55,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "9843",
+    "Produto": "BODY AND HAIR PERFUME DELILAH 200 ML",
+    "Custo_Padrao": "R$ 55,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "9829",
+    "Produto": "BODY AND HAIR PERFUME FAKHAR F 200 ML",
+    "Custo_Padrao": "R$ 55,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "9836",
+    "Produto": "BODY AND HAIR PERFUME MUSAMAM 200 ML",
+    "Custo_Padrao": "R$ 55,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "9898",
+    "Produto": "BODY AND HAIR PERFUME NUIT ROYALE WOMAN",
+    "Custo_Padrao": "R$ 55,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "9867",
+    "Produto": "BODY AND HAIR PERFUME ROYAL AMBER 200 ML",
+    "Custo_Padrao": "R$ 55,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "9881",
+    "Produto": "BODY AND HAIR PERFUME SABAH 200 ML",
+    "Custo_Padrao": "R$ 55,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "9874",
+    "Produto": "BODY AND HAIR PERFUME YARA 200 ML",
+    "Custo_Padrao": "R$ 55,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "9201",
+    "Produto": "BODY SPLASH ANGEL ISABELLE LA",
+    "Custo_Padrao": "R$ 65,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "8594",
+    "Produto": "BODY SPLASH ASAD BOURBON ISABELLE LA BEL",
+    "Custo_Padrao": "R$ 65,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "11235",
+    "Produto": "BODY SPLASH ASAD ELIXIR ISABELLE LA BELL",
+    "Custo_Padrao": "R$ 65,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "8402",
+    "Produto": "BODY SPLASH ASAD ISABELLE LA BELLE",
+    "Custo_Padrao": "R$ 65,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "8426",
+    "Produto": "BODY SPLASH CLUB DE NUIT INT ISABELLE LA",
+    "Custo_Padrao": "R$ 65,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "8679",
+    "Produto": "BODY SPLASH COMO MOISELLE ISABELLE LA BE",
+    "Custo_Padrao": "R$ 65,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "8396",
+    "Produto": "BODY SPLASH FAKHAR F ISABELLE LA BELLE",
+    "Custo_Padrao": "R$ 65,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "8433",
+    "Produto": "BODY SPLASH ROYAL AMBER ISABELLE LA BELL",
+    "Custo_Padrao": "R$ 65,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "8655",
+    "Produto": "BODY SPLASH SABAH AL WARD ISABELLE LA BE",
+    "Custo_Padrao": "R$ 65,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "8419",
+    "Produto": "BODY SPLASH SABAH SUGAR",
+    "Custo_Padrao": "R$ 65,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "11242",
+    "Produto": "BODY SPLASH YARA ELIXIR ISABELLE LA BELL",
+    "Custo_Padrao": "R$ 65,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "8389",
+    "Produto": "BODY SPLASH YARA ISABELLE LA BELLE",
+    "Custo_Padrao": "R$ 65,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "FRENCH AVENUE",
+    "ID": "9195",
+    "Produto": "FRENCH AVENUE AETHER EXTRAIT 100 ML",
+    "Custo_Padrao": "R$ 300,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "FRENCH AVENUE",
+    "ID": "7382",
+    "Produto": "FRENCH AVENUE AZZURE OUD EDP M 100 ML",
+    "Custo_Padrao": "R$ 280,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "FRENCH AVENUE",
+    "ID": "6859",
+    "Produto": "FRENCH AVENUE COCOA MORADO EDP 100 ML",
+    "Custo_Padrao": "R$ 200,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "FRENCH AVENUE",
+    "ID": "3087",
+    "Produto": "FRENCH AVENUE GHOST SPECTRE 80 ML",
+    "Custo_Padrao": "R$ 270,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "FRENCH AVENUE",
+    "ID": "3247",
+    "Produto": "FRENCH AVENUE LIQUID BRUN EDP M 100 ML",
+    "Custo_Padrao": "R$ 250,00",
+    "Preco_Venda": "R$ 379,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/liquid-brun-2-80e6692cf39685324617652305456263-1024-1024.webp"
+  },
+  {
+    "Marca": "FRENCH AVENUE",
+    "ID": "6873",
+    "Produto": "FRENCH AVENUE MERINGUE F EDP 100 ML",
+    "Custo_Padrao": "R$ 200,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "FRENCH AVENUE",
+    "ID": "8648",
+    "Produto": "FRENCH AVENUE THUNDER EDP 100 ML",
+    "Custo_Padrao": "R$ 270,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "FRENCH AVENUE",
+    "ID": "6866",
+    "Produto": "FRENCH AVENUE VENUS DE MILO EDP 100 ML",
+    "Custo_Padrao": "R$ 280,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "FRENCH AVENUE",
+    "ID": "8303",
+    "Produto": "FRENCH AVENUE VULCAN BAIE EDP F 100 ML",
+    "Custo_Padrao": "R$ 300,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "FRENCH AVENUE",
+    "ID": "11259",
+    "Produto": "FRENCH AVENUE VULCAN BLACK FRIDAY",
+    "Custo_Padrao": "R$ 310,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "FRENCH AVENUE",
+    "ID": "7344",
+    "Produto": "FRENCH AVENUE VULCAN FEU 100 ML",
+    "Custo_Padrao": "R$ 320,00",
+    "Preco_Venda": "R$ 449,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/vulcan-feu-2-bc30ab41e624f0f71717611772505786-1024-1024.webp"
+  },
+  {
+    "Marca": "FRENCH AVENUE",
+    "ID": "11037",
+    "Produto": "FRENCH AVENUE VULCAN SABLE EDP 100 ML",
+    "Custo_Padrao": "R$ 250,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "FRENCH AVENUE",
+    "ID": "5746",
+    "Produto": "FRENCH AVENUE WRAITH SPECTRE 80 ML",
+    "Custo_Padrao": "R$ 280,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "8969",
+    "Produto": "GIFT AMBER+ROUGE+SAFFRON 30 ML",
+    "Custo_Padrao": "R$ 480,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "5395",
+    "Produto": "GIFT AMBER+ROUGE+VELVET 30 ML",
+    "Custo_Padrao": "R$ 480,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "2400",
+    "Produto": "HIDRATANTE ANGEL 200 ML ISABELLE LA BELL",
+    "Custo_Padrao": "R$ 58,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "7481",
+    "Produto": "HIDRATANTE ASAD 200 ML ISABELLE",
+    "Custo_Padrao": "R$ 72,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "6613",
+    "Produto": "HIDRATANTE ASAD BOURBON 200 ML ISABELLE",
+    "Custo_Padrao": "R$ 72,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "7436",
+    "Produto": "HIDRATANTE CLUB DE NUIT 200 ML ISABELLE",
+    "Custo_Padrao": "R$ 70,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "7375",
+    "Produto": "HIDRATANTE FAKHAR ROSE 200 ML ISABELLE",
+    "Custo_Padrao": "R$ 72,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "7368",
+    "Produto": "HIDRATANTE SABAH AL WARD 200 ML ISABELLE",
+    "Custo_Padrao": "R$ 72,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "7351",
+    "Produto": "HIDRATANTE YARA 200 ML ISABELLE",
+    "Custo_Padrao": "R$ 72,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "7139",
+    "Produto": "KHADLAJ HAREEM AL SULTAN GOLD 35 ML",
+    "Custo_Padrao": "R$ 170,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "7122",
+    "Produto": "KHADLAJ MALIKA RED CONCENTRATE 20 ML",
+    "Custo_Padrao": "R$ 210,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "11693",
+    "Produto": "KIT ORIENTICA AMBER ROUGE 4 PEÃAS",
+    "Custo_Padrao": "R$ 520,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "11709",
+    "Produto": "KIT ORIENTICA AMBER ROYAL 4 PEÃAS",
+    "Custo_Padrao": "R$ 520,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "7207",
+    "Produto": "LATAFFA PETRA EDP 100 ML",
+    "Custo_Padrao": "R$ 160,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "451",
+    "Produto": "LATAFFA ROUAT AL OUD 100 ML UNISSEX",
+    "Custo_Padrao": "R$ 110,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "5562",
+    "Produto": "LATTAFA 24 CARAT PURE GOLD EDP 100 ML",
+    "Custo_Padrao": "R$ 120,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "2479",
+    "Produto": "LATTAFA AFEEF EDP 100 ML",
+    "Custo_Padrao": "R$ 250,00",
+    "Preco_Venda": "R$ 279,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/84232w.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "2080",
+    "Produto": "LATTAFA AJWAD F 60 ML",
+    "Custo_Padrao": "R$ 110,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "3780",
+    "Produto": "LATTAFA AJWAD PINK TO PINK 60 ML",
+    "Custo_Padrao": "R$ 110,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "3070",
+    "Produto": "LATTAFA AL NASHAMA 100 ML",
+    "Custo_Padrao": "R$ 150,00",
+    "Preco_Venda": "R$ 239,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/82129w.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "468",
+    "Produto": "LATTAFA AL NASHAMA CAPRICE 100 ML",
+    "Custo_Padrao": "R$ 170,00",
+    "Preco_Venda": "R$ 249,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/81931m.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "475",
+    "Produto": "LATTAFA AL NOBLE AMEER EDP 100 ML",
+    "Custo_Padrao": "R$ 200,00",
+    "Preco_Venda": "R$ 319,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/81774m.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "482",
+    "Produto": "LATTAFA AL NOBLE SAFEER EDP 100 ML",
+    "Custo_Padrao": "R$ 200,00",
+    "Preco_Venda": "R$ 319,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/al-noble-safeer-edp-2-46f24016f99e3a7ec717401807746313-1024-1024.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "499",
+    "Produto": "LATTAFA AL NOBLE WAZEER EDP 100 ML",
+    "Custo_Padrao": "R$ 240,00",
+    "Preco_Venda": "R$ 359,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/al-noble-wazeer-edp-2-2481775553850436e617401809359534-1024-1024.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "6941",
+    "Produto": "LATTAFA ANA ABIYAD 60 ML EDP WOMEN",
+    "Custo_Padrao": "R$ 90,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "505",
+    "Produto": "LATTAFA ANA ABIYAD ROUGE 60 ML EDP WOMEN",
+    "Custo_Padrao": "R$ 130,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "2486",
+    "Produto": "LATTAFA ANGHAM EDP 100 ML",
+    "Custo_Padrao": "R$ 130,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "3209",
+    "Produto": "LATTAFA ASAD BOURBON EDP 100 ML",
+    "Custo_Padrao": "R$ 230,00",
+    "Preco_Venda": "R$ 319,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/asad-bourbon-edp-2-cefec93a030fa1d22c17401782214905-1024-1024.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "529",
+    "Produto": "LATTAFA ASAD EDP 100 ML",
+    "Custo_Padrao": "R$ 150,00",
+    "Preco_Venda": "R$ 279,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/asad-2-757d63128dbaf2b3dd17120068916664-1024-1024.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "8815",
+    "Produto": "LATTAFA ASAD ELIXIR EDP 100 ML",
+    "Custo_Padrao": "R$ 230,00",
+    "Preco_Venda": "R$ 319,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/asad-elixir-2-b34c7001dfa564f93f17622092067724-1024-1024.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "536",
+    "Produto": "LATTAFA ASAD ZANZIBAR 100 ML",
+    "Custo_Padrao": "R$ 120,00",
+    "Preco_Venda": "R$ 209,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/asad-zanzibar-edp-2-d6106bf0c329468af617401783372615-1024-1024.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "6989",
+    "Produto": "LATTAFA ASAD ZANZIBAR LIMITED EDITION",
+    "Custo_Padrao": "R$ 140,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "420",
+    "Produto": "LATTAFA ASDAAF AMEER AL ARAB BLACK 100 M",
+    "Custo_Padrao": "R$ 140,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "2783",
+    "Produto": "LATTAFA ASDAAF AMEER AL ARAB F EDP 100",
+    "Custo_Padrao": "R$ 120,00",
+    "Preco_Venda": "R$ 219,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/81767m.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "437",
+    "Produto": "LATTAFA ASDAAF AMEER AL ARAB IMPERIUM 10",
+    "Custo_Padrao": "R$ 119,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "550",
+    "Produto": "LATTAFA ASDAAF AMEER AL ARAB PRIVE ROS",
+    "Custo_Padrao": "R$ 120,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "6736",
+    "Produto": "LATTAFA ASDAAF REEM EDP 100 ML",
+    "Custo_Padrao": "R$ 199,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "5692",
+    "Produto": "LATTAFA ATHEERI EDP 100 ML",
+    "Custo_Padrao": "R$ 280,00",
+    "Preco_Venda": "R$ 399,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/83468w.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "2196",
+    "Produto": "LATTAFA AZEEZAH EDP 100 ML",
+    "Custo_Padrao": "R$ 120,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "567",
+    "Produto": "LATTAFA BADEE AL OUD AMET. EDP 100 ML",
+    "Custo_Padrao": "R$ 149,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "574",
+    "Produto": "LATTAFA BADEE AL OUD GLORY EDP 100 ML",
+    "Custo_Padrao": "R$ 159,99",
+    "Preco_Venda": "R$ 269,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/oud-for-glory-2-ae3d226ecb536deead17137348381964-1024-1024.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "581",
+    "Produto": "LATTAFA BADEE AL OUD HONOR. EDP 100 ML",
+    "Custo_Padrao": "R$ 140,00",
+    "Preco_Venda": "R$ 249,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/81892m.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "598",
+    "Produto": "LATTAFA BADEE AL OUD NOBLE B. EDP 100 ML",
+    "Custo_Padrao": "R$ 150,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "604",
+    "Produto": "LATTAFA BADEE AL OUD SUBL. EDP 100 ML",
+    "Custo_Padrao": "R$ 139,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "2721",
+    "Produto": "LATTAFA BAYAAN F EDP 100 ML",
+    "Custo_Padrao": "R$ 135,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "611",
+    "Produto": "LATTAFA CONFIDENTIAL PRIVATE GOLD 100 ML",
+    "Custo_Padrao": "R$ 140,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "6996",
+    "Produto": "LATTAFA DEO ASAD 200 ML",
+    "Custo_Padrao": "R$ 25,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "8785",
+    "Produto": "LATTAFA DEO FAKHAR EXTRAIT 200 ML",
+    "Custo_Padrao": "R$ 25,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "9188",
+    "Produto": "LATTAFA DYNASTY EDP 100 ML",
+    "Custo_Padrao": "R$ 220,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "9034",
+    "Produto": "LATTAFA ECLAIRE BANOFFI EDP 100 ML",
+    "Custo_Padrao": "R$ 210,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "2806",
+    "Produto": "LATTAFA ECLAIRE F EDP 100 ML",
+    "Custo_Padrao": "R$ 180,00",
+    "Preco_Venda": "R$ 289,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/eclaire-edp-2-c13817469a5876039317587426355913-1024-1024.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "9409",
+    "Produto": "LATTAFA ECLAIRE PISTACHE EDP 100 ML",
+    "Custo_Padrao": "R$ 210,00",
+    "Preco_Venda": "R$ 299,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/eclaire-pistache-edp-2-fd6c61dc091038508d17587428221865-1024-1024.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "628",
+    "Produto": "LATTAFA EJAAZI 100 ML EDP",
+    "Custo_Padrao": "R$ 99,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "4299",
+    "Produto": "LATTAFA EKHTIARI 100 ML",
+    "Custo_Padrao": "R$ 90,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "635",
+    "Produto": "LATTAFA EMAAN 100 ML",
+    "Custo_Padrao": "R$ 129,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "642",
+    "Produto": "LATTAFA EMEER EDP 100 ML",
+    "Custo_Padrao": "R$ 290,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "7023",
+    "Produto": "LATTAFA FAKHAR ALL OVER SPRAY 150 ML",
+    "Custo_Padrao": "R$ 85,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "659",
+    "Produto": "LATTAFA FAKHAR EDP F ROSÃ 100 ML",
+    "Custo_Padrao": "R$ 180,00",
+    "Preco_Venda": "R$ 300,00",
+    "Imagem": "https://www.giraofertas.com.br/wp-content/uploads/2024/06/Fakhar-Rose-Pride-of-Lattafa-Eau-de-Parfum-03.jpg"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "666",
+    "Produto": "LATTAFA FAKHAR EDP M BLACK 100 ML",
+    "Custo_Padrao": "R$ 170,00",
+    "Preco_Venda": "R$ 300,00",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/fakhar-black-2-6897e1fa9b9729117617556280141635-1024-1024.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "673",
+    "Produto": "LATTAFA FAKHAR EXTRAIT GOLD 100 ML",
+    "Custo_Padrao": "R$ 160,00",
+    "Preco_Venda": "R$ 300,00",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/fakhar-gold-edp-2-683a6b90484b1b4d0d17248935079917-1024-1024.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "7184",
+    "Produto": "LATTAFA FAKHAR PLATIN EDP 100 ML",
+    "Custo_Padrao": "R$ 180,00",
+    "Preco_Venda": "R$ 300,00",
+    "Imagem": "https://beijonapele.com.br/wp-content/uploads/2025/09/lattafa-fakhar-platin-eau-de-parfum-perfume-unissex-6290362345817-bnp-03.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "2097",
+    "Produto": "LATTAFA HAYA EDP 100 ML",
+    "Custo_Padrao": "R$ 180,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "680",
+    "Produto": "LATTAFA HAYAATI AL MALEKY 100 ML EDP UNI",
+    "Custo_Padrao": "R$ 110,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "6958",
+    "Produto": "LATTAFA HAYAATI EDP 100 ML",
+    "Custo_Padrao": "R$ 85,00",
+    "Preco_Venda": "R$ 179,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/81423m.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "697",
+    "Produto": "LATTAFA HAYAATI FLORENCE EDP 100 ML",
+    "Custo_Padrao": "R$ 85,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "703",
+    "Produto": "LATTAFA HAYAATI GOLD ELIXIR 100 ML",
+    "Custo_Padrao": "R$ 95,00",
+    "Preco_Venda": "R$ 179,90",
+    "Imagem": "https://eletroangeloni.vtexassets.com/arquivos/ids/1871027-800-450?v=638621904601570000&width=800&height=450&aspect=true"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "710",
+    "Produto": "LATTAFA HER CONFESSION FEM",
+    "Custo_Padrao": "R$ 270,00",
+    "Preco_Venda": "R$ 399,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/83656w.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "727",
+    "Produto": "LATTAFA HIS CONFESSION MASC EDP 100 ML",
+    "Custo_Padrao": "R$ 220,00",
+    "Preco_Venda": "R$ 349,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/83465m.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "5609",
+    "Produto": "LATTAFA IJAL AURA EDP 60 ML",
+    "Custo_Padrao": "R$ 120,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "4459",
+    "Produto": "LATTAFA JASOOR 100 ML",
+    "Custo_Padrao": "R$ 190,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "3148",
+    "Produto": "LATTAFA KHALTAAT AL ARABIA ROYAL BLENDS",
+    "Custo_Padrao": "R$ 120,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "5685",
+    "Produto": "LATTAFA KHAMRAH DUKHAN EDP 100 ML",
+    "Custo_Padrao": "R$ 170,00",
+    "Preco_Venda": "R$ 259,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/khamrah-dukhan-edp-2-b9c57d25b41ca9074117585680967146-1024-1024.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "734",
+    "Produto": "LATTAFA KHAMRAH EDP 100 ML",
+    "Custo_Padrao": "R$ 160,00",
+    "Preco_Venda": "R$ 249,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/lattafa-khamrah-2-ed1c3f40f64caae63e17564851492563-1024-1024.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "741",
+    "Produto": "LATTAFA KHAMRAH QAHWA EDP 100 ML",
+    "Custo_Padrao": "R$ 140,00",
+    "Preco_Venda": "R$ 229,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/81712m.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "758",
+    "Produto": "LATTAFA KHASHABI 100 ML EDP UNISSEX",
+    "Custo_Padrao": "R$ 120,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "4787",
+    "Produto": "LATTAFA KIDS HAPPY BRUSH 75 ML",
+    "Custo_Padrao": "R$ 85,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "4794",
+    "Produto": "LATTAFA KIDS HAPPY TIME 75 ML",
+    "Custo_Padrao": "R$ 85,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "4800",
+    "Produto": "LATTAFA KIDS PLAY 75 ML",
+    "Custo_Padrao": "R$ 85,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "4817",
+    "Produto": "LATTAFA KIDS SING 75 ML",
+    "Custo_Padrao": "R$ 85,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "4824",
+    "Produto": "LATTAFA KIDS STOP WAIT GO 75 ML",
+    "Custo_Padrao": "R$ 85,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "3223",
+    "Produto": "LATTAFA KIT ASAD 5TH ANIV EDP 100 ML",
+    "Custo_Padrao": "R$ 230,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "11044",
+    "Produto": "LATTAFA KIT MINI BADEE AL OUD EDP 5X5 ML",
+    "Custo_Padrao": "R$ 120,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "7108",
+    "Produto": "LATTAFA KIT YARA COLL EDP 4X 25 ML",
+    "Custo_Padrao": "R$ 230,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "9164",
+    "Produto": "LATTAFA KIT YARA COLL EDP 4X 5 ML",
+    "Custo_Padrao": "R$ 180,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "5067",
+    "Produto": "LATTAFA LAHDATH 80 ML",
+    "Custo_Padrao": "R$ 132,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "3964",
+    "Produto": "LATTAFA LAIL MALEKI 100 ML",
+    "Custo_Padrao": "R$ 139,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "5142",
+    "Produto": "LATTAFA LAIL MALEKI MOROCCAN BLUE 100 ML",
+    "Custo_Padrao": "R$ 95,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "2691",
+    "Produto": "LATTAFA LIAM GREY EDP 100 ML",
+    "Custo_Padrao": "R$ 230,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "765",
+    "Produto": "LATTAFA MAAHIR 100 ML",
+    "Custo_Padrao": "R$ 150,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "3650",
+    "Produto": "LATTAFA MAAHIR BLACK EDITION 100 ML",
+    "Custo_Padrao": "R$ 150,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "772",
+    "Produto": "LATTAFA MAAHIR LEGACY 100 ML UNISSEX",
+    "Custo_Padrao": "R$ 170,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "789",
+    "Produto": "LATTAFA MAHARJAN SILVER 100 ML",
+    "Custo_Padrao": "R$ 160,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "796",
+    "Produto": "LATTAFA MALIK AL TAYOOR 100 ML EDP UNISS",
+    "Custo_Padrao": "R$ 125,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "5081",
+    "Produto": "LATTAFA MASA 100 ML",
+    "Custo_Padrao": "R$ 239,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "4305",
+    "Produto": "LATTAFA MASHRABYA 100 ML",
+    "Custo_Padrao": "R$ 119,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "2165",
+    "Produto": "LATTAFA MAYAR CHERRY INTENSE EDP 100 ML",
+    "Custo_Padrao": "R$ 155,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "802",
+    "Produto": "LATTAFA MAYAR EDP F 100 ML",
+    "Custo_Padrao": "R$ 129,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "3179",
+    "Produto": "LATTAFA MAYAR NATURAL INTENSE EDP 100 ML",
+    "Custo_Padrao": "R$ 130,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "819",
+    "Produto": "LATTAFA MOHRA SILKY ROSE 100 ML",
+    "Custo_Padrao": "R$ 140,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "826",
+    "Produto": "LATTAFA MUSAMAM EDP 100 ML",
+    "Custo_Padrao": "R$ 160,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "2646",
+    "Produto": "LATTAFA MUSAMAM WHITE INTENSE",
+    "Custo_Padrao": "R$ 270,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "2127",
+    "Produto": "LATTAFA NICHE E. AL DANA EDP 100 ML",
+    "Custo_Padrao": "R$ 270,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "2073",
+    "Produto": "LATTAFA NICHE E. AL JAWHARA EDP 100 ML",
+    "Custo_Padrao": "R$ 200,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "444",
+    "Produto": "LATTAFA NICHE E. ANTIQUE EDP 100 ML",
+    "Custo_Padrao": "R$ 229,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "3230",
+    "Produto": "LATTAFA NICHE E. CLASSIC STONE EDP 100 M",
+    "Custo_Padrao": "R$ 290,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "2462",
+    "Produto": "LATTAFA NICHE E. GHINWA EDP 100 ML",
+    "Custo_Padrao": "R$ 229,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "543",
+    "Produto": "LATTAFA NICHE E. HAYAAM EDP 100 ML",
+    "Custo_Padrao": "R$ 200,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "833",
+    "Produto": "LATTAFA NICHE E. KHANJAR EDP 85 ML",
+    "Custo_Padrao": "R$ 350,00",
+    "Preco_Venda": "R$ 449,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/khanjar-edp-2-a02e10e90ea6f2890f17587414075729-1024-1024.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "2134",
+    "Produto": "LATTAFA NICHE E. MUGHAL FORT EDP 100 ML",
+    "Custo_Padrao": "R$ 200,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "2653",
+    "Produto": "LATTAFA NICHE E. PISA EDP 100 ML",
+    "Custo_Padrao": "R$ 280,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "3834",
+    "Produto": "LATTAFA NICHE E. REMAS EDP 100 ML",
+    "Custo_Padrao": "R$ 200,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "3841",
+    "Produto": "LATTAFA NICHE E. TOLEEN EDP 100 ML",
+    "Custo_Padrao": "R$ 289,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "4039",
+    "Produto": "LATTAFA NICHE E. VINTAGE CASTLE EDP 100",
+    "Custo_Padrao": "R$ 209,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "4046",
+    "Produto": "LATTAFA NICHE E. ZIKRA EDP 100 ML",
+    "Custo_Padrao": "R$ 229,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "9775",
+    "Produto": "LATTAFA NICHE E.TARAF EDP 100 ML",
+    "Custo_Padrao": "R$ 220,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "7290",
+    "Produto": "LATTAFA OIL YARA 20 ML",
+    "Custo_Padrao": "R$ 90,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "7306",
+    "Produto": "LATTAFA OIL YARA CANDY 20 ML",
+    "Custo_Padrao": "R$ 130,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "7313",
+    "Produto": "LATTAFA OIL YARA MOI 20 ML",
+    "Custo_Padrao": "R$ 130,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "7320",
+    "Produto": "LATTAFA OIL YARA TOUS 20 ML",
+    "Custo_Padrao": "R$ 130,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "6880",
+    "Produto": "LATTAFA OPULENT DUBAI EDP 100 ML",
+    "Custo_Padrao": "R$ 130,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "840",
+    "Produto": "LATTAFA OUD MOOD 100 ML UNISSEX",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "2141",
+    "Produto": "LATTAFA P LA COLLEC D'ANTIQUETES 1910",
+    "Custo_Padrao": "R$ 220,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "2714",
+    "Produto": "LATTAFA P LA COLLEC D'ANTIQUITES 1505",
+    "Custo_Padrao": "R$ 160,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "4831",
+    "Produto": "LATTAFA P LA COLLEC D'ANTIQUITES 1886 10",
+    "Custo_Padrao": "R$ 180,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "4060",
+    "Produto": "LATTAFA PRIDE AL AMEED EDP 100 ML",
+    "Custo_Padrao": "R$ 172,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "3155",
+    "Produto": "LATTAFA PRIDE AL QIAM GOLD EDP 100 ML",
+    "Custo_Padrao": "R$ 180,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "7016",
+    "Produto": "LATTAFA PRIDE AL QIAM SILVER EDP 100 ML",
+    "Custo_Padrao": "R$ 180,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "857",
+    "Produto": "LATTAFA PRIDE ANSAAM GOLD EDP 100 ML",
+    "Custo_Padrao": "R$ 159,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "512",
+    "Produto": "LATTAFA PRIDE ANSAAM SILVER EDP 100 ML",
+    "Custo_Padrao": "R$ 180,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "4053",
+    "Produto": "LATTAFA PRIDE ART OF ARABIA I EDP 100ML",
+    "Custo_Padrao": "R$ 220,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "2189",
+    "Produto": "LATTAFA PRIDE ART OF ARABIA III EDP 100",
+    "Custo_Padrao": "R$ 179,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "2226",
+    "Produto": "LATTAFA PRIDE ART OF NATURE I EDP 100 ML",
+    "Custo_Padrao": "R$ 275,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "5555",
+    "Produto": "LATTAFA PRIDE ART OF UNIVERSE EDP 100ML",
+    "Custo_Padrao": "R$ 220,00",
+    "Preco_Venda": "R$ 359,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/84231w.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "2707",
+    "Produto": "LATTAFA PRIDE BREEZE EDP 100 ML",
+    "Custo_Padrao": "R$ 130,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "4077",
+    "Produto": "LATTAFA PRIDE ETERNAL OUD EDP 100 ML",
+    "Custo_Padrao": "R$ 179,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "4084",
+    "Produto": "LATTAFA PRIDE HALA M EDP 100 ML",
+    "Custo_Padrao": "R$ 159,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "3414",
+    "Produto": "LATTAFA PRIDE ISHQ AL SHUYUKH GOLD EDP",
+    "Custo_Padrao": "R$ 170,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "4770",
+    "Produto": "LATTAFA PRIDE ISHQ AL SHUYUKH SILVER ED",
+    "Custo_Padrao": "R$ 160,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "2240",
+    "Produto": "LATTAFA PRIDE KASHAN EDP 100 ML",
+    "Custo_Padrao": "R$ 240,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "11006",
+    "Produto": "LATTAFA PRIDE KING OF ARABIA EDP 100 ML",
+    "Custo_Padrao": "R$ 210,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "864",
+    "Produto": "LATTAFA PRIDE LA AFRICAN DRUMMER 100 ML",
+    "Custo_Padrao": "R$ 170,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "2561",
+    "Produto": "LATTAFA PRIDE LEEN EDP 100 ML",
+    "Custo_Padrao": "R$ 210,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "871",
+    "Produto": "LATTAFA PRIDE NEBRAS EDP 100 ML",
+    "Custo_Padrao": "R$ 180,00",
+    "Preco_Venda": "R$ 289,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/83168m.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "11266",
+    "Produto": "LATTAFA PRIDE NEBRAS ELIXIR 100 ML",
+    "Custo_Padrao": "R$ 270,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "8372",
+    "Produto": "LATTAFA PRIDE QUEEN OF ARABIA EDP 100 ML",
+    "Custo_Padrao": "R$ 230,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "2219",
+    "Produto": "LATTAFA PRIDE RAW HUMAN EDP 100 ML",
+    "Custo_Padrao": "R$ 150,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "888",
+    "Produto": "LATTAFA PRIDE SHAHEEN GOLD EDP 100 ML",
+    "Custo_Padrao": "R$ 155,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "895",
+    "Produto": "LATTAFA PRIDE SHAHEEN SILVER EDP 100 ML",
+    "Custo_Padrao": "R$ 160,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "901",
+    "Produto": "LATTAFA PRIDE THARWAH G EDP 100 ML",
+    "Custo_Padrao": "R$ 250,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "918",
+    "Produto": "LATTAFA PRIDE THARWAH S. EDP 100 ML",
+    "Custo_Padrao": "R$ 180,00",
+    "Preco_Venda": "R$ 299,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/81436m.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "4091",
+    "Produto": "LATTAFA PRIDE VINTAGE RADIO EDP 100 ML",
+    "Custo_Padrao": "R$ 210,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "4107",
+    "Produto": "LATTAFA PRIDE WAJOOD EDP 100 ML",
+    "Custo_Padrao": "R$ 210,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "932",
+    "Produto": "LATTAFA QAED AL FURSAN EDP M 90 ML",
+    "Custo_Padrao": "R$ 110,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "925",
+    "Produto": "LATTAFA QAED AL FURSAN EDP UNLIMITED 90",
+    "Custo_Padrao": "R$ 120,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "7061",
+    "Produto": "LATTAFA QAED AL FURSAN UNTAMED EDP 90 ML",
+    "Custo_Padrao": "R$ 139,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "2684",
+    "Produto": "LATTAFA QIMMAH F EDP 100 ML",
+    "Custo_Padrao": "R$ 140,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "2677",
+    "Produto": "LATTAFA QIMMAH M EDP 100 ML",
+    "Custo_Padrao": "R$ 110,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "949",
+    "Produto": "LATTAFA RAED LUXE GOLD 100 ML",
+    "Custo_Padrao": "R$ 115,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "956",
+    "Produto": "LATTAFA RAED OUD EDP H V 100 ML",
+    "Custo_Padrao": "R$ 129,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "963",
+    "Produto": "LATTAFA RAMZ GOLD EDP M 100 ML",
+    "Custo_Padrao": "R$ 115,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "6927",
+    "Produto": "LATTAFA RAVE NOW WOMAN PINK 100 ML",
+    "Custo_Padrao": "R$ 125,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "2660",
+    "Produto": "LATTAFA SAKEENA EDP 100 ML",
+    "Custo_Padrao": "R$ 130,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "2738",
+    "Produto": "LATTAFA SEHR EDP 100 ML",
+    "Custo_Padrao": "R$ 160,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "970",
+    "Produto": "LATTAFA SHAHD EDP F 100 ML",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "6897",
+    "Produto": "LATTAFA SHEIKH SUPREME EDP 100 ML",
+    "Custo_Padrao": "R$ 120,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "987",
+    "Produto": "LATTAFA SONDOS 100 ML WOMEN",
+    "Custo_Padrao": "R$ 140,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "9096",
+    "Produto": "LATTAFA SPLASH FAKHAR 250 ML",
+    "Custo_Padrao": "R$ 60,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "11013",
+    "Produto": "LATTAFA SPLASH YARA 250 ML",
+    "Custo_Padrao": "R$ 60,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "2790",
+    "Produto": "LATTAFA SUQRAAT EDP M 100 ML",
+    "Custo_Padrao": "R$ 99,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "2448",
+    "Produto": "LATTAFA TERIAQ 100 ML",
+    "Custo_Padrao": "R$ 179,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "2172",
+    "Produto": "LATTAFA TERIAQ INTENSE EDP 100 ML",
+    "Custo_Padrao": "R$ 190,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "994",
+    "Produto": "LATTAFA THE KINGDON 100 ML MAN",
+    "Custo_Padrao": "R$ 220,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "1007",
+    "Produto": "LATTAFA THE KINGDON 100 ML WOMEN",
+    "Custo_Padrao": "R$ 160,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "1014",
+    "Produto": "LATTAFA THOUQ 80 ML",
+    "Custo_Padrao": "R$ 130,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "4855",
+    "Produto": "LATTAFA VELVET MUSK 100 ML",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "8334",
+    "Produto": "LATTAFA VELVET OUD EDP 100 ML",
+    "Custo_Padrao": "R$ 130,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "3971",
+    "Produto": "LATTAFA VELVET ROSE 100 ML",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "5203",
+    "Produto": "LATTAFA VICTORIA EDP 100 ML",
+    "Custo_Padrao": "R$ 180,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "7214",
+    "Produto": "LATTAFA YARA ALL OVER SPRAY 150 ML",
+    "Custo_Padrao": "R$ 70,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "1021",
+    "Produto": "LATTAFA YARA CANDY 100 ML",
+    "Custo_Padrao": "R$ 140,00",
+    "Preco_Venda": "R$ 229,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/yara-candy-edp-2-cf5fb3418ee40ecd2517394107590464-1024-1024.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "1038",
+    "Produto": "LATTAFA YARA EDP 100 ML",
+    "Custo_Padrao": "R$ 170,00",
+    "Preco_Venda": "R$ 249,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/yara-2-08358c960af5bb384917482852170392-1024-1024.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "8822",
+    "Produto": "LATTAFA YARA ELIXIR EDP 100 ML",
+    "Custo_Padrao": "R$ 210,00",
+    "Preco_Venda": "R$ 329,90",
+    "Imagem": "https://static.netshoes.com.br/produtos/yara-elixir-perfume-feminino-lattafa-eau-de-parfum-100ml/60/RZ1-004B-460/RZ1-004B-460_zoom3.jpg?ts=1761103206&ims=544x"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "1045",
+    "Produto": "LATTAFA YARA MOI 100 ML",
+    "Custo_Padrao": "R$ 160,00",
+    "Preco_Venda": "R$ 289,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/81785w.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "1052",
+    "Produto": "LATTAFA YARA TOUS 100 ML",
+    "Custo_Padrao": "R$ 150,00",
+    "Preco_Venda": "R$ 239,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/yara-tous-edp-2-937a3fd2c814a41d5817646857553116-1024-1024.webp"
+  },
+  {
+    "Marca": "LATTAFA",
+    "ID": "5173",
+    "Produto": "LATTAFA YARA TOUS 30 ML",
+    "Custo_Padrao": "R$ 50,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "7269",
+    "Produto": "LE CHAMEAU ARABIA MADAME EDP F 100 ML",
+    "Custo_Padrao": "R$ 180,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "10702",
+    "Produto": "MAISON ALHAMBRA 2 MEN EDP 30 ML",
+    "Custo_Padrao": "R$ 50,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "8310",
+    "Produto": "MAISON ALHAMBRA 2 MEN EDP 80 ML",
+    "Custo_Padrao": "R$ 130,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "6965",
+    "Produto": "MAISON ALHAMBRA AFRO LEATHER 80 ML",
+    "Custo_Padrao": "R$ 90,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "1984",
+    "Produto": "MAISON ALHAMBRA ALPINE HOMME SPORT 100 M",
+    "Custo_Padrao": "R$ 140,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "6835",
+    "Produto": "MAISON ALHAMBRA ATHENA EDP 100 ML",
+    "Custo_Padrao": "R$ 130,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "4909",
+    "Produto": "MAISON ALHAMBRA AVANT SILK 100 ML",
+    "Custo_Padrao": "R$ 150,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "6972",
+    "Produto": "MAISON ALHAMBRA CAMILLE EDP 100 ML",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "4886",
+    "Produto": "MAISON ALHAMBRA CELESTE 100 ML",
+    "Custo_Padrao": "R$ 140,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "1083",
+    "Produto": "MAISON ALHAMBRA CHANTS TENDERINA EDP 100",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "10757",
+    "Produto": "MAISON ALHAMBRA CHANTS TENDERINA EDP 30",
+    "Custo_Padrao": "R$ 50,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "1946",
+    "Produto": "MAISON ALHAMBRA COMO MOISELLE EDP 100 ML",
+    "Custo_Padrao": "R$ 150,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "4466",
+    "Produto": "MAISON ALHAMBRA CORAL BLUSH 80 ML",
+    "Custo_Padrao": "R$ 125,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "8327",
+    "Produto": "MAISON ALHAMBRA DECANTE DREAM 100 ML",
+    "Custo_Padrao": "R$ 150,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "6767",
+    "Produto": "MAISON ALHAMBRA DELILAH BLANC EDP 100 ML",
+    "Custo_Padrao": "R$ 220,00",
+    "Preco_Venda": "R$ 319,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/delilah-blanc-edp-2-8443189552d7bd0f5d17598634805599-1024-1024.webp"
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "2103",
+    "Produto": "MAISON ALHAMBRA DELILAH EDP 100 ML",
+    "Custo_Padrao": "R$ 150,00",
+    "Preco_Venda": "R$ 249,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/delilah-edp-2-8b522bc83c457e221217244399229648-1024-1024.webp"
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "10726",
+    "Produto": "MAISON ALHAMBRA DELILAH EDP 30 ML",
+    "Custo_Padrao": "R$ 50,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "4923",
+    "Produto": "MAISON ALHAMBRA ECLAT DE LUNE 100 ML",
+    "Custo_Padrao": "R$ 125,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "5098",
+    "Produto": "MAISON ALHAMBRA EXQUISITE CLUB 100 ML",
+    "Custo_Padrao": "R$ 105,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "4879",
+    "Produto": "MAISON ALHAMBRA GLACIER BELLA 100 ML",
+    "Custo_Padrao": "R$ 120,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "1991",
+    "Produto": "MAISON ALHAMBRA GLACIER POUR HOME 100 ML",
+    "Custo_Padrao": "R$ 120,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "11273",
+    "Produto": "MAISON ALHAMBRA JARDIN DE REVE EDP 100 M",
+    "Custo_Padrao": "R$ 130,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "4947",
+    "Produto": "MAISON ALHAMBRA JEAN LOWE FRAICHE 100 ML",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "5852",
+    "Produto": "MAISON ALHAMBRA JEAN LOWE IMMORTEL 100 M",
+    "Custo_Padrao": "R$ 130,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "10832",
+    "Produto": "MAISON ALHAMBRA JEAN LOWE NOIR 30 ML",
+    "Custo_Padrao": "R$ 50,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "4954",
+    "Produto": "MAISON ALHAMBRA JORGE DE PROFUMO AQUA",
+    "Custo_Padrao": "R$ 135,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "8839",
+    "Produto": "MAISON ALHAMBRA JORGE DE PROFUMO BLACK",
+    "Custo_Padrao": "R$ 135,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "5135",
+    "Produto": "MAISON ALHAMBRA JORGE DE PROFUMO DEEP B",
+    "Custo_Padrao": "R$ 159,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "1069",
+    "Produto": "MAISON ALHAMBRA KISMET MAGIC 100 ML EDP",
+    "Custo_Padrao": "R$ 140,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "2110",
+    "Produto": "MAISON ALHAMBRA L'INTRUDE EDP 100 ML",
+    "Custo_Padrao": "R$ 130,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "1090",
+    "Produto": "MAISON ALHAMBRA LA ROUGE BAROQUE 100 ML",
+    "Custo_Padrao": "R$ 120,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "10764",
+    "Produto": "MAISON ALHAMBRA LA ROUGE BAROQUE 30 ML",
+    "Custo_Padrao": "R$ 50,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "10870",
+    "Produto": "MAISON ALHAMBRA LA ROUGE BAROQUE EXT 30",
+    "Custo_Padrao": "R$ 50,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "4862",
+    "Produto": "MAISON ALHAMBRA LA ROUGE BAROQUE EXTREME",
+    "Custo_Padrao": "R$ 120,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "2011",
+    "Produto": "MAISON ALHAMBRA LA VIVACITE 100 ML",
+    "Custo_Padrao": "R$ 140,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "10856",
+    "Produto": "MAISON ALHAMBRA LA VIVACITE 30 ML",
+    "Custo_Padrao": "R$ 50,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "7238",
+    "Produto": "MAISON ALHAMBRA LA VIVACITE INTENSE 100",
+    "Custo_Padrao": "R$ 130,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "10863",
+    "Produto": "MAISON ALHAMBRA LA VIVACITE INTENSE 30",
+    "Custo_Padrao": "R$ 50,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "6750",
+    "Produto": "MAISON ALHAMBRA LA VOIE 100 ML",
+    "Custo_Padrao": "R$ 120,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "10825",
+    "Produto": "MAISON ALHAMBRA LA VOIE 30 ML",
+    "Custo_Padrao": "R$ 50,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "4480",
+    "Produto": "MAISON ALHAMBRA LAVA 100 ML",
+    "Custo_Padrao": "R$ 110,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "1106",
+    "Produto": "MAISON ALHAMBRA LEONIE 100 ML",
+    "Custo_Padrao": "R$ 140,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "8297",
+    "Produto": "MAISON ALHAMBRA LEONIE INTENSE EDP 100 M",
+    "Custo_Padrao": "R$ 140,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "10719",
+    "Produto": "MAISON ALHAMBRA LEONIE INTENSE EDP 30 ML",
+    "Custo_Padrao": "R$ 50,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "2028",
+    "Produto": "MAISON ALHAMBRA MAITRE DE BLUE 100 ML",
+    "Custo_Padrao": "R$ 130,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "4893",
+    "Produto": "MAISON ALHAMBRA NARISSA ET MOI 100 ML",
+    "Custo_Padrao": "R$ 119,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "1113",
+    "Produto": "MAISON ALHAMBRA NARISSA FOR HER EDP 100",
+    "Custo_Padrao": "R$ 119,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "2035",
+    "Produto": "MAISON ALHAMBRA NARISSA RUBY 100 ML",
+    "Custo_Padrao": "R$ 109,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "10795",
+    "Produto": "MAISON ALHAMBRA OLIVIA EDP 30 ML",
+    "Custo_Padrao": "R$ 50,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "10740",
+    "Produto": "MAISON ALHAMBRA PACIFIC BLUE 30 ML",
+    "Custo_Padrao": "R$ 50,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "1120",
+    "Produto": "MAISON ALHAMBRA PACIFIC BLUE 80 ML",
+    "Custo_Padrao": "R$ 139,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "2813",
+    "Produto": "MAISON ALHAMBRA PANTHER M EDP 100 ML",
+    "Custo_Padrao": "R$ 110,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "10818",
+    "Produto": "MAISON ALHAMBRA PANTHER M EDP 30 ML",
+    "Custo_Padrao": "R$ 50,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "2288",
+    "Produto": "MAISON ALHAMBRA PERSEUS EDP 100 ML",
+    "Custo_Padrao": "R$ 115,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "2271",
+    "Produto": "MAISON ALHAMBRA PERSEUS EXCLUSIF EDP 100",
+    "Custo_Padrao": "R$ 130,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "10771",
+    "Produto": "MAISON ALHAMBRA PERSEUS EXCLUSIF EDP 30",
+    "Custo_Padrao": "R$ 50,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "4978",
+    "Produto": "MAISON ALHAMBRA PHILOS OPUS NOIR 100 ML",
+    "Custo_Padrao": "R$ 100,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "5111",
+    "Produto": "MAISON ALHAMBRA PHILOS PURA 100 ML",
+    "Custo_Padrao": "R$ 150,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "4985",
+    "Produto": "MAISON ALHAMBRA PHILOS ROSSO 100 ML",
+    "Custo_Padrao": "R$ 120,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "10887",
+    "Produto": "MAISON ALHAMBRA PHILOS ROSSO 30 ML",
+    "Custo_Padrao": "R$ 50,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "7399",
+    "Produto": "MAISON ALHAMBRA PINK ECLIPSE 100 ML",
+    "Custo_Padrao": "R$ 130,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "4992",
+    "Produto": "MAISON ALHAMBRA PINK VELVET 80 ML",
+    "Custo_Padrao": "R$ 125,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "6842",
+    "Produto": "MAISON ALHAMBRA QUENSTOWN INTENSE F EDP",
+    "Custo_Padrao": "R$ 130,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "2264",
+    "Produto": "MAISON ALHAMBRA REYNA EDP 100 ML",
+    "Custo_Padrao": "R$ 90,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "5104",
+    "Produto": "MAISON ALHAMBRA ROSE ORIGAMI 100 ML",
+    "Custo_Padrao": "R$ 99,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "10733",
+    "Produto": "MAISON ALHAMBRA ROSE SEDUCTION 30 ML",
+    "Custo_Padrao": "R$ 50,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "5005",
+    "Produto": "MAISON ALHAMBRA ROSE SEDUCTION VIP FEMME",
+    "Custo_Padrao": "R$ 160,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "1953",
+    "Produto": "MAISON ALHAMBRA SALVO EDP 100 ML",
+    "Custo_Padrao": "R$ 140,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "2042",
+    "Produto": "MAISON ALHAMBRA SALVO ELIXIR 60 ML",
+    "Custo_Padrao": "R$ 130,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "1137",
+    "Produto": "MAISON ALHAMBRA SALVO INTENSE 100ML",
+    "Custo_Padrao": "R$ 140,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "5012",
+    "Produto": "MAISON ALHAMBRA SCEPTRE AMAZONITE 100 ML",
+    "Custo_Padrao": "R$ 120,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "2745",
+    "Produto": "MAISON ALHAMBRA SCEPTRE BRONZITE M EDP 1",
+    "Custo_Padrao": "R$ 130,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "7498",
+    "Produto": "MAISON ALHAMBRA SCEPTRE DESERT 100 ML",
+    "Custo_Padrao": "R$ 135,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "7405",
+    "Produto": "MAISON ALHAMBRA SCEPTRE MALACHITE 100 ML",
+    "Custo_Padrao": "R$ 170,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "2769",
+    "Produto": "MAISON ALHAMBRA SCEPTRE OCEANA EDP 100 M",
+    "Custo_Padrao": "R$ 109,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "2158",
+    "Produto": "MAISON ALHAMBRA SO CANDID M EDP 100 ML",
+    "Custo_Padrao": "R$ 120,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "5869",
+    "Produto": "MAISON ALHAMBRA SO CANDID ROUGE EDP 85 M",
+    "Custo_Padrao": "R$ 140,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "2059",
+    "Produto": "MAISON ALHAMBRA SUMMER FOREVER 100 ML",
+    "Custo_Padrao": "R$ 120,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "2066",
+    "Produto": "MAISON ALHAMBRA VICTORIOSO EDP 100 ML",
+    "Custo_Padrao": "R$ 129,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "10788",
+    "Produto": "MAISON ALHAMBRA VICTORIOSO EDP 30 ML",
+    "Custo_Padrao": "R$ 50,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "6774",
+    "Produto": "MAISON ALHAMBRA VICTORIOSO FEARLESS 100",
+    "Custo_Padrao": "R$ 129,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "6781",
+    "Produto": "MAISON ALHAMBRA VICTORIOSO HEROIC 100 ML",
+    "Custo_Padrao": "R$ 129,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "6798",
+    "Produto": "MAISON ALHAMBRA VICTORIOSO LEGACY 100 ML",
+    "Custo_Padrao": "R$ 129,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "7221",
+    "Produto": "MAISON ALHAMBRA VICTORIOSO MYTH EDP 100",
+    "Custo_Padrao": "R$ 129,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "1977",
+    "Produto": "MAISON ALHAMBRA VICTORIOSO NERO 100 ML",
+    "Custo_Padrao": "R$ 129,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "10801",
+    "Produto": "MAISON ALHAMBRA VICTORIOSO NERO 30 ML",
+    "Custo_Padrao": "R$ 50,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "6934",
+    "Produto": "MAISON ALHAMBRA VOGUE PARTY 100 ML",
+    "Custo_Padrao": "R$ 115,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "1960",
+    "Produto": "MAISON ALHAMBRA YEAH MAN 100 ML",
+    "Custo_Padrao": "R$ 130,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "10849",
+    "Produto": "MAISON ALHAMBRA YEAH MAN 30 ML",
+    "Custo_Padrao": "R$ 50,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "7245",
+    "Produto": "MAISON ALHAMBRA YEAH MAN PARFUM 100 ML",
+    "Custo_Padrao": "R$ 130,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "MAISON ALHAMBRA",
+    "ID": "4329",
+    "Produto": "MAISON ALHAMBRA YOUR TOUCH AMBER 100 ML",
+    "Custo_Padrao": "R$ 119,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "2639",
+    "Produto": "MAISON ASRAR FAKHAMA EDP 100 ML",
+    "Custo_Padrao": "R$ 269,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "8273",
+    "Produto": "MANAAL BY ARD AL ZAAFARAN EDP F 100 ML",
+    "Custo_Padrao": "R$ 180,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "2622",
+    "Produto": "MAWWAL MASHAER F 100ML",
+    "Custo_Padrao": "R$ 225,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "9607",
+    "Produto": "MAWWAL SENSE MASHAER 100 ML",
+    "Custo_Padrao": "R$ 250,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "2615",
+    "Produto": "MAWWAL SITAR F 100ML",
+    "Custo_Padrao": "R$ 240,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "9591",
+    "Produto": "MAWWAL SYMPHONY SAZ 100 ML",
+    "Custo_Padrao": "R$ 240,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "2592",
+    "Produto": "MAWWAL ZUHOOR F 100ML",
+    "Custo_Padrao": "R$ 210,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "11136",
+    "Produto": "MINI AFEER AL NOBLE 30 ML",
+    "Custo_Padrao": "R$ 40,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "11112",
+    "Produto": "MINI AFEER ANGEL 30 ML",
+    "Custo_Padrao": "R$ 40,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "11174",
+    "Produto": "MINI AFEER ASAD 30 ML",
+    "Custo_Padrao": "R$ 40,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "11143",
+    "Produto": "MINI AFEER DELILAH 30 ML",
+    "Custo_Padrao": "R$ 40,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "11150",
+    "Produto": "MINI AFEER FAKHAR FEM 30 ML",
+    "Custo_Padrao": "R$ 40,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "11167",
+    "Produto": "MINI AFEER FAKHAR MAN 30 ML",
+    "Custo_Padrao": "R$ 40,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "11129",
+    "Produto": "MINI AFEER MUSAMAM 30 ML",
+    "Custo_Padrao": "R$ 40,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "11204",
+    "Produto": "MINI AFEER NUIT ROYALE INTENSE MAN 30 ML",
+    "Custo_Padrao": "R$ 40,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "11181",
+    "Produto": "MINI AFEER NUIT ROYALE WOMAN 30 ML",
+    "Custo_Padrao": "R$ 40,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "11228",
+    "Produto": "MINI AFEER ROYAL AMBER 30 ML",
+    "Custo_Padrao": "R$ 40,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "11211",
+    "Produto": "MINI AFEER SABAH AL WARD 30 ML",
+    "Custo_Padrao": "R$ 40,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "11198",
+    "Produto": "MINI AFEER YARA 30 ML",
+    "Custo_Padrao": "R$ 40,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "5487",
+    "Produto": "NUSUK ANA AL AWWAL RED EDP 100 ML",
+    "Custo_Padrao": "R$ 210,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ORIENTICA",
+    "ID": "3469",
+    "Produto": "ORIENTICA CUIR DE ORIENTICA EDITION 90",
+    "Custo_Padrao": "R$ 370,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ORIENTICA",
+    "ID": "1151",
+    "Produto": "ORIENTICA FLEUR DE ORIENTICA EDP 90 ML",
+    "Custo_Padrao": "R$ 460,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ORIENTICA",
+    "ID": "1175",
+    "Produto": "ORIENTICA KIT LUX. OUD SAFFRON 80 ML 3 P",
+    "Custo_Padrao": "R$ 540,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ORIENTICA",
+    "ID": "1205",
+    "Produto": "ORIENTICA LUXU. AMBER NOIR EDP 80 ML",
+    "Custo_Padrao": "R$ 450,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ORIENTICA",
+    "ID": "1229",
+    "Produto": "ORIENTICA LUXU. AMBER ROUGE EDP 80 ML",
+    "Custo_Padrao": "R$ 450,00",
+    "Preco_Venda": "R$ 589,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/amber-rouge-edp-2-f59aa7308a689559d217172019311659-1024-1024.webp"
+  },
+  {
+    "Marca": "ORIENTICA",
+    "ID": "1236",
+    "Produto": "ORIENTICA LUXU. AZURE FANT. EXTRAIT DE P",
+    "Custo_Padrao": "R$ 490,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ORIENTICA",
+    "ID": "3773",
+    "Produto": "ORIENTICA LUXU. DANIA EXTRAIT DE P 80 ML",
+    "Custo_Padrao": "R$ 510,00",
+    "Preco_Venda": "R$ 619,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/dania-extrait-de-parfum-2-a9aa30d199109b86c617431058519362-1024-1024.webp"
+  },
+  {
+    "Marca": "ORIENTICA",
+    "ID": "9027",
+    "Produto": "ORIENTICA LUXU. DESERT DUSK EDP 80 ML",
+    "Custo_Padrao": "R$ 440,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ORIENTICA",
+    "ID": "9010",
+    "Produto": "ORIENTICA LUXU. NARDO OUD EDP 80 ML",
+    "Custo_Padrao": "R$ 620,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ORIENTICA",
+    "ID": "1243",
+    "Produto": "ORIENTICA LUXU. OUD SAFFRON EDP 80 ML",
+    "Custo_Padrao": "R$ 399,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ORIENTICA",
+    "ID": "8990",
+    "Produto": "ORIENTICA LUXU. ROSE ECLAT EDP 80 ML",
+    "Custo_Padrao": "R$ 460,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ORIENTICA",
+    "ID": "1250",
+    "Produto": "ORIENTICA LUXU. ROYAL BLEU 80 ML",
+    "Custo_Padrao": "R$ 430,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ORIENTICA",
+    "ID": "8952",
+    "Produto": "ORIENTICA LUXU. VELVET GOLD 80 ML",
+    "Custo_Padrao": "R$ 450,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ORIENTICA",
+    "ID": "11655",
+    "Produto": "ORIENTICA LUXU.ROYAL AMBER EDP 150 ML",
+    "Custo_Padrao": "R$ 510,00",
+    "Preco_Venda": "R$ 599,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/royal-amber-edp-2-bd3359b1d17a8d41eb17531959492682-1024-1024.webp"
+  },
+  {
+    "Marca": "ORIENTICA",
+    "ID": "11662",
+    "Produto": "ORIENTICA LUXU.ROYAL AMBER EDP 30 ML",
+    "Custo_Padrao": "R$ 230,00",
+    "Preco_Venda": "R$ 329,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/royal-amber-edp-2-bd3359b1d17a8d41eb17531959492682-1024-1024.webp"
+  },
+  {
+    "Marca": "ORIENTICA",
+    "ID": "3476",
+    "Produto": "ORIENTICA LUXU.ROYAL AMBER EDP 80 ML",
+    "Custo_Padrao": "R$ 440,00",
+    "Preco_Venda": "R$ 549,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/royal-amber-edp-2-bd3359b1d17a8d41eb17531959492682-1024-1024.webp"
+  },
+  {
+    "Marca": "ORIENTICA",
+    "ID": "3483",
+    "Produto": "ORIENTICA MELODIE DE ORIENTICA EDP 90 ML",
+    "Custo_Padrao": "R$ 400,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ORIENTICA",
+    "ID": "3490",
+    "Produto": "ORIENTICA ROSE DE ORIENTICA EDP 90 ML",
+    "Custo_Padrao": "R$ 400,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ORIENTICA",
+    "ID": "9003",
+    "Produto": "ORIENTICA ROYAL COLLEC DYNASTY EDP 80 ML",
+    "Custo_Padrao": "R$ 480,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ORIENTICA",
+    "ID": "11686",
+    "Produto": "ORIENTICA ROYAL COLLEC NOBLE EDP 80 ML",
+    "Custo_Padrao": "R$ 420,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ORIENTICA",
+    "ID": "11679",
+    "Produto": "ORIENTICA ROYAL COLLEC VICTORY EDP 80 ML",
+    "Custo_Padrao": "R$ 430,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ORIENTICA",
+    "ID": "8341",
+    "Produto": "ORIENTICA XO OUD BLEU EXTRAIT DE P 60 M",
+    "Custo_Padrao": "R$ 350,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ORIENTICA",
+    "ID": "8358",
+    "Produto": "ORIENTICA XO OUD EMERALD EXTRAIT DE PAR",
+    "Custo_Padrao": "R$ 350,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ORIENTICA",
+    "ID": "3506",
+    "Produto": "ORIENTICA XO OUD ROUGE EXTRAIT DE P 60 M",
+    "Custo_Padrao": "R$ 350,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ORIENTICA",
+    "ID": "8365",
+    "Produto": "ORIENTICA XO OUD SPORT EXTRAIT DE P 60 M",
+    "Custo_Padrao": "R$ 350,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "8204",
+    "Produto": "ORYGENS FRAGRANCES ARJUANI EDP 100 ML",
+    "Custo_Padrao": "R$ 77,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "8198",
+    "Produto": "ORYGENS FRAGRANCES HARMAH EDP 100 ML",
+    "Custo_Padrao": "R$ 77,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "8181",
+    "Produto": "ORYGENS FRAGRANCES NAMAL EDP 100 ML",
+    "Custo_Padrao": "R$ 77,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "8211",
+    "Produto": "ORYGENS FRAGRANCES OMBRE 100 ML",
+    "Custo_Padrao": "R$ 77,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "8174",
+    "Produto": "ORYGENS FRAGRANCES SARATH EDP 100 ML",
+    "Custo_Padrao": "R$ 77,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "9140",
+    "Produto": "PARIS CORNER AUTOBIOGRAPHY SALTY BREEZE",
+    "Custo_Padrao": "R$ 190,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "4367",
+    "Produto": "PARIS CORNER KHAIR CONFECT 100 ML",
+    "Custo_Padrao": "R$ 210,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "4343",
+    "Produto": "PARIS CORNER KHAIR PISTACHO 100 ML",
+    "Custo_Padrao": "R$ 200,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "6705",
+    "Produto": "PARIS CORNER MARSHMALLOW BLUSH EDP 100 M",
+    "Custo_Padrao": "R$ 320,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "4534",
+    "Produto": "PARIS CORNER MINYA COCO LUSH 100 ML",
+    "Custo_Padrao": "R$ 189,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "4503",
+    "Produto": "PARIS CORNER OPHIDIAN MANGO 100 ML",
+    "Custo_Padrao": "R$ 270,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "4497",
+    "Produto": "PARIS CORNER QISSA PINK EDP 100 ML",
+    "Custo_Padrao": "R$ 170,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "9157",
+    "Produto": "PARIS CORNER SERENE GROVE LUEUR D'ESPOIR",
+    "Custo_Padrao": "R$ 250,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "4374",
+    "Produto": "PARIS CORNER TASKEEN 100 ML",
+    "Custo_Padrao": "R$ 180,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "4381",
+    "Produto": "PARIS CORNER TASKEEN MARINA 100 ML",
+    "Custo_Padrao": "R$ 170,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "4435",
+    "Produto": "PARIS EMIR JUICY MELANGE 100 ML",
+    "Custo_Padrao": "R$ 170,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "4398",
+    "Produto": "PARIS EMIR MANGO PUNCH 100 ML",
+    "Custo_Padrao": "R$ 170,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "4428",
+    "Produto": "PARIS EMIR VOUX BLUE 100 ML",
+    "Custo_Padrao": "R$ 200,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "2295",
+    "Produto": "PASTA ASAD 200GR ISABELLE LA BELLE",
+    "Custo_Padrao": "R$ 115,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "6576",
+    "Produto": "PASTA CLUB DE NUIT 200 GR ISABELLE LA",
+    "Custo_Padrao": "R$ 115,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "5920",
+    "Produto": "PASTA FAKHAR ROSE 200 ML ISABELLE LA BE",
+    "Custo_Padrao": "R$ 115,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "8440",
+    "Produto": "PASTA SABAH SUGAR 200 G ISABELLE LA BELL",
+    "Custo_Padrao": "R$ 115,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "2301",
+    "Produto": "PASTA YARA 200GR ISABELLE LA BELLE",
+    "Custo_Padrao": "R$ 115,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "5715",
+    "Produto": "RASASI HAWAS BLACK EDP 100 ML",
+    "Custo_Padrao": "R$ 210,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "9782",
+    "Produto": "RASASI HAWAS ECLAT FOR HER EDP 100 ML",
+    "Custo_Padrao": "R$ 200,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "6903",
+    "Produto": "RASASI HAWAS ELIXIR 100 ML",
+    "Custo_Padrao": "R$ 240,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "6910",
+    "Produto": "RASASI HAWAS FOR HER EDP 100 ML",
+    "Custo_Padrao": "R$ 250,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "5708",
+    "Produto": "RASASI HAWAS FOR HIM EDP 100 ML",
+    "Custo_Padrao": "R$ 210,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "11631",
+    "Produto": "RASASI HAWAS FOR HIM KOBRA EDP 100 ML",
+    "Custo_Padrao": "R$ 360,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "11648",
+    "Produto": "RASASI HAWAS FOR HIM MALIBU EDP 100 ML",
+    "Custo_Padrao": "R$ 350,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "5722",
+    "Produto": "RASASI HAWAS ICE EDP 100 ML",
+    "Custo_Padrao": "R$ 360,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "10979",
+    "Produto": "RAYHAAN DAHLIYA FOR HER FLORAL 100 ML",
+    "Custo_Padrao": "R$ 190,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "9416",
+    "Produto": "RAYHAAN DIVINE EDP 100 ML",
+    "Custo_Padrao": "R$ 200,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "9423",
+    "Produto": "RAYHAAN ELIXIR 100 ML",
+    "Custo_Padrao": "R$ 200,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "10986",
+    "Produto": "RAYHAAN IMPERIA FOR HIM EDP 100 ML",
+    "Custo_Padrao": "R$ 190,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "9133",
+    "Produto": "RAYHAAN LION 100 ML",
+    "Custo_Padrao": "R$ 180,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "9430",
+    "Produto": "RAYHAAN PACIFIC AURA POUR HOMME 100 ML",
+    "Custo_Padrao": "R$ 200,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "9447",
+    "Produto": "RAYHAAN PRETTY IN PINK FOR HER EDP 100",
+    "Custo_Padrao": "R$ 190,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "9454",
+    "Produto": "RAYHAAN TROPICAL VIBES 100 ML",
+    "Custo_Padrao": "R$ 220,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "5456",
+    "Produto": "RIIFFS BELLA ROUGE EDP 100 ML",
+    "Custo_Padrao": "R$ 210,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "5418",
+    "Produto": "RIIFFS IMPERIAL BLUE EDP 100 ML",
+    "Custo_Padrao": "R$ 230,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "5425",
+    "Produto": "RIIFFS IMPERIAL ROUGE EDP 100 ML",
+    "Custo_Padrao": "R$ 220,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "5432",
+    "Produto": "RIIFFS LA FEMME BLOOM EDP 100 ML",
+    "Custo_Padrao": "R$ 220,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "8501",
+    "Produto": "ZIRCONIA PRIVE BEAUTIFUL LIFE EDP 100 ML",
+    "Custo_Padrao": "R$ 60,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "8518",
+    "Produto": "ZIRCONIA PRIVE BLACK DIAMOND EDP 100 ML",
+    "Custo_Padrao": "R$ 60,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "8549",
+    "Produto": "ZIRCONIA PRIVE FORBIDDEN EDP 100 ML",
+    "Custo_Padrao": "R$ 60,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "8563",
+    "Produto": "ZIRCONIA PRIVE PRINCESS EDP 100 ML",
+    "Custo_Padrao": "R$ 60,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "CAROLINA HERRERA",
+    "ID": "4688",
+    "Produto": "212 FEM EDT 100 ML",
+    "Custo_Padrao": "R$ 399,99",
+    "Preco_Venda": "R$ 519,90",
+    "Imagem": "https://img.fragrancex.com/images/products/sku/large/w212b.webp"
+  },
+  {
+    "Marca": "CAROLINA HERRERA",
+    "ID": "6361",
+    "Produto": "212 HEROES FOR HER 80 ML",
+    "Custo_Padrao": "R$ 449,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "CAROLINA HERRERA",
+    "ID": "8914",
+    "Produto": "212 VIP BLACK RODEO EDP 100 ML",
+    "Custo_Padrao": "R$ 409,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "CAROLINA HERRERA",
+    "ID": "3605",
+    "Produto": "212 VIP EDP 80 ML",
+    "Custo_Padrao": "R$ 419,99",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "CAROLINA HERRERA",
+    "ID": "10009",
+    "Produto": "212 VIP MEN EDT 100 ML",
+    "Custo_Padrao": "R$ 300,00",
+    "Preco_Venda": "R$ 449,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/212-vip-men-2-8498d350c7158e2c5917049127159153-1024-1024.webp"
+  },
+  {
+    "Marca": "CAROLINA HERRERA",
+    "ID": "3582",
+    "Produto": "212 VIP ROSE 80 ML",
+    "Custo_Padrao": "R$ 430,00",
+    "Preco_Venda": "R$ 559,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/212-vip-rose-2-80f4b18ab4572fb1c817049128338922-1024-1024.webp"
+  },
+  {
+    "Marca": "CAROLINA HERRERA",
+    "ID": "10016",
+    "Produto": "212 VIP ROSE EDP 80 ML TESTER",
+    "Custo_Padrao": "R$ 360,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "6415",
+    "Produto": "ANIMALE FOR MEN 100 ML",
+    "Custo_Padrao": "R$ 180,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "6392",
+    "Produto": "ANIMALE FOR MEN 200 ML",
+    "Custo_Padrao": "R$ 240,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "5470",
+    "Produto": "AZZARO POUR HOMME 100 ML",
+    "Custo_Padrao": "R$ 185,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "7191",
+    "Produto": "AZZARO POUR HOMME 200 ML",
+    "Custo_Padrao": "R$ 265,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "",
+    "ID": "6453",
+    "Produto": "AZZARO WANTED 100 ML",
+    "Custo_Padrao": "R$ 300,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "CALVIN KLEIN",
+    "ID": "3612",
+    "Produto": "CALVIN KLEIN BE 100 ML",
+    "Custo_Padrao": "R$ 165,00",
+    "Preco_Venda": "R$ 249,90",
+    "Imagem": "https://img.fragrancex.com/images/products/sku/large/wckb34.webp"
+  },
+  {
+    "Marca": "CALVIN KLEIN",
+    "ID": "7078",
+    "Produto": "CALVIN KLEIN BE 200 ML",
+    "Custo_Padrao": "R$ 215,00",
+    "Preco_Venda": "R$ 299,90",
+    "Imagem": "https://img.fragrancex.com/images/products/sku/large/ckb200tswm.webp"
+  },
+  {
+    "Marca": "CALVIN KLEIN",
+    "ID": "3629",
+    "Produto": "CALVIN KLEIN EUPHORIA FEM 100 ML",
+    "Custo_Padrao": "R$ 270,00",
+    "Preco_Venda": "R$ 389,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/euphoria-edp-2-ed45e732b1beb314a717464737672619-1024-1024.webp"
+  },
+  {
+    "Marca": "CALVIN KLEIN",
+    "ID": "6422",
+    "Produto": "CALVIN KLEIN ONE 100 ML",
+    "Custo_Padrao": "R$ 165,00",
+    "Preco_Venda": "R$ 279,90",
+    "Imagem": "https://img.fragrancex.com/images/products/sku/large/mckone34.webp"
+  },
+  {
+    "Marca": "CALVIN KLEIN",
+    "ID": "6439",
+    "Produto": "CALVIN KLEIN ONE 200 ML",
+    "Custo_Padrao": "R$ 215,00",
+    "Preco_Venda": "R$ 319,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/ck-one-2-a77190bbcaba0843a217049126675305-1024-1024.webp"
+  },
+  {
+    "Marca": "CAROLINA HERRERA",
+    "ID": "10252",
+    "Produto": "CAROLINA HERRERA EDP 100 ML TESTER",
+    "Custo_Padrao": "R$ 390,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "CHLOÃ",
+    "ID": "5982",
+    "Produto": "CHLOE SIGNATURE EDP 75 ML",
+    "Custo_Padrao": "R$ 460,00",
+    "Preco_Venda": "R$ 579,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/chloe-edp-2-893db1f5839d2a355e17090790895865-1024-1024.webp"
+  },
+  {
+    "Marca": "COACH",
+    "ID": "10672",
+    "Produto": "COACH NEW YORK EDP 90 ML TESTER",
+    "Custo_Padrao": "R$ 250,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "DIOR",
+    "ID": "6393",
+    "Produto": "DIOR FAHRENHEINT EDT 100ML",
+    "Custo_Padrao": "R$ 540,00",
+    "Preco_Venda": "R$ 659,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/fahrenheit-edt-2-7832f8db1d9f8a961917230423090771-1024-1024.webp"
+  },
+  {
+    "Marca": "DOLCE&GABANNA",
+    "ID": "5494",
+    "Produto": "DOLCE GABBANA LIGHT BLUE 100 ML",
+    "Custo_Padrao": "R$ 409,99",
+    "Preco_Venda": "R$ 539,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/light-blue-fem-2-7309d31964230fa46f17049129183610-1024-1024.webp"
+  },
+  {
+    "Marca": "DOLCE&GABANNA",
+    "ID": "10283",
+    "Produto": "DOLCE GABBANA Q EDP 100 ML TESTER",
+    "Custo_Padrao": "R$ 400,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "FERRARI",
+    "ID": "4176",
+    "Produto": "FERRARI BLACK 125 ML",
+    "Custo_Padrao": "R$ 140,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "GABRIELA SABATINI",
+    "ID": "5227",
+    "Produto": "GABRIELA SABATINI 100 ML",
+    "Custo_Padrao": "R$ 90,00",
+    "Preco_Venda": "R$ 159,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/gabriela-sabatini-edt-2-1aea8bb1b6db6eba6217585683582141-1024-1024.webp"
+  },
+  {
+    "Marca": "GIVENCHY",
+    "ID": "9958",
+    "Produto": "GIVENCHY GENTLEMAN BOISEE 100 ML TEST",
+    "Custo_Padrao": "R$ 380,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "GIVENCHY",
+    "ID": "4640",
+    "Produto": "GIVENCHY INTERDIT ROUGE 80 ML",
+    "Custo_Padrao": "R$ 530,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "CAROLINA HERRERA",
+    "ID": "5937",
+    "Produto": "GOOD GIRL BLUSH 80 ML",
+    "Custo_Padrao": "R$ 540,00",
+    "Preco_Venda": "R$ 679,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/good-girl-blush-2-811fcdc82a84d60de317442271726331-1024-1024.webp"
+  },
+  {
+    "Marca": "CAROLINA HERRERA",
+    "ID": "9996",
+    "Produto": "GOOD GIRL BLUSH 80 ML TESTER",
+    "Custo_Padrao": "R$ 450,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "CAROLINA HERRERA",
+    "ID": "3049",
+    "Produto": "GOOD GIRL EDP 80 ML",
+    "Custo_Padrao": "R$ 530,00",
+    "Preco_Venda": "R$ 659,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/good-girl-2-447b3f054e2326a18b17049128979035-1024-1024.webp"
+  },
+  {
+    "Marca": "CAROLINA HERRERA",
+    "ID": "9965",
+    "Produto": "GOOD GIRL EDP 80 ML TESTER",
+    "Custo_Padrao": "R$ 450,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "CAROLINA HERRERA",
+    "ID": "5449",
+    "Produto": "GOOD GIRL MIDNIGHT 80 ML",
+    "Custo_Padrao": "R$ 560,00",
+    "Preco_Venda": "R$ 699,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/83563w.webp"
+  },
+  {
+    "Marca": "CAROLINA HERRERA",
+    "ID": "4718",
+    "Produto": "GOOD GIRL VERY GOOD GIRL 80 ML",
+    "Custo_Padrao": "R$ 530,00",
+    "Preco_Venda": "R$ 649,90",
+    "Imagem": "https://img.fragrancex.com/images/products/sku/large/vercvs.webp"
+  },
+  {
+    "Marca": "CAROLINA HERRERA",
+    "ID": "9989",
+    "Produto": "GOOD GIRL VERY GOOD GIRL 80 ML TESTER",
+    "Custo_Padrao": "R$ 450,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "ISSEY MIYAKE",
+    "ID": "5524",
+    "Produto": "ISSEY MIYAKE L'EAU D'ISSEY M 125 ML",
+    "Custo_Padrao": "R$ 320,00",
+    "Preco_Venda": "R$ 429,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/leau-dissey-pour-homme-edt-2-cbc2657962cfb6765f17171979742767-1024-1024.webp"
+  },
+  {
+    "Marca": "JEAN PAUL GAULTIER",
+    "ID": "9941",
+    "Produto": "JEAN PAUL GAULTIER SCANDAL 80 ML TEST",
+    "Custo_Padrao": "R$ 390,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "JEAN PAUL GAULTIER",
+    "ID": "5944",
+    "Produto": "JEAN PAUL GAULTIER SCANDAL F 80 ML",
+    "Custo_Padrao": "R$ 470,00",
+    "Preco_Venda": "R$ 599,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/scandal-edp-2-a3a9a665616cf7c45717063019431878-1024-1024.webp"
+  },
+  {
+    "Marca": "JEAN PAUL GAULTIER",
+    "ID": "5951",
+    "Produto": "JEAN PAUL GAULTIER SCANDAL LE PARFUM",
+    "Custo_Padrao": "R$ 530,00",
+    "Preco_Venda": "R$ 649,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/scandal-le-parfum-2-983a25b93683c0400917133814125469-1024-1024.webp"
+  },
+  {
+    "Marca": "LANCÃME",
+    "ID": "10269",
+    "Produto": "LA VIE EST BELLE 100 ML TESTER",
+    "Custo_Padrao": "R$ 390,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LANCÃME",
+    "ID": "3599",
+    "Produto": "LA VIE EST BELLE EDP 100 ML",
+    "Custo_Padrao": "R$ 520,00",
+    "Preco_Venda": "R$ 649,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/la-vie-edp-2-fb7947724fe84d6aa217049128274907-1024-1024.webp"
+  },
+  {
+    "Marca": "LANCÃME",
+    "ID": "11624",
+    "Produto": "LA VIE EST BELLE L'ELIXIR 100 ML",
+    "Custo_Padrao": "R$ 670,00",
+    "Preco_Venda": "R$ 899,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/la-vie-est-belle-lelixir-2-113194f0c6a31f435f17652301213260-1024-1024.webp"
+  },
+  {
+    "Marca": "LANCÃME",
+    "ID": "7283",
+    "Produto": "LANCÃME IDOLE EDP 75 ML",
+    "Custo_Padrao": "R$ 460,00",
+    "Preco_Venda": "R$ 579,90",
+    "Imagem": "https://m.media-amazon.com/images/I/71x4X2bZ2NL._AC_UF1000,1000_QL80_.jpg"
+  },
+  {
+    "Marca": "LANCÃME",
+    "ID": "10276",
+    "Produto": "LANCOME IDOLE EDP 75 ML TESTER",
+    "Custo_Padrao": "R$ 380,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "LANCÃME",
+    "ID": "4169",
+    "Produto": "LANCÃME IDOLE EDP 100ML",
+    "Custo_Padrao": "R$ 490,00",
+    "Preco_Venda": "R$ 599,90",
+    "Imagem": "https://azperfumes.vteximg.com.br/arquivos/ids/174892-1000-1000/Idole-De-Lancome-Eau-De-Parfum-Feminino.jpg?v=638306415607970000"
+  },
+  {
+    "Marca": "MONTBLANC",
+    "ID": "5548",
+    "Produto": "MONTBLANC EXPLORER 100 ML",
+    "Custo_Padrao": "R$ 290,00",
+    "Preco_Venda": "R$ 389,90",
+    "Imagem": "https://img.fragrancex.com/images/products/sku/large/monmm34ed.webp"
+  },
+  {
+    "Marca": "MONTBLANC",
+    "ID": "4244",
+    "Produto": "MONTBLANC LEGEND 100 ML",
+    "Custo_Padrao": "R$ 250,00",
+    "Preco_Venda": "R$ 349,90",
+    "Imagem": "https://img.fragrancex.com/images/products/sku/large/mbleg34m.webp"
+  },
+  {
+    "Marca": "NAUTICA",
+    "ID": "6408",
+    "Produto": "NAUTICA VOYAGE 100 ML",
+    "Custo_Padrao": "R$ 125,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "PACO RABBANE",
+    "ID": "4695",
+    "Produto": "OLYMPEA EDP 80 ML",
+    "Custo_Padrao": "R$ 449,99",
+    "Preco_Venda": "R$ 599,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/olympea-2-8fcea3a25f6fd3cfb917055085568679-1024-1024.webp"
+  },
+  {
+    "Marca": "PACO RABBANE",
+    "ID": "9972",
+    "Produto": "OLYMPEA FLORA 80 ML TESTER",
+    "Custo_Padrao": "R$ 360,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "PACO RABBANE",
+    "ID": "4268",
+    "Produto": "ONE MILLION EDT 100 ML",
+    "Custo_Padrao": "R$ 409,99",
+    "Preco_Venda": "R$ 509,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/1-million-edt-2-8fb032bc769da6e22d17049125945813-1024-1024.webp"
+  },
+  {
+    "Marca": "PACO RABBANE",
+    "ID": "9934",
+    "Produto": "ONE MILLION EDT 100 ML TESTER",
+    "Custo_Padrao": "R$ 330,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "PACO RABBANE",
+    "ID": "4732",
+    "Produto": "ONE MILLION ELIXIR 100 ML",
+    "Custo_Padrao": "R$ 439,99",
+    "Preco_Venda": "R$ 549,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/1-million-elixir-2-3f441e537b217759dc17049125072244-1024-1024.webp"
+  },
+  {
+    "Marca": "PACO RABBANE",
+    "ID": "4275",
+    "Produto": "ONE MILLION ROYAL 100 ML",
+    "Custo_Padrao": "R$ 439,99",
+    "Preco_Venda": "R$ 549,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/1-million-royal-2-06b5cd3396fb098f2717482089588745-1024-1024.webp"
+  },
+  {
+    "Marca": "PACO RABBANE",
+    "ID": "6545",
+    "Produto": "RABANNE FAME EDP 80 ML",
+    "Custo_Padrao": "R$ 459,99",
+    "Preco_Venda": "R$ 589,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/fame-edp-2-cc4a4c6bb522075ade17219386801968-1024-1024.webp"
+  },
+  {
+    "Marca": "PACO RABBANE",
+    "ID": "6538",
+    "Produto": "RABANNE PHANTOM EDT 100 ML",
+    "Custo_Padrao": "R$ 420,00",
+    "Preco_Venda": "R$ 549,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/phantom-edt-2-da54caf4b5455b5db717049127750884-1024-1024.webp"
+  },
+  {
+    "Marca": "PACO RABBANE",
+    "ID": "9910",
+    "Produto": "RABANNE PHANTOM EDT 100 ML TESTER",
+    "Custo_Padrao": "R$ 320,00",
+    "Preco_Venda": "",
+    "Imagem": ""
+  },
+  {
+    "Marca": "PACO RABBANE",
+    "ID": "6552",
+    "Produto": "RABANNE PHANTOM PARFUM 100 ML",
+    "Custo_Padrao": "R$ 460,00",
+    "Preco_Venda": "R$ 599,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/phantom-parfum-2-8ed92c26ac03a8993117430228448345-1024-1024.webp"
+  },
+  {
+    "Marca": "RALPH LAUREN",
+    "ID": "10993",
+    "Produto": "RALPH LAUREN POLO 118 ML TESTER",
+    "Custo_Padrao": "R$ 300,00",
+    "Preco_Venda": "R$ 399,90",
+    "Imagem": "https://images.tcdn.com.br/img/img_prod/611043/perfume_ralph_lauren_polo_118ml_edt_2745_1_b0381b6b67dd412a00e548dd83572cd1.jpg"
+  },
+  {
+    "Marca": "DIOR",
+    "ID": "5531",
+    "Produto": "SAUVAGE EDT 100 ML",
+    "Custo_Padrao": "R$ 540,00",
+    "Preco_Venda": "R$ 679,90",
+    "Imagem": "https://img.fragrancex.com/images/products/sku/large/s2tsm.webp"
+  },
+  {
+    "Marca": "JACQUES BOGART",
+    "ID": "4282",
+    "Produto": "SILVER SCENT 100 ML",
+    "Custo_Padrao": "R$ 130,00",
+    "Preco_Venda": "R$ 229,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/silver-scent-edt-intense-2-11e45cee797d3cb08517472546987903-1024-1024.webp"
+  },
+  {
+    "Marca": "ANFAS",
+    "ID": "1472",
+    "Produto": "ANFAS DHAI EXTR. PARFUM 75 ML",
+    "Custo_Padrao": "R$ 2.200,00",
+    "Preco_Venda": "R$ 2.699,90",
+    "Imagem": "https://eyvor.com.br/wp-content/uploads/2025/06/Eyvor-Perfumaria-de-Nicho-dhai-anfas-perfume-unissex-extrait-de-parfum-5.png"
+  },
+  {
+    "Marca": "ANFAS",
+    "ID": "1342",
+    "Produto": "ANFAS GAYA EDP 75 ML",
+    "Custo_Padrao": "R$ 1.600,00",
+    "Preco_Venda": "R$ 2.199,90",
+    "Imagem": "https://eyvor.com.br/wp-content/uploads/2025/06/Eyvor-Perfumaria-de-Nicho-gaya-anfas-perfume-unissex-eau-de-parfum-2.png"
+  },
+  {
+    "Marca": "ANFAS",
+    "ID": "1335",
+    "Produto": "ANFAS ISHQ EDP 75 ML",
+    "Custo_Padrao": "R$ 1.800,00",
+    "Preco_Venda": "R$ 2.399,90",
+    "Imagem": "https://cdn.fragrancenet.com/images/photos/600x600/445528.jpg"
+  },
+  {
+    "Marca": "BULGARI",
+    "ID": "1465",
+    "Produto": "BVLGARI LE GEMME ONEKH EDP C 100 ML",
+    "Custo_Padrao": "R$ 1.800,00",
+    "Preco_Venda": "R$ 2.399,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/78533m.webp"
+  },
+  {
+    "Marca": "BULGARI",
+    "ID": "1618",
+    "Produto": "BVLGARI LE GEMME ZAHIRA EDP C 100ML",
+    "Custo_Padrao": "R$ 1.800,00",
+    "Preco_Venda": "R$ 2.399,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/78534w.webp"
+  },
+  {
+    "Marca": "CREED",
+    "ID": "3957",
+    "Produto": "CREED AVENTUS EDP 100 ML",
+    "Custo_Padrao": "R$ 2.200,00",
+    "Preco_Venda": "R$ 2.799,00",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/masculinos-38fd23bee1c54f533517326342036949-1024-1024.webp"
+  },
+  {
+    "Marca": "CREED",
+    "ID": "1373",
+    "Produto": "CREED AVENTUS EDP FOR HER 75 ML",
+    "Custo_Padrao": "R$ 1.700,00",
+    "Preco_Venda": "R$ 2.299,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/creed-aventus-for-her-eda16ff7ff9f42266017326627945850-1024-1024.webp"
+  },
+  {
+    "Marca": "CREED",
+    "ID": "1366",
+    "Produto": "CREED CARMINA EDP F 75 ML",
+    "Custo_Padrao": "R$ 2.100,00",
+    "Preco_Venda": "R$ 2.699,90",
+    "Imagem": "https://img.fragrancex.com/images/products/sku/large/carch4.webp"
+  },
+  {
+    "Marca": "CREED",
+    "ID": "6101",
+    "Produto": "CREED MILLESIME IMPERIAL EDP 100 ML",
+    "Custo_Padrao": "R$ 1.900,00",
+    "Preco_Venda": "R$ 2.499,00",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/millesime-imperial-2-9d84617cf09ee87e6a17634074256808-1024-1024.webp"
+  },
+  {
+    "Marca": "CREED",
+    "ID": "6118",
+    "Produto": "CREED QUEEN OF SILK EDP 75 ML",
+    "Custo_Padrao": "R$ 2.400,00",
+    "Preco_Venda": "R$ 2.999,90",
+    "Imagem": "https://img.fragrancex.com/images/products/sku/large/creco5.webp"
+  },
+  {
+    "Marca": "INITIO",
+    "ID": "6095",
+    "Produto": "INITIO ADDICTIVE VIBRATION EDP 90 ML",
+    "Custo_Padrao": "R$ 1.750,00",
+    "Preco_Venda": "R$ 2.249,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/80028m.webp"
+  },
+  {
+    "Marca": "INITIO",
+    "ID": "6071",
+    "Produto": "INITIO NARCOTIC DELIGHT EDP 90 ML",
+    "Custo_Padrao": "R$ 1.750,00",
+    "Preco_Venda": "R$ 2.249,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/83035m.webp"
+  },
+  {
+    "Marca": "INITIO",
+    "ID": "1533",
+    "Produto": "INITIO OUD FOR GREAT. EDP UNI 90 ML",
+    "Custo_Padrao": "R$ 1.900,00",
+    "Preco_Venda": "R$ 2.499,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/80032m.webp"
+  },
+  {
+    "Marca": "INITIO",
+    "ID": "8792",
+    "Produto": "INITIO PARAGON EXTRAIT DE PARFUM 90 ML",
+    "Custo_Padrao": "R$ 1.650,00",
+    "Preco_Venda": "R$ 2.149,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/81564m.webp"
+  },
+  {
+    "Marca": "INITIO",
+    "ID": "1526",
+    "Produto": "INITIO PSYCHADELIC LOVE EDP 90 ML",
+    "Custo_Padrao": "R$ 1.900,00",
+    "Preco_Venda": "R$ 2.499,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/80030m.webp"
+  },
+  {
+    "Marca": "STÃPHANE HUMBERT LUCAS",
+    "ID": "10948",
+    "Produto": "LUCAS SHL GOD OF FIRE EDP 50 ML",
+    "Custo_Padrao": "R$ 1.900,00",
+    "Preco_Venda": "R$ 2.499,90",
+    "Imagem": "https://www.perfumestudiomnl.com/cdn/shop/files/A7157F14-9C45-49F7-B7D7-B68DC300CC91.jpg?v=1737112658"
+  },
+  {
+    "Marca": "MAISON FRANCIS KURKDJIAN",
+    "ID": "1328",
+    "Produto": "MAISON F. BACCARAT ROUGE 540 EDP 70 ML",
+    "Custo_Padrao": "R$ 2.300,00",
+    "Preco_Venda": "R$ 2.899,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/002/652/199/products/bacarrat1-ad0ccc99b456dacbe516879701393825-1024-1024.webp"
+  },
+  {
+    "Marca": "MAISON FRANCIS KURKDJIAN",
+    "ID": "1329",
+    "Produto": "MAISON F. BACCARAT ROUGE 540 EXTRAIT 50 ML",
+    "Custo_Padrao": "R$ 3.450,00",
+    "Preco_Venda": "R$ 3.999,90",
+    "Imagem": "https://azperfumes.vteximg.com.br/arquivos/ids/174723-1000-1000/Baccarat-Rouge-540-Extrait-Maison-Francis-Kurkdjian-Eau-De-Parfum-Perfume-Feminino.jpg?v=638254790561470000"
+  },
+  {
+    "Marca": "MEMO",
+    "ID": "3025",
+    "Produto": "MEMO AFRICAN LEATHER EDP 75 ML",
+    "Custo_Padrao": "R$ 1.750,00",
+    "Preco_Venda": "R$ 2.149,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/76014w.webp"
+  },
+  {
+    "Marca": "MEMO",
+    "ID": "3032",
+    "Produto": "MEMO FRENCH LEATHER EDP 75 ML",
+    "Custo_Padrao": "R$ 2.200,00",
+    "Preco_Venda": "R$ 2.899,90",
+    "Imagem": "https://img.fragrancex.com/images/products/sku/large/frel25w.webp"
+  },
+  {
+    "Marca": "MEMO",
+    "ID": "3056",
+    "Produto": "MEMO MARFA EDP 75 ML",
+    "Custo_Padrao": "R$ 2.200,00",
+    "Preco_Venda": "R$ 2.899,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/76010w.webp"
+  },
+  {
+    "Marca": "MEMO",
+    "ID": "3063",
+    "Produto": "MEMO WINTER PALACE EDP 75 ML",
+    "Custo_Padrao": "R$ 2.200,00",
+    "Preco_Venda": "R$ 2.899,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/78064w.webp"
+  },
+  {
+    "Marca": "MICALLEF",
+    "ID": "1489",
+    "Produto": "MICALLEF SECRET L. SPIRITUAL EDP 100 ML",
+    "Custo_Padrao": "R$ 1.300,00",
+    "Preco_Venda": "R$ 1.799,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/77450w.webp"
+  },
+  {
+    "Marca": "MONTALE",
+    "ID": "5647",
+    "Produto": "MONTALE ARABIANS EDP F 100 ML",
+    "Custo_Padrao": "R$ 430,00",
+    "Preco_Venda": "R$ 599,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/78854w.webp"
+  },
+  {
+    "Marca": "MONTALE",
+    "ID": "5623",
+    "Produto": "MONTALE BOISE VANILLE EDP 100 ML",
+    "Custo_Padrao": "R$ 430,00",
+    "Preco_Venda": "R$ 599,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/72109w.webp"
+  },
+  {
+    "Marca": "MONTALE",
+    "ID": "5630",
+    "Produto": "MONTALE WOOD & SPICES EDP 100 ML",
+    "Custo_Padrao": "R$ 430,00",
+    "Preco_Venda": "R$ 599,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/75650m.webp"
+  },
+  {
+    "Marca": "NISHANE",
+    "ID": "2981",
+    "Produto": "NISHANE ANI EXTRAIT DE PARFUM 100 ML",
+    "Custo_Padrao": "R$ 1.450,00",
+    "Preco_Venda": "R$ 1.999,90",
+    "Imagem": "https://img.fragrancex.com/images/products/sku/large/nishani34ex.webp"
+  },
+  {
+    "Marca": "NISHANE",
+    "ID": "1274",
+    "Produto": "NISHANE HUNDRED SILENT W. EXT DE P 100 M",
+    "Custo_Padrao": "R$ 1.600,00",
+    "Preco_Venda": "R$ 2.199,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/77991w.webp"
+  },
+  {
+    "Marca": "NISHANE",
+    "ID": "3018",
+    "Produto": "NISHANE WULONG CHA EXTRAIT DE PARFUM 100",
+    "Custo_Padrao": "R$ 1.650,00",
+    "Preco_Venda": "R$ 2.249,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/77786w.webp"
+  },
+  {
+    "Marca": "PANA DORA",
+    "ID": "1281",
+    "Produto": "PANA DORA DORASIMA EDP 100 ML",
+    "Custo_Padrao": "R$ 1.600,00",
+    "Preco_Venda": "R$ 2.199,90",
+    "Imagem": "https://panadora.se/cdn/shop/products/Dorasima_.jpg2.jpg?crop=center&height=1500&v=1763323824&width=1500"
+  },
+  {
+    "Marca": "PANA DORA",
+    "ID": "1298",
+    "Produto": "PANA DORA XVI EDP 100 ML",
+    "Custo_Padrao": "R$ 1.800,00",
+    "Preco_Venda": "R$ 2.399,90",
+    "Imagem": "https://panadora.se/cdn/shop/products/XVI.jpg2.jpg?v=1763323840&width=1214"
+  },
+  {
+    "Marca": "PARFUMS DE MARLY",
+    "ID": "1434",
+    "Produto": "PAR. DE MARLY DELINA EDP 75 ML",
+    "Custo_Padrao": "R$ 1.800,00",
+    "Preco_Venda": "R$ 2.499,00",
+    "Imagem": "https://azperfumes.vteximg.com.br/arquivos/ids/167729-1000-1000/Delina-Parfums-De-Marly-Eau-De-Parfum-Feminino.jpg?v=636688973511670000"
+  },
+  {
+    "Marca": "PARFUMS DE MARLY",
+    "ID": "6132",
+    "Produto": "PAR. DE MARLY DELINA LA ROSEE EDP 75 ML",
+    "Custo_Padrao": "R$ 1.800,00",
+    "Preco_Venda": "R$ 2.499,00",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/80131w.webp"
+  },
+  {
+    "Marca": "PARFUMS DE MARLY",
+    "ID": "9812",
+    "Produto": "PARFUMS DE MARLY PERSEUS EDP 125 ML",
+    "Custo_Padrao": "R$ 1.400,00",
+    "Preco_Venda": "R$ 1.849,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/perseus-edp-2-072c3252a9d766131717470697663669-1024-1024.webp"
+  },
+  {
+    "Marca": "MAISON MARGIELA",
+    "ID": "1267",
+    "Produto": "M. MARGIELA REPLICA BY THE FIREPLAC EDT 100 ML",
+    "Custo_Padrao": "R$ 940,00",
+    "Preco_Venda": "R$ 1.399,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/79791w.webp"
+  },
+  {
+    "Marca": "MAISON MARGIELA",
+    "ID": "1359",
+    "Produto": "M. MARGIELA REPLICA FLOWER MARKET EDT 100 ML",
+    "Custo_Padrao": "R$ 800,00",
+    "Preco_Venda": "R$ 1.199,90",
+    "Imagem": "https://img.fragrancex.com/images/products/sku/large/repm0g.webp"
+  },
+  {
+    "Marca": "ROJA PARFUMS",
+    "ID": "1571",
+    "Produto": "ROJA PARF. SCANDAL EDP F 50 ML",
+    "Custo_Padrao": "R$ 2.000,00",
+    "Preco_Venda": "R$ 2.699,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/75788m.webp"
+  },
+  {
+    "Marca": "SOSPIRO",
+    "ID": "2974",
+    "Produto": "SOSPIRO VIBRATO 100 ML",
+    "Custo_Padrao": "R$ 1.700,00",
+    "Preco_Venda": "R$ 2.299,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/sospiro-vibrato-2-7ead63f092ddcdb47517456033029147-1024-1024.webp"
+  },
+  {
+    "Marca": "TOM FORD",
+    "ID": "1601",
+    "Produto": "TOM FORD OMBRE LEATHER EDP 100 ML",
+    "Custo_Padrao": "R$ 1.300,00",
+    "Preco_Venda": "R$ 1.899,90",
+    "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/76307w.webp"
+  },
+  {
+    "Marca": "XERJOFF",
+    "ID": "1564",
+    "Produto": "XERJOFF 1861 NAXOS EDP 100 ML",
+    "Custo_Padrao": "R$ 1.450,00",
+    "Preco_Venda": "R$ 1.899,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/naxos-2-7cadb65166e8b9bd5617456028281565-1024-1024.webp"
+  },
+  {
+    "Marca": "XERJOFF",
+    "ID": "6149",
+    "Produto": "XERJOFF ACCENTO EDP 100 ML",
+    "Custo_Padrao": "R$ 1.500,00",
+    "Preco_Venda": "R$ 2.199,90",
+    "Imagem": "https://img.fragrancex.com/images/products/sku/large/xerxwd.webp"
+  },
+  {
+    "Marca": "XERJOFF",
+    "ID": "1380",
+    "Produto": "XERJOFF ERBA PURA EDP 100 ML",
+    "Custo_Padrao": "R$ 1.400,00",
+    "Preco_Venda": "R$ 1.849,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/erba-pura-edp-2-08d1e9494aff6c1ca217401778110653-1024-1024.webp"
+  },
+  {
+    "Marca": "XERJOFF",
+    "ID": "1381",
+    "Produto": "XERJOFF ERBA GOLD EDP 100 ML",
+    "Custo_Padrao": "R$ 1.400,00",
+    "Preco_Venda": "R$ 1.849,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/erba-gold-2-715bf90ccceeb0b71017485691445902-1024-1024.webp"
+  },
+  {
+    "Marca": "BURBERRY",
+    "ID": "0001",
+    "Produto": "BURBERRY GODDESS EDP 30ML",
+    "Custo_Padrao": "R$ 299,00",
+    "Preco_Venda": "R$ 489,90",
+    "Imagem": "https://epocacosmeticos.vteximg.com.br/arquivos/ids/567408/goddess-burberry-perfume-feminino-eau-de-parfum--3-.jpg?v=638301316733200000"
+  },
+  {
+    "Marca": "GIORGIO ARMANI",
+    "ID": "0002",
+    "Produto": "GIORGIO ARMANI ACQUA DI GIO EDP 100ML",
+    "Custo_Padrao": "R$ 479,90",
+    "Preco_Venda": "R$ 589,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/acqua-di-gio-edp-2-d5cb81e4a747ad0fb617049124752640-1024-1024.webp"
   }
 ]
