@@ -10,28 +10,86 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header class="top">
-      <div class="logo-wrap">
-        <img
-          src="logo.png"
-          alt="ZEIDAN PARFUM"
-          class="logo"
-        />
-      </div>
-
-      <div class="brand-select-wrap">
-        <select id="brandSelect">
-          <option value="TODAS">TODAS</option>
-        </select>
+    <!-- Barra de busca topo -->
+    <header class="top-bar">
+      <div class="top-bar-inner">
+        <div class="top-message">
+          ENTRE EM CONTATO COM O VENDEDOR ANTES DE FINALIZAR SUA COMPRA
+        </div>
       </div>
     </header>
 
-    <main class="content">
-      <section
-        id="perfumeGrid"
-        class="perfume-grid"
-      >
-        <!-- Cards entram aqui pelo JS -->
+    <!-- Logo + busca + menu -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-top">
+          <div class="logo-wrap">
+            <img
+              src="logo.png"
+              alt="ZEIDAN PARFUM"
+              class="logo"
+            />
+          </div>
+
+          <div class="search-wrap">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="O que você está buscando?"
+            />
+            <button class="search-btn" type="button">
+              🔍
+            </button>
+          </div>
+        </div>
+
+        <nav class="main-nav">
+          <a href="#inicio">Início</a>
+          <a href="#marcas">Marcas</a>
+          <a href="#produtos">Produtos</a>
+          <a href="#contato">Contato</a>
+        </nav>
+      </div>
+    </section>
+
+    <main id="inicio" class="page-content">
+      <!-- Select de marcas compacto -->
+      <section class="filters">
+        <div class="filters-inner">
+          <label for="brandSelect" class="filters-label">
+            Filtrar por marca
+          </label>
+          <select id="brandSelect">
+            <option value="TODAS">TODAS</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- Lista de marcas em colunas -->
+      <section id="marcas" class="brand-list-section">
+        <h2 class="section-title">Marcas</h2>
+        <div id="brandColumns" class="brand-columns">
+          <!-- preenchido via JS -->
+        </div>
+      </section>
+
+      <!-- Grade de produtos -->
+      <section id="produtos" class="product-section">
+        <h2 class="section-title">Perfumes</h2>
+        <div
+          id="perfumeGrid"
+          class="product-grid"
+        >
+          <!-- cards via JS -->
+        </div>
+      </section>
+
+      <!-- Contato simples -->
+      <section id="contato" class="contact-section">
+        <p>
+          Para pedidos e dúvidas, entre em contato pelo WhatsApp ou Instagram
+          da Zeidan Parfum.
+        </p>
       </section>
     </main>
 
