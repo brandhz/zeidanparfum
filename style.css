@@ -190,6 +190,36 @@ body {
   color: #ffffff;
 }
 
+/* Filtros de categoria */
+.category-filters {
+  max-width: 1200px;
+  margin: 8px auto 16px;
+  padding: 0 4px;
+}
+
+.category-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.category-btn {
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: transparent;
+  padding: 6px 14px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+}
+
+.category-btn.active {
+  background: #ffffff;
+  color: #041739;
+}
+
 /* Grade de produtos */
 .product-section {
   margin-bottom: 32px;
@@ -214,7 +244,7 @@ body {
   flex-direction: column;
   gap: 6px;
 
-  min-height: 290px; /* ajusta aqui se quiser mais alto/baixo */
+  min-height: 290px;
 }
 
 /* Imagem */
@@ -395,7 +425,6 @@ body {
   margin-bottom: 20px;
 }
 
-/* Botão de contato – mesmo estilo do Encomendar */
 .contact-btn {
   display: inline-flex;
   align-items: center;
