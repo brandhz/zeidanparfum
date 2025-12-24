@@ -4,7 +4,7 @@ const PRODUTOS = [
     id: "adyan-areej-al-arab",
     nome: "Adyan Areej Al Arab 100 ml",
     marca: "ADYAN",
-    categoria: "ÁRABE",
+    categoria: "ARABE",
     preco: "R$ 249,90",
     imagem: "img/adyan-areej-al-arab.jpg",
     notas: "Notas de topo: açafrão, rosa. Notas de coração: âmbar, madeiras. Notas de fundo: musk, baunilha.",
@@ -22,5 +22,5 @@ const PRODUTOS = [
     descricao: "Descrição longa...",
     whatsappTexto: "Quero o Afnan Zimaya Tiramisu Coco 100 ml"
   },
-  // vai adicionando os outros perfumes aqui
+  // adiciona os outros perfumes aqui
 ];
