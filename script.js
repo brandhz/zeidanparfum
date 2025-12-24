@@ -5,6 +5,11 @@ const brandPanel = document.querySelector(".brand-panel");
 const brandsToggle = document.getElementById("brandsToggle");
 const homeLink = document.getElementById("homeLink");
 
+// modal de imagem
+const imageModal = document.getElementById("imageModal");
+const imageModalImg = document.getElementById("imageModalImg");
+const imageModalClose = document.getElementById("imageModalClose");
+
 let perfumes = [];
 
 // Seu número de WhatsApp
@@ -97,11 +102,12 @@ function renderCards(selectedBrand, searchTerm) {
 
     const whatsappLink = buildWhatsAppLink(p);
 
+    // card + zoom na imagem
     card.innerHTML = `
       <div class="product-image-wrap">
         ${
           p.Imagem
-            ? `<img src="${p.Imagem}" alt="${p.Produto ?? ""}" class="product-image" />`
+            ? `<img src="${p.Imagem}" alt="${p.Produto ?? ""}" class="product-image" data-full="${p.Imagem}" />`
             : ""
         }
       </div>
@@ -125,6 +131,17 @@ function renderCards(selectedBrand, searchTerm) {
         </a>
       </div>
     `;
+
+    // adiciona evento de zoom na imagem
+    const imgEl = card.querySelector(".product-image");
+    if (imgEl) {
+      imgEl.addEventListener("click", () => {
+        const fullSrc = imgEl.getAttribute("data-full");
+        imageModalImg.src = fullSrc;
+        imageModalImg.alt = imgEl.alt || "";
+        openImageModal();
+      });
+    }
 
     perfumeGrid.appendChild(card);
   });
@@ -165,10 +182,35 @@ homeLink.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-// Busca por texto
+/* Busca por texto */
 searchInput.addEventListener("input", (e) => {
   renderCards("TODAS", e.target.value);
 });
 
-// Inicia
+/* Modal de imagem */
+
+function openImageModal() {
+  imageModal.classList.add("open");
+}
+
+function closeImageModal() {
+  imageModal.classList.remove("open");
+  imageModalImg.src = "";
+}
+
+imageModalClose.addEventListener("click", closeImageModal);
+
+imageModal.addEventListener("click", (e) => {
+  if (e.target === imageModal || e.target.classList.contains("image-modal-backdrop")) {
+    closeImageModal();
+  }
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && imageModal.classList.contains("open")) {
+    closeImageModal();
+  }
+});
+
+/* Inicia */
 loadPerfumes();
