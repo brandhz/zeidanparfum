@@ -1,4 +1,3 @@
-const brandSelect = document.getElementById("brandSelect");
 const perfumeGrid = document.getElementById("perfumeGrid");
 const brandColumns = document.getElementById("brandColumns");
 const searchInput = document.getElementById("searchInput");
@@ -16,7 +15,6 @@ async function loadPerfumes() {
     const response = await fetch("data.json");
     perfumes = await response.json();
 
-    populateBrandSelect();
     populateBrandColumns();
     renderCards("TODAS", "");
   } catch (error) {
@@ -24,24 +22,13 @@ async function loadPerfumes() {
   }
 }
 
-// Preenche select
-function populateBrandSelect() {
-  const brands = ["TODAS", ...new Set(perfumes.map((p) => p.Marca || ""))];
-
-  brands
-    .filter((b) => b && b.trim() !== "")
-    .sort((a, b) => a.localeCompare(b))
-    .forEach((brand) => {
-      const opt = document.createElement("option");
-      opt.value = brand;
-      opt.textContent = brand;
-      brandSelect.appendChild(opt);
-    });
-}
-
-// Lista de marcas em colunas
+// Lista de marcas em colunas – só marcas com ao menos um perfume com preço
 function populateBrandColumns() {
-  const brands = [...new Set(perfumes.map((p) => p.Marca || ""))]
+  const brandsWithPrice = perfumes
+    .filter((p) => (p.Preco_Venda || "").trim() !== "")
+    .map((p) => p.Marca || "");
+
+  const brands = [...new Set(brandsWithPrice)]
     .filter((b) => b && b.trim() !== "")
     .sort((a, b) => a.localeCompare(b));
 
@@ -56,7 +43,6 @@ function populateBrandColumns() {
       const li = document.createElement("li");
       li.textContent = brand;
       li.addEventListener("click", () => {
-        brandSelect.value = brand;
         renderCards(brand, searchInput.value);
         closeBrandPanel();
         document
@@ -87,7 +73,7 @@ Preço: ${preco}`;
 // Renderiza cards (só com preço)
 function renderCards(selectedBrand, searchTerm) {
   perfumeGrid.innerHTML = "";
-  const term = searchTerm.trim().toLowerCase();
+  const term = (searchTerm || "").trim().toLowerCase();
 
   const filtered = perfumes.filter((p) => {
     const brand = p.Marca || "";
@@ -172,13 +158,9 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// Eventos de filtro/busca
-brandSelect.addEventListener("change", (e) => {
-  renderCards(e.target.value, searchInput.value);
-});
-
+// Busca por texto
 searchInput.addEventListener("input", (e) => {
-  renderCards(brandSelect.value, e.target.value);
+  renderCards("TODAS", e.target.value);
 });
 
 // Inicia
