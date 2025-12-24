@@ -78,17 +78,25 @@ Preço: ${preco}`;
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMsg}`;
 }
 
+// normaliza categoria: tira acento e deixa maiúsculo
+function normalizeCat(value) {
+  return (value || "")
+    .toString()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toUpperCase();
+
 // Renderiza cards (marca + texto + categoria)
 function renderCards(selectedBrand, searchTerm, category) {
   perfumeGrid.innerHTML = "";
   const term = (searchTerm || "").trim().toLowerCase();
-  const cat = (category || "TODAS").toUpperCase();
+  const cat = normalizeCat(category || "TODAS");
 
   const filtered = perfumes.filter((p) => {
     const brand = p.Marca || "";
     const name = p.Produto || "";
     const price = (p.Preco_Venda || "").trim();
-    const catValue = (p.Categoria || "").toString().toUpperCase();
+    const catValue = normalizeCat(p.Categoria || "");
 
     if (!price) return false;
 
@@ -234,3 +242,4 @@ document.addEventListener("keydown", (e) => {
 
 /* Inicia */
 loadPerfumes();
+
