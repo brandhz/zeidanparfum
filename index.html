@@ -17,7 +17,7 @@
     </header>
 
     <!-- Logo + busca + menu -->
-    <section class="hero">
+    <section id="topo" class="hero">
       <div class="hero-inner">
         <div class="hero-top">
           <div class="logo-wrap">
@@ -35,10 +35,8 @@
         </div>
 
         <nav class="main-nav">
-          <a href="#inicio">Início</a>
+          <a href="#topo">Início</a>
           <a href="#marcas">Marcas</a>
-          <a href="#produtos">Produtos</a>
-          <a href="#contato">Contato</a>
         </nav>
       </div>
     </section>
@@ -56,24 +54,20 @@
         </div>
       </section>
 
-      <!-- Lista de marcas em colunas -->
-      <section id="marcas" class="brand-list-section">
-        <h2 class="section-title">Marcas</h2>
-        <div id="brandColumns" class="brand-columns"></div>
+      <!-- Painel de marcas flutuante -->
+      <section id="marcas" class="brand-panel">
+        <div class="brand-panel-inner">
+          <div class="brand-panel-header">
+            Marcas
+          </div>
+          <div id="brandColumns" class="brand-columns"></div>
+        </div>
       </section>
 
       <!-- Grade de produtos -->
       <section id="produtos" class="product-section">
         <h2 class="section-title">Perfumes</h2>
         <div id="perfumeGrid" class="product-grid"></div>
-      </section>
-
-      <!-- Contato -->
-      <section id="contato" class="contact-section">
-        <p>
-          Para pedidos e dúvidas, entre em contato pelo WhatsApp ou Instagram da
-          Zeidan Parfum.
-        </p>
       </section>
     </main>
 
