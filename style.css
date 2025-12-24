@@ -229,8 +229,8 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
 }
 
 /* Card de produto – mesma altura em todas as colunas */
@@ -244,7 +244,8 @@ body {
   flex-direction: column;
   gap: 6px;
 
-  min-height: 290px;
+  min-height: 240px;   /* menor */
+  max-width: 360px;    /* impede de ficar gigante em linha com poucos itens */
 }
 
 /* Imagem */
@@ -532,4 +533,5 @@ body {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
   }
 }
+
 
