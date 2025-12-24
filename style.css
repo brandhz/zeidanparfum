@@ -229,7 +229,7 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
 }
 
@@ -506,16 +506,17 @@ body {
   }
 
   .product-card {
-    padding: 8px 10px 12px;
-    min-height: 280px;
+    padding: 10px 12px 14px;
+    min-height: 260px;
   }
 
   .product-image-wrap {
-    min-height: 140px;
+    min-height: 220px;   /* mais alto no celular */
   }
 
   .product-image {
-    max-height: 140px;
+    max-height: 220px;   /* imagem maior só no mobile */
+    max-width: 95%;
   }
 }
 @keyframes encomende-pulse-hover {
@@ -532,6 +533,7 @@ body {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
   }
 }
+
 
 
 
