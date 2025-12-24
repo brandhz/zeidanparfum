@@ -17,6 +17,15 @@ let currentCategory = "TODAS";
 // Seu número de WhatsApp
 const WHATSAPP_NUMBER = "5531991668430";
 
+// normaliza categoria: tira acento e deixa maiúsculo
+function normalizeCat(value) {
+  return (value || "")
+    .toString()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toUpperCase();
+}
+
 // Carrega dados do data.json
 async function loadPerfumes() {
   try {
@@ -77,14 +86,6 @@ Preço: ${preco}`;
   const encodedMsg = encodeURIComponent(msg);
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMsg}`;
 }
-
-// normaliza categoria: tira acento e deixa maiúsculo
-function normalizeCat(value) {
-  return (value || "")
-    .toString()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toUpperCase();
 
 // Renderiza cards (marca + texto + categoria)
 function renderCards(selectedBrand, searchTerm, category) {
@@ -242,4 +243,3 @@ document.addEventListener("keydown", (e) => {
 
 /* Inicia */
 loadPerfumes();
-
