@@ -3,6 +3,7 @@ const brandColumns = document.getElementById("brandColumns");
 const searchInput = document.getElementById("searchInput");
 const brandPanel = document.querySelector(".brand-panel");
 const brandsToggle = document.getElementById("brandsToggle");
+const homeLink = document.getElementById("homeLink");
 
 let perfumes = [];
 
@@ -131,7 +132,6 @@ function renderCards(selectedBrand, searchTerm) {
 
 /* Controle do painel de marcas */
 
-// abre/fecha ao clicar no botão do menu
 brandsToggle.addEventListener("click", () => {
   const isOpen = brandPanel.classList.contains("open");
   if (isOpen) {
@@ -156,6 +156,13 @@ document.addEventListener("click", (e) => {
   if (!isInsidePanel && !isToggle) {
     closeBrandPanel();
   }
+});
+
+/* Início – volta para todos os perfumes */
+homeLink.addEventListener("click", () => {
+  searchInput.value = "";
+  renderCards("TODAS", "");
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
 // Busca por texto
