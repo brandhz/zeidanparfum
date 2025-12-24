@@ -199,37 +199,41 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
 }
 
 /* Card de produto – menor */
 .product-card {
   background: rgba(3, 12, 40, 0.96);
   border-radius: 18px;
-  padding: 12px 14px 14px;
+  padding: 10px 12px 12px;
   border: 1px solid rgba(255, 255, 255, 0.04);
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 
 .product-image-wrap {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 6px 0 4px;
+  padding: 4px 0 2px;
+  min-height: 150px;
 }
 
 .product-image {
   max-height: 150px;
-  max-width: 100%;
+  max-width: 90%;
+  width: auto;
+  height: auto;
   object-fit: contain;
+  cursor: pointer;
 }
 
 .product-name {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -253,36 +257,99 @@ body {
 }
 
 .product-actions {
-  margin-top: 4px;
+  margin-top: 6px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
-/* Botão Encomende – degradê verde/cinza */
+/* Botão Encomendar – estilo pastilha larga */
 .product-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  min-width: 180px;
+  padding: 8px 24px;
+
   border-radius: 999px;
   border: none;
-  padding: 6px 18px;
+  background: linear-gradient(135deg, #6be276, #42b799);
+  color: #ffffff;
+
   font-size: 11px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  background-image: linear-gradient(135deg, #1db954, #a0a4ad);
-  color: #041739;
-  cursor: pointer;
+  letter-spacing: 0.18em;
+
   text-decoration: none;
-  font-weight: 600;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
-  transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
+  cursor: pointer;
+
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+}
+
+.product-btn::before {
+  content: "💎";
+  font-size: 14px;
 }
 
 .product-btn:hover {
   filter: brightness(1.05);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
 }
 
 .product-btn:active {
   transform: translateY(1px);
-  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Modal de imagem com blur */
+.image-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.image-modal.open {
+  display: flex;
+}
+
+.image-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+}
+
+.image-modal-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  z-index: 51;
+}
+
+.image-modal-content img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+}
+
+.image-modal-close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  border: none;
+  border-radius: 999px;
+  width: 28px;
+  height: 28px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #ffffff;
+  cursor: pointer;
 }
 
 /* Página de contato */
@@ -323,20 +390,31 @@ body {
   margin-bottom: 20px;
 }
 
-/* Botão principal de contato – mesmo degradê verde/cinza */
+/* Botão principal de contato – mesmo estilo do Encomendar */
 .contact-btn {
-  display: inline-block;
-  padding: 10px 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 10px 32px;
   border-radius: 999px;
-  background-image: linear-gradient(135deg, #1db954, #a0a4ad);
-  color: #041739;
+  background: linear-gradient(135deg, #6be276, #42b799);
+  color: #ffffff;
+
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.18em;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
+
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
-  transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+}
+
+.contact-btn::before {
+  content: "💬";
+  font-size: 16px;
 }
 
 .contact-btn:hover {
@@ -379,6 +457,14 @@ body {
   }
 
   .product-card {
-    padding: 10px 10px 14px;
+    padding: 8px 10px 12px;
+  }
+
+  .product-image-wrap {
+    min-height: 140px;
+  }
+
+  .product-image {
+    max-height: 140px;
   }
 }
