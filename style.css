@@ -526,6 +526,57 @@ body {
   color: #ffffff;
 }
 
+/* Página de detalhes do perfume */
+.product-detail {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-detail-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: center;
+}
+
+.product-detail-image img {
+  width: 100%;
+  max-width: 420px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+}
+
+.product-detail-title {
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+
+.product-detail-brand {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin-bottom: 8px;
+}
+
+.product-detail-price {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.product-detail-notes,
+.product-detail-description {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+
 /* Mobile */
 @media (max-width: 640px) {
   .hero-top {
@@ -562,4 +613,5 @@ body {
     max-width: 100%;
   }
 }
+
 
