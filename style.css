@@ -309,7 +309,18 @@ body {
 
   border-radius: 999px;
   border: none;
-  background: linear-gradient(135deg, #6be276, #42b799);
+
+  /* gradiente preparado pro “wipe” */
+  background: linear-gradient(
+    120deg,
+    #6be276 0%,
+    #6be276 50%,
+    #041739 50%,
+    #041739 100%
+  );
+  background-size: 220% 100%;
+  background-position: 0% 0%;
+
   color: #ffffff;
 
   font-size: 11px;
@@ -321,7 +332,10 @@ body {
   cursor: pointer;
 
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
-  transition: filter 0.12s ease;
+  transition:
+    background-position 0.3s ease,
+    box-shadow 0.12s ease,
+    transform 0.12s ease;
 }
 
 .product-btn::before {
@@ -329,10 +343,10 @@ body {
   font-size: 14px;
 }
 
-/* anima só enquanto o mouse está em cima */
+/* ao passar o mouse, o azul “invade” o botão */
 .product-btn:hover {
-  filter: brightness(1.05);
-  animation: encomende-pulse-hover 0.7s ease-in-out;
+  background-position: 100% 0%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
 }
 
 .product-btn:active {
@@ -518,3 +532,4 @@ body {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
   }
 }
+
