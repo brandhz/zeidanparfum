@@ -2,11 +2,12 @@ const brandSelect = document.getElementById("brandSelect");
 const perfumeGrid = document.getElementById("perfumeGrid");
 let perfumes = [];
 
-// Busca o JSON na raiz (data.json)
+// Carrega dados do data.json
 async function loadPerfumes() {
   try {
     const response = await fetch("data.json");
     perfumes = await response.json();
+
     populateBrandSelect();
     renderCards("TODAS");
   } catch (error) {
@@ -14,11 +15,11 @@ async function loadPerfumes() {
   }
 }
 
-// Preenche o select com marcas únicas
+// Preenche o select com as marcas (campo "Marca")
 function populateBrandSelect() {
   const brands = [
     "TODAS",
-    ...new Set(perfumes.map((p) => p.marca)),
+    ...new Set(perfumes.map((p) => p.Marca)),
   ];
 
   brands.forEach((brand) => {
@@ -29,7 +30,7 @@ function populateBrandSelect() {
   });
 }
 
-// Renderiza os cards conforme a marca
+// Renderiza os cards conforme a marca selecionada
 function renderCards(selectedBrand) {
   perfumeGrid.innerHTML = "";
 
@@ -37,7 +38,7 @@ function renderCards(selectedBrand) {
     selectedBrand === "TODAS"
       ? perfumes
       : perfumes.filter(
-          (p) => p.marca === selectedBrand
+          (p) => p.Marca === selectedBrand
         );
 
   filtered.forEach((p) => {
@@ -46,36 +47,30 @@ function renderCards(selectedBrand) {
 
     card.innerHTML = `
       <div class="perfume-header">
-        <div class="perfume-name">${p.nome}</div>
-        <div class="perfume-brand">${p.marca}</div>
+        <div class="perfume-name">
+          ${p.Produto ?? ""}
+        </div>
+        <div class="perfume-brand">
+          ${p.Marca ?? ""}
+        </div>
       </div>
 
       <div class="perfume-info">
         ${
-          p.tipo
-            ? `<span class="perfume-tag">${p.tipo}</span>`
+          p.ID
+            ? `<span class="perfume-tag">ID ${p.ID}</span>`
             : ""
         }
         ${
-          p.genero
-            ? `<span class="perfume-tag">${p.genero}</span>`
-            : ""
-        }
-        ${
-          p.concentracao
-            ? `<span>${p.concentracao}</span>`
-            : ""
-        }
-        ${
-          p.ano
-            ? `<span>${p.ano}</span>`
+          p.Preco_Venda
+            ? `<span>${p.Preco_Venda}</span>`
             : ""
         }
       </div>
 
       ${
-        p.notas
-          ? `<p class="perfume-notes">${p.notas}</p>`
+        p.Imagem
+          ? `<p class="perfume-notes">${p.Imagem}</p>`
           : ""
       }
     `;
@@ -84,7 +79,7 @@ function renderCards(selectedBrand) {
   });
 }
 
-// Troca de marca no select
+// Troca de opção no select
 brandSelect.addEventListener("change", (e) => {
   renderCards(e.target.value);
 });
