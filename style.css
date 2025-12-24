@@ -133,7 +133,7 @@ body {
   opacity: 0.8;
 }
 
-/* Painel de marcas flutuante */
+/* Painel de marcas / categorias */
 .brand-panel {
   position: relative;
   max-width: 1200px;
@@ -197,6 +197,14 @@ body {
   padding: 0 4px;
 }
 
+.category-label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.8;
+  margin-bottom: 6px;
+}
+
 .category-inner {
   display: flex;
   flex-wrap: wrap;
@@ -220,7 +228,7 @@ body {
   color: #041739;
 }
 
-/* Grade de produtos */
+/* Grade de produtos – desktop/tablet */
 .product-section {
   margin-bottom: 32px;
 }
@@ -229,30 +237,29 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
 }
 
-/* Card de produto – mesma altura em todas as colunas */
+/* Card de produto */
 .product-card {
   background: rgba(3, 12, 40, 0.96);
   border-radius: 18px;
-  padding: 12px 14px 14px;
+  padding: 10px 12px 12px;
   border: 1px solid rgba(255, 255, 255, 0.04);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
   display: flex;
   flex-direction: column;
-  gap: 8px;
-
+  gap: 6px;
   min-height: 260px;
 }
 
-/* Imagem */
-..product-image-wrap {
+/* Imagem – desktop padrão */
+.product-image-wrap {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 6px 0 4px;
+  padding: 4px 0 2px;
   min-height: 150px;
 }
 
@@ -297,7 +304,23 @@ body {
   justify-content: center;
 }
 
-/* Botão Encomendar – estilo pastilha */
+/* Animação tipo WhatsApp (wipe) */
+@keyframes encomende-pulse-hover {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  }
+  50% {
+    transform: scale(1.04);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.55);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  }
+}
+
+/* Botão Encomendar */
 .product-btn {
   display: inline-flex;
   align-items: center;
@@ -310,7 +333,6 @@ body {
   border-radius: 999px;
   border: none;
 
-  /* gradiente preparado pro “wipe” */
   background: linear-gradient(
     120deg,
     #6be276 0%,
@@ -335,7 +357,8 @@ body {
   transition:
     background-position 0.3s ease,
     box-shadow 0.12s ease,
-    transform 0.12s ease;
+    transform 0.12s ease,
+    filter 0.12s ease;
 }
 
 .product-btn::before {
@@ -343,10 +366,10 @@ body {
   font-size: 14px;
 }
 
-/* ao passar o mouse, o azul “invade” o botão */
 .product-btn:hover {
   background-position: 100% 0%;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+  filter: brightness(1.05);
+  animation: encomende-pulse-hover 0.7s ease-in-out;
 }
 
 .product-btn:active {
@@ -354,7 +377,7 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
-/* Modal de imagem com blur */
+/* Modal de imagem */
 .image-modal {
   position: fixed;
   inset: 0;
@@ -476,7 +499,6 @@ body {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
 }
 
-/* Link de voltar */
 .contact-back {
   display: inline-block;
   margin-top: 16px;
@@ -505,36 +527,24 @@ body {
     font-size: 11px;
   }
 
+  /* 1 card por linha no celular */
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
   .product-card {
     padding: 10px 12px 14px;
     min-height: 260px;
   }
 
+  /* imagem maior só no mobile */
   .product-image-wrap {
-    min-height: 220px;   /* mais alto no celular */
+    min-height: 220px;
   }
 
   .product-image {
-    max-height: 220px;   /* imagem maior só no mobile */
+    max-height: 220px;
     max-width: 95%;
   }
 }
-@keyframes encomende-pulse-hover {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
-  }
-  50% {
-    transform: scale(1.04);
-    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.55);
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
-  }
-}
-
-
-
-
-
