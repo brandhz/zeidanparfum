@@ -241,6 +241,21 @@ body {
   gap: 24px;
 }
 
+/* força a mesma grade na listagem de busca */
+.search-results,
+.search-results .product-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* cada item da busca não ocupar a largura inteira */
+.search-results .product-card {
+  width: 100%;
+}
+
 /* Card de produto */
 .product-card {
   background: rgba(3, 12, 40, 0.96);
@@ -547,3 +562,4 @@ body {
     max-width: 100%;
   }
 }
+
