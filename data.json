@@ -4186,6 +4186,13 @@
     "Imagem": ""
   },
   {
+    "Marca": "BURBERRY",
+    "ID": "0001",
+    "Produto": "BURBERRY GODDESS EDP 30ML",
+    "Preco_Venda": "R$ 489,90",
+    "Imagem": "https://epocacosmeticos.vteximg.com.br/arquivos/ids/567408/goddess-burberry-perfume-feminino-eau-de-parfum--3-.jpg?v=638301316733200000"
+  },
+  {
     "Marca": "CALVIN KLEIN",
     "ID": "3612",
     "Produto": "CALVIN KLEIN BE 100 ML",
@@ -4275,6 +4282,13 @@
     "Produto": "GABRIELA SABATINI 100 ML",
     "Preco_Venda": "R$ 159,90",
     "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/gabriela-sabatini-edt-2-1aea8bb1b6db6eba6217585683582141-1024-1024.webp"
+  },
+  {
+    "Marca": "GIORGIO ARMANI",
+    "ID": "0002",
+    "Produto": "GIORGIO ARMANI ACQUA DI GIO EDP 100ML",
+    "Preco_Venda": "R$ 589,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/acqua-di-gio-edp-2-d5cb81e4a747ad0fb617049124752640-1024-1024.webp"
   },
   {
     "Marca": "GIVENCHY",
@@ -4821,19 +4835,5 @@
     "Produto": "XERJOFF ERBA GOLD EDP 100 ML",
     "Preco_Venda": "R$ 1.849,90",
     "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/erba-gold-2-715bf90ccceeb0b71017485691445902-1024-1024.webp"
-  },
-  {
-    "Marca": "BURBERRY",
-    "ID": "0001",
-    "Produto": "BURBERRY GODDESS EDP 30ML",
-    "Preco_Venda": "R$ 489,90",
-    "Imagem": "https://epocacosmeticos.vteximg.com.br/arquivos/ids/567408/goddess-burberry-perfume-feminino-eau-de-parfum--3-.jpg?v=638301316733200000"
-  },
-  {
-    "Marca": "GIORGIO ARMANI",
-    "ID": "0002",
-    "Produto": "GIORGIO ARMANI ACQUA DI GIO EDP 100ML",
-    "Preco_Venda": "R$ 589,90",
-    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/acqua-di-gio-edp-2-d5cb81e4a747ad0fb617049124752640-1024-1024.webp"
   }
 ]
