@@ -536,7 +536,8 @@
     "Preco_Venda": "R$ 349,90",
     "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/81491m.webp",
     "Descricao": "AFNAN TURATHI BLUE EDP M 90 ML da marca AFNAN é um perfume árabe ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e amadeiradas. Disponível na Zeidan Parfum por R$ 349,90.",
-    "_index": 49
+    "_index": 49,
+    "Destaque": true
   },
   {
     "Marca": "AFNAN",
@@ -1481,7 +1482,7 @@
     "Custo_Padrao": "R$ 210,00",
     "Preco_Venda": "R$ 299,90",
     "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/club-de-nuit-intense-men-edt-2-4ab1dc7560a4e9e14b17248939100504-1024-1024.webp",
-    "Descricao": "ARMAF CLUB DE NUIT INT. EDT M 105 ML da marca ARMAF é um perfume árabe ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e amadeiradas. Disponível na Zeidan Parfum por R$ 299,90.",
+    "Descricao": "ARMAF CLUB DE NUIT INT. EDT 105 ML da marca ARMAF é um perfume árabe ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e amadeiradas. Esse é pra dar aquele destaque na noite! Disponível na Zeidan Parfum por R$ 299,90.",
     "Familia": "amadeirado cítrico",
     "Notas_Topo": "Limão, Abacaxi, Bergamota, Groselha Preta, Maçã",
     "Notas_Coracao": "Vidoeiro, Jasmim, Rosa",
@@ -1489,7 +1490,8 @@
     "Estilo": "50% diurno, 50% noturno",
     "Ocasião": "Reunião de negócios, trabalho em escritório, encontro",
     "Intensidade": "cerca de 6 horas de longevidade com rastro forte",
-    "_index": 135
+    "_index": 135,
+    "Destaque": true
   },
   {
     "Marca": "ARMAF",
@@ -1599,7 +1601,8 @@
     "Preco_Venda": "R$ 379,90",
     "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/80410m.webp",
     "Descricao": "ARMAF CLUB DE NUIT SILLAGE EDP 105 ML da marca ARMAF é um perfume árabe ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e amadeiradas. Disponível na Zeidan Parfum por R$ 379,90.",
-    "_index": 145
+    "_index": 145,
+    "Destaque": true
   },
   {
     "Marca": "ARMAF",
@@ -2380,7 +2383,8 @@
     "Preco_Venda": "R$ 449,90",
     "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/vulcan-feu-2-bc30ab41e624f0f71717611772505786-1024-1024.webp",
     "Descricao": "FRENCH AVENUE VULCAN FEU 100 ML da marca FRENCH AVENUE é um perfume árabe ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e amadeiradas. Disponível na Zeidan Parfum por R$ 449,90.",
-    "_index": 216
+    "_index": 216,
+    "Destaque": true
   },
   {
     "Marca": "FRENCH AVENUE",
@@ -2721,7 +2725,8 @@
     "Preco_Venda": "R$ 279,90",
     "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/asad-2-757d63128dbaf2b3dd17120068916664-1024-1024.webp",
     "Descricao": "LATTAFA ASAD EDP 100 ML da marca LATTAFA é um perfume árabe ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e amadeiradas. Disponível na Zeidan Parfum por R$ 279,90.",
-    "_index": 247
+    "_index": 247,
+    "Destaque": true
   },
   {
     "Marca": "LATTAFA",
@@ -3040,7 +3045,8 @@
     "Preco_Venda": "R$ 300,00",
     "Imagem": "https://www.giraofertas.com.br/wp-content/uploads/2024/06/Fakhar-Rose-Pride-of-Lattafa-Eau-de-Parfum-03.jpg",
     "Descricao": "LATTAFA FAKHAR EDP F ROSÉ 100 ML da marca LATTAFA é um perfume árabe ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e amadeiradas. Disponível na Zeidan Parfum por R$ 300,00.",
-    "_index": 276
+    "_index": 276,
+    "Destaque": true
   },
   {
     "Marca": "LATTAFA",
@@ -3058,7 +3064,8 @@
     "Estilo": "60% diurno, 40% noturno",
     "Ocasião": "Reunião de negócios, trabalho em escritório",
     "Intensidade": "cerca de 6 horas de longevidade com rastro forte",
-    "_index": 277
+    "_index": 277,
+    "Destaque": true
   },
   {
     "Marca": "LATTAFA",
@@ -4399,7 +4406,7 @@
     "Custo_Padrao": "R$ 170,00",
     "Preco_Venda": "R$ 249,90",
     "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/yara-2-08358c960af5bb384917482852170392-1024-1024.webp",
-    "Descricao": "LATTAFA YARA EDP 100 ML da marca LATTAFA é um perfume árabe ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e amadeiradas. Disponível na Zeidan Parfum por R$ 249,90.",
+    "Descricao": "LATTAFA YARA EDP 100 ML da marca LATTAFA é um perfume árabe ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e doces. Disponível na Zeidan Parfum por R$ 249,90.",
     "Familia": "floral gourmand",
     "Notas_Topo": "Orquídea, Heliotrópio, Tangerina",
     "Notas_Coracao": "Acorde gourmand, frutas tropicais",
@@ -4407,7 +4414,8 @@
     "Estilo": "70% diurno, 40% noturno",
     "Ocasião": "Ida ao shopping, trabalho em escritório, saída com as amigas",
     "Intensidade": "cerca de 6 horas de longevidade com rastro moderado",
-    "_index": 399
+    "_index": 399,
+    "Destaque": true
   },
   {
     "Marca": "LATTAFA",
@@ -6519,7 +6527,8 @@
     "Preco_Venda": "R$ 449,90",
     "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/212-vip-men-2-8498d350c7158e2c5917049127159153-1024-1024.webp",
     "Descricao": "212 VIP MEN EDT 100 ML da marca CAROLINA HERRERA é um perfume designer ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e amadeiradas. Disponível na Zeidan Parfum por R$ 449,90.",
-    "_index": 591
+    "_index": 591,
+    "Destaque": true
   },
   {
     "Marca": "CAROLINA HERRERA",
@@ -6530,7 +6539,8 @@
     "Preco_Venda": "R$ 559,90",
     "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/212-vip-rose-2-80f4b18ab4572fb1c817049128338922-1024-1024.webp",
     "Descricao": "212 VIP ROSE 80 ML da marca CAROLINA HERRERA é um perfume designer ideal para quem busca presença e sofisticação, com uma assinatura floral sofisticada. Disponível na Zeidan Parfum por R$ 559,90.",
-    "_index": 592
+    "_index": 592,
+    "Destaque": true
   },
   {
     "Marca": "CAROLINA HERRERA",
@@ -6706,7 +6716,8 @@
     "Preco_Venda": "R$ 539,90",
     "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/light-blue-fem-2-7309d31964230fa46f17049129183610-1024-1024.webp",
     "Descricao": "DOLCE GABBANA LIGHT BLUE 100 ML da marca DOLCE&GABANNA é um perfume designer ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e amadeiradas. Disponível na Zeidan Parfum por R$ 539,90.",
-    "_index": 608
+    "_index": 608,
+    "Destaque": true"Destaque": true
   },
   {
     "Marca": "DOLCE&GABANNA",
@@ -6794,7 +6805,8 @@
     "Preco_Venda": "R$ 659,90",
     "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/good-girl-2-447b3f054e2326a18b17049128979035-1024-1024.webp",
     "Descricao": "GOOD GIRL EDP 80 ML da marca CAROLINA HERRERA é um perfume designer ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e amadeiradas. Disponível na Zeidan Parfum por R$ 659,90.",
-    "_index": 616
+    "_index": 616,
+    "Destaque": true
   },
   {
     "Marca": "CAROLINA HERRERA",
@@ -6849,7 +6861,8 @@
     "Preco_Venda": "R$ 429,90",
     "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/leau-dissey-pour-homme-edt-2-cbc2657962cfb6765f17171979742767-1024-1024.webp",
     "Descricao": "ISSEY MIYAKE L'EAU D'ISSEY M 125 ML da marca ISSEY MIYAKE é um perfume designer ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e amadeiradas. Disponível na Zeidan Parfum por R$ 429,90.",
-    "_index": 621
+    "_index": 621,
+    "Destaque": true
   },
   {
     "Marca": "JEAN PAUL GAULTIER",
@@ -6871,7 +6884,8 @@
     "Preco_Venda": "R$ 599,90",
     "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/scandal-edp-2-a3a9a665616cf7c45717063019431878-1024-1024.webp",
     "Descricao": "JEAN PAUL GAULTIER SCANDAL F 80 ML da marca JEAN PAUL GAULTIER é um perfume designer ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e amadeiradas. Disponível na Zeidan Parfum por R$ 599,90.",
-    "_index": 623
+    "_index": 623,
+    "Destaque": true
   },
   {
     "Marca": "JEAN PAUL GAULTIER",
@@ -6904,7 +6918,8 @@
     "Preco_Venda": "R$ 649,90",
     "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/la-vie-edp-2-fb7947724fe84d6aa217049128274907-1024-1024.webp",
     "Descricao": "LA VIE EST BELLE EDP 100 ML da marca LANCÔME é um perfume designer ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e amadeiradas. Disponível na Zeidan Parfum por R$ 649,90.",
-    "_index": 626
+    "_index": 626,
+    "Destaque": true
   },
   {
     "Marca": "LANCÔME",
@@ -7003,7 +7018,8 @@
     "Preco_Venda": "",
     "Imagem": "",
     "Descricao": "OLYMPEA FLORA 80 ML TESTER da marca PACO RABBANE é um perfume designer ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e amadeiradas. Disponível na Zeidan Parfum por preço sob consulta.",
-    "_index": 635
+    "_index": 635,
+    "Destaque": true
   },
   {
     "Marca": "PACO RABBANE",
@@ -7014,7 +7030,8 @@
     "Preco_Venda": "R$ 509,90",
     "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/1-million-edt-2-8fb032bc769da6e22d17049125945813-1024-1024.webp",
     "Descricao": "ONE MILLION EDT 100 ML da marca PACO RABBANE é um perfume designer ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e amadeiradas. Disponível na Zeidan Parfum por R$ 509,90.",
-    "_index": 636
+    "_index": 636,
+    "Destaque": true
   },
   {
     "Marca": "PACO RABBANE",
@@ -7190,7 +7207,8 @@
     "Preco_Venda": "R$ 2.799,00",
     "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/masculinos-38fd23bee1c54f533517326342036949-1024-1024.webp",
     "Descricao": "CREED AVENTUS EDP 100 ML da marca CREED é um perfume de nicho ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e amadeiradas. Disponível na Zeidan Parfum por R$ 2.799,00.",
-    "_index": 652
+    "_index": 652,
+    "Destaque": true
   },
   {
     "Marca": "CREED",
@@ -7322,7 +7340,8 @@
     "Preco_Venda": "R$ 3.999,90",
     "Imagem": "https://azperfumes.vteximg.com.br/arquivos/ids/174723-1000-1000/Baccarat-Rouge-540-Extrait-Maison-Francis-Kurkdjian-Eau-De-Parfum-Perfume-Feminino.jpg?v=638254790561470000",
     "Descricao": "MAISON F. BACCARAT ROUGE 540 EXTRAIT 50 ML da marca MAISON FRANCIS KURKDJIAN é um perfume de nicho ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e amadeiradas. Disponível na Zeidan Parfum por R$ 3.999,90.",
-    "_index": 664
+    "_index": 664,
+    "Destaque": true
   },
   {
     "Marca": "MEMO",
@@ -7586,7 +7605,8 @@
     "Preco_Venda": "R$ 1.849,90",
     "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/erba-pura-edp-2-08d1e9494aff6c1ca217401778110653-1024-1024.webp",
     "Descricao": "XERJOFF ERBA PURA EDP 100 ML da marca XERJOFF é um perfume de nicho ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e amadeiradas. Disponível na Zeidan Parfum por R$ 1.849,90.",
-    "_index": 688
+    "_index": 688,
+    "Destaque": true
   },
   {
     "Marca": "XERJOFF",
