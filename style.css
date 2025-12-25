@@ -778,29 +778,26 @@ body {
   outline: none;
 }
 
-/* hero normal */
-.hero {
-  position: static;
-}
-
-/* altura da faixa vermelha + um espaço */
+/* barra fixa: busca + menu */
 .hero-bar {
   position: fixed;
   left: 0;
   right: 0;
-  top: 48px; /* testa 48–56px até alinhar com a borda de baixo da barra vermelha */
+  top: 40px;                /* bem colado na barra vermelha */
   z-index: 30;
   background-color: #041739;
-  padding: 8px 16px 8px;
+  padding: 8px 16px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* empurra o conteúdo para baixo da barra fixa */
+/* conteúdo começa logo abaixo da barra fixa */
 .page-content {
   max-width: 1200px;
-  margin: 140px auto 0; /* aumenta/diminui até “PERFUMES” ficar perfeito */
+  margin: 120px auto 0;     /* ajuste esse 120px até CATEGORIAS ficar na altura que quiser */
   padding: 24px 16px 40px;
 }
+
+
 
 
 
