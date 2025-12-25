@@ -101,7 +101,8 @@ body {
 /* Menu */
 .main-nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;   /* centraliza o grupo */
+  gap: 32px;                 /* espaço entre INÍCIO / MARCAS / CONTATO */
   max-width: 360px;
   margin-left: auto;
   margin-right: auto;
@@ -786,3 +787,4 @@ body {
   text-decoration: none;
   outline: none;
 }
+
