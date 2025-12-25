@@ -1482,6 +1482,13 @@
     "Preco_Venda": "R$ 299,90",
     "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/club-de-nuit-intense-men-edt-2-4ab1dc7560a4e9e14b17248939100504-1024-1024.webp",
     "Descricao": "ARMAF CLUB DE NUIT INT. EDT M 105 ML da marca ARMAF é um perfume árabe ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e amadeiradas. Disponível na Zeidan Parfum por R$ 299,90.",
+    "Familia": "amadeirado cítrico",
+    "Notas_Topo": "Limão, Abacaxi, Bergamota, Groselha Preta, Maçã",
+    "Notas_Coracao": "Vidoeiro, Jasmim, Rosa",
+    "Notas_Fundo": "Almíscar, Âmbar Cinzento, Patchouli, Baunilha",
+    "Estilo": "50% diurno, 50% noturno",
+    "Ocasião": "Reunião de negócios, trabalho em escritório, encontro",
+    "Intensidade": "cerca de 6 horas de longevidade com rastro forte"
     "_index": 135
   },
   {
@@ -3044,6 +3051,13 @@
     "Preco_Venda": "R$ 300,00",
     "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/fakhar-black-2-6897e1fa9b9729117617556280141635-1024-1024.webp",
     "Descricao": "LATTAFA FAKHAR EDP M BLACK 100 ML da marca LATTAFA é um perfume árabe ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e amadeiradas. Disponível na Zeidan Parfum por R$ 300,00.",
+    "Familia": "amadeirado aromático",
+    "Notas_Topo": "Maçã, Bergamota, Gengibre",
+    "Notas_Coracao": "Lavanda, Sálvia, Bagas de Zimbro, Gerânio",
+    "Notas_Fundo": "Fava Tonka, Cedro, Madeira de Âmbar, Vetiver",
+    "Estilo": "60% diurno, 40% noturno",
+    "Ocasião": "Reunião de negócios, trabalho em escritório",
+    "Intensidade": "cerca de 6 horas de longevidade com rastro forte"
     "_index": 277
   },
   {
@@ -4386,6 +4400,13 @@
     "Preco_Venda": "R$ 249,90",
     "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/yara-2-08358c960af5bb384917482852170392-1024-1024.webp",
     "Descricao": "LATTAFA YARA EDP 100 ML da marca LATTAFA é um perfume árabe ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e amadeiradas. Disponível na Zeidan Parfum por R$ 249,90.",
+    "Familia": "floral gourmand",
+    "Notas_Topo": "Orquídea, Heliotrópio, Tangerina",
+    "Notas_Coracao": "Acorde gourmand, frutas tropicais",
+    "Notas_Fundo": "Baunilha, Almíscar, Sândalo",
+    "Estilo": "70% diurno, 40% noturno",
+    "Ocasião": "Ida ao shopping, trabalho em escritório, saída com as amigas",
+    "Intensidade": "cerca de 6 horas de longevidade com rastro moderado"
     "_index": 399
   },
   {
