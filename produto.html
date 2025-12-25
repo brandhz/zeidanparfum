@@ -84,14 +84,18 @@
 
   <!-- script que carrega os dados do JSON SÓ desta página -->
   <script>
-    const WHATSAPP_NUMBER = "5531991668430";
+    // usa o número global do script.js se existir, senão cai neste local
+    const WHATSAPP_NUMBER_LOCAL = "5531991668430";
+    const WHATSAPP_NUM = (typeof window.WHATSAPP_NUMBER !== "undefined")
+      ? window.WHATSAPP_NUMBER
+      : WHATSAPP_NUMBER_LOCAL;
 
-    const params = new URLSearchParams(window.location.search); // [web:632]
+    const params = new URLSearchParams(window.location.search);
     const nomeProduto = params.get("id");
 
     async function carregarProduto() {
       try {
-        const resp = await fetch("data.json"); // [web:667]
+        const resp = await fetch("data.json");
         const lista = await resp.json();
 
         const p = lista.find(
@@ -138,7 +142,7 @@
 ${p.Produto || ""} - ${p.Marca || ""}
 Preço: ${p.Preco_Venda || ""}`;
         const encodedMsg = encodeURIComponent(msg);
-        const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMsg}`;
+        const waLink = `https://wa.me/${WHATSAPP_NUM}?text=${encodedMsg}`;
 
         document.getElementById("produtoWhatsapp").href = waLink;
         document.getElementById("produtoComprar").href = waLink;
