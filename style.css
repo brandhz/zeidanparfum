@@ -783,12 +783,12 @@ body {
   position: static;
 }
 
-/* barra fixa: busca + menu */
+/* altura da faixa vermelha + um espaço */
 .hero-bar {
   position: fixed;
   left: 0;
   right: 0;
-  top: 40px;              /* altura da faixa vermelha; ajuste se mudar */
+  top: 48px; /* testa 48–56px até alinhar com a borda de baixo da barra vermelha */
   z-index: 30;
   background-color: #041739;
   padding: 8px 16px 8px;
@@ -798,9 +798,11 @@ body {
 /* empurra o conteúdo para baixo da barra fixa */
 .page-content {
   max-width: 1200px;
-  margin: 120px auto 0;   /* 120px ≈ logo + barra; ajuste fino se precisar */
+  margin: 140px auto 0; /* aumenta/diminui até “PERFUMES” ficar perfeito */
   padding: 24px 16px 40px;
 }
+
+
 
 
 
