@@ -14,6 +14,8 @@ const imageModalClose = document.getElementById("imageModalClose");
 let perfumes = [];
 let currentCategory = "TODAS";
 
+const LIMITE_INICIAL - 30
+
 // número global de WhatsApp
 window.WHATSAPP_NUMBER = "5531991668430";
 
@@ -129,11 +131,12 @@ function renderCards(selectedBrand, searchTerm, category) {
   });
 
   // limita quantidade de cards mostrados na vitrine
-  const limited = filtered.slice(0, LIMITE_INICIAL = 30);
+  const limited = filtered.slice(0, LIMITE_INICIAL);
 
   filtered.forEach((p) => {
     const card = document.createElement("article");
     card.className = "product-card";
+  });  
 
     const whatsappLink = buildWhatsAppLink(p);
 
@@ -316,5 +319,6 @@ if (perfumeGrid) {
     renderCards(marcaSelecionada, "", currentCategory);
   }
 }
+
 
 
