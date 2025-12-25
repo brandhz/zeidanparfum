@@ -6,44 +6,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
 </head>
-<script>
-  // quando clicar em "Marcas" nesta página,
-  // avisa a home para abrir o painel de marcas
-  const linkMarcasProduto = document.getElementById("linkMarcasProduto");
-  if (linkMarcasProduto) {
-    linkMarcasProduto.addEventListener("click", () => {
-      localStorage.setItem("abrirMarcas", "1");
-    });
-  }
-</script>
 <body>
   <!-- faixa de contato -->
- <div class="top-bar">
-  <div class="top-bar-inner">
-    <p class="top-message">
-      ENTRE EM CONTATO COM A NOSSA EQUIPE PARA ENCOMENDAR O SEU PERFUME
-    </p>
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <p class="top-message">
+        ENTRE EM CONTATO COM A NOSSA EQUIPE PARA ENCOMENDAR O SEU PERFUME
+      </p>
+    </div>
   </div>
-</div>
 
   <!-- cabeçalho com logo + menu -->
   <header class="site-header">
-     <div class="logo-wrap">
-            <img src="logo.png" alt="ZEIDAN PARFUM" class="logo" />
-          </div>
-      </a>
+    <div class="hero-inner">
+      <div class="logo-wrap">
+        <img src="logo.png" alt="ZEIDAN PARFUM" class="logo" />
+      </div>
 
-    <nav class="main-nav">
-         <a href="index.html" class="nav-link">Início</a>
-         <button id="brandsToggle" class="nav-button" type="button">Marcas
-         </button>
-         <a href="contato.html" class="nav-link">Contato</a>
-    </nav>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Início</a>
+        <button id="brandsToggle" class="nav-button" type="button">
+          Marcas
+        </button>
+        <a href="contato.html" class="nav-link">Contato</a>
+      </nav>
     </div>
   </header>
 
   <!-- conteúdo da página de produto -->
   <main class="page-content">
+    <!-- Painel de marcas flutuante -->
+    <section id="marcas" class="brand-panel">
+      <div class="brand-panel-inner">
+        <div class="brand-panel-header">Categorias</div>
+        <div id="brandColumns" class="brand-columns"></div>
+      </div>
+    </section>
+
+    <!-- Detalhes do perfume -->
     <section class="product-detail">
       <div class="product-detail-inner">
         <div class="product-detail-image">
@@ -82,16 +82,16 @@
     </section>
   </main>
 
-  <!-- script que carrega os dados do JSON -->
+  <!-- script que carrega os dados do JSON SÓ desta página -->
   <script>
     const WHATSAPP_NUMBER = "5531991668430";
 
-    const params = new URLSearchParams(window.location.search);
+    const params = new URLSearchParams(window.location.search); // [web:632]
     const nomeProduto = params.get("id");
 
     async function carregarProduto() {
       try {
-        const resp = await fetch("data.json");
+        const resp = await fetch("data.json"); // [web:667]
         const lista = await resp.json();
 
         const p = lista.find(
@@ -150,7 +150,8 @@ Preço: ${p.Preco_Venda || ""}`;
 
     carregarProduto();
   </script>
-  
+
+  <!-- script geral do site: popula marcas, abre/fecha painel etc. -->
   <script src="script.js"></script>
 </body>
 </html>
