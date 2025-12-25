@@ -433,17 +433,32 @@ body {
   display: flex;
 }
 
+/* camada escura + blur */
+.image-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6); /* escurece */
+  backdrop-filter: blur(10px);    /* aplica blur */
+  -webkit-backdrop-filter: blur(10px); /* Safari/Chrome mobile */
+}
+
+/* conteúdo em cima do blur */
+.image-modal-content {
+  position: relative;
+  z-index: 1;
+}
+
 .image-modal-content {
   position: relative;
   z-index: 51;
   background: #ffffff;
-  padding: 10px;
+  padding: 12px;
   border-radius: 18px;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
 
   width: 100%;
-  max-width: 360px;   /* aqui é o “tamanho do zoom” */
-  max-height: 70vh;
+  max-width: 420px;    /* tamanho máximo do “quadro” */
+  max-height: 80vh;
 
   display: flex;
   align-items: center;
@@ -453,7 +468,7 @@ body {
 .image-modal-content img {
   width: 100%;
   height: auto;
-  max-height: 60vh;
+  max-height: 70vh;
   object-fit: contain;
 }
 
@@ -743,6 +758,7 @@ body {
     max-width: 100%;
   }
 }
+
 
 
 
