@@ -117,6 +117,12 @@ body {
 
 .nav-link {
   text-decoration: none;
+  color: #ffffff;
+}
+
+.nav-link:hover {
+  color: #ffffff;
+  opacity: 0.8; /* opcional */
 }
 
 .page-content {
@@ -624,6 +630,7 @@ body {
     max-width: 100%;
   }
 }
+
 
 
 
