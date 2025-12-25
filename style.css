@@ -274,7 +274,12 @@ body {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  min-height: 260px;
+
+  /* novos tamanhos para caber mais cards */
+  width: 18%;
+  min-width: 180px;
+  max-width: 220px;
+  min-height: 240px;
 }
 
 /* Imagem – desktop padrão */
@@ -692,6 +697,7 @@ body {
     max-width: 100%;
   }
 }
+
 
 
 
