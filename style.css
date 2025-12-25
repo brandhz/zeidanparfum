@@ -93,8 +93,10 @@ body {
 .main-nav {
   margin-top: 18px;
   display: flex;
-  justify-content: center;
-  gap: 32px;
+  justify-content: space-between; /* em vez de center+gap */
+  max-width: 360px;               /* limita a faixa do menu */
+  margin-left: auto;
+  margin-right: auto;
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.16em;
@@ -435,12 +437,13 @@ body {
   position: relative;
   z-index: 51;
   background: #ffffff;
-  padding: 12px;
+  padding: 10px;
   border-radius: 18px;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
 
-  max-width: 480px;   /* limite fixo de largura */
-  max-height: 80vh;
+  width: 100%;
+  max-width: 360px;   /* aqui é o “tamanho do zoom” */
+  max-height: 70vh;
 
   display: flex;
   align-items: center;
@@ -450,15 +453,14 @@ body {
 .image-modal-content img {
   width: 100%;
   height: auto;
-  max-height: 70vh;
+  max-height: 60vh;
   object-fit: contain;
 }
 
 @media (max-width: 640px) {
   .image-modal-content {
-    max-width: 90vw;   /* ocupa boa parte da tela */
-    max-height: 70vh;
-    padding: 10px;
+    max-width: 320px;  /* ainda menor no phone, se quiser */
+    max-height: 60vh;
   }
 }
 
@@ -741,6 +743,7 @@ body {
     max-width: 100%;
   }
 }
+
 
 
 
