@@ -315,5 +315,3 @@ if (perfumeGrid) {
     renderCards(marcaSelecionada, "", currentCategory);
   }
 }
-
-
