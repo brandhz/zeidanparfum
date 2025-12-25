@@ -1,4 +1,4 @@
-/* Reset básico */
+/* RESET BÁSICO */
 *,
 *::before,
 *::after {
@@ -13,7 +13,7 @@ body {
   color: #e5e7eb;
 }
 
-/* Barra de aviso no topo */
+/* BARRA SUPERIOR DE AVISO */
 .top-bar {
   background: #020617;
   color: #e5e7eb;
@@ -32,9 +32,9 @@ body {
   letter-spacing: 0.02em;
 }
 
-/* Área do topo */
+/* ÁREA DO HERO (logo + busca + menu) */
 .hero {
-  background: radial-gradient(circle at top, #020617 0, #020617 60%, #020617 100%);
+  background: #020617;
   padding-bottom: 16px;
 }
 
@@ -45,32 +45,29 @@ body {
 }
 
 .hero-top {
-  padding-top: 72px; /* espaço para a barra fixa */
+  padding-top: 24px;
 }
 
-/* Barra fixa: busca + menu + painel de marcas */
+/* BARRA COM BUSCA E MENU (SEM FIXED) */
 .hero-bar {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 32px; /* logo abaixo da top-bar */
-  z-index: 40;
+  position: relative;
+  z-index: 10;
   background-color: #020617;
-  padding: 12px 16px 10px 16px;
+  padding: 12px 0 10px 0;
   border-bottom: 1px solid rgba(148, 163, 184, 0.35);
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-/* centralizar conteúdo da barra */
-.hero-bar > * {
+/* centraliza o conteúdo da barra dentro da largura máxima */
+.search-wrap,
+.main-nav {
   max-width: 1120px;
   margin: 0 auto;
-  width: 100%;
 }
 
-/* Busca */
+/* BUSCA */
 .search-wrap {
   display: flex;
   gap: 8px;
@@ -100,10 +97,11 @@ body {
   font-size: 16px;
 }
 
-/* Menu principal */
+/* MENU PRINCIPAL */
 .main-nav {
   display: flex;
   gap: 8px;
+  padding-top: 4px;
 }
 
 .nav-button {
@@ -122,9 +120,9 @@ body {
   align-items: center;
 }
 
-/* LOGO abaixo da barra */
+/* LOGO */
 .logo-wrap {
-  margin-top: 120px; /* espaço porque a barra é fixa */
+  margin-top: 24px;
   display: flex;
   justify-content: center;
 }
@@ -133,47 +131,62 @@ body {
   max-width: 200px;
 }
 
-/* Painel de marcas (dentro da barra fixa) */
+/* CONTEÚDO PRINCIPAL */
+.page-content {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 24px 16px 32px;
+}
+
+/* SEÇÕES */
+.product-section {
+  margin-bottom: 32px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* PAINEL DE MARCAS (FICA NA ÁREA CATEGORIAS, NÃO FIXO) */
 .brand-panel {
   position: relative;
-  max-width: 520px;
-  width: 100%;
-  margin-top: 4px;
+  max-width: 720px;
+  margin-top: 8px;
 }
 
 .brand-panel-inner {
   position: relative;
 }
 
-/* Cabeçalho do painel (botão/campo que abre as colunas) */
+/* se quiser um botão/campo clicável, estiliza .brand-panel-header */
 .brand-panel-header {
-  height: 0; /* se não precisar de header visual, mantém 0 */
+  /* exemplo opcional:
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(148,163,184,0.6);
+  font-size: 13px;
+  color: #e5e7eb;
+  cursor: pointer;
+  */
 }
 
-/* Dropdown de colunas de marcas */
+/* área que recebe as colunas de marcas (preenchida via JS) */
 .brand-columns {
-  position: absolute;
-  top: 0;           /* cola no topo do painel; ajusta se quiser abaixo de um header */
-  left: 0;
-  right: 0;
-  margin-top: 0;
+  margin-top: 8px;
   background: rgba(15, 23, 42, 0.98);
   border-radius: 16px;
   padding: 16px 18px 14px;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
-  display: none; /* controlado via JS (classe .open) */
-  max-height: 420px;
-  overflow: auto;
-  z-index: 50;
-}
-
-.brand-panel.open .brand-columns {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px 18px;
+  max-height: 420px;
+  overflow: auto;
 }
 
-/* Estilo das colunas/listas dentro do painel */
+/* exemplos de estilo interno das colunas */
 .brand-column-title {
   font-size: 11px;
   font-weight: 600;
@@ -191,25 +204,7 @@ body {
   cursor: pointer;
 }
 
-/* Conteúdo da página (compensar altura da barra fixa) */
-.page-content {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 180px 16px 32px; /* top grande por causa da hero-bar fixa + logo */
-}
-
-/* Seções de produtos */
-.product-section {
-  margin-bottom: 32px;
-}
-
-.section-title {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 12px;
-}
-
-/* Filtros de categoria */
+/* FILTROS DE CATEGORIA */
 .category-filters {
   margin-bottom: 18px;
 }
@@ -236,14 +231,14 @@ body {
   border-color: #f97316;
 }
 
-/* Grade de produtos */
+/* GRADE DE PRODUTOS */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 16px;
 }
 
-/* Modal de imagem (mantém o que já tinha, se precisar ajustar) */
+/* MODAL DE IMAGEM (base) */
 .image-modal {
   position: fixed;
   inset: 0;
@@ -264,7 +259,7 @@ body {
   z-index: 1;
 }
 
-/* Rodapé */
+/* RODAPÉ */
 .site-footer {
   border-top: 1px solid rgba(148, 163, 184, 0.35);
   padding: 24px 16px 32px;
@@ -276,17 +271,48 @@ body {
   margin: 0 auto;
 }
 
-/* responsivo básico */
+.footer-instagram {
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.footer-instagram-img {
+  width: 32px;
+  height: 32px;
+}
+
+.footer-columns {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 16px;
+}
+
+.footer-title {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.footer-link {
+  display: block;
+  font-size: 13px;
+  color: #e5e7eb;
+  text-decoration: none;
+  margin-bottom: 4px;
+}
+
+.footer-copy {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+/* RESPONSIVO */
 @media (max-width: 640px) {
-  .hero-bar {
-    top: 32px;
+  .search-wrap {
+    flex-direction: row;
   }
 
-  .brand-panel.open .brand-columns {
+  .brand-columns {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .page-content {
-    padding-top: 200px;
   }
 }
