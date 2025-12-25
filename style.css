@@ -74,7 +74,7 @@ body {
 .logo-wrap {
   display: flex;
   justify-content: center;
-  margin-top: 120px; /* distância da barra fixa até a logo */
+  margin-top: 50px; /* antes 120px */
 }
 
 .logo {
@@ -158,7 +158,7 @@ body {
 /* Conteúdo principal: começa depois da barra fixa */
 .page-content {
   max-width: 1200px;
-  margin: 190px auto 0; /* empurra tudo para baixo da barra fixa */
+  margin: 140px auto 0; /* empurra tudo para baixo da barra fixa */
   padding: 16px 16px 40px;
 }
 
@@ -798,3 +798,4 @@ body {
   text-decoration: none;
   outline: none;
 }
+
