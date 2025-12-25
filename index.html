@@ -16,11 +16,11 @@
       </div>
     </header>
 
-    <!-- Logo + busca + menu + painel de marcas (descem juntos) -->
+    <!-- Logo + busca + menu -->
     <section id="topo" class="hero">
       <div class="hero-inner">
         <div class="hero-top">
-          <!-- Barra fixa com busca, menu e painel de marcas -->
+          <!-- Barra normal (SEM fixed/sticky) -->
           <div class="hero-bar">
             <div class="search-wrap">
               <input
@@ -36,17 +36,9 @@
               <button id="brandsToggle" class="nav-button" type="button">Marcas</button>
               <a href="contato.html" class="nav-button nav-link">Contato</a>
             </nav>
-
-            <!-- PAINEL DE MARCAS AGORA DENTRO DA hero-bar -->
-            <div class="brand-panel" id="brandPanel">
-              <div class="brand-panel-inner">
-                <div class="brand-panel-header"></div>
-                <div id="brandColumns" class="brand-columns"></div>
-              </div>
-            </div>
           </div>
 
-          <!-- LOGO logo abaixo da barra fixa -->
+          <!-- LOGO logo abaixo da barra -->
           <div class="logo-wrap">
             <img src="logo.png" alt="ZEIDAN PARFUM" class="logo" />
           </div>
@@ -55,9 +47,18 @@
     </section>
 
     <main id="inicio" class="page-content">
-      <!-- CATEGORIAS título acima dos filtros -->
+      <!-- CATEGORIAS + painel de marcas -->
       <section id="marcas" class="product-section">
         <div class="section-title">Categorias</div>
+
+        <div class="brand-panel" id="brandPanel">
+          <div class="brand-panel-inner">
+            <div class="brand-panel-header">
+              <!-- aqui você pode colocar um texto tipo "Selecione a marca" se quiser -->
+            </div>
+            <div id="brandColumns" class="brand-columns"></div>
+          </div>
+        </div>
       </section>
 
       <!-- Filtros de categoria -->
