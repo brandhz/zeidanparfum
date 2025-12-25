@@ -102,6 +102,14 @@ body {
   letter-spacing: 0.16em;
 }
 
+.main-nav .nav-link,
+.main-nav .nav-link:visited,
+.main-nav .nav-link:focus,
+.main-nav .nav-link:active {
+  color: #ffffff;
+  opacity: 0.9;
+}
+
 /* Botão/Link de nav */
 .nav-button {
   background: none;
@@ -732,8 +740,9 @@ body {
   }
 
   .main-nav {
-    gap: 16px;
-    font-size: 11px;
+    max-width: 260px;          /* faixa menor */
+    justify-content: center;   /* centraliza o grupo */
+    gap: 12px;                 /* distância entre os itens */
   }
 
   .product-grid {
@@ -755,3 +764,4 @@ body {
     max-width: 100%;
   }
 }
+
