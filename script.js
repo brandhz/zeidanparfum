@@ -128,6 +128,10 @@ function renderCards(selectedBrand, searchTerm, category) {
     return matchBrand && matchText && matchCategory;
   });
 
+  // limita quantidade de cards mostrados na vitrine
+  const limited = filtered.slice(0, LIMITE_INICIAL = 30);
+  });
+
   filtered.forEach((p) => {
     const card = document.createElement("article");
     card.className = "product-card";
@@ -313,3 +317,4 @@ if (perfumeGrid) {
     renderCards(marcaSelecionada, "", currentCategory);
   }
 }
+
