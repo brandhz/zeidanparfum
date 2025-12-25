@@ -182,16 +182,6 @@ function renderCards(selectedBrand, searchTerm, category) {
       </div>
     `;
 
-    const imgEl = card.querySelector(".product-image");
-    if (imgEl && imageModal && imageModalImg) {
-      imgEl.addEventListener("click", () => {
-        const fullSrc = imgEl.getAttribute("data-full");
-        imageModalImg.src = fullSrc;
-        imageModalImg.alt = imgEl.alt || "";
-        openImageModal();
-      });
-    }
-
     perfumeGrid.appendChild(card);
   });
 }
@@ -325,4 +315,5 @@ if (perfumeGrid) {
     renderCards(marcaSelecionada, "", currentCategory);
   }
 }
+
 
