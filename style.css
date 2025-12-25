@@ -275,10 +275,10 @@ body {
   flex-direction: column;
   gap: 6px;
 
-  /* novos tamanhos para caber mais cards */
-  width: 18%;
-  min-width: 180px;
-  max-width: 220px;
+  /* para caber 5 por linha */
+  width: 17%;
+  min-width: 170px;
+  max-width: 210px;
   min-height: 240px;
 }
 
@@ -697,6 +697,7 @@ body {
     max-width: 100%;
   }
 }
+
 
 
 
