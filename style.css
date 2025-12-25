@@ -355,7 +355,7 @@ body {
   }
 }
 
-.image-modal.open .image-modal-content {
+.image-modal.closing .image-modal-content {
   animation: image-modal-zoom-in 0.18s ease-out;
   }
 }
@@ -718,6 +718,7 @@ body {
     max-width: 100%;
   }
 }
+
 
 
 
