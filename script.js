@@ -114,64 +114,62 @@ function renderCards(selectedBrand, searchTerm, category) {
   });
 
   filtered.forEach((p) => {
-  const card = document.createElement("article");
-  card.className = "product-card";
+    const card = document.createElement("article");
+    card.className = "product-card";
 
-  // 1) primeiro cria o link do WhatsApp
-  const whatsappLink = buildWhatsAppLink(p);
+    const whatsappLink = buildWhatsAppLink(p);
 
-  // 2) depois, se quiser, calcula o detalheHref
-  const nome = (p.Produto || "").toUpperCase();
-  let detalheHref = null;
+    const nome = (p.Produto || "").toUpperCase();
+    let detalheHref = null;
 
-  if (nome.includes("AFNAN TURATHI BLUE")) {
-    detalheHref = "produto-turathi-blue.html";
-  }
+    if (nome.includes("AFNAN TURATHI BLUE")) {
+      detalheHref = "produto-turathi-blue.html";
+    }
 
-  // 3) só então monta o innerHTML usando o whatsappLink
-  card.innerHTML = `
-    ${detalheHref ? `<a href="${detalheHref}" class="product-link">` : `<div class="product-link">`}
-      <div class="product-image-wrap">
-        ${
-          p.Imagem
-            ? `<img src="${p.Imagem}" alt="${p.Produto ?? ""}" class="product-image" data-full="${p.Imagem}" />`
-            : ""
-        }
+    card.innerHTML = `
+      ${detalheHref ? `<a href="${detalheHref}" class="product-link">` : `<div class="product-link">`}
+        <div class="product-image-wrap">
+          ${
+            p.Imagem
+              ? `<img src="${p.Imagem}" alt="${p.Produto ?? ""}" class="product-image" data-full="${p.Imagem}" />`
+              : ""
+          }
+        </div>
+
+        <div class="product-name">
+          ${p.Produto ?? ""}
+        </div>
+
+        <div class="product-meta">
+          <span class="product-brand">
+            ${p.Marca ?? ""}
+          </span>
+          <span class="product-price">
+            ${p.Preco_Venda ?? ""}
+          </span>
+        </div>
+      ${detalheHref ? `</a>` : `</div>`}
+
+      <div class="product-actions">
+        <a class="product-btn" href="${whatsappLink}" target="_blank" rel="noopener noreferrer">
+          Encomende
+        </a>
       </div>
+    `;
 
-      <div class="product-name">
-        ${p.Produto ?? ""}
-      </div>
+    const imgEl = card.querySelector(".product-image");
+    if (imgEl) {
+      imgEl.addEventListener("click", () => {
+        const fullSrc = imgEl.getAttribute("data-full");
+        imageModalImg.src = fullSrc;
+        imageModalImg.alt = imgEl.alt || "";
+        openImageModal();
+      });
+    }
 
-      <div class="product-meta">
-        <span class="product-brand">
-          ${p.Marca ?? ""}
-        </span>
-        <span class="product-price">
-          ${p.Preco_Venda ?? ""}
-        </span>
-      </div>
-    ${detalheHref ? `</a>` : `</div>`}
-
-    <div class="product-actions">
-      <a class="product-btn" href="${whatsappLink}" target="_blank" rel="noopener noreferrer">
-        Encomende
-      </a>
-    </div>
-  `;
-
-  const imgEl = card.querySelector(".product-image");
-  if (imgEl) {
-    imgEl.addEventListener("click", () => {
-      const fullSrc = imgEl.getAttribute("data-full");
-      imageModalImg.src = fullSrc;
-      imageModalImg.alt = imgEl.alt || "";
-      openImageModal();
-    });
-  }
-
-  perfumeGrid.appendChild(card);
-});
+    perfumeGrid.appendChild(card);
+  });
+}
 
 /* Controle do painel de marcas */
 
@@ -254,5 +252,3 @@ document.addEventListener("keydown", (e) => {
 
 /* Inicia */
 loadPerfumes();
-
-
