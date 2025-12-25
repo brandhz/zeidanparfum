@@ -16,47 +16,48 @@
       </div>
     </header>
 
-    <!-- Logo + busca + menu -->
+    <!-- Logo + busca + menu (descem juntos) -->
     <section id="topo" class="hero">
-  <div class="hero-inner">
-    <div class="hero-top">
-      <div class="logo-wrap">
-        <img src="logo.png" alt="ZEIDAN PARFUM" class="logo" />
-      </div>
-
-      <div class="hero-bar">
-        <div class="search-wrap">
-          <input
-            type="text"
-            id="searchInput"
-            placeholder="O que você está buscando?"
-          />
-          <button class="search-btn" type="button">🔍</button>
-        </div>
-
-        <nav class="main-nav">
-          <button id="homeLink" class="nav-button" type="button">Início</button>
-          <button id="brandsToggle" class="nav-button" type="button">Marcas</button>
-          <a href="contato.html" class="nav-button nav-link">Contato</a>
-        </nav>
-
-        <!-- painel que precisa descer junto -->
-        <section id="marcas" class="product-section">
-          <div class="section-title">Categorias</div>
-          <div class="brand-panel">
-            <div class="brand-panel-inner">
-              <div class="brand-panel-header"></div>
-              <div id="brandColumns" class="brand-columns"></div>
+      <div class="hero-inner">
+        <div class="hero-top">
+          <!-- LOGO fica AGORA abaixo da barra de busca e menus -->
+          <div class="hero-bar">
+            <div class="search-wrap">
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="O que você está buscando?"
+              />
+              <button class="search-btn" type="button">🔍</button>
             </div>
-          </div>
-        </section>
-      </div>
-    </div>
-  </div>
-</section>
 
+            <nav class="main-nav">
+              <button id="homeLink" class="nav-button" type="button">Início</button>
+              <button id="brandsToggle" class="nav-button" type="button">Marcas</button>
+              <a href="contato.html" class="nav-button nav-link">Contato</a>
+            </nav>
+          </div>
+
+          <!-- LOGO logo abaixo da barra -->
+          <div class="logo-wrap">
+            <img src="logo.png" alt="ZEIDAN PARFUM" class="logo" />
+          </div>
+        </div>
+      </div>
+    </section>
 
     <main id="inicio" class="page-content">
+      <!-- CATEGORIAS volta para cima dos filtros (TODOS / ÁRABE / DESIGNER / NICHO) -->
+      <section id="marcas" class="product-section">
+        <div class="section-title">Categorias</div>
+        <div class="brand-panel">
+          <div class="brand-panel-inner">
+            <div class="brand-panel-header"></div>
+            <div id="brandColumns" class="brand-columns"></div>
+          </div>
+        </div>
+      </section>
+
       <!-- Filtros de categoria -->
       <section class="category-filters">
         <div class="category-inner">
@@ -97,8 +98,16 @@
 
     <footer class="site-footer">
       <div class="footer-inner">
-        <a href="https://instagram.com/zeidanparfum" target="_blank" class="footer-instagram">
-          <img src="instagram.png" alt="Instagram" class="footer-instagram-img">
+        <a
+          href="https://instagram.com/zeidanparfum"
+          target="_blank"
+          class="footer-instagram"
+        >
+          <img
+            src="instagram.png"
+            alt="Instagram"
+            class="footer-instagram-img"
+          />
         </a>
 
         <div class="footer-columns">
