@@ -120,6 +120,8 @@ body {
 }
 
 .page-content {
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 24px 16px 40px;
 }
 
@@ -528,7 +530,6 @@ body {
 
 /* Página de detalhes do perfume */
 .product-detail {
-  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -623,6 +624,7 @@ body {
     max-width: 100%;
   }
 }
+
 
 
 
