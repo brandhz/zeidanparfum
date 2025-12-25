@@ -576,6 +576,16 @@ body {
   margin-bottom: 16px;
 }
 
+/* Link que envolve o card de produto – vale para todas as telas */
+.product-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-link:hover .product-name {
+  text-decoration: underline;
+}
 
 /* Mobile */
 @media (max-width: 640px) {
@@ -613,5 +623,6 @@ body {
     max-width: 100%;
   }
 }
+
 
 
