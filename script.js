@@ -130,8 +130,15 @@ function renderCards(selectedBrand, searchTerm, category) {
     return matchBrand && matchText && matchCategory;
   });
 
-  // limita quantidade de cards mostrados na vitrine
-  const limited = filtered.slice(0, LIMITE_INICIAL);
+  // separa destaques e comuns
+  const destacados = filtered.filter((p) => p.Destaque === true);
+  const comuns = filtered.filter((p) => p.Destaque !== true);
+
+  // junta: primeiros os destaques, depois o resto
+  const ordenados = [...destacados, ...comuns];
+
+  // limita quantidade total
+  const limited = ordenados.slice(0, LIMITE_INICIAL);
 
   limited.forEach((p) => {
     const card = document.createElement("article");
@@ -318,3 +325,4 @@ if (perfumeGrid) {
     renderCards(marcaSelecionada, "", currentCategory);
   }
 }
+
