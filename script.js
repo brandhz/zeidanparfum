@@ -117,6 +117,44 @@ function renderCards(selectedBrand, searchTerm, category) {
     const card = document.createElement("article");
     card.className = "product-card";
 
+      const nome = (p.Produto || "").toUpperCase();
+  let detalheHref = null;
+
+  if (nome.includes("AFNAN TURATHI BLUE")) {
+    detalheHref = "produto-turathi-blue.html";
+  }
+
+  card.innerHTML = `
+    ${detalheHref ? `<a href="${detalheHref}" class="product-link">` : `<div class="product-link">`}
+      <div class="product-image-wrap">
+        ${
+          p.Imagem
+            ? `<img src="${p.Imagem}" alt="${p.Produto ?? ""}" class="product-image" data-full="${p.Imagem}" />`
+            : ""
+        }
+      </div>
+
+      <div class="product-name">
+        ${p.Produto ?? ""}
+      </div>
+
+      <div class="product-meta">
+        <span class="product-brand">
+          ${p.Marca ?? ""}
+        </span>
+        <span class="product-price">
+          ${p.Preco_Venda ?? ""}
+        </span>
+      </div>
+    ${detalheHref ? `</a>` : `</div>`}
+
+    <div class="product-actions">
+      <a class="product-btn" href="${whatsappLink}" target="_blank" rel="noopener noreferrer">
+        Encomende
+      </a>
+    </div>
+  `;
+
     const whatsappLink = buildWhatsAppLink(p);
 
     card.innerHTML = `
@@ -243,3 +281,4 @@ document.addEventListener("keydown", (e) => {
 
 /* Inicia */
 loadPerfumes();
+
