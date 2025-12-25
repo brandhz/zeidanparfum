@@ -778,13 +778,11 @@ body {
   outline: none;
 }
 
-.hero {
-  position: static;
-  overflow: visible;
-}
-
+/* hero normal, pais do sticky sem nada especial */
+.hero,
 .hero-inner,
 .hero-top {
+  position: static;
   overflow: visible;
 }
 
@@ -798,10 +796,5 @@ body {
   padding-bottom: 8px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
-
-
-
-
-
 
 
