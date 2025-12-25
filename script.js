@@ -130,7 +130,6 @@ function renderCards(selectedBrand, searchTerm, category) {
 
   // limita quantidade de cards mostrados na vitrine
   const limited = filtered.slice(0, LIMITE_INICIAL = 30);
-  });
 
   filtered.forEach((p) => {
     const card = document.createElement("article");
@@ -317,4 +316,5 @@ if (perfumeGrid) {
     renderCards(marcaSelecionada, "", currentCategory);
   }
 }
+
 
