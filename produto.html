@@ -86,12 +86,15 @@
 </main>
 
   <!-- Modal de imagem para zoom (só nesta página) -->
-  <div class="image-modal" id="imageModal">
-  <div class="image-modal-backdrop"></div>
+ <div class="image-modal" id="imageModal">
+  <div class="image-modal-backdrop" id="imageModalBackdrop"></div>
+
   <div class="image-modal-content">
-    <!-- img + botão fechar -->
+    <button class="image-modal-close" id="imageModalClose">×</button>
+    <img id="imageModalImg" src="" alt="">
   </div>
 </div>
+
 
   <!-- script que carrega os dados do JSON SÓ desta página -->
   <script>
