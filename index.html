@@ -16,11 +16,11 @@
       </div>
     </header>
 
-    <!-- Logo + busca + menu (descem juntos) -->
+    <!-- Logo + busca + menu + painel de marcas (descem juntos) -->
     <section id="topo" class="hero">
       <div class="hero-inner">
         <div class="hero-top">
-          <!-- LOGO fica AGORA abaixo da barra de busca e menus -->
+          <!-- Barra fixa com busca, menu e painel de marcas -->
           <div class="hero-bar">
             <div class="search-wrap">
               <input
@@ -36,9 +36,17 @@
               <button id="brandsToggle" class="nav-button" type="button">Marcas</button>
               <a href="contato.html" class="nav-button nav-link">Contato</a>
             </nav>
+
+            <!-- PAINEL DE MARCAS AGORA DENTRO DA hero-bar -->
+            <div class="brand-panel" id="brandPanel">
+              <div class="brand-panel-inner">
+                <div class="brand-panel-header"></div>
+                <div id="brandColumns" class="brand-columns"></div>
+              </div>
+            </div>
           </div>
 
-          <!-- LOGO logo abaixo da barra -->
+          <!-- LOGO logo abaixo da barra fixa -->
           <div class="logo-wrap">
             <img src="logo.png" alt="ZEIDAN PARFUM" class="logo" />
           </div>
@@ -47,32 +55,18 @@
     </section>
 
     <main id="inicio" class="page-content">
-      <!-- CATEGORIAS volta para cima dos filtros (TODOS / ÁRABE / DESIGNER / NICHO) -->
+      <!-- CATEGORIAS título acima dos filtros -->
       <section id="marcas" class="product-section">
         <div class="section-title">Categorias</div>
-        <div class="brand-panel">
-          <div class="brand-panel-inner">
-            <div class="brand-panel-header"></div>
-            <div id="brandColumns" class="brand-columns"></div>
-          </div>
-        </div>
       </section>
 
       <!-- Filtros de categoria -->
       <section class="category-filters">
         <div class="category-inner">
-          <button class="category-btn active" data-cat="TODAS">
-            Todos
-          </button>
-          <button class="category-btn" data-cat="ARABE">
-            Árabe
-          </button>
-          <button class="category-btn" data-cat="DESIGNER">
-            Designer
-          </button>
-          <button class="category-btn" data-cat="NICHO">
-            Nicho
-          </button>
+          <button class="category-btn active" data-cat="TODAS">Todos</button>
+          <button class="category-btn" data-cat="ARABE">Árabe</button>
+          <button class="category-btn" data-cat="DESIGNER">Designer</button>
+          <button class="category-btn" data-cat="NICHO">Nicho</button>
         </div>
       </section>
 
