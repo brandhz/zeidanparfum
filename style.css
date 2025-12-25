@@ -764,4 +764,17 @@ body {
     max-width: 100%;
   }
 }
+/* Força estilo único para os links do menu */
+.main-nav .nav-link,
+.main-nav .nav-link:link,
+.main-nav .nav-link:visited,
+.main-nav .nav-link:hover,
+.main-nav .nav-link:focus,
+.main-nav .nav-link:active {
+  color: #ffffff;
+  opacity: 0.9;
+  text-decoration: none;
+  outline: none;
+}
+
 
