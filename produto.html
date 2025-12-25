@@ -129,12 +129,19 @@
 
         document.getElementById("produtoDescricao").textContent = desc;
 
-        const acordesEl = document.getElementById("produtoAcordes");
-        acordesEl.innerHTML = "";
-        ["Cítrico fresco", "Amadeirado", "Âmbar", "Almíscar limpo"].forEach((acc) => {
-          const li = document.createElement("li");
-          li.textContent = acc;
-          acordesEl.appendChild(li);
+       // Principais acordes – por enquanto não usamos dados reais, então escondemos a lista
+const acordesEl = document.getElementById("produtoAcordes");
+acordesEl.innerHTML = "";
+
+// Pirâmide olfativa – usa campos do JSON se existirem
+const topo = p.Notas_Topo || "";
+const coracao = p.Notas_Coracao || "";
+const fundo = p.Notas_Fundo || "";
+
+let notasHtml = "";
+if (topo) notasHtml += `<strong>Topo:</strong> ${topo}<br>`;
+if (coracao) notasHtml += `<strong>Coração:</strong> ${coracao}<br>`;
+if (fundo) notasHtml += `<strong>Fundo:</strong> ${fundo}`;
         });
 
         document.getElementById("produtoNotas").innerHTML = `
