@@ -599,14 +599,19 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 60px;       /* tamanho do círculo */
+  height: 60px;
   border-radius: 50%;
   background-color: #ffffff;
-  color: #000000;
   text-decoration: none;
-  font-size: 24px;
   margin-bottom: 30px;
+  overflow: hidden;  /* corta qualquer coisa que passe do círculo */
+}
+
+.footer-instagram-img {
+  width: 26px;       /* controla o tamanho do ícone */
+  height: 26px;
+  object-fit: contain;
 }
 
 .footer-instagram:hover {
@@ -687,6 +692,7 @@ body {
     max-width: 100%;
   }
 }
+
 
 
 
