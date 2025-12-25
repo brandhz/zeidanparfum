@@ -778,28 +778,28 @@ body {
   outline: none;
 }
 
-/* barra fixa: busca + menu */
+.hero {
+  position: static;
+}
+
+/* barra fixa: busca + menu + painel */
 .hero-bar {
   position: fixed;
   left: 0;
   right: 0;
-  top: 40px;                /* bem colado na barra vermelha */
+  top: 40px;                 /* logo abaixo da faixa vermelha */
   z-index: 30;
   background-color: #041739;
-  padding: 8px 16px;
+  padding: 8px 16px 12px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* conteúdo começa logo abaixo da barra fixa */
+/* conteúdo começa depois da barra fixa */
 .page-content {
   max-width: 1200px;
-  margin: 120px auto 0;     /* ajuste esse 120px até CATEGORIAS ficar na altura que quiser */
+  margin: 220px auto 0;      /* ajusta até CATEGORIAS/Perfumes ficarem bonitos */
   padding: 24px 16px 40px;
 }
-
-
-
-
 
 
 
