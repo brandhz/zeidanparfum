@@ -144,66 +144,6 @@ function renderCards(selectedBrand, searchTerm, category) {
       detalheHref = "produto.html?id=" + encodeURIComponent(p.Produto);
     }
 
-        card.innerHTML = `
-      ${detalheHref ? `<a href="${detalheHref}" class="product-link">` : `<div class="product-link">`}
-        <div class="product-image-wrap">
-          ${
-            p.Imagem
-              ? `<img src="${p.Imagem}" alt="${p.Produto ?? ""}" class="product-image" data-full="${p.Imagem}" />`
-              : ""
-          }
-        </div>
-
-        <div class="product-name">
-          ${p.Produto ?? ""}
-        </div>
-
-        <div class="product-meta">
-          <span class="product-brand">
-            ${p.Marca ?? ""}
-          </span>
-          <span class="product-price">
-            ${p.Preco_Venda ?? ""}
-          </span>
-        </div>
-      ${detalheHref ? `</a>` : `</div>`}
-
-      <div class="product-actions">
-        <a class="product-btn" href="${whatsappLink}" target="_blank" rel="noopener noreferrer">
-          Encomende
-        </a>
-      </div>
-    `;
-
-    const imgEl = card.querySelector(".product-image");
-    if (imgEl && imageModal && imageModalImg) {
-      imgEl.addEventListener("click", () => {
-        const fullSrc = imgEl.getAttribute("data-full");
-        imageModalImg.src = fullSrc;
-        imageModalImg.alt = imgEl.alt || "";
-        openImageModal();
-      });
-    }
-
-    perfumeGrid.appendChild(card);
-  });
-}
-
-  // limita quantidade de cards mostrados na vitrine
-  const limited = filtered.slice(0, LIMITE_INICIAL);
-
-  filtered.forEach((p) => {
-    const card = document.createElement("article");
-    card.className = "product-card";
-  });  
-
-    const whatsappLink = buildWhatsAppLink(p);
-
-    let detalheHref = null;
-    if (p.Produto) {
-      detalheHref = "produto.html?id=" + encodeURIComponent(p.Produto);
-    }
-
     card.innerHTML = `
       ${detalheHref ? `<a href="${detalheHref}" class="product-link">` : `<div class="product-link">`}
         <div class="product-image-wrap">
@@ -247,6 +187,7 @@ function renderCards(selectedBrand, searchTerm, category) {
 
     perfumeGrid.appendChild(card);
   });
+}
 
 /* Painel de marcas */
 
@@ -377,13 +318,3 @@ if (perfumeGrid) {
     renderCards(marcaSelecionada, "", currentCategory);
   }
 }
-
-
-
-
-
-
-
-
-
-
