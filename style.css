@@ -443,12 +443,12 @@ body {
   position: relative;
   z-index: 51;
   background: #ffffff;
-  padding: 20px;
+  padding: 16px;
   border-radius: 18px;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
 
-  max-width: 80vw;
-  max-height: 80vh;
+  max-width: 50vw;   /* antes era 80vw */
+  max-height: 70vh;  /* mantém uma altura boa */
 
   display: flex;
   align-items: center;
@@ -718,6 +718,7 @@ body {
     max-width: 100%;
   }
 }
+
 
 
 
