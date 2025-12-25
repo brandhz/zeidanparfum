@@ -93,8 +93,8 @@ body {
 .main-nav {
   margin-top: 18px;
   display: flex;
-  justify-content: space-between; /* em vez de center+gap */
-  max-width: 360px;               /* limita a faixa do menu */
+  justify-content: space-between;
+  max-width: 360px;
   margin-left: auto;
   margin-right: auto;
   font-size: 13px;
@@ -124,7 +124,7 @@ body {
 
 .nav-link:hover {
   color: #ffffff;
-  opacity: 0.8; /* opcional */
+  opacity: 0.8;
 }
 
 .page-content {
@@ -247,7 +247,7 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr)); /*cinco colunas fixas */
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 24px;
 }
 
@@ -261,7 +261,6 @@ body {
   gap: 24px;
 }
 
-/* cada item da busca não ocupar a largura inteira */
 .search-results .product-card {
   width: 100%;
 }
@@ -276,7 +275,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 6px;
-
   min-height: 240px;
 }
 
@@ -344,9 +342,10 @@ body {
     transform: scale(1);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
   }
+}
 
-  /*animação do zoom da imagem*/
-  @keyframes image-modal-zoom-in {
+/* animação do zoom da imagem */
+@keyframes image-modal-zoom-in {
   0% {
     opacity: 0;
     transform: scale(0.9);
@@ -359,10 +358,9 @@ body {
 
 .image-modal.closing .image-modal-content {
   animation: image-modal-zoom-in 0.18s ease-out;
-  }
 }
 
-/* Botão Encomendar */
+/* Botão Encomendar / Comprar */
 .product-btn {
   display: inline-flex;
   align-items: center;
@@ -437,27 +435,23 @@ body {
 .image-modal-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6); /* escurece */
-  backdrop-filter: blur(10px);    /* aplica blur */
-  -webkit-backdrop-filter: blur(10px); /* Safari/Chrome mobile */
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 0;
 }
 
 /* conteúdo em cima do blur */
 .image-modal-content {
   position: relative;
   z-index: 1;
-}
-
-.image-modal-content {
-  position: relative;
-  z-index: 51;
   background: #ffffff;
   padding: 12px;
   border-radius: 18px;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
 
   width: 100%;
-  max-width: 420px;    /* tamanho máximo do “quadro” */
+  max-width: 420px;
   max-height: 80vh;
 
   display: flex;
@@ -474,7 +468,7 @@ body {
 
 @media (max-width: 640px) {
   .image-modal-content {
-    max-width: 320px;  /* ainda menor no phone, se quiser */
+    max-width: 320px;
     max-height: 60vh;
   }
 }
@@ -591,7 +585,6 @@ body {
   grid-template-areas: "image info";
 }
 
-/* contêiner da imagem */
 .product-detail-image {
   grid-area: image;
 }
@@ -605,7 +598,6 @@ body {
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
 }
 
-/* contêiner do texto/descrição */
 .product-detail-content {
   grid-area: info;
 }
@@ -625,17 +617,6 @@ body {
   margin-bottom: 8px;
 }
 
-/* mobile: empilha imagem em cima, texto embaixo */
-@media (max-width: 640px) {
-  .product-detail-inner {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "image"
-      "info";
-    gap: 20px;
-  }
-}
-
 .product-detail-price {
   font-size: 18px;
   font-weight: 600;
@@ -649,6 +630,18 @@ body {
   margin-bottom: 16px;
 }
 
+/* empilha no mobile */
+@media (max-width: 640px) {
+  .product-detail-inner {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "image"
+      "info";
+    gap: 20px;
+  }
+}
+
+/* Rodapé */
 .site-footer {
   background-color: #111111;
   color: #ffffff;
@@ -665,17 +658,17 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 60px;       /* tamanho do círculo */
+  width: 60px;
   height: 60px;
   border-radius: 50%;
   background-color: #ffffff;
   text-decoration: none;
   margin-bottom: 30px;
-  overflow: hidden;  /* corta qualquer coisa que passe do círculo */
+  overflow: hidden;
 }
 
 .footer-instagram-img {
-  width: 26px;       /* controla o tamanho do ícone */
+  width: 26px;
   height: 26px;
   object-fit: contain;
 }
@@ -711,7 +704,7 @@ body {
   color: #aaaaaa;
 }
 
-/* Link que envolve o card de produto – vale para todas as telas */
+/* Link que envolve o card de produto */
 .product-link {
   display: block;
   text-decoration: none;
@@ -722,12 +715,12 @@ body {
   text-decoration: underline;
 }
 
-/* produto.html apenas */
-.product-actions .buy-btn {
+/* Esconde só o botão "Comprar" da ficha (produto.html) */
+.product-detail .product-detail-actions #produtoComprar {
   display: none !important;
 }
 
-/* Mobile */
+/* Mobile ajustes gerais */
 @media (max-width: 640px) {
   .hero-top {
     align-items: stretch;
@@ -743,7 +736,6 @@ body {
     font-size: 11px;
   }
 
-  /* 2 cards por linha no celular */
   .product-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
@@ -763,23 +755,3 @@ body {
     max-width: 100%;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
