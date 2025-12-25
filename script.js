@@ -246,7 +246,6 @@ function renderCards(selectedBrand, searchTerm, category) {
 
     perfumeGrid.appendChild(card);
   });
-}
 
 /* Painel de marcas */
 
@@ -377,6 +376,7 @@ if (perfumeGrid) {
     renderCards(marcaSelecionada, "", currentCategory);
   }
 }
+
 
 
 
