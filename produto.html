@@ -121,7 +121,7 @@
           imgEl.style.display = "none";
         }
 
-        // usa descrição do JSON se existir, senão cai no texto padrão
+                // usa descrição do JSON se existir, senão cai no texto padrão
         const desc =
           p.Descricao && p.Descricao.trim() !== ""
             ? p.Descricao
@@ -129,22 +129,22 @@
 
         document.getElementById("produtoDescricao").textContent = desc;
 
-       // Principais acordes – por enquanto não usamos dados reais, então escondemos a lista
-const acordesEl = document.getElementById("produtoAcordes");
-acordesEl.innerHTML = "";
+        // Principais acordes – por enquanto não usamos dados reais, então apenas limpamos a lista
+        const acordesEl = document.getElementById("produtoAcordes");
+        acordesEl.innerHTML = "";
 
-// Pirâmide olfativa – usa campos do JSON se existirem
-const topo = p.Notas_Topo || "";
-const coracao = p.Notas_Coracao || "";
-const fundo = p.Notas_Fundo || "";
+        // Pirâmide olfativa – usa campos do JSON se existirem
+        const topo = p.Notas_Topo || "";
+        const coracao = p.Notas_Coracao || "";
+        const fundo = p.Notas_Fundo || "";
 
-let notasHtml = "";
-if (topo) notasHtml += `<strong>Topo:</strong> ${topo}<br>`;
-if (coracao) notasHtml += `<strong>Coração:</strong> ${coracao}<br>`;
-if (fundo) notasHtml += `<strong>Fundo:</strong> ${fundo}`;
-        });
+        let notasHtml = "";
+        if (topo) notasHtml += `<strong>Topo:</strong> ${topo}<br>`;
+        if (coracao) notasHtml += `<strong>Coração:</strong> ${coracao}<br>`;
+        if (fundo) notasHtml += `<strong>Fundo:</strong> ${fundo}`;
 
-        document.getElementById("produtoNotas").innerHTML = `
+        document.getElementById("produtoNotas").innerHTML =
+          notasHtml || "Notas olfativas em atualização.";
           <strong>Topo:</strong> Bergamota, Mandarina<br>
           <strong>Coração:</strong> Âmbar, Notas amadeiradas<br>
           <strong>Fundo:</strong> Almíscar, Patchouli, Especiarias frescas
