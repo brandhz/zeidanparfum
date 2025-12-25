@@ -135,6 +135,7 @@ body {
   opacity: 0.8;
 }
 
+/* Conteúdo principal */
 .page-content {
   max-width: 1200px;
   margin: 0 auto;
@@ -550,7 +551,7 @@ body {
   text-decoration: none;
 
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
-  transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+  transition: transform 0.12s ease, box-shadow 0.12s.ease, filter 0.12s ease;
 }
 
 .contact-btn::before {
@@ -740,9 +741,9 @@ body {
   }
 
   .main-nav {
-    max-width: 260px;          /* faixa menor */
-    justify-content: center;   /* centraliza o grupo */
-    gap: 12px;                 /* distância entre os itens */
+    max-width: 260px;
+    justify-content: center;
+    gap: 12px;
   }
 
   .product-grid {
@@ -777,29 +778,3 @@ body {
   text-decoration: none;
   outline: none;
 }
-
-.hero {
-  position: static;
-}
-
-/* barra fixa: busca + menu + painel */
-.hero-bar {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 40px;                 /* logo abaixo da faixa vermelha */
-  z-index: 30;
-  background-color: #041739;
-  padding: 8px 16px 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-/* conteúdo começa depois da barra fixa */
-.page-content {
-  max-width: 1200px;
-  margin: 220px auto 0;      /* ajusta até CATEGORIAS/Perfumes ficarem bonitos */
-  padding: 24px 16px 40px;
-}
-
-
-
