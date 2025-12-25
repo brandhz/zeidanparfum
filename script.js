@@ -119,11 +119,10 @@ function renderCards(selectedBrand, searchTerm, category) {
 
     const whatsappLink = buildWhatsAppLink(p);
 
-    const nome = (p.Produto || "").toUpperCase();
+    // usa o próprio nome do produto como id da página de detalhes
     let detalheHref = null;
-
-    if (nome.includes("AFNAN TURATHI BLUE")) {
-      detalheHref = "produto-turathi-blue.html";
+    if (p.Produto) {
+      detalheHref = "produto.html?id=" + encodeURIComponent(p.Produto);
     }
 
     card.innerHTML = `
@@ -252,3 +251,4 @@ document.addEventListener("keydown", (e) => {
 
 /* Inicia */
 loadPerfumes();
+
