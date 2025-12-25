@@ -189,9 +189,6 @@ function renderCards(selectedBrand, searchTerm, category) {
   });
 }
 
-    perfumeGrid.appendChild(card);
-  });
-
   // limita quantidade de cards mostrados na vitrine
   const limited = filtered.slice(0, LIMITE_INICIAL);
 
@@ -380,6 +377,7 @@ if (perfumeGrid) {
     renderCards(marcaSelecionada, "", currentCategory);
   }
 }
+
 
 
 
