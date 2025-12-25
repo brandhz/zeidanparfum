@@ -342,6 +342,22 @@ body {
     transform: scale(1);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
   }
+
+  /*animação do zoom da imagem*/
+  @keyframes image-modal-zoom-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.image-modal.open .image-modal-content {
+  animation: image-modal-zoom-in 0.18s ease-out;
+  }
 }
 
 /* Botão Encomendar */
@@ -406,13 +422,13 @@ body {
   position: fixed;
   inset: 0;
   display: none;
-  align-items: center;
-  justify-content: center;
+  align-items: center;      /* centraliza vertical */
+  justify-content: center;  /* centraliza horizontal */
   z-index: 50;
 }
 
 .image-modal.open {
-  display: flex;
+  display: flex;            /* flex no container inteiro */
 }
 
 .image-modal-backdrop {
@@ -422,18 +438,27 @@ body {
   backdrop-filter: blur(10px);
 }
 
+/* “fundo branco” centralizado, igual ao exemplo */
 .image-modal-content {
   position: relative;
-  max-width: 90vw;
-  max-height: 90vh;
   z-index: 51;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+
+  max-width: 80vw;
+  max-height: 80vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .image-modal-content img {
   max-width: 100%;
   max-height: 100%;
-  border-radius: 18px;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+  object-fit: contain;
 }
 
 .image-modal-close {
@@ -693,6 +718,7 @@ body {
     max-width: 100%;
   }
 }
+
 
 
 
