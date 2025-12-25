@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Detalhes do perfume | Zeidan Parfum</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Se quiser, copia aqui sua top-bar + hero + menu da index -->
+
+  <main class="page-content">
+    <section class="product-detail">
+      <div class="product-detail-inner">
+        <div class="product-detail-image">
+          <img id="produtoImagem" src="" alt="">
+        </div>
+
+        <div class="product-detail-info">
+          <h1 id="produtoTitulo" class="product-detail-title"></h1>
+
+          <p id="produtoMarca" class="product-detail-brand"></p>
+
+          <p id="produtoPreco" class="product-detail-price"></p>
+
+          <p id="produtoDescricao" class="product-detail-description"></p>
+
+          <h3 class="product-detail-subtitle">Principais acordes</h3>
+          <ul id="produtoAcordes" class="product-detail-accords"></ul>
+
+          <h3 class="product-detail-subtitle">Pirâmide olfativa</h3>
+          <p id="produtoNotas" class="product-detail-notes"></p>
+
+          <div class="product-detail-actions">
+            <a id="produtoWhatsapp" href="#" class="product-btn">
+              Encomende
+            </a>
+            <a id="produtoComprar" href="#" class="product-btn" style="margin-top:10px;">
+              Comprar
+            </a>
+          </div>
+
+          <a href="index.html" class="contact-back">
+            ← Voltar para a vitrine
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const WHATSAPP_NUMBER = "5531991668430";
+
+    // 1) lê o id da URL: produto.html?id=AFNAN%20TURATHI%20BLUE%20EDP%20M%2090%20ML
+    const params = new URLSearchParams(window.location.search); // [web:632][web:636]
+    const nomeProduto = params.get("id"); // mesmo texto do campo "Produto" no JSON
+
+    async function carregarProduto() {
+      try {
+        const resp = await fetch("data.json"); // mesmo JSON da vitrine [web:667][file:652]
+        const lista = await resp.json();
+
+        const p = lista.find(
+          (item) => (item.Produto || "").toUpperCase() === (nomeProduto || "").toUpperCase()
+        );
+
+        if (!p) {
+          document.getElementById("produtoTitulo").textContent = "Produto não encontrado";
+          return;
+        }
+
+        // título e marca
+        document.title = p.Produto + " | Zeidan Parfum";
+        document.getElementById("produtoTitulo").textContent = p.Produto || "";
+        document.getElementById("produtoMarca").textContent =
+          (p.Marca || "") + (p.Categoria ? " • " + p.Categoria.toUpperCase() : "");
+
+        // preço vindo do JSON
+        document.getElementById("produtoPreco").textContent = p.Preco_Venda || "";
+
+        // imagem (usa a mesma URL do JSON)
+        const imgEl = document.getElementById("produtoImagem");
+        if (p.Imagem) {
+          imgEl.src = p.Imagem;
+          imgEl.alt = p.Produto || "";
+        } else {
+          imgEl.style.display = "none";
+        }
+
+        // descrição simples reaproveitando nome + marca + preço
+        document.getElementById("produtoDescricao").textContent =
+          `${p.Produto || ""} é um perfume da marca ${p.Marca || ""}, disponível na Zeidan Parfum por ${p.Preco_Venda || "preço sob consulta"}.`;
+
+        // acordes e pirâmide (por enquanto, genérico)
+        const acordesEl = document.getElementById("produtoAcordes");
+        acordesEl.innerHTML = "";
+        ["Cítrico fresco", "Amadeirado", "Âmbar", "Almíscar limpo"].forEach((acc) => {
+          const li = document.createElement("li");
+          li.textContent = acc;
+          acordesEl.appendChild(li);
+        });
+
+        document.getElementById("produtoNotas").innerHTML = `
+          <strong>Topo:</strong> Bergamota, Mandarina<br>
+          <strong>Coração:</strong> Âmbar, Notas amadeiradas<br>
+          <strong>Fundo:</strong> Almíscar, Patchouli, Especiarias frescas
+        `;
+
+        // link do WhatsApp com nome + preço
+        const msg = `Olá, quero encomendar o perfume:
+${p.Produto || ""} - ${p.Marca || ""}
+Preço: ${p.Preco_Venda || ""}`;
+        const encodedMsg = encodeURIComponent(msg);
+        document.getElementById("produtoWhatsapp").href =
+          `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMsg}`;
+
+        // botão comprar (por enquanto, mesmo link do WhatsApp)
+        document.getElementById("produtoComprar").href =
+          `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMsg}`;
+      } catch (e) {
+        console.error("Erro ao carregar produto:", e);
+        document.getElementById("produtoTitulo").textContent = "Erro ao carregar produto";
+      }
+    }
+
+    carregarProduto();
+  </script>
+</body>
+</html>
