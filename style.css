@@ -764,6 +764,7 @@ body {
     max-width: 100%;
   }
 }
+
 /* Força estilo único para os links do menu */
 .main-nav .nav-link,
 .main-nav .nav-link:link,
@@ -776,5 +777,16 @@ body {
   text-decoration: none;
   outline: none;
 }
+
+/* deixa só o topo (logo + busca + menu) grudado no scroll */
+.hero {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background-color: #041739;
+  padding: 12px 16px 8px; /* pode ajustar se achar muito alto */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
 
 
