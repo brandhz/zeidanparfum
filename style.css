@@ -778,20 +778,28 @@ body {
   outline: none;
 }
 
-/* barra grudada: busca + menu + painel de marcas */
+.hero {
+  position: static;
+  overflow: visible;
+}
+
+.hero-inner,
+.hero-top {
+  overflow: visible;
+}
+
+/* barra grudada: busca + menu */
 .hero-bar {
   position: sticky;
   top: 0;
   z-index: 30;
   background-color: #041739;
+  padding-top: 8px;
   padding-bottom: 8px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* hero normal, sem grudar */
-.hero {
-  position: static;
-}
+
 
 
 
