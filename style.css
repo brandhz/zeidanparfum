@@ -158,7 +158,7 @@ body {
 /* Conteúdo principal: começa depois da barra fixa */
 .page-content {
   max-width: 1200px;
-  margin: 140px auto 0; /* empurra tudo para baixo da barra fixa */
+  margin: 80px auto 0; /* antes era 140px */
   padding: 16px 16px 40px;
 }
 
@@ -798,4 +798,5 @@ body {
   text-decoration: none;
   outline: none;
 }
+
 
