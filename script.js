@@ -14,7 +14,7 @@ const imageModalClose = document.getElementById("imageModalClose");
 let perfumes = [];
 let currentCategory = "TODAS";
 
-const LIMITE_INICIAL - 30;
+const LIMITE_INICIAL = 30;
 
 // número global de WhatsApp
 window.WHATSAPP_NUMBER = "5531991668430";
@@ -319,6 +319,7 @@ if (perfumeGrid) {
     renderCards(marcaSelecionada, "", currentCategory);
   }
 }
+
 
 
 
