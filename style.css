@@ -422,33 +422,25 @@ body {
   position: fixed;
   inset: 0;
   display: none;
-  align-items: center;      /* centraliza vertical */
-  justify-content: center;  /* centraliza horizontal */
+  align-items: center;
+  justify-content: center;
   z-index: 50;
 }
 
 .image-modal.open {
-  display: flex;            /* flex no container inteiro */
+  display: flex;
 }
 
-.image-modal-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(10px);
-}
-
-/* “fundo branco” centralizado, igual ao exemplo */
 .image-modal-content {
   position: relative;
   z-index: 51;
   background: #ffffff;
-  padding: 16px;
+  padding: 12px;
   border-radius: 18px;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
 
-  max-width: 40vw;   /* antes era 80vw */
-  max-height: 70vh;  /* mantém uma altura boa */
+  max-width: 480px;   /* limite fixo de largura */
+  max-height: 80vh;
 
   display: flex;
   align-items: center;
@@ -456,9 +448,18 @@ body {
 }
 
 .image-modal-content img {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
   object-fit: contain;
+}
+
+@media (max-width: 640px) {
+  .image-modal-content {
+    max-width: 90vw;   /* ocupa boa parte da tela */
+    max-height: 70vh;
+    padding: 10px;
+  }
 }
 
 .image-modal-close {
@@ -740,6 +741,7 @@ body {
     max-width: 100%;
   }
 }
+
 
 
 
