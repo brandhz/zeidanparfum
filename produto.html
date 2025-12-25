@@ -121,8 +121,13 @@
           imgEl.style.display = "none";
         }
 
-        document.getElementById("produtoDescricao").textContent =
-          `${p.Produto || ""} é um perfume da marca ${p.Marca || ""}, disponível na Zeidan Parfum por ${p.Preco_Venda || "preço sob consulta"}.`;
+        // usa descrição do JSON se existir, senão cai no texto padrão
+        const desc =
+          p.Descricao && p.Descricao.trim() !== ""
+            ? p.Descricao
+            : `${p.Produto || ""} é um perfume da marca ${p.Marca || ""}, disponível na Zeidan Parfum por ${p.Preco_Venda || "preço sob consulta"}.`;
+
+        document.getElementById("produtoDescricao").textContent = desc;
 
         const acordesEl = document.getElementById("produtoAcordes");
         acordesEl.innerHTML = "";
