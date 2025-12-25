@@ -570,6 +570,12 @@ body {
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
   gap: 32px;
   align-items: center;
+  grid-template-areas: "image info";
+}
+
+/* contêiner da imagem */
+.product-detail-image {
+  grid-area: image;
 }
 
 .product-detail-image img {
@@ -579,6 +585,11 @@ body {
   margin: 0 auto;
   border-radius: 18px;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+}
+
+/* contêiner do texto/descrição */
+.product-detail-content {
+  grid-area: info;
 }
 
 .product-detail-title {
@@ -594,6 +605,17 @@ body {
   text-transform: uppercase;
   opacity: 0.8;
   margin-bottom: 8px;
+}
+
+/* mobile: empilha imagem em cima, texto embaixo */
+@media (max-width: 640px) {
+  .product-detail-inner {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "image"
+      "info";
+    gap: 20px;
+  }
 }
 
 .product-detail-price {
@@ -718,6 +740,7 @@ body {
     max-width: 100%;
   }
 }
+
 
 
 
