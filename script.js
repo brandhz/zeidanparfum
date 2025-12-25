@@ -144,7 +144,7 @@ function renderCards(selectedBrand, searchTerm, category) {
       detalheHref = "produto.html?id=" + encodeURIComponent(p.Produto);
     }
 
-    card.innerHTML = `
+        card.innerHTML = `
       ${detalheHref ? `<a href="${detalheHref}" class="product-link">` : `<div class="product-link">`}
         <div class="product-image-wrap">
           ${
@@ -184,6 +184,10 @@ function renderCards(selectedBrand, searchTerm, category) {
         openImageModal();
       });
     }
+
+    perfumeGrid.appendChild(card);
+  });
+}
 
     perfumeGrid.appendChild(card);
   });
@@ -376,6 +380,7 @@ if (perfumeGrid) {
     renderCards(marcaSelecionada, "", currentCategory);
   }
 }
+
 
 
 
