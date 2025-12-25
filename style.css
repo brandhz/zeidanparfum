@@ -47,22 +47,34 @@ body {
 .hero-top {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 10px;
   align-items: center;
 }
 
-/* Barra com busca + menu (agora no topo do hero) */
+/* BLOCO FIXO: busca + menu */
 .hero-bar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 18px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 32px; /* logo abaixo da barra vermelha */
+  z-index: 40;
+  background-color: #041739;
+  padding: 12px 16px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* Logo abaixo da barra */
+/* garante largura máxima dentro do bloco fixo */
+.hero-bar .search-wrap,
+.hero-bar .main-nav {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Logo (rola junto com a página, abaixo da barra fixa) */
 .logo-wrap {
   display: flex;
   justify-content: center;
+  margin-top: 120px; /* distância da barra fixa até a logo */
 }
 
 .logo {
@@ -101,11 +113,10 @@ body {
 /* Menu */
 .main-nav {
   display: flex;
-  justify-content: center;   /* centraliza o grupo */
-  gap: 32px;                 /* espaço entre INÍCIO / MARCAS / CONTATO */
+  justify-content: center;
+  gap: 32px; /* espaçamento entre INÍCIO / MARCAS / CONTATO */
   max-width: 360px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-top: 14px;
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.16em;
@@ -144,11 +155,11 @@ body {
   opacity: 0.8;
 }
 
-/* Conteúdo principal */
+/* Conteúdo principal: começa depois da barra fixa */
 .page-content {
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 24px 16px 40px;
+  margin: 190px auto 0; /* empurra tudo para baixo da barra fixa */
+  padding: 16px 16px 40px;
 }
 
 /* Título de seção */
@@ -375,7 +386,7 @@ body {
 }
 
 .image-modal.closing .image-modal-content {
-  animation: image-modal-zoom-in 0.18s ease-out;
+  animation: image-modal-zoom-in 0.18s.ease-out;
 }
 
 /* Botão Encomendar / Comprar */
@@ -427,7 +438,7 @@ body {
 .product-btn:hover {
   background-position: 100% 0%;
   filter: brightness(1.05);
-  animation: encomende-pulse-hover 0.7s ease-in-out;
+  animation: encomende-pulse-hover 0.7s.ease-in-out;
 }
 
 .product-btn:active {
@@ -560,7 +571,7 @@ body {
   text-decoration: none;
 
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
-  transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+  transition: transform 0.12s ease, box-shadow 0.12s.ease, filter 0.12s.ease;
 }
 
 .contact-btn::before {
@@ -787,4 +798,3 @@ body {
   text-decoration: none;
   outline: none;
 }
-
