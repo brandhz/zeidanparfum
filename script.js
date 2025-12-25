@@ -1,162 +1,315 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <title>Detalhes do perfume | Zeidan Parfum</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <!-- faixa de contato -->
-  <div class="top-bar">
-    <div class="top-bar-inner">
-      <p class="top-message">
-        ENTRE EM CONTATO COM A NOSSA EQUIPE PARA ENCOMENDAR O SEU PERFUME
-      </p>
-    </div>
-  </div>
+const perfumeGrid = document.getElementById("perfumeGrid");
+const brandColumns = document.getElementById("brandColumns");
+const searchInput = document.getElementById("searchInput");
+const brandPanel = document.querySelector(".brand-panel");
+const brandsToggle = document.getElementById("brandsToggle");
+const homeLink = document.getElementById("homeLink");
+const categoryButtons = document.querySelectorAll(".category-btn") || [];
 
-  <!-- cabeçalho com logo + menu -->
-  <header class="site-header">
-    <div class="hero-inner">
-      <div class="logo-wrap">
-        <img src="logo.png" alt="ZEIDAN PARFUM" class="logo" />
-      </div>
+// modal de imagem (só existe na vitrine)
+const imageModal = document.getElementById("imageModal");
+const imageModalImg = document.getElementById("imageModalImg");
+const imageModalClose = document.getElementById("imageModalClose");
 
-      <nav class="main-nav">
-        <a href="index.html" class="nav-link">Início</a>
-        <button id="brandsToggle" class="nav-button" type="button">
-          Marcas
-        </button>
-        <a href="contato.html" class="nav-link">Contato</a>
-      </nav>
-    </div>
-  </header>
+let perfumes = [];
+let currentCategory = "TODAS";
 
-  <!-- conteúdo da página de produto -->
-  <main class="page-content">
-    <!-- Painel de marcas flutuante -->
-    <section id="marcas" class="brand-panel">
-      <div class="brand-panel-inner">
-        <div class="brand-panel-header">Categorias</div>
-        <div id="brandColumns" class="brand-columns"></div>
-      </div>
-    </section>
+// número global de WhatsApp
+window.WHATSAPP_NUMBER = "5531991668430";
 
-    <!-- Detalhes do perfume -->
-    <section class="product-detail">
-      <div class="product-detail-inner">
-        <div class="product-detail-image">
-          <img id="produtoImagem" src="" alt="">
-        </div>
+// normaliza categoria
+function normalizeCat(value) {
+  return (value || "")
+    .toString()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toUpperCase();
+}
 
-        <div class="product-detail-info">
-          <h1 id="produtoTitulo" class="product-detail-title"></h1>
+// Carrega dados do data.json
+async function loadPerfumes() {
+  try {
+    const response = await fetch("data.json");
+    perfumes = await response.json();
 
-          <p id="produtoMarca" class="product-detail-brand"></p>
+    if (brandColumns) {
+      populateBrandColumns();
+    }
+    if (perfumeGrid) {
+      renderCards("TODAS", "", currentCategory);
+    }
+  } catch (error) {
+    console.error("Erro ao carregar data.json:", error);
+  }
+}
 
-          <p id="produtoPreco" class="product-detail-price"></p>
+// Lista de marcas em colunas – só com preço
+function populateBrandColumns() {
+  const brandsWithPrice = perfumes
+    .filter((p) => (p.Preco_Venda || "").trim() !== "")
+    .map((p) => p.Marca || "");
 
-          <p id="produtoDescricao" class="product-detail-description"></p>
+  const brands = [...new Set(brandsWithPrice)]
+    .filter((b) => b && b.trim() !== "")
+    .sort((a, b) => a.localeCompare(b));
 
-          <h3 class="product-detail-subtitle">Principais acordes</h3>
-          <ul id="produtoAcordes" class="product-detail-accords"></ul>
+  const columns = 4;
+  const perColumn = Math.ceil(brands.length / columns);
 
-          <h3 class="product-detail-subtitle">Pirâmide olfativa</h3>
-          <p id="produtoNotas" class="product-detail-notes"></p>
+  brandColumns.innerHTML = "";
 
-          <div class="product-detail-actions">
-            <a id="produtoWhatsapp" href="#" class="product-btn">
-              Encomende
-            </a>
-            <a id="produtoComprar" href="#" class="product-btn" style="margin-top:10px;">
-              Comprar
-            </a>
-          </div>
+  for (let i = 0; i < columns; i++) {
+    const ul = document.createElement("ul");
+    const slice = brands.slice(i * perColumn, (i + 1) * perColumn);
 
-          <a href="index.html" class="contact-back">
-            ← Voltar para a vitrine
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- script que carrega os dados do JSON SÓ desta página -->
-  <script>
-    // usa o número global do script.js se existir, senão cai neste local
-    const WHATSAPP_NUMBER_LOCAL = "5531991668430";
-    const WHATSAPP_NUM = (typeof window.WHATSAPP_NUMBER !== "undefined")
-      ? window.WHATSAPP_NUMBER
-      : WHATSAPP_NUMBER_LOCAL;
-
-    const params = new URLSearchParams(window.location.search);
-    const nomeProduto = params.get("id");
-
-    async function carregarProduto() {
-      try {
-        const resp = await fetch("data.json");
-        const lista = await resp.json();
-
-        const p = lista.find(
-          (item) => (item.Produto || "").toUpperCase() === (nomeProduto || "").toUpperCase()
-        );
-
-        if (!p) {
-          document.getElementById("produtoTitulo").textContent = "Produto não encontrado";
-          return;
-        }
-
-        document.title = p.Produto + " | Zeidan Parfum";
-        document.getElementById("produtoTitulo").textContent = p.Produto || "";
-        document.getElementById("produtoMarca").textContent =
-          (p.Marca || "") + (p.Categoria ? " • " + p.Categoria.toUpperCase() : "");
-        document.getElementById("produtoPreco").textContent = p.Preco_Venda || "";
-
-        const imgEl = document.getElementById("produtoImagem");
-        if (p.Imagem) {
-          imgEl.src = p.Imagem;
-          imgEl.alt = p.Produto || "";
+    slice.forEach((brand) => {
+      const li = document.createElement("li");
+      li.textContent = brand;
+      li.addEventListener("click", () => {
+        if (perfumeGrid) {
+          renderCards(
+            brand,
+            searchInput ? searchInput.value : "",
+            currentCategory
+          );
+          const produtos = document.getElementById("produtos");
+          if (produtos) {
+            produtos.scrollIntoView({ behavior: "smooth" });
+          }
         } else {
-          imgEl.style.display = "none";
+          localStorage.setItem("abrirMarcas", "0");
+          localStorage.setItem("marcaSelecionada", brand);
+          window.location.href = "index.html";
         }
+        closeBrandPanel();
+      });
+      ul.appendChild(li);
+    });
 
-        document.getElementById("produtoDescricao").textContent =
-          `${p.Produto || ""} é um perfume da marca ${p.Marca || ""}, disponível na Zeidan Parfum por ${p.Preco_Venda || "preço sob consulta"}.`;
+    brandColumns.appendChild(ul);
+  }
+}
 
-        const acordesEl = document.getElementById("produtoAcordes");
-        acordesEl.innerHTML = "";
-        ["Cítrico fresco", "Amadeirado", "Âmbar", "Almíscar limpo"].forEach((acc) => {
-          const li = document.createElement("li");
-          li.textContent = acc;
-          acordesEl.appendChild(li);
-        });
+// WhatsApp
+function buildWhatsAppLink(perfume) {
+  const nome = perfume.Produto || "";
+  const marca = perfume.Marca || "";
+  const preco = perfume.Preco_Venda || "";
 
-        document.getElementById("produtoNotas").innerHTML = `
-          <strong>Topo:</strong> Bergamota, Mandarina<br>
-          <strong>Coração:</strong> Âmbar, Notas amadeiradas<br>
-          <strong>Fundo:</strong> Almíscar, Patchouli, Especiarias frescas
-        `;
+  const msg = `Olá, quero encomendar o perfume:
+${nome} - ${marca}
+Preço: ${preco}`;
 
-        const msg = `Olá, quero encomendar o perfume:
-${p.Produto || ""} - ${p.Marca || ""}
-Preço: ${p.Preco_Venda || ""}`;
-        const encodedMsg = encodeURIComponent(msg);
-        const waLink = `https://wa.me/${WHATSAPP_NUM}?text=${encodedMsg}`;
+  const encodedMsg = encodeURIComponent(msg);
+  return `https://wa.me/${window.WHATSAPP_NUMBER}?text=${encodedMsg}`;
+}
 
-        document.getElementById("produtoWhatsapp").href = waLink;
-        document.getElementById("produtoComprar").href = waLink;
-      } catch (e) {
-        console.error("Erro ao carregar produto:", e);
-        document.getElementById("produtoTitulo").textContent = "Erro ao carregar produto";
-      }
+// Renderiza cards na vitrine
+function renderCards(selectedBrand, searchTerm, category) {
+  if (!perfumeGrid) return;
+
+  perfumeGrid.innerHTML = "";
+  const term = (searchTerm || "").trim().toLowerCase();
+  const cat = normalizeCat(category || "TODAS");
+
+  const filtered = perfumes.filter((p) => {
+    const brand = p.Marca || "";
+    const name = p.Produto || "";
+    const price = (p.Preco_Venda || "").trim();
+    const catValue = normalizeCat(p.Categoria || "");
+
+    if (!price) return false;
+
+    const matchBrand = selectedBrand === "TODAS" || brand === selectedBrand;
+    const combined = `${name} ${brand}`.toLowerCase();
+    const matchText = combined.includes(term);
+    const matchCategory = cat === "TODAS" || catValue === cat;
+
+    return matchBrand && matchText && matchCategory;
+  });
+
+  filtered.forEach((p) => {
+    const card = document.createElement("article");
+    card.className = "product-card";
+
+    const whatsappLink = buildWhatsAppLink(p);
+
+    let detalheHref = null;
+    if (p.Produto) {
+      detalheHref = "produto.html?id=" + encodeURIComponent(p.Produto);
     }
 
-    carregarProduto();
-  </script>
+    card.innerHTML = `
+      ${detalheHref ? `<a href="${detalheHref}" class="product-link">` : `<div class="product-link">`}
+        <div class="product-image-wrap">
+          ${
+            p.Imagem
+              ? `<img src="${p.Imagem}" alt="${p.Produto ?? ""}" class="product-image" data-full="${p.Imagem}" />`
+              : ""
+          }
+        </div>
 
-  <!-- script geral do site: popula marcas, abre/fecha painel etc. -->
-  <script src="script.js"></script>
-</body>
-</html>
+        <div class="product-name">
+          ${p.Produto ?? ""}
+        </div>
 
+        <div class="product-meta">
+          <span class="product-brand">
+            ${p.Marca ?? ""}
+          </span>
+          <span class="product-price">
+            ${p.Preco_Venda ?? ""}
+          </span>
+        </div>
+      ${detalheHref ? `</a>` : `</div>`}
+
+      <div class="product-actions">
+        <a class="product-btn" href="${whatsappLink}" target="_blank" rel="noopener noreferrer">
+          Encomende
+        </a>
+      </div>
+    `;
+
+    const imgEl = card.querySelector(".product-image");
+    if (imgEl && imageModal && imageModalImg) {
+      imgEl.addEventListener("click", () => {
+        const fullSrc = imgEl.getAttribute("data-full");
+        imageModalImg.src = fullSrc;
+        imageModalImg.alt = imgEl.alt || "";
+        openImageModal();
+      });
+    }
+
+    perfumeGrid.appendChild(card);
+  });
+}
+
+/* Painel de marcas */
+
+if (brandsToggle && brandPanel) {
+  brandsToggle.addEventListener("click", () => {
+    const isOpen = brandPanel.classList.contains("open");
+    if (isOpen) {
+      closeBrandPanel();
+    } else {
+      openBrandPanel();
+    }
+  });
+}
+
+function openBrandPanel() {
+  if (brandPanel) {
+    brandPanel.classList.add("open");
+  }
+}
+
+function closeBrandPanel() {
+  if (brandPanel) {
+    brandPanel.classList.remove("open");
+  }
+}
+
+// fecha se clicar fora do painel
+document.addEventListener("click", (e) => {
+  if (!brandPanel || !brandsToggle) return;
+  const isInsidePanel = brandPanel.contains(e.target);
+  const isToggle = brandsToggle.contains(e.target);
+  if (!isInsidePanel && !isToggle) {
+    closeBrandPanel();
+  }
+});
+
+/* Botão Início – só vitrine */
+if (homeLink && perfumeGrid) {
+  homeLink.addEventListener("click", () => {
+    if (!perfumeGrid) return;
+    if (searchInput) {
+      searchInput.value = "";
+    }
+    currentCategory = "TODAS";
+    categoryButtons.forEach((btn) =>
+      btn.classList.toggle("active", btn.dataset.cat === "TODAS")
+    );
+    renderCards("TODAS", "", currentCategory);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
+/* Busca por texto – só vitrine */
+if (searchInput && perfumeGrid) {
+  searchInput.addEventListener("input", (e) => {
+    renderCards("TODAS", e.target.value, currentCategory);
+  });
+}
+
+/* Filtro por categoria – só vitrine */
+if (categoryButtons.length && perfumeGrid) {
+  categoryButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      categoryButtons.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      currentCategory = btn.dataset.cat;
+      renderCards(
+        "TODAS",
+        searchInput ? searchInput.value : "",
+        currentCategory
+      );
+    });
+  });
+}
+
+/* Modal de imagem – só vitrine */
+function openImageModal() {
+  if (!imageModal) return;
+  imageModal.classList.add("open");
+}
+
+function closeImageModal() {
+  if (!imageModal || !imageModalImg) return;
+  imageModal.classList.remove("open");
+  imageModalImg.src = "";
+}
+
+if (imageModalClose) {
+  imageModalClose.addEventListener("click", closeImageModal);
+}
+
+if (imageModal) {
+  imageModal.addEventListener("click", (e) => {
+    if (
+      e.target === imageModal ||
+      e.target.classList.contains("image-modal-backdrop")
+    ) {
+      closeImageModal();
+    }
+  });
+}
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && imageModal && imageModal.classList.contains("open")) {
+    closeImageModal();
+  }
+});
+
+/* Inicia */
+loadPerfumes();
+
+// Se veio de outra página pedindo para abrir o painel de marcas
+if (localStorage.getItem("abrirMarcas") === "1") {
+  localStorage.removeItem("abrirMarcas");
+  openBrandPanel();
+  const marcasSection =
+    document.getElementById("marcas") || document.getElementById("produtos");
+  if (marcasSection) {
+    marcasSection.scrollIntoView({ behavior: "smooth" });
+  }
+}
+
+// Se veio da página de produto com marca selecionada
+if (perfumeGrid) {
+  const marcaSelecionada = localStorage.getItem("marcaSelecionada");
+  if (marcaSelecionada) {
+    localStorage.removeItem("marcaSelecionada");
+    renderCards(marcaSelecionada, "", currentCategory);
+  }
+}
