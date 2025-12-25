@@ -1,212 +1,247 @@
-/* RESET BÁSICO */
-*,
-*::before,
-*::after {
+/* Base */
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background-color: #020617;
-  color: #e5e7eb;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background-color: #041739;
+  color: #ffffff;
+  min-height: 100vh;
 }
 
-/* BARRA SUPERIOR DE AVISO */
+/* Barra superior */
 .top-bar {
-  background: #020617;
-  color: #e5e7eb;
-  font-size: 12px;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+  background-color: #c34733;
+  color: #fff;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
 }
 
 .top-bar-inner {
-  max-width: 1120px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 6px 16px;
 }
 
 .top-message {
   text-align: center;
-  letter-spacing: 0.02em;
 }
 
-/* ÁREA DO HERO (logo + busca + menu) */
+/* Hero */
 .hero {
-  background: #020617;
-  padding-bottom: 16px;
+  background-color: #041739;
+  padding: 24px 16px 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .hero-inner {
-  max-width: 1120px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 16px;
 }
 
 .hero-top {
-  padding-top: 24px;
-}
-
-/* BARRA COM BUSCA E MENU (SEM FIXED) */
-.hero-bar {
-  position: relative;
-  z-index: 10;
-  background-color: #020617;
-  padding: 12px 0 10px 0;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.35);
   display: flex;
   flex-direction: column;
   gap: 10px;
+  align-items: center;
 }
 
-/* centraliza o conteúdo da barra dentro da largura máxima */
-.search-wrap,
-.main-nav {
-  max-width: 1120px;
-  margin: 0 auto;
+/* BLOCO FIXO: busca + menu */
+.hero-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 32px; /* logo abaixo da barra vermelha */
+  z-index: 40;
+  background-color: #041739;
+  padding: 12px 16px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* BUSCA */
+/* garante largura máxima dentro do bloco fixo */
+.hero-bar .search-wrap,
+.hero-bar .main-nav {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Logo (rola junto com a página, abaixo da barra fixa) */
+.logo-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 120px; /* distância da barra fixa até a logo */
+}
+
+.logo {
+  max-width: 220px;
+  height: auto;
+}
+
+/* Busca */
 .search-wrap {
   display: flex;
-  gap: 8px;
+  width: 100%;
+  max-width: 520px;
+  background-color: #ffffff;
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
 }
 
 #searchInput {
   flex: 1;
-  padding: 10px 12px;
-  border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.6);
-  background: #020617;
-  color: #e5e7eb;
+  border: none;
+  padding: 10px 16px;
   font-size: 14px;
-}
-
-#searchInput::placeholder {
-  color: #64748b;
+  outline: none;
+  color: #041739;
 }
 
 .search-btn {
-  padding: 0 14px;
-  border-radius: 999px;
   border: none;
-  background: #f97316;
-  color: #0f172a;
+  background: transparent;
+  width: 44px;
+  font-size: 18px;
   cursor: pointer;
-  font-size: 16px;
 }
 
-/* MENU PRINCIPAL */
+/* Menu */
 .main-nav {
   display: flex;
-  gap: 8px;
-  padding-top: 4px;
+  justify-content: center;
+  gap: 32px; /* espaçamento entre INÍCIO / MARCAS / CONTATO */
+  max-width: 360px;
+  margin-top: 14px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
 }
 
+.main-nav .nav-link,
+.main-nav .nav-link:visited,
+.main-nav .nav-link:focus,
+.main-nav .nav-link:active {
+  color: #ffffff;
+  opacity: 0.9;
+}
+
+/* Botão/Link de nav */
 .nav-button {
-  border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.6);
-  background: #020617;
-  color: #e5e7eb;
-  padding: 6px 14px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.78);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
   font-size: 13px;
   cursor: pointer;
 }
 
+.nav-button:hover {
+  color: #ffffff;
+}
+
 .nav-link {
   text-decoration: none;
-  display: inline-flex;
-  align-items: center;
+  color: #ffffff;
 }
 
-/* LOGO */
-.logo-wrap {
-  margin-top: 24px;
-  display: flex;
-  justify-content: center;
+.nav-link:hover {
+  color: #ffffff;
+  opacity: 0.8;
 }
 
-.logo {
-  max-width: 200px;
-}
-
-/* CONTEÚDO PRINCIPAL */
+/* Conteúdo principal: começa depois da barra fixa */
 .page-content {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 24px 16px 32px;
+  max-width: 1200px;
+  margin: 190px auto 0; /* empurra tudo para baixo da barra fixa */
+  padding: 16px 16px 40px;
 }
 
-/* SEÇÕES */
-.product-section {
-  margin-bottom: 32px;
-}
-
+/* Título de seção */
 .section-title {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 12px;
+  max-width: 1200px;
+  margin: 0 auto 12px;
+  font-size: 15px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.8;
 }
 
-/* PAINEL DE MARCAS (FICA NA ÁREA CATEGORIAS, NÃO FIXO) */
+/* Painel de marcas / categorias */
 .brand-panel {
   position: relative;
-  max-width: 720px;
-  margin-top: 8px;
+  max-width: 1200px;
+  margin: 0 auto 8px;
 }
 
 .brand-panel-inner {
   position: relative;
 }
 
-/* se quiser um botão/campo clicável, estiliza .brand-panel-header */
 .brand-panel-header {
-  /* exemplo opcional:
-  padding: 8px 12px;
-  border-radius: 999px;
-  border: 1px solid rgba(148,163,184,0.6);
   font-size: 13px;
-  color: #e5e7eb;
-  cursor: pointer;
-  */
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.8;
+  padding: 8px 4px;
 }
 
-/* área que recebe as colunas de marcas (preenchida via JS) */
 .brand-columns {
-  margin-top: 8px;
-  background: rgba(15, 23, 42, 0.98);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  margin-top: 4px;
+  background: rgba(3, 12, 40, 0.98);
   border-radius: 16px;
   padding: 16px 18px 14px;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px 18px;
-  max-height: 420px;
-  overflow: auto;
-}
+  display: none;
+  z-index: 20;
 
-/* exemplos de estilo interno das colunas */
-.brand-column-title {
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #9ca3af;
-  margin-bottom: 6px;
-}
-
-.brand-link {
-  display: block;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px 24px;
   font-size: 13px;
-  padding: 2px 0;
-  color: #e5e7eb;
-  cursor: pointer;
 }
 
-/* FILTROS DE CATEGORIA */
+.brand-panel.open .brand-columns {
+  display: grid;
+}
+
+.brand-columns ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.brand-columns li {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.brand-columns li:hover {
+  color: #ffffff;
+}
+
+/* Filtros de categoria */
 .category-filters {
-  margin-bottom: 18px;
+  max-width: 1200px;
+  margin: 8px auto 16px;
+  padding: 0 4px;
+}
+
+.category-label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.8;
+  margin-bottom: 6px;
 }
 
 .category-inner {
@@ -217,102 +252,549 @@ body {
 
 .category-btn {
   border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.6);
-  background: #020617;
-  color: #e5e7eb;
-  padding: 6px 12px;
-  font-size: 13px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: transparent;
+  padding: 6px 14px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.8);
   cursor: pointer;
 }
 
 .category-btn.active {
-  background: #f97316;
-  color: #0f172a;
-  border-color: #f97316;
+  background: #ffffff;
+  color: #041739;
 }
 
-/* GRADE DE PRODUTOS */
+/* Grade de produtos – desktop/tablet */
+.product-section {
+  margin-bottom: 32px;
+}
+
 .product-grid {
+  max-width: 1200px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 24px;
 }
 
-/* MODAL DE IMAGEM (base) */
+/* força a mesma grade na listagem de busca */
+.search-results,
+.search-results .product-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.search-results .product-card {
+  width: 100%;
+}
+
+/* Card de produto */
+.product-card {
+  background: rgba(3, 12, 40, 0.96);
+  border-radius: 18px;
+  padding: 10px 12px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 240px;
+}
+
+/* Imagem – desktop padrão */
+.product-image-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 0 2px;
+  min-height: 150px;
+}
+
+.product-image {
+  max-height: 150px;
+  max-width: 90%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+/* Textos */
+.product-name {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.product-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.product-brand {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.product-price {
+  font-weight: 600;
+}
+
+/* Botão alinhado embaixo do card */
+.product-actions {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* Animação tipo WhatsApp (wipe) */
+@keyframes encomende-pulse-hover {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  }
+  50% {
+    transform: scale(1.04);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.55);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  }
+}
+
+/* animação do zoom da imagem */
+@keyframes image-modal-zoom-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.image-modal.closing .image-modal-content {
+  animation: image-modal-zoom-in 0.18s.ease-out;
+}
+
+/* Botão Encomendar / Comprar */
+.product-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  min-width: 180px;
+  padding: 8px 24px;
+
+  border-radius: 999px;
+  border: none;
+
+  background: linear-gradient(
+    120deg,
+    #6be276 0%,
+    #6be276 50%,
+    #041739 50%,
+    #041739 100%
+  );
+  background-size: 220% 100%;
+  background-position: 0% 0%;
+
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+
+  text-decoration: none;
+  cursor: pointer;
+
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  transition:
+    background-position 0.3s ease,
+    box-shadow 0.12s ease,
+    transform 0.12s ease,
+    filter 0.12s ease;
+}
+
+.product-btn::before {
+  content: "💎";
+  font-size: 14px;
+}
+
+.product-btn:hover {
+  background-position: 100% 0%;
+  filter: brightness(1.05);
+  animation: encomende-pulse-hover 0.7s.ease-in-out;
+}
+
+.product-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Modal de imagem */
 .image-modal {
   position: fixed;
   inset: 0;
   display: none;
   align-items: center;
   justify-content: center;
-  z-index: 80;
+  z-index: 50;
 }
 
+.image-modal.open {
+  display: flex;
+}
+
+/* camada escura + blur */
 .image-modal-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(15, 23, 42, 0.85);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 0;
 }
 
+/* conteúdo em cima do blur */
 .image-modal-content {
   position: relative;
   z-index: 1;
+  background: #ffffff;
+  padding: 12px;
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+
+  width: 100%;
+  max-width: 420px;
+  max-height: 80vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* RODAPÉ */
-.site-footer {
-  border-top: 1px solid rgba(148, 163, 184, 0.35);
-  padding: 24px 16px 32px;
-  margin-top: 24px;
+.image-modal-content img {
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  object-fit: contain;
 }
 
-.footer-inner {
-  max-width: 1120px;
+@media (max-width: 640px) {
+  .image-modal-content {
+    max-width: 320px;
+    max-height: 60vh;
+  }
+}
+
+.image-modal-close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  border: none;
+  border-radius: 999px;
+  width: 28px;
+  height: 28px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Página de contato */
+.contact-body {
+  background-color: #041739;
+  color: #ffffff;
+}
+
+.contact-main {
+  min-height: calc(100vh - 40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+}
+
+.contact-card {
+  max-width: 420px;
+  width: 100%;
+  background: rgba(3, 12, 40, 0.96);
+  border-radius: 18px;
+  padding: 24px 24px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+  text-align: center;
+}
+
+.contact-card h1 {
+  font-size: 20px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.contact-card p {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 10px 32px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #6be276, #42b799);
+  color: #ffffff;
+
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
+  transition: transform 0.12s ease, box-shadow 0.12s.ease, filter 0.12s.ease;
+}
+
+.contact-btn::before {
+  content: "💬";
+  font-size: 16px;
+}
+
+.contact-btn:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.65);
+}
+
+.contact-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+}
+
+.contact-back {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.78);
+  text-decoration: none;
+}
+
+.contact-back:hover {
+  color: #ffffff;
+}
+
+/* Página de detalhes do perfume */
+.product-detail {
   margin: 0 auto;
 }
 
-.footer-instagram {
-  display: inline-block;
+.product-detail-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: center;
+  grid-template-areas: "image info";
+}
+
+.product-detail-image {
+  grid-area: image;
+}
+
+.product-detail-image img {
+  width: 100%;
+  max-width: 420px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+}
+
+.product-detail-content {
+  grid-area: info;
+}
+
+.product-detail-title {
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+
+.product-detail-brand {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin-bottom: 8px;
+}
+
+.product-detail-price {
+  font-size: 18px;
+  font-weight: 600;
   margin-bottom: 16px;
+}
+
+.product-detail-notes,
+.product-detail-description {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+/* empilha no mobile */
+@media (max-width: 640px) {
+  .product-detail-inner {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "image"
+      "info";
+    gap: 20px;
+  }
+}
+
+/* Rodapé */
+.site-footer {
+  background-color: #111111;
+  color: #ffffff;
+  padding: 40px 0 20px;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-instagram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  text-decoration: none;
+  margin-bottom: 30px;
+  overflow: hidden;
 }
 
 .footer-instagram-img {
-  width: 32px;
-  height: 32px;
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+
+.footer-instagram:hover {
+  background-color: #eeeeee;
 }
 
 .footer-columns {
-  display: flex;
-  gap: 32px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .footer-title {
-  font-size: 13px;
-  font-weight: 600;
-  margin-bottom: 6px;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
 }
 
 .footer-link {
   display: block;
   font-size: 13px;
-  color: #e5e7eb;
+  color: #dddddd;
   text-decoration: none;
   margin-bottom: 4px;
 }
 
-.footer-copy {
-  font-size: 12px;
-  color: #9ca3af;
+.footer-link:hover {
+  color: #ffffff;
 }
 
-/* RESPONSIVO */
+.footer-copy {
+  font-size: 11px;
+  color: #aaaaaa;
+}
+
+/* Link que envolve o card de produto */
+.product-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-link:hover .product-name {
+  text-decoration: underline;
+}
+
+/* Esconde só o botão "Comprar" da ficha (produto.html) */
+.product-detail .product-detail-actions #produtoComprar {
+  display: none !important;
+}
+
+/* Mobile ajustes gerais */
 @media (max-width: 640px) {
-  .search-wrap {
-    flex-direction: row;
+  .hero-top {
+    align-items: stretch;
   }
 
-  .brand-columns {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .logo {
+    max-width: 180px;
+    margin: 0 auto;
   }
+
+  .main-nav {
+    max-width: 260px;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .product-card {
+    padding: 8px 8px 10px;
+    min-height: 0;
+  }
+
+  .product-image-wrap {
+    min-height: 150px;
+  }
+
+  .product-image {
+    max-height: 150px;
+    max-width: 100%;
+  }
+}
+
+/* Força estilo único para os links do menu */
+.main-nav .nav-link,
+.main-nav .nav-link:link,
+.main-nav .nav-link:visited,
+.main-nav .nav-link:hover,
+.main-nav .nav-link:focus,
+.main-nav .nav-link:active {
+  color: #ffffff;
+  opacity: 0.9;
+  text-decoration: none;
+  outline: none;
 }
