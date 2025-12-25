@@ -583,6 +583,63 @@ body {
   margin-bottom: 16px;
 }
 
+.site-footer {
+  background-color: #111111;
+  color: #ffffff;
+  padding: 40px 0 20px;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-instagram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: #000000;
+  text-decoration: none;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.footer-instagram:hover {
+  background-color: #eeeeee;
+}
+
+.footer-columns {
+  margin-bottom: 20px;
+}
+
+.footer-title {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+
+.footer-link {
+  display: block;
+  font-size: 13px;
+  color: #dddddd;
+  text-decoration: none;
+  margin-bottom: 4px;
+}
+
+.footer-link:hover {
+  color: #ffffff;
+}
+
+.footer-copy {
+  font-size: 11px;
+  color: #aaaaaa;
+}
+
 /* Link que envolve o card de produto – vale para todas as telas */
 .product-link {
   display: block;
@@ -630,6 +687,7 @@ body {
     max-width: 100%;
   }
 }
+
 
 
 
