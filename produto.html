@@ -6,6 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
 </head>
+<script>
+  // quando clicar em "Marcas" nesta página,
+  // avisa a home para abrir o painel de marcas
+  const linkMarcasProduto = document.getElementById("linkMarcasProduto");
+  if (linkMarcasProduto) {
+    linkMarcasProduto.addEventListener("click", () => {
+      localStorage.setItem("abrirMarcas", "1");
+    });
+  }
+</script>
 <body>
   <!-- faixa de contato -->
  <div class="top-bar">
@@ -25,7 +35,7 @@
 
       <nav class="main-nav">
         <a href="index.html" class="nav-link">Início</a>
-        <a href="index.html#marcas" class="nav-link">Marcas</a>
+        <a href="index.html" class="nav-link" id="linkMarcasProduto">Marcas</a>
         <a href="contato" class="nav-link">Contato</a>
       </nav>
     </div>
