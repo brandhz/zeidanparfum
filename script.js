@@ -251,4 +251,14 @@ document.addEventListener("keydown", (e) => {
 
 /* Inicia */
 loadPerfumes();
+// Se veio de outra página pedindo para abrir o painel de marcas
+if (localStorage.getItem("abrirMarcas") === "1") {
+  localStorage.removeItem("abrirMarcas");
+  openBrandPanel();
+  const marcasSection = document.getElementById("marcas") || document.getElementById("produtos");
+  if (marcasSection) {
+    marcasSection.scrollIntoView({ behavior: "smooth" });
+  }
+}
+
 
