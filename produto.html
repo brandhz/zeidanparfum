@@ -84,7 +84,6 @@
 
   <!-- script que carrega os dados do JSON SÓ desta página -->
   <script>
-    // usa o número global do script.js se existir, senão cai neste local
     const WHATSAPP_NUMBER_LOCAL = "5531991668430";
     const WHATSAPP_NUM = (typeof window.WHATSAPP_NUMBER !== "undefined")
       ? window.WHATSAPP_NUMBER
@@ -121,15 +120,15 @@
           imgEl.style.display = "none";
         }
 
-                // usa descrição do JSON se existir, senão cai no texto padrão
         const desc =
           p.Descricao && p.Descricao.trim() !== ""
             ? p.Descricao
-            : `${p.Produto || ""} é um perfume da marca ${p.Marca || ""}, disponível na Zeidan Parfum por ${p.Preco_Venda || "preço sob consulta"}.`;
+            : (p.Produto || "") + " é um perfume da marca " + (p.Marca || "") +
+              ", disponível na Zeidan Parfum por " + (p.Preco_Venda || "preço sob consulta") + ".";
 
         document.getElementById("produtoDescricao").textContent = desc;
 
-        // Principais acordes – por enquanto não usamos dados reais, então apenas limpamos a lista
+        // Principais acordes – por enquanto apenas limpamos a lista
         const acordesEl = document.getElementById("produtoAcordes");
         acordesEl.innerHTML = "";
 
@@ -139,22 +138,18 @@
         const fundo = p.Notas_Fundo || "";
 
         let notasHtml = "";
-        if (topo) notasHtml += `<strong>Topo:</strong> ${topo}<br>`;
-        if (coracao) notasHtml += `<strong>Coração:</strong> ${coracao}<br>`;
-        if (fundo) notasHtml += `<strong>Fundo:</strong> ${fundo}`;
+        if (topo) notasHtml += "<strong>Topo:</strong> " + topo + "<br>";
+        if (coracao) notasHtml += "<strong>Coração:</strong> " + coracao + "<br>";
+        if (fundo) notasHtml += "<strong>Fundo:</strong> " + fundo;
 
         document.getElementById("produtoNotas").innerHTML =
           notasHtml || "Notas olfativas em atualização.";
-          <strong>Topo:</strong> Bergamota, Mandarina<br>
-          <strong>Coração:</strong> Âmbar, Notas amadeiradas<br>
-          <strong>Fundo:</strong> Almíscar, Patchouli, Especiarias frescas
-        `;
 
-        const msg = `Olá, quero encomendar o perfume:
-${p.Produto || ""} - ${p.Marca || ""}
-Preço: ${p.Preco_Venda || ""}`;
+        const msg = "Olá, quero encomendar o perfume:\n" +
+          (p.Produto || "") + " - " + (p.Marca || "") + "\n" +
+          "Preço: " + (p.Preco_Venda || "");
         const encodedMsg = encodeURIComponent(msg);
-        const waLink = `https://wa.me/${WHATSAPP_NUM}?text=${encodedMsg}`;
+        const waLink = "https://wa.me/" + WHATSAPP_NUM + "?text=" + encodedMsg;
 
         document.getElementById("produtoWhatsapp").href = waLink;
         document.getElementById("produtoComprar").href = waLink;
