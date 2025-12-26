@@ -20,7 +20,7 @@ body {
   /* --- CONFIGURAÇÕES VISUAIS --- */
   background-repeat: no-repeat; /* Não repete a imagem */
   background-size: cover;       /* Estica para cobrir a tela inteira */
-  background-position: center;  /* Centraliza a imagem */
+  background-position: 35%;  /* Centraliza a imagem horizontalmente e verticalmente */
   background-attachment: fixed; /* Efeito Parallax: o fundo fica fixo ao rolar */
 
   color: #ffffff;
