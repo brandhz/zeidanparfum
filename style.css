@@ -616,5 +616,84 @@ button[onclick*="Comprar"] {
   }
 }
 
+/* =========================================
+   AJUSTES FINAIS DE ESPAÇAMENTO E BOTÕES
+   ========================================= */
 
+/* 1. REMOVER O GIGANTESCO GAP DO TOPO */
+/* Puxa a Logo para cima, logo abaixo do menu fixo */
+.logo-wrap {
+  margin-top: 90px !important; /* Reduzido de 120/140px para 90px */
+  margin-bottom: 20px !important; /* Reduz espaço entre logo e conteúdo */
+}
+
+/* Garante que o menu fixo fique colado na barra vermelha */
+.hero-bar {
+  top: 28px !important; /* Ajuste fino */
+}
+
+/* Aproxima o Produto da Logo */
+.product-detail {
+  margin-top: 10px !important; /* Reduzido drasticamente */
+  padding-top: 0 !important;
+}
+
+/* =========================================
+   SUMIR COM O BOTÃO "COMPRAR" (Força Bruta)
+   ========================================= */
+
+/* Esta regra diz: "Dentro das ações, pegue o SEGUNDO item e esconda" */
+.product-detail-actions button:nth-child(2),
+.product-detail-actions a:nth-child(2),
+.product-detail-actions > :nth-child(2) {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Garante que o botão de Encomendar fique sozinho e alinhado */
+.product-detail-actions {
+  justify-content: flex-start !important; /* Alinha à esquerda */
+}
+
+@@media (max-width: 768px) {
+  
+  /* 1. O container que segura a imagem e o texto */
+  .product-detail-inner {
+    display: flex !important;
+    flex-direction: column !important; /* Um embaixo do outro */
+    align-items: center !important;    /* Centraliza os blocos verticalmente */
+  }
+
+  /* 2. O bloco específico da imagem */
+  .product-detail-image {
+    width: 100% !important;          /* Ocupa a largura toda */
+    display: flex !important;        /* Ativa o flexbox */
+    justify-content: center !important; /* Centraliza horizontalmente */
+    align-items: center !important;
+    margin: 0 auto !important;       /* Garante margens iguais */
+    padding: 0 !important;           /* Remove preenchimentos extras */
+  }
+
+  /* 3. A imagem em si */
+  .product-detail-image img {
+    display: block !important;
+    margin: 0 auto !important;       /* Margem automática centraliza blocos */
+    max-width: 80% !important;       /* Evita que ela encoste nas bordas */
+  }
+}media (max-width: 768px) {
+  /* No celular, centraliza o botão restante */
+  .product-detail-actions {
+    justify-content: center !important;
+  }
+  
+  /* Ajuste do topo no celular */
+  .logo-wrap {
+    margin-top: 80px !important;
+  }
+}
 
