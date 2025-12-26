@@ -314,36 +314,45 @@ a {
   color: #fff;
 }
 
-/* Botão Encomendar */
-.product-actions {
-  margin-top: auto; 
-}
-
+/* Botão Encomendar - Centralização Perfeita */
 .product-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex;                 /* Ativa o modo flexível */
+  align-items: center;           /* Centraliza Verticalmente (o mais importante) */
+  justify-content: center;       /* Centraliza Horizontalmente */
+  gap: 8px;                      /* Espaço entre o diamante e o texto */
+
   width: 100%;
-  padding: 10px 0;
+  height: 40px;                  /* Altura fixa garante o centro exato */
+  padding: 0;                    /* Remove padding para não atrapalhar a altura */
+
   background: linear-gradient(90deg, #6be276, #4cae56);
   color: #fff;
+  
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   border-radius: 20px;
   text-decoration: none !important;
   letter-spacing: 0.12em;
+  
   box-shadow: 0 4px 12px rgba(107, 226, 118, 0.25);
+  transition: filter 0.2s, transform 0.2s;
 }
 
 .product-btn::before {
   content: "💎";
-  margin-right: 6px;
-  font-size: 12px;
+  font-size: 14px;
+  line-height: 1;      /* Remove altura extra invisível do emoji */
+  margin-top: -2px;    /* Pequeno ajuste fino para alinhar visualmente com o texto */
+  margin-right: 0;     /* Remove margem antiga (agora usamos gap) */
 }
 
 .product-btn:hover {
   filter: brightness(1.1);
+}
+
+.product-btn:active {
+  transform: scale(0.98);
 }
 
 /* =========================================
