@@ -176,9 +176,9 @@ body {
 .brand-panel {
     display: none;
     background-color: #0f1728;
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto 8px
+  position: absolute;  max-width: 1200px;
+    top: 100%;
+  left: 0;
     width: 100%;;
     padding: 20px;
 }
@@ -201,8 +201,7 @@ body {
   right: 0;
   top: 100%;
   margin-top: 4px;
-  background: rgba(3, 12, 40, 0.98);
-  border-radius: 16px;
+  background: #0f1f3c;  border-radius: 16px;
   padding: 16px 18px 14px;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
   display: none;
@@ -821,6 +820,7 @@ grid-template-columns: repeat(4, 1fr);  gap: 20px;
 .brand-panel.open {
   display: block;
 }
+
 
 
 
