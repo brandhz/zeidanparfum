@@ -1,4 +1,6 @@
-/* Base */
+/* =========================================
+   RESET E BASE
+   ========================================= */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,13 +8,16 @@
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: system-ui, -apple-system, sans-serif;
   background-color: #041739;
   color: #ffffff;
   min-height: 100vh;
+  overflow-x: hidden; /* Evita rolagem lateral indesejada */
 }
 
-/* Barra superior Vermelha */
+/* =========================================
+   BARRA VERMELHA (Topo)
+   ========================================= */
 .top-bar {
   background-color: #c34733;
   color: #fff;
@@ -25,82 +30,42 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 6px 16px;
-}
-
-.top-message {
   text-align: center;
 }
 
-/* Hero */
-.hero {
-  background-color: #041739;
-  padding: 24px 16px 8px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.hero-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.hero-top {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
-}
-
-/* BLOCO FIXO: busca + menu (Transparente) */
+/* =========================================
+   CABEÇALHO FLUTUANTE (Menu + Busca)
+   ========================================= */
 .hero-bar {
   position: fixed;
   left: 0;
   right: 0;
-  top: 32px; /* logo abaixo da barra vermelha */
-  z-index: 40;
-  
-  /* Fundo transparente e sem borda */
-  background-color: transparent; 
-  background: transparent;
-  border-bottom: none;
-  box-shadow: none;
-  
-  padding: 12px 16px 10px;
-}
-
-/* garante largura máxima dentro do bloco fixo */
-.hero-bar .search-wrap,
-.hero-bar .main-nav {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Logo */
-.logo-wrap {
+  top: 30px; /* Logo abaixo da barra vermelha */
+  z-index: 1000; /* Garante que fique acima de tudo */
+  background: transparent; /* Fundo transparente */
+  padding: 10px 16px;
   display: flex;
-  justify-content: center;
-  margin-top: 60px;
-}
-
-.logo {
-  max-width: 220px;
-  height: auto;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
 /* Busca */
 .search-wrap {
   display: flex;
   width: 100%;
-  max-width: 520px;
+  max-width: 500px;
+  height: 40px;
   background-color: #ffffff;
-  border-radius: 26px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 #searchInput {
   flex: 1;
   border: none;
-  padding: 10px 16px;
+  padding: 0 16px;
   font-size: 14px;
   outline: none;
   color: #041739;
@@ -109,411 +74,320 @@ body {
 .search-btn {
   border: none;
   background: transparent;
-  width: 44px;
-  font-size: 18px;
+  width: 40px;
+  font-size: 16px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Menu Principal */
+/* Menu de Navegação (INICIO MARCAS CONTATO) */
 .main-nav {
   display: flex;
   justify-content: center;
-  gap: 32px;
-  max-width: 360px;
-  margin-top: 14px;
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
+  align-items: center;
+  /* Diminuí o gap para aproximar o CONTATO do MARCAS */
+  gap: 20px; 
+  background: rgba(4, 23, 57, 0.8); /* Fundo leve para leitura */
+  padding: 5px 20px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
 }
 
-/* Estilo unificado para links do menu */
-.main-nav .nav-link,
-.main-nav .nav-button {
-  color: #ffffff;
-  opacity: 0.9;
-  text-decoration: none;
+.main-nav .nav-button,
+.main-nav a {
   background: none;
   border: none;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 13px;
-  cursor: pointer;
-}
-
-.main-nav .nav-link:hover,
-.main-nav .nav-button:hover {
   color: #ffffff;
-  opacity: 1;
-}
-
-/* Conteúdo principal */
-.page-content {
-  max-width: 1200px;
-  margin: 30px auto 0;
-  padding: 16px 16px 40px;
-}
-
-/* Título de seção */
-.section-title {
-  max-width: 1200px;
-  margin: 0 auto 12px;
-  font-size: 15px;
-  letter-spacing: 0.16em;
+  font-size: 12px;
   text-transform: uppercase;
-  opacity: 0.8;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 500;
+  opacity: 0.9;
+  transition: opacity 0.2s;
 }
 
-/* PAINEL DE MARCAS (Corrigido e Centralizado) */
+.main-nav .nav-button:hover,
+.main-nav a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* =========================================
+   PAINEL DE MARCAS (Centralizado)
+   ========================================= */
 .brand-panel {
-  display: none;
-  /* Removemos position absolute daqui para controlar no inner ou columns */
-  width: 100%;
+  display: none; /* Escondido por padrão */
 }
 
 .brand-panel.open {
   display: block;
 }
 
-.brand-panel-inner {
-  position: relative; 
-}
-
-/* O container das colunas de marcas */
+/* O container das colunas */
 .brand-columns {
-  position: fixed; /* Ou absolute, dependendo da rolagem */
-  
-  /* Centralização */
+  position: fixed;
+  top: 130px; /* Ajuste a altura para não cobrir o menu */
   left: 50%;
   transform: translateX(-50%);
-  top: 20%; /* Ajuste a altura se ficar muito em cima */
   
-  width: max-content;
-  max-width: 90vw;
+  width: 90%;
+  max-width: 900px;
+  max-height: 70vh; /* Se a tela for pequena, permite rolar dentro */
+  overflow-y: auto;
   
   background: #0f1f3c;
-  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
   padding: 24px;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
-  z-index: 100;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+  z-index: 999;
 
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  font-size: 13px;
+  gap: 15px;
 }
 
 .brand-columns ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
 .brand-columns li {
-  cursor: pointer;
+  font-size: 13px;
   color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
   transition: color 0.2s;
 }
 
 .brand-columns li:hover {
-  color: #ffffff;
+  color: #fff;
 }
 
-/* Filtros de categoria */
-.category-filters {
-  max-width: 1200px;
-  margin: 8px auto 16px;
-  padding: 0 4px;
-}
-
-.category-label {
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  opacity: 0.8;
-  margin-bottom: 6px;
-}
-
-.category-inner {
+/* =========================================
+   LOGO E CONTEÚDO
+   ========================================= */
+.logo-wrap {
   display: flex;
+  justify-content: center;
+  margin-top: 100px; /* Espaço para não ficar embaixo do menu fixo */
+  margin-bottom: 20px;
+}
+
+.logo {
+  max-width: 200px;
+  height: auto;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin: 20px 0 10px;
+  opacity: 0.8;
+}
+
+/* Filtros */
+.category-filters {
+  display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 8px;
+  margin-bottom: 20px;
+  padding: 0 10px;
 }
 
 .category-btn {
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
   background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.8);
   padding: 6px 14px;
+  border-radius: 20px;
   font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.1em;
   cursor: pointer;
 }
 
-.category-btn.active {
-  background: #ffffff;
+.category-btn.active,
+.category-btn:hover {
+  background: #fff;
   color: #041739;
 }
 
-/* Grade de produtos */
-.product-section {
-  margin-bottom: 32px;
-}
-
-.product-grid {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 24px;
-}
-
-/* Resultados de busca */
-.search-results,
+/* =========================================
+   GRID DE PRODUTOS (Principal)
+   ========================================= */
+.product-grid,
 .search-results .product-grid {
+  display: grid;
+  /* Desktop: 5 colunas */
+  grid-template-columns: repeat(5, 1fr); 
+  gap: 20px;
   max-width: 1200px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
+  padding: 0 16px 40px;
 }
 
-.search-results .product-card {
-  width: 100%;
-}
-
-/* Card de produto */
+/* Card do Produto */
 .product-card {
-  background: rgba(3, 12, 40, 0.96);
-  border-radius: 18px;
-  padding: 10px 12px 12px;
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+  background: rgba(3, 12, 40, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  min-height: 240px;
+  gap: 10px;
+  transition: transform 0.2s;
 }
 
-/* Imagem do produto */
+.product-card:hover {
+  transform: translateY(-5px);
+  background: rgba(3, 12, 40, 1);
+}
+
+/* Imagem dentro do card */
 .product-image-wrap {
+  height: 160px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 4px 0 2px;
-  min-height: 150px;
+  justify-content: center;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, transparent 70%);
+  border-radius: 8px;
 }
 
 .product-image {
-  max-height: 150px;
-  max-width: 90%;
-  width: auto;
-  height: auto;
+  max-height: 100%;
+  max-width: 100%;
   object-fit: contain;
-  cursor: pointer;
 }
 
-/* Textos do produto */
+/* Informações do Produto */
 .product-name {
   font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  font-weight: bold;
   text-transform: uppercase;
   color: #fff;
-  text-decoration: none;
+  min-height: 32px; /* Garante alinhamento */
+  line-height: 1.2;
 }
 
 .product-meta {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  font-size: 12px;
-  opacity: 0.9;
-  color: #fff;
-}
-
-.product-brand {
+  font-size: 11px;
+  opacity: 0.8;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
 }
 
 .product-price {
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 4px;
 }
 
 /* Botão Encomendar */
 .product-actions {
-  margin-top: auto;
-  display: flex;
-  justify-content: center;
+  margin-top: auto; /* Empurra o botão para o final do card */
 }
 
 .product-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  min-width: 180px;
-  padding: 8px 24px;
-  border-radius: 999px;
-  border: none;
-  background: linear-gradient(120deg, #6be276 0%, #6be276 50%, #041739 50%, #041739 100%);
-  background-size: 220% 100%;
-  background-position: 0% 0%;
-  color: #ffffff;
+  display: block;
+  width: 100%;
+  padding: 8px 0;
+  text-align: center;
+  background: linear-gradient(90deg, #6be276, #4cae56);
+  color: #fff;
   font-size: 11px;
-  font-weight: 700;
+  font-weight: bold;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  border-radius: 20px;
   text-decoration: none;
-  cursor: pointer;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
-  transition: background-position 0.3s ease, box-shadow 0.12s ease, transform 0.12s ease;
-}
-
-.product-btn::before {
-  content: "💎";
-  font-size: 14px;
+  letter-spacing: 0.1em;
+  box-shadow: 0 4px 10px rgba(107, 226, 118, 0.3);
 }
 
 .product-btn:hover {
-  background-position: 100% 0%;
-  filter: brightness(1.05);
+  filter: brightness(1.1);
 }
 
-.product-btn:active {
-  transform: scale(0.98);
+/* =========================================
+   RESPONSIVIDADE (MOBILE)
+   Corrige o bug das imagens gigantes
+   ========================================= */
+@media (max-width: 900px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr); /* Tablet: 3 colunas */
+  }
+  .brand-columns {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-/* Modal de Imagem */
-.image-modal {
-  position: fixed;
-  inset: 0;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 50;
+@media (max-width: 600px) {
+  /* Menu ajustado para mobile */
+  .hero-bar {
+    top: 25px;
+    padding: 10px;
+  }
+  
+  .main-nav {
+    width: 100%;
+    justify-content: space-evenly; /* Distribui melhor os botões */
+    gap: 10px;
+  }
+
+  /* Painel de marcas no mobile */
+  .brand-columns {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas de marcas */
+    width: 95%;
+    padding: 15px;
+  }
+
+  /* PRODUTOS: Aqui corrige o bug da foto gigante */
+  .product-grid,
+  .search-results .product-grid {
+    grid-template-columns: repeat(2, 1fr) !important; /* Força 2 colunas */
+    gap: 10px;
+    padding: 0 10px 40px;
+  }
+
+  .product-image-wrap {
+    height: 120px; /* Imagem menor no celular */
+  }
+
+  .product-name {
+    font-size: 11px;
+  }
+  
+  .product-btn {
+    font-size: 10px;
+    padding: 6px 0;
+  }
 }
 
-.image-modal.open {
-  display: flex;
-}
-
-.image-modal-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  z-index: 0;
-}
-
-.image-modal-content {
-  position: relative;
-  z-index: 1;
-  background: #ffffff;
-  padding: 12px;
-  border-radius: 18px;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
-  width: 100%;
-  max-width: 420px;
-  max-height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.image-modal-content img {
-  width: 100%;
-  height: auto;
-  max-height: 70vh;
-  object-fit: contain;
-}
-
-.image-modal-close {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  border: none;
-  border-radius: 999px;
-  width: 28px;
-  height: 28px;
-  background: rgba(0, 0, 0, 0.75);
-  color: #ffffff;
-  cursor: pointer;
-}
-
-/* Rodapé */
+/* =========================================
+   PÁGINA DETALHES E RODAPÉ
+   ========================================= */
 .site-footer {
-  background-color: #111111;
-  color: #ffffff;
-  padding: 40px 0 20px;
+  background-color: #020a1a;
+  padding: 40px 20px;
+  text-align: center;
   margin-top: 40px;
 }
 
-.footer-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  text-align: center;
-}
+.footer-link { color: #888; text-decoration: none; display: block; margin: 5px 0; font-size: 12px; }
+.footer-copy { color: #555; font-size: 11px; margin-top: 20px; }
 
-.footer-instagram {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: #ffffff;
-  text-decoration: none;
-  margin-bottom: 30px;
-}
-
-.footer-instagram-img {
-  width: 26px;
-  height: 26px;
-  object-fit: contain;
-}
-
-.footer-copy {
-  font-size: 11px;
-  color: #aaaaaa;
-}
-
-.product-link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Mobile Ajustes */
-@media (max-width: 640px) {
-  .hero-top {
-    align-items: stretch;
-  }
-
-  .logo {
-    max-width: 180px;
-    margin: 0 auto;
-  }
-
-  .main-nav {
-    max-width: 260px;
-    justify-content: center;
-    gap: 12px;
-  }
-
-  .product-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 colunas no mobile */
-    gap: 12px;
-  }
-  
-  .brand-columns {
-    grid-template-columns: repeat(2, 1fr); /* 2 colunas no menu marcas mobile */
-    max-width: 95vw;
-  }
-}
+/* Modal de Imagem (Zoom) */
+.image-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 2000; display: none; align-items: center; justify-content: center; backdrop-filter: blur(5px); }
+.image-modal.open { display: flex; }
+.image-modal-content img { max-width: 90vw; max-height: 80vh; border-radius: 8px; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
+.image-modal-close { position: absolute; top: 20px; right: 20px; color: #fff; font-size: 30px; background: none; border: none; cursor: pointer; }
