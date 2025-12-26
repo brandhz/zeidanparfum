@@ -6,14 +6,13 @@
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background-color: #041739;
   color: #ffffff;
   min-height: 100vh;
 }
 
-/* Barra superior */
+/* Barra superior Vermelha */
 .top-bar {
   background-color: #c34733;
   color: #fff;
@@ -51,17 +50,21 @@ body {
   align-items: center;
 }
 
-/* BLOCO FIXO: busca + menu */
+/* BLOCO FIXO: busca + menu (Transparente) */
 .hero-bar {
   position: fixed;
   left: 0;
   right: 0;
   top: 32px; /* logo abaixo da barra vermelha */
   z-index: 40;
-  background-color: transparent;
-  padding: 12px 16px 10px;
-  border-bottom: transparent;
+  
+  /* Fundo transparente e sem borda */
+  background-color: transparent; 
+  background: transparent;
+  border-bottom: none;
   box-shadow: none;
+  
+  padding: 12px 16px 10px;
 }
 
 /* garante largura máxima dentro do bloco fixo */
@@ -71,11 +74,11 @@ body {
   margin-right: auto;
 }
 
-/* Logo (rola junto com a página, abaixo da barra fixa) */
+/* Logo */
 .logo-wrap {
   display: flex;
   justify-content: center;
-  margin-top: 60px; /* antes 120 */
+  margin-top: 60px;
 }
 
 .logo {
@@ -111,11 +114,11 @@ body {
   cursor: pointer;
 }
 
-/* Menu */
+/* Menu Principal */
 .main-nav {
   display: flex;
   justify-content: center;
-  gap: 32px; /* espaçamento entre INÍCIO / MARCAS / CONTATO */
+  gap: 32px;
   max-width: 360px;
   margin-top: 14px;
   font-size: 13px;
@@ -123,43 +126,30 @@ body {
   letter-spacing: 0.16em;
 }
 
+/* Estilo unificado para links do menu */
 .main-nav .nav-link,
-.main-nav .nav-link:visited,
-.main-nav .nav-link:focus,
-.main-nav .nav-link:active {
+.main-nav .nav-button {
   color: #ffffff;
   opacity: 0.9;
-}
-
-/* Botão/Link de nav */
-.nav-button {
+  text-decoration: none;
   background: none;
   border: none;
-  color: rgba(255, 255, 255, 0.78);
   text-transform: uppercase;
   letter-spacing: 0.16em;
   font-size: 13px;
   cursor: pointer;
 }
 
-.nav-button:hover {
+.main-nav .nav-link:hover,
+.main-nav .nav-button:hover {
   color: #ffffff;
+  opacity: 1;
 }
 
-.nav-link {
-  text-decoration: none;
-  color: #ffffff;
-}
-
-.nav-link:hover {
-  color: #ffffff;
-  opacity: 0.8;
-}
-
-/* Conteúdo principal: começa depois da barra fixa */
+/* Conteúdo principal */
 .page-content {
   max-width: 1200px;
-  margin: 30px auto 0; /* era 150 px */
+  margin: 30px auto 0;
   padding: 16px 16px 40px;
 }
 
@@ -173,77 +163,63 @@ body {
   opacity: 0.8;
 }
 
-/* Painel de marcas / categorias */
+/* PAINEL DE MARCAS (Corrigido e Centralizado) */
 .brand-panel {
-    display: none;
-    background-color: #0f1728;
-  position: absolute;  max-width: 1200px;
-    top: 100%;
-  left: 0;
-    width: 100%;;
-    padding: 20px;
+  display: none;
+  /* Removemos position absolute daqui para controlar no inner ou columns */
+  width: 100%;
+}
+
+.brand-panel.open {
+  display: block;
 }
 
 .brand-panel-inner {
-  position: relative;
+  position: relative; 
 }
 
-.brand-panel-header {
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  opacity: 0.8;
-  padding: 8px 4px;
-}
-
+/* O container das colunas de marcas */
 .brand-columns {
-  position: absolute;
+  position: fixed; /* Ou absolute, dependendo da rolagem */
   
-  /* CÓDIGO PARA CENTRALIZAR */
+  /* Centralização */
   left: 50%;
   transform: translateX(-50%);
-  right: auto; /* Remove o esticamento */
-  width: max-content; /* Largura se adapta ao conteúdo */
-  max-width: 90vw; /* Garante que não estoure a tela no mobile */
+  top: 20%; /* Ajuste a altura se ficar muito em cima */
   
-  top: 100%;
-  margin-top: 4px;
+  width: max-content;
+  max-width: 90vw;
   
   background: #0f1f3c;
   border-radius: 16px;
-  padding: 16px 18px 14px;
+  padding: 24px;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
-  
-  display: grid;
-  z-index: 20;
+  z-index: 100;
 
+  display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 12px 24px;
+  gap: 20px;
   font-size: 13px;
-}
-
-.brand-panel.open .brand-columns {
-  display: grid;
 }
 
 .brand-columns ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .brand-columns li {
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.2s;
 }
 
 .brand-columns li:hover {
   color: #ffffff;
-
-.brand-panel.open .brand-columns {
-  display: grid; /* Garante que abra como grid */
-} 
+}
 
 /* Filtros de categoria */
 .category-filters {
@@ -283,7 +259,7 @@ body {
   color: #041739;
 }
 
-/* Grade de produtos – desktop/tablet */
+/* Grade de produtos */
 .product-section {
   margin-bottom: 32px;
 }
@@ -296,7 +272,7 @@ body {
   gap: 24px;
 }
 
-/* força a mesma grade na listagem de busca */
+/* Resultados de busca */
 .search-results,
 .search-results .product-grid {
   max-width: 1200px;
@@ -323,7 +299,7 @@ body {
   min-height: 240px;
 }
 
-/* Imagem – desktop padrão */
+/* Imagem do produto */
 .product-image-wrap {
   display: flex;
   justify-content: center;
@@ -341,12 +317,14 @@ body {
   cursor: pointer;
 }
 
-/* Textos */
+/* Textos do produto */
 .product-name {
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
 }
 
 .product-meta {
@@ -355,6 +333,7 @@ body {
   align-items: baseline;
   font-size: 12px;
   opacity: 0.9;
+  color: #fff;
 }
 
 .product-brand {
@@ -366,84 +345,34 @@ body {
   font-weight: 600;
 }
 
-/* Botão alinhado embaixo do card */
+/* Botão Encomendar */
 .product-actions {
   margin-top: auto;
   display: flex;
   justify-content: center;
 }
 
-/* Animação tipo WhatsApp (wipe) */
-@keyframes encomende-pulse-hover {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
-  }
-  50% {
-    transform: scale(1.04);
-    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.55);
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
-  }
-}
-
-/* animação do zoom da imagem */
-@keyframes image-modal-zoom-in {
-  0% {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.image-modal.closing .image-modal-content {
-  animation: image-modal-zoom-in 0.18s.ease-out;
-}
-
-/* Botão Encomendar / Comprar */
 .product-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-
   min-width: 180px;
   padding: 8px 24px;
-
   border-radius: 999px;
   border: none;
-
-  background: linear-gradient(
-    120deg,
-    #6be276 0%,
-    #6be276 50%,
-    #041739 50%,
-    #041739 100%
-  );
+  background: linear-gradient(120deg, #6be276 0%, #6be276 50%, #041739 50%, #041739 100%);
   background-size: 220% 100%;
   background-position: 0% 0%;
-
   color: #ffffff;
-
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-
   text-decoration: none;
   cursor: pointer;
-
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
-  transition:
-    background-position 0.3s ease,
-    box-shadow 0.12s ease,
-    transform 0.12s ease,
-    filter 0.12s ease;
+  transition: background-position 0.3s ease, box-shadow 0.12s ease, transform 0.12s ease;
 }
 
 .product-btn::before {
@@ -454,15 +383,13 @@ body {
 .product-btn:hover {
   background-position: 100% 0%;
   filter: brightness(1.05);
-  animation: encomende-pulse-hover 0.7s.ease-in-out;
 }
 
 .product-btn:active {
   transform: scale(0.98);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
-/* Modal de imagem */
+/* Modal de Imagem */
 .image-modal {
   position: fixed;
   inset: 0;
@@ -476,7 +403,6 @@ body {
   display: flex;
 }
 
-/* camada escura + blur */
 .image-modal-backdrop {
   position: absolute;
   inset: 0;
@@ -486,7 +412,6 @@ body {
   z-index: 0;
 }
 
-/* conteúdo em cima do blur */
 .image-modal-content {
   position: relative;
   z-index: 1;
@@ -494,11 +419,9 @@ body {
   padding: 12px;
   border-radius: 18px;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
-
   width: 100%;
   max-width: 420px;
   max-height: 80vh;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -509,13 +432,6 @@ body {
   height: auto;
   max-height: 70vh;
   object-fit: contain;
-}
-
-@media (max-width: 640px) {
-  .image-modal-content {
-    max-width: 320px;
-    max-height: 60vh;
-  }
 }
 
 .image-modal-close {
@@ -531,166 +447,12 @@ body {
   cursor: pointer;
 }
 
-/* Página de contato */
-.contact-body {
-  background-color: #041739;
-  color: #ffffff;
-}
-
-.contact-main {
-  min-height: calc(100vh - 40px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 32px 16px;
-}
-
-.contact-card {
-  max-width: 420px;
-  width: 100%;
-  background: rgba(3, 12, 40, 0.96);
-  border-radius: 18px;
-  padding: 24px 24px 20px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
-  text-align: center;
-}
-
-.contact-card h1 {
-  font-size: 20px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-
-.contact-card p {
-  font-size: 14px;
-  opacity: 0.9;
-  margin-bottom: 20px;
-}
-
-.contact-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-
-  padding: 10px 32px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #6be276, #42b799);
-  color: #ffffff;
-
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-size: 12px;
-  font-weight: 700;
-  text-decoration: none;
-
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
-  transition: transform 0.12s ease, box-shadow 0.12s.ease, filter 0.12s.ease;
-}
-
-.contact-btn::before {
-  content: "💬";
-  font-size: 16px;
-}
-
-.contact-btn:hover {
-  filter: brightness(1.05);
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.65);
-}
-
-.contact-btn:active {
-  transform: translateY(1px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
-}
-
-.contact-back {
-  display: inline-block;
-  margin-top: 16px;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.78);
-  text-decoration: none;
-}
-
-.contact-back:hover {
-  color: #ffffff;
-}
-
-/* Página de detalhes do perfume */
-.product-detail {
-  margin: 0 auto;
-}
-
-.product-detail-inner {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: 32px;
-  align-items: center;
-  grid-template-areas: "image info";
-}
-
-.product-detail-image {
-  grid-area: image;
-}
-
-.product-detail-image img {
-  width: 100%;
-  max-width: 420px;
-  display: block;
-  margin: 0 auto;
-  border-radius: 18px;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
-}
-
-.product-detail-content {
-  grid-area: info;
-}
-
-.product-detail-title {
-  font-size: 22px;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  margin-bottom: 8px;
-}
-
-.product-detail-brand {
-  font-size: 13px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  opacity: 0.8;
-  margin-bottom: 8px;
-}
-
-.product-detail-price {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 16px;
-}
-
-.product-detail-notes,
-.product-detail-description {
-  font-size: 14px;
-  line-height: 1.6;
-  margin-bottom: 16px;
-}
-
-/* empilha no mobile */
-@media (max-width: 640px) {
-  .product-detail-inner {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "image"
-      "info";
-    gap: 20px;
-  }
-}
-
 /* Rodapé */
 .site-footer {
   background-color: #111111;
   color: #ffffff;
   padding: 40px 0 20px;
+  margin-top: 40px;
 }
 
 .footer-inner {
@@ -709,7 +471,6 @@ body {
   background-color: #ffffff;
   text-decoration: none;
   margin-bottom: 30px;
-  overflow: hidden;
 }
 
 .footer-instagram-img {
@@ -718,54 +479,18 @@ body {
   object-fit: contain;
 }
 
-.footer-instagram:hover {
-  background-color: #eeeeee;
-}
-
-.footer-columns {
-  margin-bottom: 20px;
-}
-
-.footer-title {
-  font-size: 14px;
-  letter-spacing: 0.08em;
-  margin-bottom: 10px;
-}
-
-.footer-link {
-  display: block;
-  font-size: 13px;
-  color: #dddddd;
-  text-decoration: none;
-  margin-bottom: 4px;
-}
-
-.footer-link:hover {
-  color: #ffffff;
-}
-
 .footer-copy {
   font-size: 11px;
   color: #aaaaaa;
 }
 
-/* Link que envolve o card de produto */
 .product-link {
   display: block;
   text-decoration: none;
   color: inherit;
 }
 
-.product-link:hover .product-name {
-  text-decoration: underline;
-}
-
-/* Esconde só o botão "Comprar" da ficha (produto.html) */
-.product-detail .product-detail-actions #produtoComprar {
-  display: none !important;
-}
-
-/* Mobile ajustes gerais */
+/* Mobile Ajustes */
 @media (max-width: 640px) {
   .hero-top {
     align-items: stretch;
@@ -783,55 +508,12 @@ body {
   }
 
   .product-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas no mobile */
     gap: 12px;
   }
-
-  .product-card {
-    padding: 8px 8px 10px;
-    min-height: 0;
-  }
-
-  .product-image-wrap {
-    min-height: 150px;
-  }
-
-  .product-image {
-    max-height: 150px;
-    max-width: 100%;
+  
+  .brand-columns {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas no menu marcas mobile */
+    max-width: 95vw;
   }
 }
-
-/* Força estilo único para os links do menu */
-.main-nav .nav-link,
-.main-nav .nav-link:link,
-.main-nav .nav-link:visited,
-.main-nav .nav-link:hover,
-.main-nav .nav-link:focus,
-.main-nav .nav-link:active {
-  color: #ffffff;
-  opacity: 0.9;
-  text-decoration: none;
-  outline: none;
-}
-
-
-/* Brand columns layout for top menu */
-.brand-columns {
-  display: grid;
-grid-template-columns: repeat(4, 1fr);  gap: 20px;
-  max-width: 1000px;
-
-
-#brandColumns ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-}
-
-.brand-panel.open {
-  display: block}
-
-
-
