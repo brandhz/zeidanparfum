@@ -176,7 +176,8 @@ body {
 .brand-panel {
   position: relative;
   max-width: 1200px;
-  margin: 0 auto 8px;
+  margin: 0 auto 8px
+    width: 100%;;
 }
 
 .brand-panel-inner {
@@ -814,6 +815,7 @@ body {
   margin: 0;
 }
 }
+
 
 
 
