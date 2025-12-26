@@ -175,6 +175,7 @@ body {
 /* Painel de marcas / categorias */
 .brand-panel {
     display: none;
+    background-color: #0f1728;
   position: relative;
   max-width: 1200px;
   margin: 0 auto 8px
@@ -769,7 +770,7 @@ body {
   }
 
   .product-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 12px;
   }
 
@@ -805,7 +806,7 @@ body {
 /* Brand columns layout for top menu */
 .brand-columns {
   display: grid;
-grid-template-columns: repeat(2, 1fr);  gap: 20px;
+grid-template-columns: repeat(4, 1fr);  gap: 20px;
   max-width: 1000px;
 
 
@@ -819,6 +820,7 @@ grid-template-columns: repeat(2, 1fr);  gap: 20px;
 .brand-panel.open {
   display: block;
 }
+
 
 
 
