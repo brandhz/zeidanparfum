@@ -810,8 +810,8 @@ button[onclick*="Comprar"] {
   
   /* 1. Empurra a barra de busca para baixo */
   .hero-bar {
-    /* 75px deve ser suficiente para limpar as 3 linhas de texto */
-    top: 75px !important; 
+    /* 65px deve ser suficiente para limpar as 3 linhas de texto */
+    top: 65px !important; 
     
     background: transparent; /* Garante que não tenha fundo branco tapando */
     padding: 5px 10px !important;
