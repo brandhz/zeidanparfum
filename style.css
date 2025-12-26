@@ -58,9 +58,10 @@ body {
   right: 0;
   top: 32px; /* logo abaixo da barra vermelha */
   z-index: 40;
-  background-color: #041739;
+  background-color: transparent;
   padding: 12px 16px 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: transparent;
+  box-shadow: none;
 }
 
 /* garante largura máxima dentro do bloco fixo */
@@ -197,18 +198,27 @@ body {
 
 .brand-columns {
   position: absolute;
-  left: 0;
-  right: 0;
+  
+  /* CÓDIGO PARA CENTRALIZAR */
+  left: 50%;
+  transform: translateX(-50%);
+  right: auto; /* Remove o esticamento */
+  width: max-content; /* Largura se adapta ao conteúdo */
+  max-width: 90vw; /* Garante que não estoure a tela no mobile */
+  
   top: 100%;
   margin-top: 4px;
-  background: #0f1f3c;  border-radius: 16px;
+  
+  background: #0f1f3c;
+  border-radius: 16px;
   padding: 16px 18px 14px;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
-  display: none;
+  
+  display: grid;
   z-index: 20;
 
-  grid-template-columns: repeat(4, 1fr)
-    gap: 12px 24px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px 24px;
   font-size: 13px;
 }
 
@@ -230,7 +240,10 @@ body {
 
 .brand-columns li:hover {
   color: #ffffff;
-}
+
+.brand-panel.open .brand-columns {
+  display: grid; /* Garante que abra como grid */
+} 
 
 /* Filtros de categoria */
 .category-filters {
@@ -818,14 +831,7 @@ grid-template-columns: repeat(4, 1fr);  gap: 20px;
 }
 
 .brand-panel.open {
-  display: block;
-}
-
-
-
-
-
-
+  display: block}
 
 
 
