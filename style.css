@@ -660,40 +660,35 @@ button[onclick*="Comprar"] {
   justify-content: flex-start !important; /* Alinha à esquerda */
 }
 
-@@media (max-width: 768px) {
+/* =========================================
+   FORÇA BRUTA: CENTRALIZAR IMAGEM MOBILE
+   ========================================= */
+@media (max-width: 768px) {
   
-  /* 1. O container que segura a imagem e o texto */
+  /* 1. Garante que o Grid vire uma coluna única */
   .product-detail-inner {
     display: flex !important;
-    flex-direction: column !important; /* Um embaixo do outro */
-    align-items: center !important;    /* Centraliza os blocos verticalmente */
-  }
-
-  /* 2. O bloco específico da imagem */
-  .product-detail-image {
-    width: 100% !important;          /* Ocupa a largura toda */
-    display: flex !important;        /* Ativa o flexbox */
-    justify-content: center !important; /* Centraliza horizontalmente */
+    flex-direction: column !important;
     align-items: center !important;
-    margin: 0 auto !important;       /* Garante margens iguais */
-    padding: 0 !important;           /* Remove preenchimentos extras */
+    width: 100% !important;
   }
 
-  /* 3. A imagem em si */
+  /* 2. O container da imagem ocupa a largura total */
+  .product-detail-image {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block !important; /* Mudamos para block para usar margin auto */
+    text-align: center !important; /* Centraliza conteúdo inline */
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* 3. A imagem em si: Margens automáticas nas laterais */
   .product-detail-image img {
-    display: block !important;
-    margin: 0 auto !important;       /* Margem automática centraliza blocos */
-    max-width: 80% !important;       /* Evita que ela encoste nas bordas */
-  }
-}media (max-width: 768px) {
-  /* No celular, centraliza o botão restante */
-  .product-detail-actions {
-    justify-content: center !important;
-  }
-  
-  /* Ajuste do topo no celular */
-  .logo-wrap {
-    margin-top: 80px !important;
+    display: block !important; /* Comporta-se como bloco */
+    margin-left: auto !important;  /* Empurra da esquerda */
+    margin-right: auto !important; /* Empurra da direita */
+    max-width: 80% !important; /* Tamanho seguro */
   }
 }
 
