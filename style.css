@@ -12,7 +12,7 @@ body {
   background-color: #041739;
   color: #ffffff;
   min-height: 100vh;
-  overflow-x: hidden; /* Evita rolagem lateral indesejada */
+  overflow-x: hidden;
 }
 
 /* =========================================
@@ -34,20 +34,20 @@ body {
 }
 
 /* =========================================
-   CABEÇALHO FLUTUANTE (Menu + Busca)
+   CABEÇALHO FLUTUANTE (Busca + Menu)
    ========================================= */
 .hero-bar {
   position: fixed;
   left: 0;
   right: 0;
-  top: 30px; /* Logo abaixo da barra vermelha */
-  z-index: 1000; /* Garante que fique acima de tudo */
-  background: transparent; /* Fundo transparente */
+  top: 30px;
+  z-index: 1000;
+  background: transparent;
   padding: 10px 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 /* Busca */
@@ -82,15 +82,14 @@ body {
   justify-content: center;
 }
 
-/* Menu de Navegação (INICIO MARCAS CONTATO) */
+/* Menu de Navegação */
 .main-nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* Diminuí o gap para aproximar o CONTATO do MARCAS */
-  gap: 20px; 
-  background: rgba(4, 23, 57, 0.8); /* Fundo leve para leitura */
-  padding: 5px 20px;
+  gap: 24px;
+  background: rgba(4, 23, 57, 0.85); /* Fundo sutil para leitura */
+  padding: 6px 24px;
   border-radius: 20px;
   backdrop-filter: blur(4px);
 }
@@ -113,42 +112,43 @@ body {
 .main-nav .nav-button:hover,
 .main-nav a:hover {
   opacity: 1;
-  text-decoration: underline;
 }
 
 /* =========================================
-   PAINEL DE MARCAS (Centralizado)
+   PAINEL DE MARCAS (Corrigido)
    ========================================= */
 .brand-panel {
-  display: none; /* Escondido por padrão */
+  display: none;
+  position: absolute; /* Prepara o terreno para o dropdown */
+  width: 100%;
+  left: 0;
+  top: 100%; /* Fica logo abaixo do menu */
 }
 
 .brand-panel.open {
   display: block;
 }
 
-/* O container das colunas */
 .brand-columns {
-  position: fixed;
-  top: 130px; /* Ajuste a altura para não cobrir o menu */
+  /* Centralização Absoluta */
+  position: absolute;
+  top: 15px; /* Distância do menu */
   left: 50%;
   transform: translateX(-50%);
   
-  width: 90%;
-  max-width: 900px;
-  max-height: 70vh; /* Se a tela for pequena, permite rolar dentro */
-  overflow-y: auto;
+  width: 90vw; /* Largura responsiva */
+  max-width: 900px; /* Largura máxima desktop */
   
   background: #0f1f3c;
   border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
-  z-index: 999;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  z-index: 1001;
 
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
+  grid-template-columns: repeat(4, 1fr); /* 4 colunas no PC */
+  gap: 16px 32px;
 }
 
 .brand-columns ul {
@@ -175,39 +175,30 @@ body {
 .logo-wrap {
   display: flex;
   justify-content: center;
-  margin-top: 100px; /* Espaço para não ficar embaixo do menu fixo */
-  margin-bottom: 20px;
+  margin-top: 120px; /* Espaço para compensar o menu fixo */
+  margin-bottom: 30px;
 }
 
 .logo {
-  max-width: 200px;
+  max-width: 220px;
   height: auto;
 }
 
-.section-title {
-  text-align: center;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  margin: 20px 0 10px;
-  opacity: 0.8;
-}
-
-/* Filtros */
+/* Filtros de Categoria */
 .category-filters {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 20px;
-  padding: 0 10px;
+  gap: 10px;
+  margin-bottom: 30px;
+  padding: 0 16px;
 }
 
 .category-btn {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: rgba(255, 255, 255, 0.8);
-  padding: 6px 14px;
+  padding: 8px 18px;
   border-radius: 20px;
   font-size: 11px;
   text-transform: uppercase;
@@ -222,44 +213,45 @@ body {
 }
 
 /* =========================================
-   GRID DE PRODUTOS (Principal)
+   GRID DE PRODUTOS
    ========================================= */
 .product-grid,
 .search-results .product-grid {
   display: grid;
-  /* Desktop: 5 colunas */
-  grid-template-columns: repeat(5, 1fr); 
-  gap: 20px;
+  grid-template-columns: repeat(5, 1fr); /* 5 colunas desktop */
+  gap: 24px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 16px 40px;
+  padding: 0 16px 60px;
 }
 
-/* Card do Produto */
+/* Card */
 .product-card {
-  background: rgba(3, 12, 40, 0.8);
+  background: rgba(3, 12, 40, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 12px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   transition: transform 0.2s;
+  min-height: 280px;
 }
 
 .product-card:hover {
   transform: translateY(-5px);
   background: rgba(3, 12, 40, 1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
-/* Imagem dentro do card */
+/* Imagem Produto */
 .product-image-wrap {
   height: 160px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, transparent 70%);
   border-radius: 8px;
+  background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
 }
 
 .product-image {
@@ -268,50 +260,56 @@ body {
   object-fit: contain;
 }
 
-/* Informações do Produto */
+/* Infos Produto */
 .product-name {
   font-size: 13px;
-  font-weight: bold;
+  font-weight: 600;
   text-transform: uppercase;
   color: #fff;
-  min-height: 32px; /* Garante alinhamento */
-  line-height: 1.2;
+  min-height: 34px;
+  line-height: 1.3;
 }
 
 .product-meta {
   display: flex;
   justify-content: space-between;
   font-size: 11px;
-  opacity: 0.8;
+  opacity: 0.7;
   text-transform: uppercase;
 }
 
 .product-price {
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 15px;
+  font-weight: 700;
   color: #fff;
-  margin-top: 4px;
 }
 
 /* Botão Encomendar */
 .product-actions {
-  margin-top: auto; /* Empurra o botão para o final do card */
+  margin-top: auto; 
 }
 
 .product-btn {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  padding: 8px 0;
-  text-align: center;
+  padding: 10px 0;
   background: linear-gradient(90deg, #6be276, #4cae56);
   color: #fff;
   font-size: 11px;
-  font-weight: bold;
+  font-weight: 700;
   text-transform: uppercase;
   border-radius: 20px;
   text-decoration: none;
-  letter-spacing: 0.1em;
-  box-shadow: 0 4px 10px rgba(107, 226, 118, 0.3);
+  letter-spacing: 0.12em;
+  box-shadow: 0 4px 12px rgba(107, 226, 118, 0.25);
+}
+
+.product-btn::before {
+  content: "💎";
+  margin-right: 6px;
+  font-size: 12px;
 }
 
 .product-btn:hover {
@@ -319,75 +317,111 @@ body {
 }
 
 /* =========================================
-   RESPONSIVIDADE (MOBILE)
-   Corrige o bug das imagens gigantes
-   ========================================= */
-@media (max-width: 900px) {
-  .product-grid {
-    grid-template-columns: repeat(3, 1fr); /* Tablet: 3 colunas */
-  }
-  .brand-columns {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  /* Menu ajustado para mobile */
-  .hero-bar {
-    top: 25px;
-    padding: 10px;
-  }
-  
-  .main-nav {
-    width: 100%;
-    justify-content: space-evenly; /* Distribui melhor os botões */
-    gap: 10px;
-  }
-
-  /* Painel de marcas no mobile */
-  .brand-columns {
-    grid-template-columns: repeat(2, 1fr); /* 2 colunas de marcas */
-    width: 95%;
-    padding: 15px;
-  }
-
-  /* PRODUTOS: Aqui corrige o bug da foto gigante */
-  .product-grid,
-  .search-results .product-grid {
-    grid-template-columns: repeat(2, 1fr) !important; /* Força 2 colunas */
-    gap: 10px;
-    padding: 0 10px 40px;
-  }
-
-  .product-image-wrap {
-    height: 120px; /* Imagem menor no celular */
-  }
-
-  .product-name {
-    font-size: 11px;
-  }
-  
-  .product-btn {
-    font-size: 10px;
-    padding: 6px 0;
-  }
-}
-
-/* =========================================
-   PÁGINA DETALHES E RODAPÉ
+   RODAPÉ (Correção do Instagram)
    ========================================= */
 .site-footer {
   background-color: #020a1a;
   padding: 40px 20px;
   text-align: center;
-  margin-top: 40px;
+  margin-top: auto;
 }
 
-.footer-link { color: #888; text-decoration: none; display: block; margin: 5px 0; font-size: 12px; }
-.footer-copy { color: #555; font-size: 11px; margin-top: 20px; }
+.footer-instagram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: #fff;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
 
-/* Modal de Imagem (Zoom) */
-.image-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 2000; display: none; align-items: center; justify-content: center; backdrop-filter: blur(5px); }
+/* CORREÇÃO DO ÍCONE GIGANTE AQUI */
+.footer-instagram img, 
+.footer-instagram-img {
+  width: 24px !important; 
+  height: 24px !important;
+  object-fit: contain;
+  display: block;
+}
+
+.footer-link {
+  color: #888;
+  text-decoration: none;
+  display: block;
+  margin: 6px 0;
+  font-size: 12px;
+}
+
+.footer-copy {
+  color: #444;
+  font-size: 11px;
+  margin-top: 24px;
+}
+
+/* =========================================
+   RESPONSIVIDADE (Mobile e Tablet)
+   ========================================= */
+@media (max-width: 900px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr); /* Tablet: 3 colunas */
+  }
+}
+
+@media (max-width: 600px) {
+  /* Menu Mobile */
+  .hero-bar {
+    top: 25px;
+    padding: 8px;
+    gap: 8px;
+  }
+  
+  .main-nav {
+    width: 100%;
+    justify-content: center;
+    gap: 16px; /* Espaço equilibrado */
+  }
+
+  /* Painel de Marcas Mobile */
+  .brand-columns {
+    width: 95vw; /* Ocupa quase a tela toda */
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas para não ficar apertado */
+    padding: 20px;
+    max-height: 60vh; /* Permite rolagem se a lista for muito longa */
+    overflow-y: auto;
+  }
+
+  /* Produtos Mobile */
+  .product-grid,
+  .search-results .product-grid {
+    grid-template-columns: repeat(2, 1fr) !important; /* Força 2 colunas */
+    gap: 12px;
+    padding: 0 12px 40px;
+  }
+
+  .product-card {
+    min-height: auto;
+    padding: 10px;
+  }
+
+  .product-image-wrap {
+    height: 120px;
+  }
+
+  .product-name {
+    font-size: 11px;
+    min-height: 28px;
+  }
+  
+  .product-btn {
+    font-size: 10px;
+    padding: 8px 0;
+  }
+}
+
+/* Modal de Zoom */
+.image-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 2000; display: none; align-items: center; justify-content: center; backdrop-filter: blur(5px); }
 .image-modal.open { display: flex; }
 .image-modal-content img { max-width: 90vw; max-height: 80vh; border-radius: 8px; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
 .image-modal-close { position: absolute; top: 20px; right: 20px; color: #fff; font-size: 30px; background: none; border: none; cursor: pointer; }
