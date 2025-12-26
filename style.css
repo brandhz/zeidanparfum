@@ -15,6 +15,24 @@ body {
   overflow-x: hidden;
 }
 
+/* Títulos gerais (Categorias, Perfumes, etc) CENTRALIZADOS */
+h1, h2, h3, h4, .section-title {
+  text-align: center !important;
+  width: 100%;
+  display: block;
+  margin: 20px auto 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  opacity: 0.9;
+  font-size: 14px;
+}
+
+/* Remove sublinhados gerais de links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 /* =========================================
    BARRA VERMELHA (Topo)
    ========================================= */
@@ -88,7 +106,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 24px;
-  background: rgba(4, 23, 57, 0.85); /* Fundo sutil para leitura */
+  background: rgba(4, 23, 57, 0.85);
   padding: 6px 24px;
   border-radius: 20px;
   backdrop-filter: blur(4px);
@@ -115,14 +133,14 @@ body {
 }
 
 /* =========================================
-   PAINEL DE MARCAS (Corrigido)
+   PAINEL DE MARCAS
    ========================================= */
 .brand-panel {
   display: none;
-  position: absolute; /* Prepara o terreno para o dropdown */
+  position: absolute;
   width: 100%;
   left: 0;
-  top: 100%; /* Fica logo abaixo do menu */
+  top: 100%;
 }
 
 .brand-panel.open {
@@ -130,24 +148,20 @@ body {
 }
 
 .brand-columns {
-  /* Centralização Absoluta */
   position: absolute;
-  top: 15px; /* Distância do menu */
+  top: 15px;
   left: 50%;
   transform: translateX(-50%);
-  
-  width: 90vw; /* Largura responsiva */
-  max-width: 900px; /* Largura máxima desktop */
-  
+  width: 90vw;
+  max-width: 900px;
   background: #0f1f3c;
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
   z-index: 1001;
-
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 colunas no PC */
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px 32px;
 }
 
@@ -175,7 +189,7 @@ body {
 .logo-wrap {
   display: flex;
   justify-content: center;
-  margin-top: 120px; /* Espaço para compensar o menu fixo */
+  margin-top: 120px;
   margin-bottom: 30px;
 }
 
@@ -218,14 +232,14 @@ body {
 .product-grid,
 .search-results .product-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 5 colunas desktop */
+  grid-template-columns: repeat(5, 1fr);
   gap: 24px;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 16px 60px;
 }
 
-/* Card */
+/* Card - Correção de Links e Cores */
 .product-card {
   background: rgba(3, 12, 40, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -244,6 +258,14 @@ body {
   box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
+/* Link que envolve o card (se houver) */
+.product-link, 
+.product-card a {
+  text-decoration: none !important;
+  color: inherit !important;
+  display: block;
+}
+
 /* Imagem Produto */
 .product-image-wrap {
   height: 160px;
@@ -260,12 +282,13 @@ body {
   object-fit: contain;
 }
 
-/* Infos Produto */
+/* Infos Produto - Correção de Cores */
 .product-name {
   font-size: 13px;
   font-weight: 600;
   text-transform: uppercase;
-  color: #fff;
+  color: #fff !important; /* Força Branco */
+  text-decoration: none !important; /* Remove sublinhado */
   min-height: 34px;
   line-height: 1.3;
 }
@@ -274,8 +297,15 @@ body {
   display: flex;
   justify-content: space-between;
   font-size: 11px;
-  opacity: 0.7;
+  opacity: 1; /* Aumentei opacidade */
   text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8) !important; /* Força cor clara */
+}
+
+/* Classe específica para marca, caso exista */
+.product-brand, .brand-name {
+    color: rgba(255, 255, 255, 0.7) !important;
+    text-decoration: none !important;
 }
 
 .product-price {
@@ -301,7 +331,7 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   border-radius: 20px;
-  text-decoration: none;
+  text-decoration: none !important;
   letter-spacing: 0.12em;
   box-shadow: 0 4px 12px rgba(107, 226, 118, 0.25);
 }
@@ -317,7 +347,7 @@ body {
 }
 
 /* =========================================
-   RODAPÉ (Correção do Instagram)
+   RODAPÉ
    ========================================= */
 .site-footer {
   background-color: #020a1a;
@@ -337,7 +367,6 @@ body {
   margin-bottom: 20px;
 }
 
-/* CORREÇÃO DO ÍCONE GIGANTE AQUI */
 .footer-instagram img, 
 .footer-instagram-img {
   width: 24px !important; 
@@ -365,12 +394,11 @@ body {
    ========================================= */
 @media (max-width: 900px) {
   .product-grid {
-    grid-template-columns: repeat(3, 1fr); /* Tablet: 3 colunas */
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 600px) {
-  /* Menu Mobile */
   .hero-bar {
     top: 25px;
     padding: 8px;
@@ -380,22 +408,20 @@ body {
   .main-nav {
     width: 100%;
     justify-content: center;
-    gap: 16px; /* Espaço equilibrado */
+    gap: 16px;
   }
 
-  /* Painel de Marcas Mobile */
   .brand-columns {
-    width: 95vw; /* Ocupa quase a tela toda */
-    grid-template-columns: repeat(2, 1fr); /* 2 colunas para não ficar apertado */
+    width: 95vw;
+    grid-template-columns: repeat(2, 1fr);
     padding: 20px;
-    max-height: 60vh; /* Permite rolagem se a lista for muito longa */
+    max-height: 60vh;
     overflow-y: auto;
   }
 
-  /* Produtos Mobile */
   .product-grid,
   .search-results .product-grid {
-    grid-template-columns: repeat(2, 1fr) !important; /* Força 2 colunas */
+    grid-template-columns: repeat(2, 1fr) !important;
     gap: 12px;
     padding: 0 12px 40px;
   }
