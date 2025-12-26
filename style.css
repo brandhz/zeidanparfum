@@ -314,41 +314,53 @@ a {
   color: #fff;
 }
 
-/* Botão Encomendar - Centralização Perfeita */
+/* =========================================
+   BOTÃO ENCOMENDAR (Correção Definitiva)
+   ========================================= */
 .product-btn {
-  display: flex;                 /* Ativa o modo flexível */
-  align-items: center;           /* Centraliza Verticalmente (o mais importante) */
-  justify-content: center;       /* Centraliza Horizontalmente */
-  gap: 8px;                      /* Espaço entre o diamante e o texto */
-
+  /* Layout Flexbox Obrigatório */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-direction: row !important;
+  
+  /* Dimensões Fixas */
   width: 100%;
-  height: 40px;                  /* Altura fixa garante o centro exato */
-  padding: 0;                    /* Remove padding para não atrapalhar a altura */
+  height: 42px !important; /* Altura fixa */
+  padding: 0 !important;   /* Remove qualquer enchimento */
+  margin-top: auto;        /* Empurra para o final do card */
 
+  /* Visual */
   background: linear-gradient(90deg, #6be276, #4cae56);
-  color: #fff;
-  
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  border-radius: 20px;
-  text-decoration: none !important;
-  letter-spacing: 0.12em;
-  
+  color: #ffffff !important;
+  border-radius: 30px;
+  border: none;
   box-shadow: 0 4px 12px rgba(107, 226, 118, 0.25);
-  transition: filter 0.2s, transform 0.2s;
+  
+  /* Texto */
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  text-decoration: none !important;
+  
+  /* Truque para centralização vertical exata */
+  line-height: 1 !important; 
 }
 
+/* O Diamante */
 .product-btn::before {
   content: "💎";
-  font-size: 14px;
-  line-height: 1;      /* Remove altura extra invisível do emoji */
-  margin-top: -2px;    /* Pequeno ajuste fino para alinhar visualmente com o texto */
-  margin-right: 0;     /* Remove margem antiga (agora usamos gap) */
+  display: inline-block !important; /* Garante que o navegador trate como bloco */
+  font-size: 13px !important;
+  margin-right: 8px !important;     /* Espaço entre diamante e texto */
+  line-height: 1 !important;
+  padding-bottom: 1px; /* Pequeno ajuste ótico se o emoji parecer "alto" */
 }
 
 .product-btn:hover {
   filter: brightness(1.1);
+  transform: translateY(-1px);
 }
 
 .product-btn:active {
