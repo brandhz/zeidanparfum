@@ -472,3 +472,149 @@ a {
 .image-modal.open { display: flex; }
 .image-modal-content img { max-width: 90vw; max-height: 80vh; border-radius: 8px; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
 .image-modal-close { position: absolute; top: 20px; right: 20px; color: #fff; font-size: 30px; background: none; border: none; cursor: pointer; }
+
+/* =========================================
+   CORREÇÃO PÁGINA DE PRODUTO (produto.html)
+   ========================================= */
+
+/* 1. Container Principal */
+.product-detail {
+  max-width: 1000px;
+  margin: 140px auto 60px; /* Espaço para não bater no menu */
+  padding: 0 20px;
+}
+
+/* 2. Grid (Imagem Esquerda | Texto Direita) */
+.product-detail-inner {
+  display: grid !important;
+  grid-template-columns: 1fr 1.2fr !important; /* Divide a tela */
+  gap: 50px;
+  align-items: flex-start;
+}
+
+/* 3. Coluna da Imagem */
+.product-detail-image {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.product-detail-image img {
+  width: 100%;
+  max-width: 400px; /* Impede que fique gigante */
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  object-fit: contain;
+}
+
+/* 4. Coluna de Texto */
+.product-detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left !important; /* Força alinhamento à esquerda */
+}
+
+/* Títulos e Textos */
+.product-detail-title {
+  text-align: left !important;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 15px;
+  margin-top: 0;
+}
+
+.product-detail-price {
+  font-size: 28px;
+  font-weight: 700;
+  color: #6be276; /* Verde destaque */
+  text-align: left !important;
+}
+
+.product-detail-description,
+.product-detail-notes {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.8);
+  text-align: left !important;
+}
+
+/* 5. Arrumar os Botões (Tirar o estilo "barra gigante") */
+.product-detail-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  justify-content: flex-start !important; /* Alinha à esquerda */
+}
+
+/* Botão Encomendar (Estilo Pílula) */
+#btnEncomendar, 
+.product-detail-actions button {
+  /* Tamanho e Forma */
+  width: auto !important;
+  min-width: 220px; /* Tamanho mínimo aceitável */
+  max-width: 300px;
+  height: 46px !important;
+  border-radius: 30px !important;
+  
+  /* Flexbox para centralizar texto e icone */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  
+  /* Cores */
+  background: linear-gradient(90deg, #6be276, #4cae56) !important;
+  color: #fff !important;
+  border: none !important;
+  
+  /* Texto */
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(107, 226, 118, 0.3);
+}
+
+#btnEncomendar:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+/* 6. ESCONDER O BOTÃO COMPRAR */
+#btnComprar,
+.btn-comprar,
+button[onclick*="Comprar"] {
+  display: none !important;
+}
+
+/* =========================================
+   RESPONSIVIDADE (Celular)
+   ========================================= */
+@media (max-width: 768px) {
+  .product-detail-inner {
+    display: flex !important;
+    flex-direction: column; /* Um embaixo do outro */
+    gap: 30px;
+  }
+
+  .product-detail-image img {
+    max-width: 280px; /* Menor no celular */
+  }
+
+  .product-detail-title,
+  .product-detail-price,
+  .product-detail-content {
+    text-align: center !important; /* Centraliza tudo no celular */
+  }
+  
+  .product-detail-actions {
+    justify-content: center !important; /* Centraliza botão no celular */
+  }
+}
+
+
+
