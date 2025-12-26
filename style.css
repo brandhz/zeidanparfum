@@ -20,7 +20,7 @@ body {
   /* --- CONFIGURAÇÕES VISUAIS --- */
   background-repeat: no-repeat; /* Não repete a imagem */
   background-size: cover;       /* Estica para cobrir a tela inteira */
-  background-position: 35%;  /* Centraliza a imagem horizontalmente e verticalmente */
+  background-position: 35% center;  /* Centraliza a imagem horizontalmente e verticalmente */
   background-attachment: fixed; /* Efeito Parallax: o fundo fica fixo ao rolar */
 
   color: #ffffff;
@@ -801,4 +801,25 @@ button[onclick*="Comprar"] {
 .contact-back:hover {
   color: #fff;
   text-decoration: underline;
+}
+
+/* =========================================
+   AJUSTE DE POSIÇÃO NO MOBILE (SEM MUDAR FONTE)
+   ========================================= */
+@media (max-width: 600px) {
+  
+  /* 1. Empurra a barra de busca para baixo */
+  .hero-bar {
+    /* 75px deve ser suficiente para limpar as 3 linhas de texto */
+    top: 75px !important; 
+    
+    background: transparent; /* Garante que não tenha fundo branco tapando */
+    padding: 5px 10px !important;
+  }
+
+  /* 2. Empurra a Logo mais para baixo ainda */
+  /* Como a busca desceu, a logo precisa descer também para não bater nela */
+  .logo-wrap {
+    margin-top: 150px !important; 
+  }
 }
