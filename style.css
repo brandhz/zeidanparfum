@@ -180,6 +180,7 @@ body {
   max-width: 1200px;
   margin: 0 auto 8px
     width: 100%;;
+    padding: 20px;
 }
 
 .brand-panel-inner {
@@ -207,8 +208,8 @@ body {
   display: none;
   z-index: 20;
 
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 8px 24px;
+  grid-template-columns: repeat(4, 1fr)
+    gap: 12px 24px;
   font-size: 13px;
 }
 
@@ -820,6 +821,7 @@ grid-template-columns: repeat(4, 1fr);  gap: 20px;
 .brand-panel.open {
   display: block;
 }
+
 
 
 
