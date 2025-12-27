@@ -823,3 +823,110 @@ button[onclick*="Comprar"] {
     margin-top: 150px !important; 
   }
 }
+
+/* =========================================
+   BARRA DE BENEFÍCIOS (Trust Bar - Alinhado)
+   ========================================= */
+.benefits-section {
+  background-color: rgba(2, 10, 26, 0.95); 
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 40px 20px;
+  
+  /* Posição no topo com ajuste de margem */
+  margin-top: 20px;
+  margin-bottom: 40px;
+  
+  width: 100%;
+}
+
+.benefits-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Garante alinhamento vertical dos blocos */
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Cada bloco de benefício */
+.benefit-item {
+  display: flex;
+  align-items: center; /* Centraliza ícone e texto verticalmente */
+  gap: 15px;
+  max-width: 280px;
+  flex: 1;
+}
+
+/* O Círculo do Ícone */
+.benefit-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+  
+  /* AJUSTE FINO: Empurra o emoji um pouco para baixo para centralizar visualmente */
+  padding-top: 3px; 
+}
+
+/* Container dos Textos (Novo Flex para controle) */
+.benefit-info {
+  display: flex;
+  flex-direction: column; /* Um embaixo do outro */
+  justify-content: center; /* Centraliza o bloco de texto verticalmente */
+  gap: 4px; /* Espaço preciso entre título e parágrafo */
+}
+
+/* Títulos */
+.benefit-info h3 {
+  font-size: 13px;
+  font-weight: 800;
+  color: #ffffff !important;
+  text-transform: uppercase;
+  text-align: left !important;
+  letter-spacing: 0.05em;
+  margin: 0; /* Remove margem para o 'gap' controlar */
+}
+
+/* Parágrafos */
+.benefit-info p {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7) !important;
+  line-height: 1.4;
+  margin: 0; /* Remove margem */
+  text-align: left !important;
+}
+
+/* RESPONSIVIDADE (Celular/Tablet) */
+@media (max-width: 900px) {
+  .benefits-container {
+    justify-content: center;
+    align-items: flex-start; /* No mobile, alinha no topo */
+  }
+  
+  .benefit-item {
+    min-width: 45%;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .benefit-item {
+    min-width: 100%;
+    justify-content: flex-start;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+  }
+  
+  .benefits-section {
+    padding: 30px 20px 10px;
+  }
+}
