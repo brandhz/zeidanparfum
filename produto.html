@@ -5,6 +5,62 @@
   <title>Detalhes do perfume | Zeidan Parfum</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+  /* --- ESTILO PARA CELULAR (Telas menores que 768px) --- */
+  @media (max-width: 768px) {
+    
+    /* 1. Correção das Margens (Onde o texto estava colado) */
+    .product-detail-content {
+      padding-left: 5px !important;   /* Empurra da esquerda */
+      padding-right: 5px !important;  /* Empurra da direita */
+      box-sizing: border-box !important; /* MÁGICA: Impede que a tela estoure/fique larga demais */
+      width: 100% !important;
+    }
+
+    /* 2. Carrossel de Sugestões */
+    #lista-sugestoes {
+      flex-wrap: nowrap !important;
+      justify-content: flex-start !important;
+      overflow-x: auto;
+      padding-bottom: 15px;
+      gap: 15px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    #lista-sugestoes::-webkit-scrollbar { display: none; }
+
+    #lista-sugestoes a {
+      flex: 0 0 auto;
+      scroll-snap-align: center;
+    }
+    /* 3. Reduz o espaço do cabeçalho (Logo) */
+    .site-header .hero-inner {
+      padding-top: 15px !important;    /* Era muito grande, diminui para 15px */
+      padding-bottom: 10px !important; /* Diminui o espaço embaixo da logo também */
+      min-height: auto !important;     /* Remove altura mínima se tiver */
+    }
+    
+    .logo-wrap {
+      margin-top: 0 !important;        /* Garante que a logo não tenha margem extra */
+      margin-bottom: 5px !important;
+    }
+    
+    /* Opcional: Ajusta o tamanho da logo se achar ela muito grande */
+    .logo {
+      max-width: 180px !important; /* Ajuste esse número conforme seu gosto */
+    }
+    /* 4. Separa o Título da Foto */
+    .product-detail-title {
+      margin-top: 25px !important; /* Empurra o nome para baixo */
+      margin-bottom: 10px !important; /* Dá um espaço antes da marca/preço */
+      line-height: 1.3 !important; /* Melhora a leitura se o nome for comprido */
+    }
+  }
+</style>
 </head>
 <body>
   <div class="top-bar">
@@ -200,10 +256,11 @@
         // Verifica se tem sugestões no JSON deste perfume
         if (p.Sugestoes && p.Sugestoes.length > 0) {
             
-            // Filtra os produtos que batem com os nomes das sugestões
-            const recomendados = lista.filter(item => 
-                p.Sugestoes.some(sug => sug.trim().toUpperCase() === (item.Produto || "").trim().toUpperCase())
-            );
+            // === CÓDIGO NOVO: RESPEITA A SUA ORDEM ===
+            const recomendados = p.Sugestoes.map(nomeSugestao => {
+            // Para cada nome na sua lista, busca o produto correspondente no estoque
+            return lista.find(item => (item.Produto || "").trim().toUpperCase() === nomeSugestao.trim().toUpperCase());
+            }).filter(item => item !== undefined); // Remove caso tenha escrito algum nome errado que não existe
 
             if (recomendados.length > 0) {
                 boxSugestoes.style.display = "block";
@@ -318,7 +375,30 @@
           <a href="contato.html" class="footer-link">Contato</a>
         </div>
       </div>
+      
+      <div class="payment-bar-container">
+  
+  <div class="payment-text">FORMAS DE PAGAMENTO</div>
+  
+  <div class="payment-icons">
+    <img src="mastercard.png" alt="Mastercard">
+    <img src="visa.png" alt="Visa">
+    <img src="amex.png" alt="Amex">
+    <img src="elo.png" alt="Elo">
+    <img src="pix.png" alt="Pix">
+  </div>
 
+  <div class="security-badge-css">
+    <div class="lock-icon">
+      <i class="fa-solid fa-lock"></i>
+    </div>
+    <div class="security-text-css">
+      <span>SITE</span>
+      <strong>100% SEGURO</strong>
+    </div>
+  </div>
+
+</div>
       <p class="footer-copy">
         Copyright ZEIDAN PARFUM - 2025. Todos os direitos reservados.
       </p>

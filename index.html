@@ -6,6 +6,38 @@
     <title>Zeidan Parfum</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css" />
+
+    <style>
+  /* --- ESTILO PARA CELULAR (Telas menores que 768px) --- */
+  @media (max-width: 768px) {
+    
+    /* Transforma os Benefícios (Pix/Cartão) em Carrossel */
+    .benefits-container {
+      display: flex !important;
+      flex-wrap: nowrap !important;       /* Impede de quebrar linha */
+      overflow-x: auto;                   /* Permite rolar para o lado */
+      gap: 15px;                          /* Espaço entre os cartões */
+      padding: 10px 20px;                 /* Margem interna */
+      justify-content: flex-start !important; /* Começa da esquerda */
+      scroll-snap-type: x mandatory;      /* Efeito de "travar" no cartão */
+      -webkit-overflow-scrolling: touch;  /* Rolagem macia no iPhone */
+    }
+
+    /* Define o tamanho de cada cartão de benefício */
+    .benefit-item {
+      flex: 0 0 85%;        /* Ocupa 85% da largura da tela */
+      scroll-snap-align: center; /* Centraliza ao parar */
+      margin-bottom: 0 !important; /* Remove margem de baixo se tiver */
+      background: rgba(255,255,255,0.05); /* Fundo sutil (opcional) */
+      border-radius: 10px;
+      padding: 20px;
+      border: 1px solid #333; /* Borda fina para destacar */
+    }
+    
+    /* Esconde a barra de rolagem feia */
+    .benefits-container::-webkit-scrollbar { display: none; }
+  }
+</style>
   </head>
   <body>
     <!-- Barra de aviso -->
@@ -153,7 +185,30 @@
             <a href="contato.html" class="footer-link">Contato</a>
           </div>
         </div>
+</div> 
+        <div class="payment-bar-container">
+  
+  <div class="payment-text">FORMAS DE PAGAMENTO</div>
+  
+  <div class="payment-icons">
+    <img src="mastercard.png" alt="Mastercard">
+    <img src="visa.png" alt="Visa">
+    <img src="amex.png" alt="Amex">
+    <img src="elo.png" alt="Elo">
+    <img src="pix.png" alt="Pix">
+  </div>
 
+  <div class="security-badge-css">
+    <div class="lock-icon">
+      <i class="fa-solid fa-lock"></i>
+    </div>
+    <div class="security-text-css">
+      <span>SITE</span>
+      <strong>100% SEGURO</strong>
+    </div>
+  </div>
+
+</div>
         <p class="footer-copy">
           Copyright ZEIDAN PARFUM - 2025. Todos os direitos reservados.
         </p>
