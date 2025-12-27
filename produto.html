@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- faixa de contato -->
   <div class="top-bar">
     <div class="top-bar-inner">
       <p class="top-message">
@@ -16,7 +15,6 @@
     </div>
   </div>
 
-  <!-- cabeçalho com logo + menu -->
   <header class="site-header">
     <div class="hero-inner">
       <div class="logo-wrap">
@@ -30,9 +28,7 @@
     </div>
   </header>
 
-  <!-- conteúdo da página de produto -->
   <main class="page-content">
-    <!-- Painel de marcas flutuante -->
     <section id="marcas" class="brand-panel">
       <div class="brand-panel-inner">
         <div class="brand-panel-header"></div>
@@ -40,59 +36,73 @@
       </div>
     </section>
 
-    <!-- Detalhes do perfume -->
-<section class="product-detail">
-  <div class="product-detail-inner">
-    
-    <div class="product-detail-image">
-      <img id="produtoImagem" class="product-main-image" src="" alt="">
-    </div>
+    <section class="product-detail">
+      <div class="product-detail-inner">
+        
+        <div class="product-detail-image">
+          <img id="produtoImagem" class="product-main-image" src="" alt="">
+        </div>
 
-    <!-- troquei product-detail-info por product-detail-content -->
-    <div class="product-detail-content">
-      <h1 id="produtoTitulo" class="product-detail-title"></h1>
+        <div class="product-detail-content">
+          <h1 id="produtoTitulo" class="product-detail-title"></h1>
 
-      <p id="produtoMarca" class="product-detail-brand"></p>
+          <p id="produtoMarca" class="product-detail-brand"></p>
 
-      <p id="produtoPreco" class="product-detail-price"></p>
+          <p id="produtoPreco" class="product-detail-price"></p>
 
-      <p id="produtoDescricao" class="product-detail-description"></p>
+          <p id="produtoDescricao" class="product-detail-description" style="text-align: justify;"></p>
 
-      <h3 class="product-detail-subtitle">Principais acordes</h3>
-      <ul id="produtoAcordes" class="product-detail-accords"></ul>
+          <h3 class="product-detail-subtitle">Principais acordes</h3>
+          <p id="produtoAcordes" class="product-detail-accords" style="margin-top: 5px; color: #ffffff; width: 100%; display: block; text-align: center !important;"></p>
 
-      <h3 class="product-detail-subtitle">Pirâmide olfativa</h3>
-      <p id="produtoNotas" class="product-detail-notes"></p>
+          <h3 class="product-detail-subtitle">Pirâmide olfativa</h3>
+          <p id="produtoNotas" class="product-detail-notes" style="width: 100%; display: block; text-align: center !important; margin-left: 0; margin-right: 0;"></p>
+          
+          <h3 class="product-detail-subtitle" style="margin-top: 20px;">Especificações</h3>
+          <ul class="product-specs" style="list-style: none; padding: 0; color: #ccc; text-align: center;">
+            <li style="margin-bottom: 8px;">
+              <strong style="color: #fff;">Estilo:</strong> <span id="produtoEstilo"></span>
+            </li>
+            <li style="margin-bottom: 8px;">
+              <strong style="color: #fff;">Ocasião:</strong> <span id="produtoOcasiao"></span>
+            </li>
+            <li>
+              <strong style="color: #fff;">Intensidade:</strong> <span id="produtoIntensidade"></span>
+            </li>
+          </ul>
 
-      <div class="product-detail-actions">
-        <a id="produtoWhatsapp" href="#" class="product-btn">
-          Encomende
-        </a>
-        <a id="produtoComprar" href="#" class="product-btn" style="margin-top:10px;">
-          Comprar
-        </a>
+          <div class="product-detail-actions">
+            <a id="produtoWhatsapp" href="#" class="product-btn">
+              Encomende
+            </a>
+            <a id="produtoComprar" href="#" class="product-btn" style="margin-top:10px;">
+              Comprar
+            </a>
+          </div>
+
+          <div id="box-sugestoes" style="display: none; margin-top: 40px; border-top: 1px solid #333; padding-top: 20px;">
+            <h3 class="product-detail-subtitle" style="text-align: center; margin-bottom: 20px;">
+              Quem gosta deste, também gosta de:
+            </h3>
+            <div id="lista-sugestoes" style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;"></div>
+          </div>
+          <a href="index.html" class="contact-back">
+            ← Voltar para a vitrine
+          </a>
+        </div> 
+
       </div>
+    </section>
+  </main>
 
-      <a href="index.html" class="contact-back">
-        ← Voltar para a vitrine
-      </a>
+  <div class="image-modal" id="imageModal">
+    <div class="image-modal-backdrop" id="imageModalBackdrop"></div>
+    <div class="image-modal-content">
+      <button class="image-modal-close" id="imageModalClose">×</button>
+      <img id="imageModalImg" src="" alt="">
     </div>
-
   </div>
-</section>
-</main>
 
-  <!-- Modal de imagem para zoom (só nesta página) -->
- <div class="image-modal" id="imageModal">
-  <div class="image-modal-backdrop" id="imageModalBackdrop"></div>
-  <div class="image-modal-content">
-    <button class="image-modal-close" id="imageModalClose">×</button>
-    <img id="imageModalImg" src="" alt="">
-  </div>
-</div>
-
-
-  <!-- script que carrega os dados do JSON SÓ desta página -->
   <script>
     const WHATSAPP_NUMBER_LOCAL = "5531991668430";
     const WHATSAPP_NUM = (typeof window.WHATSAPP_NUMBER !== "undefined")
@@ -107,6 +117,7 @@
         const resp = await fetch("data.json");
         const lista = await resp.json();
 
+        // Busca o perfume atual
         const p = lista.find(
           (item) => (item.Produto || "").toUpperCase() === (nomeProduto || "").toUpperCase()
         );
@@ -116,12 +127,14 @@
           return;
         }
 
+        // Título e Meta tags
         document.title = (p.Produto || "Detalhes do perfume") + " | Zeidan Parfum";
         document.getElementById("produtoTitulo").textContent = p.Produto || "";
         document.getElementById("produtoMarca").textContent =
           (p.Marca || "") + (p.Categoria ? " • " + p.Categoria.toUpperCase() : "");
         document.getElementById("produtoPreco").textContent = p.Preco_Venda || "";
 
+        // Imagem Principal
         const imgEl = document.getElementById("produtoImagem");
         if (p.Imagem) {
           imgEl.src = p.Imagem;
@@ -131,19 +144,23 @@
           imgEl.style.display = "none";
         }
 
-        const desc =
-          p.Descricao && p.Descricao.trim() !== ""
+        // Descrição
+        const desc = p.Descricao && p.Descricao.trim() !== ""
             ? p.Descricao
             : (p.Produto || "") + " é um perfume da marca " + (p.Marca || "") +
               ", disponível na Zeidan Parfum por " + (p.Preco_Venda || "preço sob consulta") + ".";
 
         document.getElementById("produtoDescricao").textContent = desc;
 
-        // Principais acordes – por enquanto apenas limpamos a lista
+        // Principais acordes
         const acordesEl = document.getElementById("produtoAcordes");
-        acordesEl.innerHTML = "";
+        if (p.Acordes && p.Acordes.trim() !== "") {
+              acordesEl.textContent = p.Acordes;
+        } else {
+              acordesEl.textContent = "Informações sobre acordes em breve.";
+        }
 
-        // Pirâmide olfativa – usa campos do JSON se existirem
+        // Pirâmide olfativa
         const topo = p.Notas_Topo || "";
         const coracao = p.Notas_Coracao || "";
         const fundo = p.Notas_Fundo || "";
@@ -156,6 +173,12 @@
         document.getElementById("produtoNotas").innerHTML =
           notasHtml || "Notas olfativas em atualização.";
 
+        // Especificações Extras
+        document.getElementById("produtoEstilo").textContent = p.Estilo || "-";
+        document.getElementById("produtoOcasiao").textContent = p.Ocasião || "-"; // Note o acento
+        document.getElementById("produtoIntensidade").textContent = p.Intensidade || "-";
+
+        // Botões de WhatsApp
         const msg = "Olá, quero encomendar o perfume:\n" +
           (p.Produto || "") + " - " + (p.Marca || "") + "\n" +
           "Preço: " + (p.Preco_Venda || "");
@@ -164,6 +187,65 @@
 
         document.getElementById("produtoWhatsapp").href = waLink;
         document.getElementById("produtoComprar").href = waLink;
+
+
+        // === LÓGICA DAS SUGESTÕES (NOVO) ===
+        const boxSugestoes = document.getElementById("box-sugestoes");
+        const listaSugestoes = document.getElementById("lista-sugestoes");
+        
+        // Limpa e esconde inicialmente
+        listaSugestoes.innerHTML = "";
+        boxSugestoes.style.display = "none";
+
+        // Verifica se tem sugestões no JSON deste perfume
+        if (p.Sugestoes && p.Sugestoes.length > 0) {
+            
+            // Filtra os produtos que batem com os nomes das sugestões
+            const recomendados = lista.filter(item => 
+                p.Sugestoes.some(sug => sug.trim().toUpperCase() === (item.Produto || "").trim().toUpperCase())
+            );
+
+            if (recomendados.length > 0) {
+                boxSugestoes.style.display = "block";
+
+                recomendados.forEach(sugestao => {
+                    // Link
+                    const link = document.createElement("a");
+                    link.href = `produto.html?id=${encodeURIComponent(sugestao.Produto)}`;
+                    link.style.textDecoration = "none";
+                    link.style.width = "140px";
+                    link.style.display = "flex";
+                    link.style.flexDirection = "column";
+                    link.style.alignItems = "center";
+                    link.style.textAlign = "center";
+                    link.style.margin = "10px";
+
+                    // Imagem
+                    const img = document.createElement("img");
+                    img.src = sugestao.Imagem;
+                    img.style.width = "100%";
+                    img.style.height = "140px";
+                    img.style.objectFit = "contain";
+                    img.style.backgroundColor = "#fff";
+                    img.style.borderRadius = "12px";
+                    img.style.marginBottom = "8px";
+                    img.style.boxShadow = "0 4px 8px rgba(0,0,0,0.3)";
+                    
+                    // Nome
+                    const nome = document.createElement("span");
+                    nome.innerText = sugestao.Marca || "Ver"; 
+                    nome.style.color = "#fff";
+                    nome.style.fontSize = "13px";
+                    nome.style.fontWeight = "bold";
+
+                    link.appendChild(img);
+                    link.appendChild(nome);
+                    listaSugestoes.appendChild(link);
+                });
+            }
+        }
+        // === FIM DAS SUGESTÕES ===
+
       } catch (e) {
         console.error("Erro ao carregar produto:", e);
         document.getElementById("produtoTitulo").textContent = "Erro ao carregar produto";
@@ -173,7 +255,6 @@
     carregarProduto();
   </script>
 
-  <!-- Script de zoom só da página de produto -->
   <script>
     const mainImage = document.getElementById("produtoImagem");
     const imageModal = document.getElementById("imageModal");
@@ -222,7 +303,6 @@
     });
   </script>
 
-  <!-- script geral do site: popula marcas, abre/fecha painel etc. -->
   <script src="script.js"></script>
 
   <footer class="site-footer">
