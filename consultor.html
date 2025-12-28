@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Consultor Virtual | Zeidan Parfum</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* ESTILOS ESPECÍFICOS DO QUIZ */
+    .quiz-section {
+        min-height: 60vh; /* Aumentei um pouco para ficar centralizado na tela cheia */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        background: radial-gradient(circle at center, #1a2a40 0%, #050b14 100%);
+    }
+
+    .quiz-container {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 40px;
+        max-width: 600px;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .quiz-step { display: none; animation: fadeIn 0.5s ease; }
+    .quiz-step.active { display: block; }
+
+    @keyframes fadeIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+
+    .quiz-question {
+        font-size: 24px;
+        color: #fff;
+        margin-bottom: 30px;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .options-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .quiz-option {
+        background: transparent;
+        border: 1px solid #444;
+        color: #ccc;
+        padding: 20px;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-size: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .quiz-option i { font-size: 24px; color: #fff; }
+
+    .quiz-option:hover {
+        background: #fff;
+        color: #000;
+        border-color: #fff;
+    }
+    .quiz-option:hover i { color: #000; }
+
+    /* Resultado */
+    .result-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 20px;
+    }
+    
+    .result-card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        text-align: left;
+        color: #000;
+        text-decoration: none;
+        transition: transform 0.2s;
+    }
+    .result-card:hover { transform: scale(1.02); }
+
+    .result-img { width: 70px; height: 70px; object-fit: contain; }
+    /* Substitua a parte do .result-info por isto: */
+
+    .result-info {
+        flex: 1;
+        padding-left: 15px;
+        /* O SEGREDO ESTÁ AQUI EMBAIXO: */
+        display: flex !important;           
+        flex-direction: column !important;  
+        align-items: flex-start !important; /* Força tudo para a ESQUERDA na marra */
+        justify-content: center;
+    }
+
+    .result-info h4 { 
+        text-align: left !important;
+        width: 100%;
+        margin: 0; 
+        font-size: 16px; 
+        font-weight: bold; 
+    }
+
+    .result-info p { 
+        text-align: left !important;
+        width: 100%;
+        margin: 5px 0 0; 
+        font-size: 12px; 
+        color: #666; 
+    }
+    .match-tag {
+        background: #25D366; color: #fff; font-size: 10px; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; font-weight: bold;
+    }
+
+    .btn-restart {
+        margin-top: 20px;
+        background: transparent;
+        border: 1px solid #666;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 30px;
+        cursor: pointer;
+    }
+    .btn-restart:hover { color: #fff; border-color: #fff; }
+
+    /* Mobile adjustments */
+    @media (max-width: 600px) {
+        .options-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<header class="top-bar">
+      <div class="top-bar-inner">
+        <div class="top-message">
+          ENTRE EM CONTATO COM A NOSSA EQUIPE PARA ENCOMENDAR O SEU PERFUME - (31) 99166-8430/(31) 97178-9632
+        </div>
+      </div>
+    </header>
+  <header class="site-header">
+    <div class="hero-inner" style="padding-top: 10px !important; padding-bottom: 20px;">
+      
+      <div class="logo-wrap" style="margin-top: 0 !important; margin-bottom: 20px !important;">
+        <img src="logo.png" alt="ZEIDAN PARFUM" class="logo" style="max-width:150px;">
+      </div>
+      
+      <nav class="main-nav" style="justify-content: center;">
+        <a href="index.html" class="nav-link">Início</a>
+        <a href="index.html#produtos" class="nav-link">Catálogo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="quiz-section">
+        <div class="quiz-container">
+            
+            <div id="step-0" class="quiz-step active">
+                <i class="fa-solid fa-wand-magic-sparkles" style="font-size: 40px; color: #d4af37; margin-bottom: 20px;"></i>
+                <h1 style="color:#fff; font-size:28px; margin-bottom:10px;">Consultor Olfativo</h1>
+                <p style="color:#ccc; margin-bottom:30px;">Responda 3 perguntas rápidas e nossa Inteligência Artificial vai encontrar o perfume perfeito para você.</p>
+                
+                <button class="product-btn" onclick="nextStep(1)" style="width:100%; max-width:200px; margin: 0 auto; display: block;">
+                    Começar Agora
+                </button>
+            </div>
+
+            <div id="step-1" class="quiz-step">
+                <div class="quiz-question">Para quem é o perfume?</div>
+                <div class="options-grid">
+                    <button class="quiz-option" onclick="selectAnswer('genero', 'MASCULINO', 2)">
+                        <i class="fa-solid fa-person"></i> Masculino
+                    </button>
+                    <button class="quiz-option" onclick="selectAnswer('genero', 'FEMININO', 2)">
+                        <i class="fa-solid fa-person-dress"></i> Feminino
+                    </button>
+                    <button class="quiz-option" onclick="selectAnswer('genero', 'UNISSEX', 2)">
+                        <i class="fa-solid fa-user-group"></i> Compartilhável
+                    </button>
+                </div>
+            </div>
+
+            <div id="step-2" class="quiz-step">
+                <div class="quiz-question">Qual a "vibe" que você busca?</div>
+                <div class="options-grid">
+                    <button class="quiz-option" onclick="selectAnswer('vibe', 'FRESCO', 3)">
+                        <i class="fa-solid fa-wind"></i> Fresco / Dia a dia
+                        <span style="font-size:10px; opacity:0.7">(Cítricos, Aquáticos)</span>
+                    </button>
+                    <button class="quiz-option" onclick="selectAnswer('vibe', 'DOCE', 3)">
+                        <i class="fa-solid fa-candy-cane"></i> Doce / Marcante
+                        <span style="font-size:10px; opacity:0.7">(Baunilha, Frutado)</span>
+                    </button>
+                    <button class="quiz-option" onclick="selectAnswer('vibe', 'ELEGANTE', 3)">
+                        <i class="fa-solid fa-briefcase"></i> Elegante / Trabalho
+                        <span style="font-size:10px; opacity:0.7">(Amadeirado, Floral)</span>
+                    </button>
+                    <button class="quiz-option" onclick="selectAnswer('vibe', 'SEDUCAO', 3)">
+                        <i class="fa-solid fa-fire"></i> Sedução / Noite
+                        <span style="font-size:10px; opacity:0.7">(Especiado, Couro, Intenso)</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="step-3" class="quiz-step">
+                <div class="quiz-question">Você prefere qual intensidade?</div>
+                <div class="options-grid">
+                    <button class="quiz-option" onclick="processResults('MODERADO')">
+                        <i class="fa-regular fa-circle"></i> Discreto
+                        <span style="font-size:10px;">Para sentir de perto</span>
+                    </button>
+                    <button class="quiz-option" onclick="processResults('INTENSO')">
+                        <i class="fa-solid fa-circle-dot"></i> Bomba!
+                        <span style="font-size:10px;">Para deixar rastro</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="step-result" class="quiz-step">
+                <i class="fa-solid fa-check-circle" style="font-size: 40px; color: #25D366; margin-bottom: 20px;"></i>
+                <h2 style="color:#fff; margin-bottom: 20px;">Seus Matches Perfeitos:</h2>
+                
+                <div id="results-container" class="result-grid">
+                    </div>
+
+                <div id="no-match" style="display:none; color:#ccc; margin-bottom:20px;">
+                    Poxa, não achei um match exato, mas veja nossa lista completa!
+                </div>
+
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: 30px;">
+                    <button class="btn-restart" onclick="location.reload()" style="width: 100%; max-width: 200px;">Refazer Teste</button>
+                    <a href="index.html" class="product-btn" style="text-decoration:none; width: 100%; max-width: 200px; text-align: center;">Ver Loja Completa</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+  </main>
+
+  <script>
+   // ESTADO DO QUIZ
+    let respostas = {
+        genero: '',
+        vibe: '',
+        intensidade: ''
+    };
+    let produtos = [];
+
+    // Carrega os dados
+    async function loadData() {
+        try {
+            const resp = await fetch('data.json');
+            produtos = await resp.json();
+        } catch(e) { console.error("Erro ao carregar data.json", e); }
+    }
+    loadData();
+
+    // Navegação entre telas
+    function nextStep(step) {
+        document.querySelectorAll('.quiz-step').forEach(el => el.classList.remove('active'));
+        document.getElementById(`step-${step}`).classList.add('active');
+    }
+
+    function selectAnswer(campo, valor, proximoPasso) {
+        respostas[campo] = valor;
+        nextStep(proximoPasso);
+    }
+
+    // ============================================================
+    // CÉREBRO NOVO (SISTEMA DE PONTUAÇÃO)
+    // ============================================================
+    function processResults(intensidade) {
+        respostas.intensidade = intensidade;
+        
+        // Tela de carregamento
+        document.querySelectorAll('.quiz-step').forEach(el => el.classList.remove('active'));
+        document.getElementById('step-result').classList.add('active');
+        document.getElementById('results-container').innerHTML = '<p style="color:#fff">Analisando DNA olfativo...</p>';
+
+        setTimeout(() => {
+            // Palavras-chave para cada Vibe
+            const keywords = {
+                'FRESCO':   ['cítrico', 'citrico', 'aquático', 'aquatico', 'marinho', 'fresco', 'fresh', 'azul', 'blue', 'limão', 'bergamota', 'verão', 'calone', 'aromático', 'aromatico'],
+                'DOCE':     ['doce', 'adocicado', 'baunilha', 'vanilla', 'frutado', 'gourmand', 'caramelo', 'fava tonka', 'praliné', 'mel', 'açúcar', 'coco'],
+                'ELEGANTE': ['amadeirado', 'madeira', 'floral', 'rosa', 'jasmim', 'fougére', 'fougere', 'chypre', 'chipre', 'almíscar', 'musk', 'vetiver', 'cedro', 'sândalo', 'classico', 'sofisticado'],
+                'SEDUCAO':  ['oriental', 'especiado', 'couro', 'leather', 'âmbar', 'ambar', 'pimenta', 'canela', 'tabaco', 'noturno', 'intenso', 'quente', 'sensual', 'oud']
+            };
+
+            // Mapeia e pontua cada produto
+            const rankeados = produtos.map(p => {
+                let pontos = 0;
+                
+                // Texto completo para busca (Nome + Familia + Notas + Descrição)
+                const textoDNA = [
+                    p.Produto || "",
+                    p.Marca || "",
+                    p.Familia || "",
+                    p.Acordes || "",
+                    p.Notas_Topo || "",
+                    p.Notas_Coracao || "",
+                    p.Notas_Fundo || "",
+                    p.Descricao || ""
+                ].join(" ").toLowerCase();
+
+                // 1. FILTRO DE GÊNERO (CRÍTICO)
+                // Se o gênero estiver completamente errado, penaliza muito
+                let generoProduto = "UNISSEX";
+                if (textoDNA.includes("feminino") || textoDNA.includes("woman") || textoDNA.includes("pour elle") || textoDNA.includes("girl")) generoProduto = "FEMININO";
+                else if (textoDNA.includes("masculino") || textoDNA.includes("homem") || textoDNA.includes("pour homme") || textoDNA.includes("man")) generoProduto = "MASCULINO";
+                
+                // Se usuário quer Unissex, aceita tudo (+30). Se quer específico, checa compatibilidade.
+                if (respostas.genero === 'UNISSEX') {
+                    pontos += 30;
+                } else if (respostas.genero === generoProduto) {
+                    pontos += 50; // Match perfeito de gênero
+                } else if (generoProduto === "UNISSEX") {
+                    pontos += 20; // Produto unissex serve para quem quer masc/fem
+                } else {
+                    pontos -= 100; // Gênero oposto (ex: homem querendo feminino) joga lá pra baixo
+                }
+
+                // 2. FILTRO DE VIBE (SOMA PONTOS)
+                const palavrasAlvo = keywords[respostas.vibe] || [];
+                palavrasAlvo.forEach(palavra => {
+                    if (textoDNA.includes(palavra)) {
+                        pontos += 10; // Cada palavra encontrada aumenta a relevância
+                    }
+                });
+
+                // 3. INTENSIDADE (DESEMPATE)
+                if (respostas.intensidade === 'INTENSO') {
+                    if (textoDNA.includes('parfum') || textoDNA.includes('intense') || textoDNA.includes('elixir') || textoDNA.includes('absolu')) pontos += 5;
+                    if (textoDNA.includes('toilette') || textoDNA.includes('cologne') || textoDNA.includes('fresh')) pontos -= 2;
+                } else { // MODERADO
+                    if (textoDNA.includes('toilette') || textoDNA.includes('cologne') || textoDNA.includes('fresh')) pontos += 5;
+                    if (textoDNA.includes('elixir') || textoDNA.includes('absolu')) pontos -= 2;
+                }
+
+                return { ...p, score: pontos };
+            });
+
+            // Ordena pelos que tem maior pontuação
+            rankeados.sort((a, b) => b.score - a.score);
+
+            // Pega os Top 3 (desde que tenham pontuação positiva)
+            const top3 = rankeados.filter(p => p.score > 0).slice(0, 3);
+
+            // Se não sobrar ninguém (pontuação muito baixa), mostra os destaques
+            if (top3.length === 0) {
+                renderResults(produtos.filter(p => p.Destaque === true).slice(0, 3), true);
+            } else {
+                renderResults(top3, false);
+            }
+
+        }, 800);
+    }
+
+    function renderResults(lista, isFallback) {
+        const container = document.getElementById('results-container');
+        const noMatchMsg = document.getElementById('no-match');
+        container.innerHTML = "";
+
+        if (isFallback) {
+            noMatchMsg.style.display = 'block';
+            noMatchMsg.innerText = "Não encontramos um match exato, mas achamos que você vai amar estes aqui:";
+        } else {
+            noMatchMsg.style.display = 'none';
+        }
+
+        lista.forEach(p => {
+            const card = document.createElement('a');
+            card.className = 'result-card';
+            card.href = `produto.html?id=${encodeURIComponent(p.Produto)}`;
+            
+            card.innerHTML = `
+                <img src="${p.Imagem}" alt="${p.Produto}" class="result-img">
+                <div class="result-info">
+                    <span class="match-tag" style="background:${isFallback ? '#666' : '#25D366'}">
+                        ${isFallback ? 'RECOMENDADO' : 'MATCH!'}
+                    </span>
+                    <h4>${p.Produto}</h4>
+                    <p>${p.Marca} - ${p.Preco_Venda || "Ver Preço"}</p>
+                </div>
+                <i class="fa-solid fa-chevron-right" style="margin-left:auto; color:#ccc;"></i>
+            `;
+            container.appendChild(card);
+        });
+    }
+  </script>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a href="https://instagram.com/zeidanparfum" target="_blank" class="footer-instagram">
+        <img src="instagram.png" alt="Instagram" class="footer-instagram-img">
+      </a>
+
+      <div class="footer-columns">
+        <div class="footer-column">
+          <h4 class="footer-title">MENU</h4>
+          <a href="index.html" class="footer-link">Início</a>
+          <a href="contato.html" class="footer-link">Contato</a>
+        </div>
+      </div>
+      
+      <div class="payment-bar-container">
+        <div class="payment-text">FORMAS DE PAGAMENTO</div>
+        <div class="payment-icons">
+            <img src="mastercard.png" alt="Mastercard">
+            <img src="visa.png" alt="Visa">
+            <img src="amex.png" alt="Amex">
+            <img src="elo.png" alt="Elo">
+            <img src="pix.png" alt="Pix">
+        </div>
+        <div class="security-badge-css">
+            <div class="lock-icon">
+            <i class="fa-solid fa-lock"></i>
+            </div>
+            <div class="security-text-css">
+            <span>SITE</span>
+            <strong>100% SEGURO</strong>
+            </div>
+        </div>
+      </div>
+      
+      <p class="footer-copy">
+        Copyright ZEIDAN PARFUM - 2025. Todos os direitos reservados.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

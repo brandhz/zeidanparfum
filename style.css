@@ -1474,3 +1474,48 @@ body::before {
     margin-top: 10px;
     cursor: pointer;
 }
+
+/* Botão Dourado - Estilo Luxo (Corrigido) */
+.btn-quiz-gold {
+    background: linear-gradient(135deg, #d4af37 0%, #c5a028 100%) !important; /* !important força o dourado */
+    color: #050b14 !important; /* Texto escuro para dar leitura */
+    font-weight: 800; /* Texto bem grosso */
+    text-transform: uppercase;
+    font-size: 11px; /* Letra levemente menor para caber a frase longa */
+    padding: 10px 25px;
+    border-radius: 50px; /* Bem redondo */
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); /* Brilho dourado em volta */
+    border: 1px solid #ffe680; /* Borda clarinha para destacar */
+    transition: all 0.3s ease;
+    white-space: nowrap; /* OBRIGATÓRIO: Impede o texto de quebrar linha */
+    letter-spacing: 0.5px;
+    height: 40px; /* Altura fixa para alinhar */
+}
+
+.btn-quiz-gold:hover {
+    transform: scale(1.05); /* Cresce um pouco */
+    background: #fff !important; /* Fica branco no hover */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+    color: #000 !important;
+}
+
+/* Nova caixa para centralizar o botão abaixo do menu */
+.quiz-bar-centered {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centraliza no meio da tela */
+    margin-top: 115px;        /* Espaço para não grudar no menu "Contato" */
+    margin-bottom: -150px;
+}
+
+/* Atualização do botão (REMOVE a margem lateral antiga) */
+.btn-quiz-gold {
+    margin-left: 0 !important; /* Zera a margem esquerda */
+    /* Mantenha o resto do CSS do botão que já estava lá (background, color, etc) */
+}
+

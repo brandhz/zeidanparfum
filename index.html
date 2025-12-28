@@ -40,7 +40,6 @@
 </style>
   </head>
   <body>
-    <!-- Barra de aviso -->
     <header class="top-bar">
       <div class="top-bar-inner">
         <div class="top-message">
@@ -49,12 +48,11 @@
       </div>
     </header>
 
-    <!-- Logo + busca + menu -->
     <section id="topo" class="hero">
       <div class="hero-inner">
         <div class="hero-top">
-          <!-- Barra normal (SEM fixed/sticky) -->
           <div class="hero-bar">
+            
             <div class="search-wrap">
               <input
                 type="text"
@@ -67,20 +65,25 @@
             <nav class="main-nav">
               <button id="homeLink" class="nav-button" type="button">Início</button>
               <button id="brandsToggle" class="nav-button" type="button">Marcas</button>
-                      <div class="brand-panel" id="brandPanel">
-          <div class="brand-panel-inner">
-            <div class="brand-panel-header">
-              <!-- aqui você pode colocar um texto tipo "Selecione a marca" se quiser -->
-            </div>
-            <div id="brandColumns" class="brand-columns"></div>
-          </div>
-        </div>
+              
+              <div class="brand-panel" id="brandPanel">
+                <div class="brand-panel-inner">
+                  <div class="brand-panel-header"></div>
+                  <div id="brandColumns" class="brand-columns"></div>
+                </div>
+              </div>
 
               <a href="contato.html" class="nav-button nav-link">Contato</a>
             </nav>
           </div>
 
-          <!-- LOGO logo abaixo da barra -->
+          <div class="quiz-bar-centered">
+            <a href="consultor.html" class="btn-quiz-gold">
+               <i class="fa-solid fa-wand-magic-sparkles"></i>
+               ENCONTRE O SEU PERFUME
+            </a>
+          </div>
+
           <div class="logo-wrap">
             <img src="logo.png" alt="ZEIDAN PARFUM" class="logo" />
           </div>
@@ -128,13 +131,11 @@
 </section>
 
     <main id="inicio" class="page-content">
-      <!-- CATEGORIAS + painel de marcas -->
       <section id="marcas" class="product-section">
         <div class="section-title">Categorias</div>
 
       </section>
 
-      <!-- Filtros de categoria -->
       <section class="category-filters">
   <div class="category-inner">
     <button class="category-btn active" data-cat="TODAS">Todos</button>
@@ -149,14 +150,12 @@
   </div>
 </section>
 
-      <!-- Grade de produtos -->
       <section id="produtos" class="product-section">
         <h2 class="section-title">Perfumes</h2>
         <div id="perfumeGrid" class="product-grid"></div>
       </section>
     </main>
 
-    <!-- Modal de zoom da imagem -->
     <div id="imageModal" class="image-modal">
       <div class="image-modal-backdrop"></div>
       <div class="image-modal-content">
@@ -166,11 +165,6 @@
         <img id="imageModalImg" src="" alt="" />
       </div>
     </div>
-
-    <div class="cart-floating-btn" onclick="toggleCart()">
-  <i class="fa-solid fa-cart-shopping"></i>
-  <span id="cart-count">0</span>
-</div>
 
 <div class="cart-floating-btn" onclick="toggleCart()">
   <i class="fa-solid fa-cart-shopping"></i>
@@ -253,4 +247,3 @@
     </footer>
   </body>
 </html>
-
