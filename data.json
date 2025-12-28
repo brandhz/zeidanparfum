@@ -536,6 +536,19 @@
     "Preco_Venda": "R$ 349,90",
     "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/81491m.webp",
     "Descricao": "AFNAN TURATHI BLUE EDP M 90 ML da marca AFNAN é um perfume árabe ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e amadeiradas. Disponível na Zeidan Parfum por R$ 349,90.",
+    "Acordes": "Cítrico, almiscarado, amadeirado, fresco, âmbar",
+    "Sugestoes": [
+      "SOSPIRO VIBRATO 100 ML",
+      "ARMAF CLUB DE NUIT INT. EDT M 105 ML",
+      "LATTAFA ASAD EDP 100 ML"
+    ],
+    "Familia": "Aromático Aquático Masculino",
+    "Notas_Topo": "Cítricos",
+    "Notas_Coracao": "Âmbar e notas amadeiradas",
+    "Notas_Fundo": "Almíscar, especiarias, patchouli",
+    "Estilo": "60% diurno, 40% noturno",
+    "Ocasião": "Almoços, encontros casuais, eventos sociais",
+    "Intensidade": "cerca de 7 horas de longevidade com rastro forte",
     "_index": 49,
     "Destaque": true
   },
@@ -1021,7 +1034,21 @@
     "Preco_Venda": "",
     "Imagem": "",
     "Descricao": "AL WATANIAH KENZ AL MALIK M 100 ML da marca AL WATANIAH é um perfume árabe ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e amadeiradas. Disponível na Zeidan Parfum por preço sob consulta.",
-    "_index": 93
+    "Acordes": "",
+    "Sugestoes": [
+      "",
+      "",
+      ""
+    ],
+    "Familia": "",
+    "Notas_Topo": "",
+    "Notas_Coracao": "",
+    "Notas_Fundo": "",
+    "Estilo": "",
+    "Ocasião": "",
+    "Intensidade": "",
+    "_index": 93,
+    "Destaque": false
   },
   {
     "Marca": "AL WATANIAH",
@@ -1485,11 +1512,11 @@
     "Descricao": "ARMAF CLUB DE NUIT INTENSE EDT 105 ML da ARMAF é um perfume intenso, marcante e inesquecível. Ele une o frescor das frutas cítricas com a sofisticação das madeiras escuras e couro. Um perfume de alta performance projetado para durar o dia todo e garantir presença onde quer que você vá. Disponível na Zeidan Parfum.",
     "Acordes": "Cítrico, frutado, couro, defumado, amadeirado",
     "Sugestoes": [
-        "CREED AVENTUS EDP 100 ML", 
-        "ORIENTICA LUXU.ROYAL AMBER EDP 150 ML",
-        "ARMAF CLUB DE NUIT URBAN ELIXIR 105 ML"
+      "CREED AVENTUS EDP 100 ML",
+      "ORIENTICA LUXU.ROYAL AMBER EDP 150 ML",
+      "ARMAF CLUB DE NUIT URBAN ELIXIR 105 ML"
     ],
-    "Familia": "amadeirado cítrico",
+    "Familia": "Amadeirado Especiado Masculino",
     "Notas_Topo": "Limão, Abacaxi, Bergamota, Groselha Preta, Maçã",
     "Notas_Coracao": "Vidoeiro, Jasmim, Rosa",
     "Notas_Fundo": "Almíscar, Âmbar Cinzento, Patchouli, Baunilha",
@@ -1607,6 +1634,19 @@
     "Preco_Venda": "R$ 379,90",
     "Imagem": "https://img.fragrancex.com/cdn-cgi/image/onerror=redirect,fit=scale-down,width=397,format=webp/images/products/parent/medium/80410m.webp",
     "Descricao": "ARMAF CLUB DE NUIT SILLAGE EDP 105 ML da marca ARMAF é um perfume árabe ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e amadeiradas. Disponível na Zeidan Parfum por R$ 379,90.",
+    "Acordes": "Cítrico, amadeirado, almiscarado, fresco especiado, atalcado",
+    "Sugestoes": [
+      "MONTBLANC EXPLORER 100 ML",
+      "LATTAFA KHAMRAH EDP 100 ML",
+      "CALVIN KLEIN ONE 200 ML"
+    ],
+    "Familia": "Floral Amadeirado Almiscarado Compartilhável",
+    "Notas_Topo": "Bergamota, Limão, Lima, Groselha Preta, Folha de Violeta, Gengibre",
+    "Notas_Coracao": "Rosa, Íris, Jasmim",
+    "Notas_Fundo": "Ambroxan, Almíscar, Sândalo, Cedro",
+    "Estilo": "70% diurno, 30% noturno",
+    "Ocasião": "Academia, passeio ao ar livre, encontro casual",
+    "Intensidade": "cerca de 7 horas de longevidade com rastro forte",
     "_index": 145,
     "Destaque": true
   },
@@ -2389,6 +2429,19 @@
     "Preco_Venda": "R$ 449,90",
     "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/vulcan-feu-2-bc30ab41e624f0f71717611772505786-1024-1024.webp",
     "Descricao": "FRENCH AVENUE VULCAN FEU 100 ML da marca FRENCH AVENUE é um perfume árabe ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e amadeiradas. Disponível na Zeidan Parfum por R$ 449,90.",
+    "Acordes": "Tropical, frutado, doce, cítrico, fresco",
+    "Sugestoes": [
+      "LUCAS SHL GOD OF FIRE EDP 50 ML",
+      "FRENCH AVENUE LIQUID BRUN EDP M 100 ML",
+      "XERJOFF ERBA GOLD EDP 100 ML"
+    ],
+    "Familia": "Floral Compartilhável",
+    "Notas_Topo": "Manga, Limão, Gengibre, Ruibarbo",
+    "Notas_Coracao": "Pimenta Rosa, Jasmin, Violeta, Pralinê",
+    "Notas_Fundo": "Fava Tonka, Cedro, Âmbar Cinzento, Musgo",
+    "Estilo": "65% diurno, 35% noturno",
+    "Ocasião": "Versátil, festa chique na praia",
+    "Intensidade": "cerca de 7 horas de longevidade com rastro forte",
     "_index": 216,
     "Destaque": true
   },
@@ -3213,7 +3266,20 @@
     "Custo_Padrao": "R$ 170,00",
     "Preco_Venda": "R$ 259,90",
     "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/khamrah-dukhan-edp-2-b9c57d25b41ca9074117585680967146-1024-1024.webp",
-    "Descricao": "LATTAFA KHAMRAH DUKHAN EDP 100 ML da marca LATTAFA é um perfume árabe ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e amadeiradas. Disponível na Zeidan Parfum por R$ 259,90.",
+    "Descricao": "LATTAFA KHAMRAH DUKHAN de LATTAFA é um perfume árabe que abre com um toque de frutas vermelhas que em 20 minutos se mescla às especiarias. Ou seja, o aroma de frutas vermelhas dura pouco, depois disso você não o sente basicamente, pois ele estará mesclado com as especiarias/pimenta. Em resumo, ótimo perfume, muito sensual, baladeiro e imponente!. Disponível na Zeidan Parfum!",
+    "Acordes": "Âmbar, especiado quente, doce, tabaco, balsâmico",
+    "Sugestoes": [
+      "FRENCH AVENUE LIQUID BRUN EDP M 100 ML",
+      "LATTAFA ASAD BOURBON EDP 100 ML",
+      "M. MARGIELA REPLICA BY THE FIREPLAC EDT 100 ML"
+    ],
+    "Familia": "Oriental Masculino",
+    "Notas_Topo": "Especiarias, Pimentão, Mandarina",
+    "Notas_Coracao": "Incenso, Ládano, Flor de Laranjeira, Patchouli",
+    "Notas_Fundo": "Pralinê, Tabaco, Âmbar, Fava Tonka, Benjoim",
+    "Estilo": "35% diurno, 65% noturno",
+    "Ocasião": "Jantar elegante, evento social à noite",
+    "Intensidade": "cerca de 8 horas de longevidade com rastro forte",
     "_index": 290
   },
   {
@@ -6770,6 +6836,31 @@
     "_index": 612
   },
   {
+    "Marca": "GIORGIO ARMANI",
+    "ID": "0003",
+    "Produto": "MY WAY EDP 50ML",
+    "Categoria": "Designer",
+    "Custo_Padrao": "R$ 424,00",
+    "Preco_Venda": "R$ 569,90",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/006/701/693/products/1-5f815d2756853ddeda17575387070751-1024-1024.webp",
+    "Descricao": "My Way Le Parfum é uma fragrância elegante e sofisticada que combina frescor e profundidade. Abre com bergamota e flor de laranjeira luminosas, evolui para um coração delicado de tuberosa e íris atalcada, e finaliza com base quente de baunilha bourbon e madeiras cremosas. Versátil e envolvente, funciona bem em qualquer ocasião e estação, deixando um rastro marcante e refinado com excelente fixação.",
+    "Acordes": "Floral branco, cítrico, almíscarado, tuberosa",
+    "Sugestoes": [
+      "LATTAFA FAKHAR EDP F ROSÉ 100 ML",
+      "LA VIE EST BELLE EDP 100 ML",
+      "GOOD GIRL EDP 80 ML"
+    ],
+    "Familia": "Floral Amadeirado Almiscarado Feminino",
+    "Notas_Topo": "Flor de Laranjeira, Laranja Amarga, Bergamota da Calábria",
+    "Notas_Coracao": "Íris Palida, Tuberosa Indiana, Ambreta",
+    "Notas_Fundo": "Almíscar Branco, Baunilha de Bourbon, Cedro",
+    "Estilo": "cerca de 50% diurno, 50% noturno",
+    "Ocasião": "Saída com as amigas,",
+    "Intensidade": "cerca de 7 horas de longevidade com rastro forte",
+    "_index": 0,
+    "Destaque": false
+  },
+  {
     "Marca": "GIVENCHY",
     "ID": "4640",
     "Produto": "GIVENCHY INTERDIT ROUGE 80 ML",
@@ -7624,27 +7715,5 @@
     "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/erba-gold-2-715bf90ccceeb0b71017485691445902-1024-1024.webp",
     "Descricao": "XERJOFF ERBA GOLD EDP 100 ML da marca XERJOFF é um perfume de nicho ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e amadeiradas. Disponível na Zeidan Parfum por R$ 1.849,90.",
     "_index": 689
-  },
-  {
-    "Marca": "BURBERRY",
-    "ID": "0001",
-    "Produto": "BURBERRY GODDESS EDP 30ML",
-    "Categoria": "Nicho",
-    "Custo_Padrao": "R$ 299,00",
-    "Preco_Venda": "R$ 489,90",
-    "Imagem": "https://epocacosmeticos.vteximg.com.br/arquivos/ids/567408/goddess-burberry-perfume-feminino-eau-de-parfum--3-.jpg?v=638301316733200000",
-    "Descricao": "BURBERRY GODDESS EDP 30ML da marca BURBERRY é um perfume de nicho ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e amadeiradas. Disponível na Zeidan Parfum por R$ 489,90.",
-    "_index": 690
-  },
-  {
-    "Marca": "GIORGIO ARMANI",
-    "ID": "0002",
-    "Produto": "GIORGIO ARMANI ACQUA DI GIO EDP 100ML",
-    "Categoria": "Nicho",
-    "Custo_Padrao": "R$ 479,90",
-    "Preco_Venda": "R$ 589,90",
-    "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/acqua-di-gio-edp-2-d5cb81e4a747ad0fb617049124752640-1024-1024.webp",
-    "Descricao": "GIORGIO ARMANI ACQUA DI GIO EDP 100ML da marca GIORGIO ARMANI é um perfume de nicho ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e amadeiradas. Disponível na Zeidan Parfum por R$ 589,90.",
-    "_index": 691
   }
 ]
