@@ -1,3 +1,6 @@
+/* =====================================================
+   CONFIGURAÇÕES GLOBAIS
+   ===================================================== */
 const perfumeGrid = document.getElementById("perfumeGrid");
 const brandColumns = document.getElementById("brandColumns");
 const searchInput = document.getElementById("searchInput");
@@ -6,7 +9,7 @@ const brandsToggle = document.getElementById("brandsToggle");
 const homeLink = document.getElementById("homeLink");
 const categoryButtons = document.querySelectorAll(".category-btn") || [];
 
-// modal de imagem (só existe na vitrine)
+// Modal de imagem (só existe na vitrine)
 const imageModal = document.getElementById("imageModal");
 const imageModalImg = document.getElementById("imageModalImg");
 const imageModalClose = document.getElementById("imageModalClose");
@@ -16,10 +19,14 @@ let currentCategory = "TODAS";
 
 const LIMITE_INICIAL = 30;
 
-// número global de WhatsApp
+// Número global de WhatsApp (somente números, com código do país)
 window.WHATSAPP_NUMBER = "5531991668430";
 
-// normaliza categoria
+/* =====================================================
+   FUNÇÕES AUXILIARES
+   ===================================================== */
+
+// Normaliza texto (tira acentos e põe em maiúsculo)
 function normalizeCat(value) {
   return (value || "")
     .toString()
@@ -28,7 +35,78 @@ function normalizeCat(value) {
     .toUpperCase();
 }
 
-// Carrega dados do data.json
+// WhatsApp Link Builder
+function buildWhatsAppLink(perfume) {
+  const nome = perfume.Produto || "";
+  const marca = perfume.Marca || "";
+  const preco = perfume.Preco_Venda || "";
+
+  const msg = `Olá, quero encomendar o perfume:
+${nome} - ${marca}
+Preço: ${preco}`;
+
+  const encodedMsg = encodeURIComponent(msg);
+  return `https://wa.me/${window.WHATSAPP_NUMBER}?text=${encodedMsg}`;
+}
+
+/* =====================================================
+   LÓGICA DE GÊNERO AUTOMÁTICA (INTELIGÊNCIA ARTIFICIAL)
+   ===================================================== */
+function detectarGenero(produto) {
+  // Pega todo o texto disponível do produto
+  // Usa notação de colchetes ["Gênero"] para evitar erro com acentos
+  const textoCompleto = (
+    (produto.Produto || "") + " " + 
+    (produto.Familia || "") + " " + 
+    (produto.Descricao || "") + " " +
+    (produto["Gênero"] || produto.Genero || "") 
+  ).toLowerCase();
+
+  // 1. Verifica se é Unissex / Compartilhável
+  if (
+    textoCompleto.includes("compartilhável") || 
+    textoCompleto.includes("unissex") || 
+    textoCompleto.includes("shared") ||
+    textoCompleto.includes("unisex")
+  ) {
+    return "UNISSEX";
+  }
+
+  // 2. Verifica se é Feminino
+  if (
+    textoCompleto.includes("feminino") || 
+    textoCompleto.includes("woman") || 
+    textoCompleto.includes("women") || 
+    textoCompleto.includes("femme") || 
+    textoCompleto.includes("donna") || 
+    textoCompleto.includes("lady") ||
+    textoCompleto.includes("girl") ||
+    textoCompleto.includes("pour elle")
+  ) {
+    return "FEMININO";
+  }
+
+  // 3. Verifica se é Masculino
+  if (
+    textoCompleto.includes("masculino") || 
+    textoCompleto.includes("homem") || 
+    textoCompleto.includes("man") || 
+    textoCompleto.includes("men") || 
+    textoCompleto.includes("uomo") || 
+    textoCompleto.includes("homme") ||
+    textoCompleto.includes("boy") ||
+    textoCompleto.includes("pour homme")
+  ) {
+    return "MASCULINO";
+  }
+
+  // Padrão se não achar nada
+  return "UNISSEX"; 
+}
+
+/* =====================================================
+   CARREGAMENTO DE DADOS
+   ===================================================== */
 async function loadPerfumes() {
   try {
     const response = await fetch("data.json");
@@ -38,14 +116,118 @@ async function loadPerfumes() {
       populateBrandColumns();
     }
     if (perfumeGrid) {
-      renderCards("TODAS", "", currentCategory);
+      // Inicia mostrando TODOS
+      renderCards("TODAS", "", "TODAS");
     }
   } catch (error) {
     console.error("Erro ao carregar data.json:", error);
   }
 }
 
-// Lista de marcas em colunas – só com preço
+/* =====================================================
+   RENDERIZAÇÃO (MOSTRAR CARD NA TELA)
+   ===================================================== */
+function renderCards(selectedBrand, searchTerm, category) {
+  if (!perfumeGrid) return;
+
+  perfumeGrid.innerHTML = "";
+  const term = (searchTerm || "").trim().toLowerCase();
+  
+  // Categoria selecionada no botão (ex: MASCULINO, ARABE, TODAS)
+  const catFilter = normalizeCat(category || "TODAS");
+
+  const filtered = perfumes.filter((p) => {
+    const brand = p.Marca || "";
+    const name = p.Produto || "";
+    const price = (p.Preco_Venda || "").trim();
+    
+    // Categoria do JSON (ex: Árabe, Designer)
+    const catJSON = normalizeCat(p.Categoria || "");
+    
+    // Gênero Detectado Automaticamente
+    const genderDetected = normalizeCat(detectarGenero(p));
+
+    if (!price) return false;
+
+    // LÓGICA DE FILTRO:
+    const matchBrand = selectedBrand === "TODAS" || brand === selectedBrand;
+    
+    const combined = `${name} ${brand}`.toLowerCase();
+    const matchText = combined.includes(term);
+
+    // O produto passa se:
+    // 1. O filtro for TODAS
+    // 2. A categoria do JSON bater (ex: cliquei em Árabe e ele é Árabe)
+    // 3. O gênero bater (ex: cliquei em Masculino e ele tem "Man" no nome)
+    const matchCategory = (catFilter === "TODAS") || 
+                          (catJSON === catFilter) || 
+                          (genderDetected === catFilter);
+
+    return matchBrand && matchText && matchCategory;
+  });
+
+  // Ordenação: Destaques primeiro
+  const destacados = filtered.filter((p) => p.Destaque === true);
+  const comuns = filtered.filter((p) => p.Destaque !== true);
+  const ordenados = [...destacados, ...comuns];
+
+  // Limite de cards (paginação simples)
+  const limited = ordenados.slice(0, LIMITE_INICIAL);
+
+  // Criação do HTML
+  limited.forEach((p) => {
+    const card = document.createElement("article");
+    
+    // Define classes para CSS
+    const catClass = normalizeCat(p.Categoria || "").toLowerCase();
+    const genClass = normalizeCat(detectarGenero(p)).toLowerCase();
+    card.className = `product-card ${catClass} ${genClass}`;
+
+    const whatsappLink = buildWhatsAppLink(p);
+
+    let detalheHref = null;
+    if (p.Produto) {
+      detalheHref = "produto.html?id=" + encodeURIComponent(p.Produto);
+    }
+
+    card.innerHTML = `
+      ${detalheHref ? `<a href="${detalheHref}" class="product-link">` : `<div class="product-link">`}
+        <div class="product-image-wrap">
+          ${
+            p.Imagem
+              ? `<img src="${p.Imagem}" alt="${p.Produto ?? ""}" class="product-image" data-full="${p.Imagem}" />`
+              : ""
+          }
+        </div>
+
+        <div class="product-name">
+          ${p.Produto ?? ""}
+        </div>
+
+        <div class="product-meta">
+          <span class="product-brand">
+            ${p.Marca ?? ""}
+          </span>
+          <span class="product-price">
+            ${p.Preco_Venda ?? ""}
+          </span>
+        </div>
+      ${detalheHref ? `</a>` : `</div>`}
+
+      <div class="product-actions">
+        <a class="product-btn" href="${whatsappLink}" target="_blank" rel="noopener noreferrer">
+          Encomende
+        </a>
+      </div>
+    `;
+
+    perfumeGrid.appendChild(card);
+  });
+}
+
+/* =====================================================
+   PAINEL DE MARCAS
+   ===================================================== */
 function populateBrandColumns() {
   const brandsWithPrice = perfumes
     .filter((p) => (p.Preco_Venda || "").trim() !== "")
@@ -92,102 +274,6 @@ function populateBrandColumns() {
   }
 }
 
-// WhatsApp
-function buildWhatsAppLink(perfume) {
-  const nome = perfume.Produto || "";
-  const marca = perfume.Marca || "";
-  const preco = perfume.Preco_Venda || "";
-
-  const msg = `Olá, quero encomendar o perfume:
-${nome} - ${marca}
-Preço: ${preco}`;
-
-  const encodedMsg = encodeURIComponent(msg);
-  return `https://wa.me/${window.WHATSAPP_NUMBER}?text=${encodedMsg}`;
-}
-
-// Renderiza cards na vitrine
-function renderCards(selectedBrand, searchTerm, category) {
-  if (!perfumeGrid) return;
-
-  perfumeGrid.innerHTML = "";
-  const term = (searchTerm || "").trim().toLowerCase();
-  const cat = normalizeCat(category || "TODAS");
-
-  const filtered = perfumes.filter((p) => {
-    const brand = p.Marca || "";
-    const name = p.Produto || "";
-    const price = (p.Preco_Venda || "").trim();
-    const catValue = normalizeCat(p.Categoria || "");
-
-    if (!price) return false;
-
-    const matchBrand = selectedBrand === "TODAS" || brand === selectedBrand;
-    const combined = `${name} ${brand}`.toLowerCase();
-    const matchText = combined.includes(term);
-    const matchCategory = cat === "TODAS" || catValue === cat;
-
-    return matchBrand && matchText && matchCategory;
-  });
-
-  // separa destaques e comuns
-  const destacados = filtered.filter((p) => p.Destaque === true);
-  const comuns = filtered.filter((p) => p.Destaque !== true);
-
-  // junta: primeiros os destaques, depois o resto
-  const ordenados = [...destacados, ...comuns];
-
-  // limita quantidade total
-  const limited = ordenados.slice(0, LIMITE_INICIAL);
-
-  limited.forEach((p) => {
-    const card = document.createElement("article");
-    card.className = "product-card";
-
-    const whatsappLink = buildWhatsAppLink(p);
-
-    let detalheHref = null;
-    if (p.Produto) {
-      detalheHref = "produto.html?id=" + encodeURIComponent(p.Produto);
-    }
-
-    card.innerHTML = `
-      ${detalheHref ? `<a href="${detalheHref}" class="product-link">` : `<div class="product-link">`}
-        <div class="product-image-wrap">
-          ${
-            p.Imagem
-              ? `<img src="${p.Imagem}" alt="${p.Produto ?? ""}" class="product-image" data-full="${p.Imagem}" />`
-              : ""
-          }
-        </div>
-
-        <div class="product-name">
-          ${p.Produto ?? ""}
-        </div>
-
-        <div class="product-meta">
-          <span class="product-brand">
-            ${p.Marca ?? ""}
-          </span>
-          <span class="product-price">
-            ${p.Preco_Venda ?? ""}
-          </span>
-        </div>
-      ${detalheHref ? `</a>` : `</div>`}
-
-      <div class="product-actions">
-        <a class="product-btn" href="${whatsappLink}" target="_blank" rel="noopener noreferrer">
-          Encomende
-        </a>
-      </div>
-    `;
-
-    perfumeGrid.appendChild(card);
-  });
-}
-
-/* Painel de marcas */
-
 if (brandsToggle && brandPanel) {
   brandsToggle.addEventListener("click", () => {
     const isOpen = brandPanel.classList.contains("open");
@@ -211,7 +297,7 @@ function closeBrandPanel() {
   }
 }
 
-// fecha se clicar fora do painel
+// Fecha painel ao clicar fora
 document.addEventListener("click", (e) => {
   if (!brandPanel || !brandsToggle) return;
   const isInsidePanel = brandPanel.contains(e.target);
@@ -221,7 +307,11 @@ document.addEventListener("click", (e) => {
   }
 });
 
-/* Botão Início – só vitrine */
+/* =====================================================
+   EVENTOS E INTERAÇÕES
+   ===================================================== */
+
+/* Botão Início */
 if (homeLink && perfumeGrid) {
   homeLink.addEventListener("click", () => {
     if (!perfumeGrid) return;
@@ -237,19 +327,21 @@ if (homeLink && perfumeGrid) {
   });
 }
 
-/* Busca por texto – só vitrine */
+/* Busca por texto */
 if (searchInput && perfumeGrid) {
   searchInput.addEventListener("input", (e) => {
     renderCards("TODAS", e.target.value, currentCategory);
   });
 }
 
-/* Filtro por categoria – só vitrine */
+/* Filtro por categoria (Botões) */
 if (categoryButtons.length && perfumeGrid) {
   categoryButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
       categoryButtons.forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
+      
+      // Atualiza categoria global e renderiza
       currentCategory = btn.dataset.cat;
       renderCards(
         "TODAS",
@@ -260,7 +352,7 @@ if (categoryButtons.length && perfumeGrid) {
   });
 }
 
-/* Modal de imagem – só vitrine */
+/* Modal de imagem */
 function openImageModal() {
   if (!imageModal) return;
   imageModal.classList.add("open");
@@ -293,21 +385,33 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-/* Inicia */
+/* Efeito Blur na Barra ao Rolar */
+window.addEventListener('scroll', function() {
+  const header = document.querySelector('.hero-bar');
+  if (!header) return; // Segurança
+
+  if (window.scrollY > 50) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
+
+/* =====================================================
+   INICIALIZAÇÃO
+   ===================================================== */
 loadPerfumes();
 
-// Se veio de outra página pedindo para abrir o painel de marcas
+// Verifica localStorage (se veio de outra página)
 if (localStorage.getItem("abrirMarcas") === "1") {
   localStorage.removeItem("abrirMarcas");
   openBrandPanel();
-  const marcasSection =
-    document.getElementById("marcas") || document.getElementById("produtos");
+  const marcasSection = document.getElementById("marcas") || document.getElementById("produtos");
   if (marcasSection) {
     marcasSection.scrollIntoView({ behavior: "smooth" });
   }
 }
 
-// Se veio da página de produto com marca selecionada
 if (perfumeGrid) {
   const marcaSelecionada = localStorage.getItem("marcaSelecionada");
   if (marcaSelecionada) {

@@ -211,32 +211,56 @@ a {
   height: auto;
 }
 
-/* Filtros de Categoria */
+/* Container Principal dos Filtros */
 .category-filters {
+  width: 100%;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 30px;
-  padding: 0 16px;
+  justify-content: center; /* Centraliza o bloco na tela */
+  margin-top: 20px;
+  margin-bottom: 40px; /* Um pouco mais de espaço antes dos produtos */
+  padding: 0 20px; /* Margem de segurança nas laterais para celular */
 }
 
+/* O "Miolo" que segura os botões */
+.category-inner {
+  display: flex;
+  flex-wrap: wrap;       /* Permite quebrar linha se não couber */
+  justify-content: center; /* AQUI ESTÁ A MÁGICA: Centraliza os botões */
+  align-items: center;
+  gap: 12px;             /* ESPAÇAMENTO ENTRE OS BOTÕES */
+  max-width: 800px;      /* Segura eles agrupados para não espalhar demais no PC */
+}
+
+/* Estilo dos Botões (Ajuste fino) */
 .category-btn {
+  padding: 8px 20px;     /* Botões um pouco mais largos ficam mais bonitos */
+  margin: 0;             /* Remove margens antigas, o 'gap' controla agora */
+  border-radius: 30px;   /* Bem redondinho (Pílula) */
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  /* Cores Padrão (Fundo transparente e borda) */
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: rgba(255, 255, 255, 0.8);
-  padding: 8px 18px;
-  border-radius: 20px;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  cursor: pointer;
 }
 
-.category-btn.active,
 .category-btn:hover {
-  background: #fff;
-  color: #041739;
+  border-color: #fff;
+  color: #fff;
+  transform: translateY(-2px); /* Efeito leve ao passar o mouse */
+}
+
+/* Botão Ativo (O Branco Cheio) */
+.category-btn.active {
+  background-color: #ffffff;
+  color: #041739; /* Azul escuro do seu tema */
+  border-color: #ffffff;
+  font-weight: 800;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3); /* Brilho chique */
 }
 
 /* =========================================
@@ -446,11 +470,37 @@ a {
   }
 
   .brand-columns {
+    display: grid;
     width: 95vw;
-    grid-template-columns: repeat(2, 1fr);
-    padding: 20px;
-    max-height: 60vh;
+    grid-template-columns: 1fr 1fr !important;
+    padding: 20px 15px;
+    max-height: 70vh;
     overflow-y: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  /* Bloco 1 (A-C): Fica na Esquerda, Topo */
+  .brand-columns ul:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  /* Bloco 2 (D-L): Forçamos para a Esquerda, Embaixo */
+  .brand-columns ul:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  /* Bloco 3 (M-R): Forçamos para a Direita, Topo */
+  .brand-columns ul:nth-child(3) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  /* Bloco 4 (S-Z): Fica na Direita, Embaixo */
+  .brand-columns ul:nth-child(4) {
+    grid-column: 2;
+    grid-row: 2;
   }
 
   .product-grid,
@@ -636,13 +686,48 @@ button[onclick*="Comprar"] {
 /* 1. REMOVER O GIGANTESCO GAP DO TOPO */
 /* Puxa a Logo para cima, logo abaixo do menu fixo */
 .logo-wrap {
-  margin-top: 90px !important; /* Reduzido de 120/140px para 90px */
-  margin-bottom: 20px !important; /* Reduz espaço entre logo e conteúdo */
+  margin-top: 160px !important; /* Reduzido de 120/140px para 90px */
+  margin-bottom: 30px !important; /* Reduz espaço entre logo e conteúdo */
 }
 
 /* Garante que o menu fixo fique colado na barra vermelha */
+/* Estado Inicial (No Topo - Transparente e Limpo) */
 .hero-bar {
-  top: 28px !important; /* Ajuste fino */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  
+  padding: 15px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+
+  /* Começa Transparente */
+  background-color: transparent;
+  backdrop-filter: blur(0px); /* Sem blur inicial */
+  border-bottom: 1px solid transparent;
+  box-shadow: none;
+  
+  /* Animação suave para a transição */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Estado "Rolando" (Ativado pelo JavaScript) */
+.hero-bar.scrolled {
+  background-color: rgba(4, 23, 57, 0.98); /* Azul Escuro Forte */
+  backdrop-filter: blur(12px);
+  
+  /* --- A CORREÇÃO MÁGICA --- */
+  top: 0 !important; /* Força a barra a ir para o topo da tela */
+  padding-top: 15px !important; /* Garante que o texto não fique colado na borda do celular */
+  /* ------------------------- */
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
 
 /* Aproxima o Produto da Logo */
@@ -844,10 +929,10 @@ button[onclick*="Comprar"] {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center; /* Garante alinhamento vertical dos blocos */
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 60px;
 }
 
 /* Cada bloco de benefício */
@@ -1005,8 +1090,11 @@ body::before {
 /* 2. Para a PÁGINA DO PRODUTO (Detalhes) */
 .product-detail-image img,
 #produtoImagem {
-    margin-bottom: 30px !important; /* Aumentei bastante para garantir */
-    padding-bottom: 10px !important;
+    display: block !important; 
+    margin-bottom: 20px !important; /* Aumentei bastante para garantir */
+    padding-bottom: 0 !important;
+    width: 100%;
+    height: auto;
 }
 
 .product-detail-title {
@@ -1200,7 +1288,7 @@ body::before {
 
 /* Garante que suas imagens locais fiquem pequenas e alinhadas */
 .payment-icons img {
-    height:16px !important;
+    height:13px !important;
     width: auto !important;
     display: block !important;
     background: none !important;
@@ -1215,4 +1303,40 @@ body::before {
         flex-direction: column !important;
         gap: 15px !important;
     }
+}
+
+/* =========================================
+   AJUSTE FINO DOS BOTÕES PARA CELULAR PEQUENO
+   ========================================= */
+
+/* 1. Ajuste Geral (Isso vale para todos) */
+.category-filters {
+  padding: 0 10px; /* Reduz a margem lateral da tela */
+}
+
+.category-inner {
+  gap: 8px; /* Diminui o espaço entre os botões (antes era 12px) */
+}
+
+.category-btn {
+  /* Diminui o "gordinho" do botão para caber mais na linha */
+  padding: 8px 14px; 
+  font-size: 11px; /* Letra um pouquinho menor */
+}
+
+/* 2. A MÁGICA PARA TELAS PEQUENAS (Menor que 390px) */
+@media (max-width: 390px) {
+  .category-inner {
+    gap: 6px; /* Espaço bem justinho */
+    justify-content: center;
+  }
+
+  .category-btn {
+    padding: 7px 10px; /* Botão mais compacto */
+    font-size: 10px;   /* Fonte ajustada para não quebrar linha */
+    
+    /* TRUQUE OPCIONAL: Faz o botão esticar para preencher buracos */
+    /* flex-grow: 1; */ 
+    /* text-align: center; */
+  }
 }
