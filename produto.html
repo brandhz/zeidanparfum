@@ -160,11 +160,6 @@
   </div>
 
   <script>
-    const WHATSAPP_NUMBER_LOCAL = "5531991668430";
-    const WHATSAPP_NUM = (typeof window.WHATSAPP_NUMBER !== "undefined")
-      ? window.WHATSAPP_NUMBER
-      : WHATSAPP_NUMBER_LOCAL;
-
     const params = new URLSearchParams(window.location.search);
     const nomeProduto = params.get("id");
 
@@ -231,42 +226,59 @@
 
         // Especificações Extras
         document.getElementById("produtoEstilo").textContent = p.Estilo || "-";
-        document.getElementById("produtoOcasiao").textContent = p.Ocasião || "-"; // Note o acento
+        document.getElementById("produtoOcasiao").textContent = p.Ocasião || "-";
         document.getElementById("produtoIntensidade").textContent = p.Intensidade || "-";
 
-        // Botões de WhatsApp
-        const msg = "Olá, quero encomendar o perfume:\n" +
-          (p.Produto || "") + " - " + (p.Marca || "") + "\n" +
-          "Preço: " + (p.Preco_Venda || "");
-        const encodedMsg = encodeURIComponent(msg);
-        const waLink = "https://wa.me/" + WHATSAPP_NUM + "?text=" + encodedMsg;
+        // ==========================================================
+        // CORREÇÃO DOS BOTÕES PARA USAR O CARRINHO
+        // ==========================================================
+        const btnWhatsapp = document.getElementById("produtoWhatsapp");
+        const btnComprar = document.getElementById("produtoComprar");
 
-        document.getElementById("produtoWhatsapp").href = waLink;
-        document.getElementById("produtoComprar").href = waLink;
+        // Tratamento seguro para nomes com aspas
+        const marcaSafe = (p.Marca || "").replace(/'/g, " ");
+        const produtoSafe = (p.Produto || "").replace(/'/g, " ");
+        const precoSafe = (p.Preco_Venda || "R$ 0,00");
+
+        function acaoClicar(e) {
+            e.preventDefault(); // Impede o link de carregar a página
+            if (typeof adicionarAoCarrinho === "function") {
+                adicionarAoCarrinho(marcaSafe, produtoSafe, precoSafe);
+            } else {
+                console.error("Função adicionarAoCarrinho ainda não carregou.");
+                alert("Aguarde um momento, o site está carregando...");
+            }
+        }
+
+        // Configura o botão Encomende
+        if (btnWhatsapp) {
+            btnWhatsapp.onclick = acaoClicar;
+            btnWhatsapp.removeAttribute("href"); 
+            btnWhatsapp.innerHTML = 'Encomende <i class="fa-solid fa-cart-plus"></i>';
+        }
+        
+        // Configura o botão Comprar
+        if (btnComprar) {
+            btnComprar.onclick = acaoClicar;
+            btnComprar.removeAttribute("href");
+        }
 
 
-        // === LÓGICA DAS SUGESTÕES (NOVO) ===
+        // === LÓGICA DAS SUGESTÕES ===
         const boxSugestoes = document.getElementById("box-sugestoes");
         const listaSugestoes = document.getElementById("lista-sugestoes");
         
-        // Limpa e esconde inicialmente
         listaSugestoes.innerHTML = "";
         boxSugestoes.style.display = "none";
 
-        // Verifica se tem sugestões no JSON deste perfume
         if (p.Sugestoes && p.Sugestoes.length > 0) {
-            
-            // === CÓDIGO NOVO: RESPEITA A SUA ORDEM ===
             const recomendados = p.Sugestoes.map(nomeSugestao => {
-            // Para cada nome na sua lista, busca o produto correspondente no estoque
             return lista.find(item => (item.Produto || "").trim().toUpperCase() === nomeSugestao.trim().toUpperCase());
-            }).filter(item => item !== undefined); // Remove caso tenha escrito algum nome errado que não existe
+            }).filter(item => item !== undefined);
 
             if (recomendados.length > 0) {
                 boxSugestoes.style.display = "block";
-
                 recomendados.forEach(sugestao => {
-                    // Link
                     const link = document.createElement("a");
                     link.href = `produto.html?id=${encodeURIComponent(sugestao.Produto)}`;
                     link.style.textDecoration = "none";
@@ -277,7 +289,6 @@
                     link.style.textAlign = "center";
                     link.style.margin = "10px";
 
-                    // Imagem
                     const img = document.createElement("img");
                     img.src = sugestao.Imagem;
                     img.style.width = "100%";
@@ -288,7 +299,6 @@
                     img.style.marginBottom = "8px";
                     img.style.boxShadow = "0 4px 8px rgba(0,0,0,0.3)";
                     
-                    // Nome
                     const nome = document.createElement("span");
                     nome.innerText = sugestao.Marca || "Ver"; 
                     nome.style.color = "#fff";
@@ -301,7 +311,6 @@
                 });
             }
         }
-        // === FIM DAS SUGESTÕES ===
 
       } catch (e) {
         console.error("Erro ao carregar produto:", e);
@@ -360,7 +369,37 @@
     });
   </script>
 
-  <script src="script.js"></script>
+  <div class="cart-floating-btn" onclick="toggleCart()">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <span id="cart-count">0</span>
+  </div>
+
+  <div id="cart-modal" class="cart-modal-overlay">
+    <div class="cart-modal-content">
+      
+      <div class="cart-header">
+        <h3>Minha Sacola</h3>
+        <button onclick="toggleCart()" class="close-cart">✕</button>
+      </div>
+
+      <div id="cart-items" class="cart-items-container">
+        <p class="empty-msg">Sua sacola está vazia 🛍️</p>
+      </div>
+
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Total Estimado:</span>
+          <span id="cart-total-value">R$ 0,00</span>
+        </div>
+        
+        <button onclick="finalizarNoZap()" class="btn-whatsapp-checkout">
+          <i class="fa-brands fa-whatsapp"></i> Finalizar Pedido
+        </button>
+        <button onclick="toggleCart()" class="btn-continue">Continuar Comprando</button>
+      </div>
+
+    </div>
+  </div>
 
   <footer class="site-footer">
     <div class="footer-inner">
@@ -377,32 +416,138 @@
       </div>
       
       <div class="payment-bar-container">
-  
-  <div class="payment-text">FORMAS DE PAGAMENTO</div>
-  
-  <div class="payment-icons">
-    <img src="mastercard.png" alt="Mastercard">
-    <img src="visa.png" alt="Visa">
-    <img src="amex.png" alt="Amex">
-    <img src="elo.png" alt="Elo">
-    <img src="pix.png" alt="Pix">
-  </div>
-
-  <div class="security-badge-css">
-    <div class="lock-icon">
-      <i class="fa-solid fa-lock"></i>
-    </div>
-    <div class="security-text-css">
-      <span>SITE</span>
-      <strong>100% SEGURO</strong>
-    </div>
-  </div>
-
-</div>
+        <div class="payment-text">FORMAS DE PAGAMENTO</div>
+        <div class="payment-icons">
+          <img src="mastercard.png" alt="Mastercard">
+          <img src="visa.png" alt="Visa">
+          <img src="amex.png" alt="Amex">
+          <img src="elo.png" alt="Elo">
+          <img src="pix.png" alt="Pix">
+        </div>
+        <div class="security-badge-css">
+          <div class="lock-icon">
+            <i class="fa-solid fa-lock"></i>
+          </div>
+          <div class="security-text-css">
+            <span>SITE</span>
+            <strong>100% SEGURO</strong>
+          </div>
+        </div>
+      </div>
       <p class="footer-copy">
         Copyright ZEIDAN PARFUM - 2025. Todos os direitos reservados.
       </p>
     </div>
   </footer>
+ <script>
+  // 1. Array que guarda os produtos (Lê da memória do navegador)
+  let carrinho = JSON.parse(localStorage.getItem('carrinhoZeidan')) || [];
+
+  // 2. Atualiza o visual da sacola
+  function atualizarCarrinhoUI() {
+      const container = document.getElementById('cart-items');
+      const contador = document.getElementById('cart-count');
+      const totalDisplay = document.getElementById('cart-total-value');
+      
+      // Salva para não perder
+      localStorage.setItem('carrinhoZeidan', JSON.stringify(carrinho));
+
+      // Atualiza bolinha vermelha
+      if (contador) contador.innerText = carrinho.length;
+      
+      // Se não tiver a janela da sacola na tela, para por aqui
+      if (!container) return;
+
+      if (carrinho.length === 0) {
+          container.innerHTML = '<p class="empty-msg" style="text-align:center; color:#888; margin-top:50px;">Sua sacola está vazia 🛍️</p>';
+          if(totalDisplay) totalDisplay.innerText = "R$ 0,00";
+          return;
+      }
+
+      let html = '';
+      let total = 0;
+
+      carrinho.forEach((item, index) => {
+          let precoNumerico = 0;
+          try {
+              // Limpeza do preço para somar corretamente
+              let precoLimpo = item.preco.toString().replace('R$', '').replace(/\./g, '').replace(',', '.').trim();
+              precoNumerico = parseFloat(precoLimpo);
+          } catch(e) { precoNumerico = 0; }
+          
+          if (!isNaN(precoNumerico)) total += precoNumerico;
+
+          html += `
+              <div class="cart-item">
+                  <div style="flex:1;">
+                      <div style="font-weight:bold; font-size:14px;">${item.produto}</div>
+                      <div style="font-size:12px; color:#666;">${item.marca}</div>
+                  </div>
+                  <div style="text-align:right;">
+                      <div style="font-weight:bold; color:#333;">${item.preco}</div>
+                      <button onclick="removerDoCarrinho(${index})" class="cart-remove-btn">Remover</button>
+                  </div>
+              </div>
+          `;
+      });
+
+      container.innerHTML = html;
+      if(totalDisplay) totalDisplay.innerText = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  }
+
+  // 3. Função Global para Adicionar (O botão chama esta aqui)
+  window.adicionarAoCarrinho = function(marca, produto, preco) {
+      carrinho.push({ marca, produto, preco });
+      atualizarCarrinhoUI();
+      toggleCart(); // Abre a sacola para mostrar que funcionou
+  };
+
+  // 4. Remove item
+  window.removerDoCarrinho = function(index) {
+      carrinho.splice(index, 1);
+      atualizarCarrinhoUI();
+  };
+
+  // 5. Abre e Fecha a Janela
+  window.toggleCart = function() {
+      const modal = document.getElementById('cart-modal');
+      if (!modal) return;
+      
+      if (modal.style.display === 'flex') {
+          modal.style.display = 'none';
+      } else {
+          modal.style.display = 'flex';
+          atualizarCarrinhoUI();
+      }
+  };
+
+  // 6. Botão Finalizar no WhatsApp
+  window.finalizarNoZap = function() {
+      if (carrinho.length === 0) return alert("Sua sacola está vazia!");
+
+      let mensagem = "Olá Zeidan! Gostaria de verificar a disponibilidade destes perfumes:\n\n";
+      let totalEstimado = 0;
+
+      carrinho.forEach(item => {
+          mensagem += `▪️ *${item.produto}* (${item.marca}) - ${item.preco}\n`;
+          try {
+              let precoLimpo = item.preco.toString().replace('R$', '').replace(/\./g, '').replace(',', '.').trim();
+              let valor = parseFloat(precoLimpo);
+              if(!isNaN(valor)) totalEstimado += valor;
+          } catch(e){}
+      });
+
+      mensagem += `\n💰 *Total Estimado:* ${totalEstimado.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
+      mensagem += `\n\nAguardo a confirmação e o link de pagamento!`;
+
+      let telefone = "5531991668430"; 
+      
+      let url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
+      window.open(url, '_blank');
+  };
+
+  // Inicializa a sacola assim que carregar
+  document.addEventListener("DOMContentLoaded", atualizarCarrinhoUI);
+</script>
 </body>
 </html>

@@ -9,7 +9,7 @@ const brandsToggle = document.getElementById("brandsToggle");
 const homeLink = document.getElementById("homeLink");
 const categoryButtons = document.querySelectorAll(".category-btn") || [];
 
-// Modal de imagem (só existe na vitrine)
+// Modal de imagem (só existe na vitrine/index)
 const imageModal = document.getElementById("imageModal");
 const imageModalImg = document.getElementById("imageModalImg");
 const imageModalClose = document.getElementById("imageModalClose");
@@ -19,42 +19,17 @@ let currentCategory = "TODAS";
 
 const LIMITE_INICIAL = 30;
 
-// Número global de WhatsApp (somente números, com código do país)
+// Número global de WhatsApp
 window.WHATSAPP_NUMBER = "5531991668430";
 
 /* =====================================================
    FUNÇÕES AUXILIARES
    ===================================================== */
-
-// Normaliza texto (tira acentos e põe em maiúsculo)
 function normalizeCat(value) {
-  return (value || "")
-    .toString()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toUpperCase();
+  return (value || "").toString().normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
 }
 
-// WhatsApp Link Builder
-function buildWhatsAppLink(perfume) {
-  const nome = perfume.Produto || "";
-  const marca = perfume.Marca || "";
-  const preco = perfume.Preco_Venda || "";
-
-  const msg = `Olá, quero encomendar o perfume:
-${nome} - ${marca}
-Preço: ${preco}`;
-
-  const encodedMsg = encodeURIComponent(msg);
-  return `https://wa.me/${window.WHATSAPP_NUMBER}?text=${encodedMsg}`;
-}
-
-/* =====================================================
-   LÓGICA DE GÊNERO AUTOMÁTICA (INTELIGÊNCIA ARTIFICIAL)
-   ===================================================== */
 function detectarGenero(produto) {
-  // Pega todo o texto disponível do produto
-  // Usa notação de colchetes ["Gênero"] para evitar erro com acentos
   const textoCompleto = (
     (produto.Produto || "") + " " + 
     (produto.Familia || "") + " " + 
@@ -62,45 +37,9 @@ function detectarGenero(produto) {
     (produto["Gênero"] || produto.Genero || "") 
   ).toLowerCase();
 
-  // 1. Verifica se é Unissex / Compartilhável
-  if (
-    textoCompleto.includes("compartilhável") || 
-    textoCompleto.includes("unissex") || 
-    textoCompleto.includes("shared") ||
-    textoCompleto.includes("unisex")
-  ) {
-    return "UNISSEX";
-  }
-
-  // 2. Verifica se é Feminino
-  if (
-    textoCompleto.includes("feminino") || 
-    textoCompleto.includes("woman") || 
-    textoCompleto.includes("women") || 
-    textoCompleto.includes("femme") || 
-    textoCompleto.includes("donna") || 
-    textoCompleto.includes("lady") ||
-    textoCompleto.includes("girl") ||
-    textoCompleto.includes("pour elle")
-  ) {
-    return "FEMININO";
-  }
-
-  // 3. Verifica se é Masculino
-  if (
-    textoCompleto.includes("masculino") || 
-    textoCompleto.includes("homem") || 
-    textoCompleto.includes("man") || 
-    textoCompleto.includes("men") || 
-    textoCompleto.includes("uomo") || 
-    textoCompleto.includes("homme") ||
-    textoCompleto.includes("boy") ||
-    textoCompleto.includes("pour homme")
-  ) {
-    return "MASCULINO";
-  }
-
-  // Padrão se não achar nada
+  if (textoCompleto.includes("compartilhável") || textoCompleto.includes("unissex") || textoCompleto.includes("shared") || textoCompleto.includes("unisex")) return "UNISSEX";
+  if (textoCompleto.includes("feminino") || textoCompleto.includes("woman") || textoCompleto.includes("women") || textoCompleto.includes("femme") || textoCompleto.includes("donna") || textoCompleto.includes("lady") || textoCompleto.includes("girl") || textoCompleto.includes("pour elle")) return "FEMININO";
+  if (textoCompleto.includes("masculino") || textoCompleto.includes("homem") || textoCompleto.includes("man") || textoCompleto.includes("men") || textoCompleto.includes("uomo") || textoCompleto.includes("homme") || textoCompleto.includes("boy") || textoCompleto.includes("pour homme")) return "MASCULINO";
   return "UNISSEX"; 
 }
 
@@ -112,13 +51,8 @@ async function loadPerfumes() {
     const response = await fetch("data.json");
     perfumes = await response.json();
 
-    if (brandColumns) {
-      populateBrandColumns();
-    }
-    if (perfumeGrid) {
-      // Inicia mostrando TODOS
-      renderCards("TODAS", "", "TODAS");
-    }
+    if (brandColumns) populateBrandColumns();
+    if (perfumeGrid) renderCards("TODAS", "", "TODAS");
   } catch (error) {
     console.error("Erro ao carregar data.json:", error);
   }
@@ -129,98 +63,58 @@ async function loadPerfumes() {
    ===================================================== */
 function renderCards(selectedBrand, searchTerm, category) {
   if (!perfumeGrid) return;
-
   perfumeGrid.innerHTML = "";
   const term = (searchTerm || "").trim().toLowerCase();
-  
-  // Categoria selecionada no botão (ex: MASCULINO, ARABE, TODAS)
   const catFilter = normalizeCat(category || "TODAS");
 
   const filtered = perfumes.filter((p) => {
     const brand = p.Marca || "";
     const name = p.Produto || "";
     const price = (p.Preco_Venda || "").trim();
-    
-    // Categoria do JSON (ex: Árabe, Designer)
     const catJSON = normalizeCat(p.Categoria || "");
-    
-    // Gênero Detectado Automaticamente
     const genderDetected = normalizeCat(detectarGenero(p));
 
     if (!price) return false;
-
-    // LÓGICA DE FILTRO:
     const matchBrand = selectedBrand === "TODAS" || brand === selectedBrand;
-    
     const combined = `${name} ${brand}`.toLowerCase();
     const matchText = combined.includes(term);
-
-    // O produto passa se:
-    // 1. O filtro for TODAS
-    // 2. A categoria do JSON bater (ex: cliquei em Árabe e ele é Árabe)
-    // 3. O gênero bater (ex: cliquei em Masculino e ele tem "Man" no nome)
-    const matchCategory = (catFilter === "TODAS") || 
-                          (catJSON === catFilter) || 
-                          (genderDetected === catFilter);
-
+    const matchCategory = (catFilter === "TODAS") || (catJSON === catFilter) || (genderDetected === catFilter);
     return matchBrand && matchText && matchCategory;
   });
 
-  // Ordenação: Destaques primeiro
-  const destacados = filtered.filter((p) => p.Destaque === true);
-  const comuns = filtered.filter((p) => p.Destaque !== true);
-  const ordenados = [...destacados, ...comuns];
-
-  // Limite de cards (paginação simples)
+  const ordenados = [...filtered.filter((p) => p.Destaque === true), ...filtered.filter((p) => p.Destaque !== true)];
   const limited = ordenados.slice(0, LIMITE_INICIAL);
 
-  // Criação do HTML
   limited.forEach((p) => {
     const card = document.createElement("article");
-    
-    // Define classes para CSS
     const catClass = normalizeCat(p.Categoria || "").toLowerCase();
     const genClass = normalizeCat(detectarGenero(p)).toLowerCase();
     card.className = `product-card ${catClass} ${genClass}`;
 
-    const whatsappLink = buildWhatsAppLink(p);
-
-    let detalheHref = null;
-    if (p.Produto) {
-      detalheHref = "produto.html?id=" + encodeURIComponent(p.Produto);
-    }
+    let detalheHref = p.Produto ? "produto.html?id=" + encodeURIComponent(p.Produto) : null;
+    
+    // Tratamento de aspas para não quebrar o HTML
+    const marcaSafe = (p.Marca || "").replace(/'/g, " ");
+    const produtoSafe = (p.Produto || "").replace(/'/g, " ");
+    const precoSafe = p.Preco_Venda || "";
 
     card.innerHTML = `
       ${detalheHref ? `<a href="${detalheHref}" class="product-link">` : `<div class="product-link">`}
         <div class="product-image-wrap">
-          ${
-            p.Imagem
-              ? `<img src="${p.Imagem}" alt="${p.Produto ?? ""}" class="product-image" data-full="${p.Imagem}" />`
-              : ""
-          }
+          ${p.Imagem ? `<img src="${p.Imagem}" alt="${p.Produto ?? ""}" class="product-image" data-full="${p.Imagem}" />` : ""}
         </div>
-
-        <div class="product-name">
-          ${p.Produto ?? ""}
-        </div>
-
+        <div class="product-name">${p.Produto ?? ""}</div>
         <div class="product-meta">
-          <span class="product-brand">
-            ${p.Marca ?? ""}
-          </span>
-          <span class="product-price">
-            ${p.Preco_Venda ?? ""}
-          </span>
+          <span class="product-brand">${p.Marca ?? ""}</span>
+          <span class="product-price">${p.Preco_Venda ?? ""}</span>
         </div>
       ${detalheHref ? `</a>` : `</div>`}
-
       <div class="product-actions">
-        <a class="product-btn" href="${whatsappLink}" target="_blank" rel="noopener noreferrer">
-          Encomende
-        </a>
+        <button class="product-btn" onclick="adicionarAoCarrinho('${marcaSafe}', '${produtoSafe}', '${precoSafe}')">
+          Encomende <i class="fa-solid fa-cart-plus"></i>
+        </button>
       </div>
     `;
-
     perfumeGrid.appendChild(card);
   });
 }
@@ -229,37 +123,23 @@ function renderCards(selectedBrand, searchTerm, category) {
    PAINEL DE MARCAS
    ===================================================== */
 function populateBrandColumns() {
-  const brandsWithPrice = perfumes
-    .filter((p) => (p.Preco_Venda || "").trim() !== "")
-    .map((p) => p.Marca || "");
-
-  const brands = [...new Set(brandsWithPrice)]
-    .filter((b) => b && b.trim() !== "")
-    .sort((a, b) => a.localeCompare(b));
-
+  const brandsWithPrice = perfumes.filter((p) => (p.Preco_Venda || "").trim() !== "").map((p) => p.Marca || "");
+  const brands = [...new Set(brandsWithPrice)].filter((b) => b && b.trim() !== "").sort((a, b) => a.localeCompare(b));
   const columns = 4;
   const perColumn = Math.ceil(brands.length / columns);
-
   brandColumns.innerHTML = "";
 
   for (let i = 0; i < columns; i++) {
     const ul = document.createElement("ul");
     const slice = brands.slice(i * perColumn, (i + 1) * perColumn);
-
     slice.forEach((brand) => {
       const li = document.createElement("li");
       li.textContent = brand;
       li.addEventListener("click", () => {
         if (perfumeGrid) {
-          renderCards(
-            brand,
-            searchInput ? searchInput.value : "",
-            currentCategory
-          );
+          renderCards(brand, searchInput ? searchInput.value : "", currentCategory);
           const produtos = document.getElementById("produtos");
-          if (produtos) {
-            produtos.scrollIntoView({ behavior: "smooth" });
-          }
+          if (produtos) produtos.scrollIntoView({ behavior: "smooth" });
         } else {
           localStorage.setItem("abrirMarcas", "0");
           localStorage.setItem("marcaSelecionada", brand);
@@ -269,149 +149,65 @@ function populateBrandColumns() {
       });
       ul.appendChild(li);
     });
-
     brandColumns.appendChild(ul);
   }
 }
 
 if (brandsToggle && brandPanel) {
   brandsToggle.addEventListener("click", () => {
-    const isOpen = brandPanel.classList.contains("open");
-    if (isOpen) {
-      closeBrandPanel();
-    } else {
-      openBrandPanel();
-    }
+    if (brandPanel.classList.contains("open")) closeBrandPanel(); else openBrandPanel();
   });
 }
-
-function openBrandPanel() {
-  if (brandPanel) {
-    brandPanel.classList.add("open");
-  }
-}
-
-function closeBrandPanel() {
-  if (brandPanel) {
-    brandPanel.classList.remove("open");
-  }
-}
-
-// Fecha painel ao clicar fora
+function openBrandPanel() { if (brandPanel) brandPanel.classList.add("open"); }
+function closeBrandPanel() { if (brandPanel) brandPanel.classList.remove("open"); }
 document.addEventListener("click", (e) => {
   if (!brandPanel || !brandsToggle) return;
-  const isInsidePanel = brandPanel.contains(e.target);
-  const isToggle = brandsToggle.contains(e.target);
-  if (!isInsidePanel && !isToggle) {
-    closeBrandPanel();
-  }
+  if (!brandPanel.contains(e.target) && !brandsToggle.contains(e.target)) closeBrandPanel();
 });
 
 /* =====================================================
-   EVENTOS E INTERAÇÕES
+   INTERAÇÕES GERAIS
    ===================================================== */
-
-/* Botão Início */
 if (homeLink && perfumeGrid) {
   homeLink.addEventListener("click", () => {
-    if (!perfumeGrid) return;
-    if (searchInput) {
-      searchInput.value = "";
-    }
+    if (searchInput) searchInput.value = "";
     currentCategory = "TODAS";
-    categoryButtons.forEach((btn) =>
-      btn.classList.toggle("active", btn.dataset.cat === "TODAS")
-    );
+    categoryButtons.forEach((btn) => btn.classList.toggle("active", btn.dataset.cat === "TODAS"));
     renderCards("TODAS", "", currentCategory);
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 }
-
-/* Busca por texto */
 if (searchInput && perfumeGrid) {
-  searchInput.addEventListener("input", (e) => {
-    renderCards("TODAS", e.target.value, currentCategory);
-  });
+  searchInput.addEventListener("input", (e) => renderCards("TODAS", e.target.value, currentCategory));
 }
-
-/* Filtro por categoria (Botões) */
 if (categoryButtons.length && perfumeGrid) {
   categoryButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
       categoryButtons.forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
-      
-      // Atualiza categoria global e renderiza
       currentCategory = btn.dataset.cat;
-      renderCards(
-        "TODAS",
-        searchInput ? searchInput.value : "",
-        currentCategory
-      );
+      renderCards("TODAS", searchInput ? searchInput.value : "", currentCategory);
     });
   });
 }
-
-/* Modal de imagem */
-function openImageModal() {
-  if (!imageModal) return;
-  imageModal.classList.add("open");
-}
-
-function closeImageModal() {
-  if (!imageModal || !imageModalImg) return;
-  imageModal.classList.remove("open");
-  imageModalImg.src = "";
-}
-
-if (imageModalClose) {
-  imageModalClose.addEventListener("click", closeImageModal);
-}
-
-if (imageModal) {
-  imageModal.addEventListener("click", (e) => {
-    if (
-      e.target === imageModal ||
-      e.target.classList.contains("image-modal-backdrop")
-    ) {
-      closeImageModal();
-    }
-  });
-}
-
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && imageModal && imageModal.classList.contains("open")) {
-    closeImageModal();
-  }
-});
-
-/* Efeito Blur na Barra ao Rolar */
 window.addEventListener('scroll', function() {
   const header = document.querySelector('.hero-bar');
-  if (!header) return; // Segurança
-
-  if (window.scrollY > 50) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
+  if (header) {
+    if (window.scrollY > 50) header.classList.add('scrolled'); else header.classList.remove('scrolled');
   }
 });
 
 /* =====================================================
-   INICIALIZAÇÃO
+   INICIALIZAÇÃO DO SITE
    ===================================================== */
 loadPerfumes();
 
-// Verifica localStorage (se veio de outra página)
 if (localStorage.getItem("abrirMarcas") === "1") {
   localStorage.removeItem("abrirMarcas");
   openBrandPanel();
   const marcasSection = document.getElementById("marcas") || document.getElementById("produtos");
-  if (marcasSection) {
-    marcasSection.scrollIntoView({ behavior: "smooth" });
-  }
+  if (marcasSection) marcasSection.scrollIntoView({ behavior: "smooth" });
 }
-
 if (perfumeGrid) {
   const marcaSelecionada = localStorage.getItem("marcaSelecionada");
   if (marcaSelecionada) {
@@ -419,3 +215,110 @@ if (perfumeGrid) {
     renderCards(marcaSelecionada, "", currentCategory);
   }
 }
+
+/* =====================================================
+   LÓGICA DO CARRINHO DE COMPRAS (GLOBAL)
+   ===================================================== */
+let carrinho = JSON.parse(localStorage.getItem('carrinhoZeidan')) || [];
+
+function atualizarCarrinhoUI() {
+    const container = document.getElementById('cart-items');
+    const contador = document.getElementById('cart-count');
+    const totalDisplay = document.getElementById('cart-total-value');
+    
+    // Salva
+    localStorage.setItem('carrinhoZeidan', JSON.stringify(carrinho));
+
+    // Proteção: Se a sacola não existir na página (ex: página de contato), não faz nada
+    if (!container) return;
+
+    // Atualiza contador
+    if (contador) contador.innerText = carrinho.length;
+
+    if (carrinho.length === 0) {
+        container.innerHTML = '<p class="empty-msg" style="text-align:center; color:#888; margin-top:50px;">Sua sacola está vazia 🛍️</p>';
+        if (totalDisplay) totalDisplay.innerText = "R$ 0,00";
+        return;
+    }
+
+    let html = '';
+    let total = 0;
+
+    carrinho.forEach((item, index) => {
+        let precoNumerico = 0;
+        try {
+            // Remove R$, pontos de milhar e troca vírgula por ponto
+            let limpo = item.preco.toString().replace('R$', '').replace(/\./g, '').replace(',', '.').trim();
+            precoNumerico = parseFloat(limpo);
+        } catch(e) { precoNumerico = 0; }
+        
+        if (!isNaN(precoNumerico)) total += precoNumerico;
+
+        html += `
+            <div class="cart-item">
+                <div style="flex:1;">
+                    <div style="font-weight:bold; font-size:14px;">${item.produto}</div>
+                    <div style="font-size:12px; color:#666;">${item.marca}</div>
+                </div>
+                <div style="text-align:right;">
+                    <div style="font-weight:bold; color:#333;">${item.preco}</div>
+                    <button onclick="removerDoCarrinho(${index})" class="cart-remove-btn">Remover</button>
+                </div>
+            </div>
+        `;
+    });
+
+    container.innerHTML = html;
+    if (totalDisplay) {
+        totalDisplay.innerText = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    }
+}
+
+// Funções Globais (com window.) para serem vistas pelo HTML
+window.adicionarAoCarrinho = function(marca, produto, preco) {
+    carrinho.push({ marca, produto, preco });
+    atualizarCarrinhoUI();
+    toggleCart(); 
+};
+
+window.removerDoCarrinho = function(index) {
+    carrinho.splice(index, 1);
+    atualizarCarrinhoUI();
+};
+
+window.toggleCart = function() {
+    const modal = document.getElementById('cart-modal');
+    if (!modal) return;
+    if (modal.style.display === 'flex') {
+        modal.style.display = 'none';
+    } else {
+        modal.style.display = 'flex';
+        atualizarCarrinhoUI();
+    }
+};
+
+window.finalizarNoZap = function() {
+    if (carrinho.length === 0) return alert("Sua sacola está vazia!");
+
+    let mensagem = "Olá Zeidan! Gostaria de verificar a disponibilidade destes perfumes:\n\n";
+    let totalEstimado = 0;
+
+    carrinho.forEach(item => {
+        mensagem += `▪️ *${item.produto}* (${item.marca}) - ${item.preco}\n`;
+        try {
+            let limpo = item.preco.toString().replace('R$', '').replace(/\./g, '').replace(',', '.').trim();
+            let valor = parseFloat(limpo);
+            if(!isNaN(valor)) totalEstimado += valor;
+        } catch(e){}
+    });
+
+    mensagem += `\n💰 *Total Estimado:* ${totalEstimado.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
+    mensagem += `\n\nAguardo a confirmação e o link de pagamento!`;
+
+    let telefone = "5531991668430"; 
+    let url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
+    window.open(url, '_blank');
+};
+
+// Inicializa carrinho assim que o HTML carregar
+document.addEventListener("DOMContentLoaded", atualizarCarrinhoUI);

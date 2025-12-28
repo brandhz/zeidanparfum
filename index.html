@@ -167,6 +167,38 @@
       </div>
     </div>
 
+    <div class="cart-floating-btn" onclick="toggleCart()">
+  <i class="fa-solid fa-cart-shopping"></i>
+  <span id="cart-count">0</span>
+</div>
+
+<div class="cart-floating-btn" onclick="toggleCart()">
+  <i class="fa-solid fa-cart-shopping"></i>
+  <span id="cart-count">0</span>
+</div>
+
+<div id="cart-modal" class="cart-modal-overlay">
+  <div class="cart-modal-content">
+    <div class="cart-header">
+      <h3>Minha Sacola</h3>
+      <button onclick="toggleCart()" class="close-cart">✕</button>
+    </div>
+    <div id="cart-items" class="cart-items-container">
+      <p class="empty-msg">Sua sacola está vazia 🛍️</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total Estimado:</span>
+        <span id="cart-total-value">R$ 0,00</span>
+      </div>
+      <button onclick="finalizarNoZap()" class="btn-whatsapp-checkout">
+        <i class="fa-brands fa-whatsapp"></i> Finalizar Pedido
+      </button>
+      <button onclick="toggleCart()" class="btn-continue">Continuar Comprando</button>
+    </div>
+  </div>
+</div>
+
     <script src="script.js"></script>
 
     <footer class="site-footer">
