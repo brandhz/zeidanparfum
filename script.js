@@ -59,13 +59,17 @@ async function loadPerfumes() {
 }
 
 /* =====================================================
-   RENDERIZAÇÃO (MOSTRAR CARD NA TELA)
+   RENDERIZAÇÃO DOS CARDS (VISUAL CLÁSSICO + CARRINHO NOVO)
    ===================================================== */
 function renderCards(selectedBrand, searchTerm, category) {
   if (!perfumeGrid) return;
   perfumeGrid.innerHTML = "";
+  
   const term = (searchTerm || "").trim().toLowerCase();
   const catFilter = normalizeCat(category || "TODAS");
+
+  // Carrega favoritos salvos
+  const favoritos = JSON.parse(localStorage.getItem('zeidanFavoritos')) || [];
 
   const filtered = perfumes.filter((p) => {
     const brand = p.Marca || "";
@@ -75,13 +79,23 @@ function renderCards(selectedBrand, searchTerm, category) {
     const genderDetected = normalizeCat(detectarGenero(p));
 
     if (!price) return false;
+    
     const matchBrand = selectedBrand === "TODAS" || brand === selectedBrand;
     const combined = `${name} ${brand}`.toLowerCase();
     const matchText = combined.includes(term);
-    const matchCategory = (catFilter === "TODAS") || (catJSON === catFilter) || (genderDetected === catFilter);
+    
+    // Filtro Inteligente (Mantive o meu porque ele acha os Árabes pela marca)
+    let matchCategory = false;
+    if (catFilter === "TODAS") matchCategory = true;
+    else if (catFilter === "ARABE" && (catJSON === "ARABE" || brand === "LATTAFA" || brand === "AL HARAMAIN" || brand === "AFNAN" || brand === "ARMAF")) matchCategory = true;
+    else if (catFilter === "DESIGNER" && (catJSON === "DESIGNER" || brand === "DIOR" || brand === "CHANEL" || brand === "YVES SAINT LAURENT" || brand === "JEAN PAUL GAULTIER" || brand === "CAROLINA HERRERA" || brand === "PACO RABANNE")) matchCategory = true;
+    else if (catFilter === "NICHO" && (catJSON === "NICHO" || brand === "CREED" || brand === "PARFUMS DE MARLY" || brand === "XERJOFF" || brand === "ROJA" || brand === "AMOUAGE")) matchCategory = true;
+    else if (catJSON === catFilter || genderDetected === catFilter) matchCategory = true;
+
     return matchBrand && matchText && matchCategory;
   });
 
+  // Ordenação (Destaques primeiro)
   const ordenados = [...filtered.filter((p) => p.Destaque === true), ...filtered.filter((p) => p.Destaque !== true)];
   const limited = ordenados.slice(0, LIMITE_INICIAL);
 
@@ -93,24 +107,37 @@ function renderCards(selectedBrand, searchTerm, category) {
 
     let detalheHref = p.Produto ? "produto.html?id=" + encodeURIComponent(p.Produto) : null;
     
-    // Tratamento de aspas para não quebrar o HTML
     const marcaSafe = (p.Marca || "").replace(/'/g, " ");
     const produtoSafe = (p.Produto || "").replace(/'/g, " ");
     const precoSafe = p.Preco_Venda || "";
 
+    // Verifica Favorito
+    const isFav = favoritos.includes(p.Produto);
+    const heartClass = isFav ? "active" : "";
+    const heartIcon = isFav ? "fa-solid fa-heart" : "fa-regular fa-heart";
+
+    // --- HTML LIMPO (IGUAL AO QUE VOCÊ MANDOU) ---
     card.innerHTML = `
-      ${detalheHref ? `<a href="${detalheHref}" class="product-link">` : `<div class="product-link">`}
-        <div class="product-image-wrap">
-          ${p.Imagem ? `<img src="${p.Imagem}" alt="${p.Produto ?? ""}" class="product-image" data-full="${p.Imagem}" />` : ""}
-        </div>
+      <div class="product-image-wrap">
+          <button class="wishlist-btn ${heartClass}" onclick="toggleFavorito('${produtoSafe}', this)">
+             <i class="${heartIcon}"></i>
+          </button>
+          
+          ${detalheHref ? `<a href="${detalheHref}" class="product-link">` : `<div class="product-link">`}
+             ${p.Imagem ? `<img src="${p.Imagem}" alt="${p.Produto ?? ""}" class="product-image" data-full="${p.Imagem}" />` : ""}
+          ${detalheHref ? `</a>` : `</div>`}
+      </div>
+
+      ${detalheHref ? `<a href="${detalheHref}" class="product-link-text">` : ``}
         <div class="product-name">${p.Produto ?? ""}</div>
         <div class="product-meta">
           <span class="product-brand">${p.Marca ?? ""}</span>
           <span class="product-price">${p.Preco_Venda ?? ""}</span>
         </div>
-      ${detalheHref ? `</a>` : `</div>`}
+      ${detalheHref ? `</a>` : ``}
+
       <div class="product-actions">
-        <button class="product-btn" onclick="adicionarAoCarrinho('${marcaSafe}', '${produtoSafe}', '${precoSafe}')">
+        <button class="product-btn" onclick="window.adicionarAoCarrinho('${marcaSafe}', '${produtoSafe}', '${precoSafe}')">
           Encomende <i class="fa-solid fa-cart-plus"></i>
         </button>
       </div>
@@ -118,6 +145,52 @@ function renderCards(selectedBrand, searchTerm, category) {
     perfumeGrid.appendChild(card);
   });
 }
+
+// Garante que o clique do coração funcione
+window.toggleFavorito = function(nomeProduto, btn) {
+    if(event) event.stopPropagation();
+    let favoritos = JSON.parse(localStorage.getItem('zeidanFavoritos')) || [];
+    const icon = btn.querySelector('i');
+
+    if (favoritos.includes(nomeProduto)) {
+        favoritos = favoritos.filter(f => f !== nomeProduto);
+        btn.classList.remove('active');
+        icon.classList.remove('fa-solid');
+        icon.classList.add('fa-regular');
+    } else {
+        favoritos.push(nomeProduto);
+        btn.classList.add('active');
+        icon.classList.remove('fa-regular');
+        icon.classList.add('fa-solid');
+    }
+    localStorage.setItem('zeidanFavoritos', JSON.stringify(favoritos));
+};
+
+// === FUNÇÃO NOVA: TOGGLE FAVORITO ===
+window.toggleFavorito = function(nomeProduto, btn) {
+    let favoritos = JSON.parse(localStorage.getItem('zeidanFavoritos')) || [];
+    const icon = btn.querySelector('i');
+
+    if (favoritos.includes(nomeProduto)) {
+        // Remove
+        favoritos = favoritos.filter(f => f !== nomeProduto);
+        btn.classList.remove('active');
+        icon.classList.remove('fa-solid');
+        icon.classList.add('fa-regular');
+    } else {
+        // Adiciona
+        favoritos.push(nomeProduto);
+        btn.classList.add('active');
+        icon.classList.remove('fa-regular');
+        icon.classList.add('fa-solid');
+        
+        // Efeito visual de pulso
+        icon.style.transform = "scale(1.3)";
+        setTimeout(() => icon.style.transform = "scale(1)", 200);
+    }
+    
+    localStorage.setItem('zeidanFavoritos', JSON.stringify(favoritos));
+};
 
 /* =====================================================
    PAINEL DE MARCAS
@@ -217,69 +290,186 @@ if (perfumeGrid) {
 }
 
 /* =====================================================
-   LÓGICA DO CARRINHO DE COMPRAS (GLOBAL)
+   1. LÓGICA DO CARRINHO (SEM JANELA, SEM SUJEIRA)
    ===================================================== */
 let carrinho = JSON.parse(localStorage.getItem('carrinhoZeidan')) || [];
 
-function atualizarCarrinhoUI() {
+// Função que DESENHA o carrinho (Marca + Nome)
+window.atualizarCarrinhoUI = function() {
+    // Salva o estado atual
+    localStorage.setItem('carrinhoZeidan', JSON.stringify(carrinho));
+
     const container = document.getElementById('cart-items');
     const contador = document.getElementById('cart-count');
     const totalDisplay = document.getElementById('cart-total-value');
-    
-    // Salva
-    localStorage.setItem('carrinhoZeidan', JSON.stringify(carrinho));
 
-    // Proteção: Se a sacola não existir na página (ex: página de contato), não faz nada
+    // 1. Atualiza a Bolinha Vermelha
+    if (contador) {
+        contador.innerText = carrinho.length;
+        contador.style.display = carrinho.length > 0 ? 'flex' : 'none';
+    }
+
+    // Se a sacola não estiver na tela (ex: outra página), para.
     if (!container) return;
 
-    // Atualiza contador
-    if (contador) contador.innerText = carrinho.length;
-
+    // 2. Se vazio
     if (carrinho.length === 0) {
-        container.innerHTML = '<p class="empty-msg" style="text-align:center; color:#888; margin-top:50px;">Sua sacola está vazia 🛍️</p>';
+        container.innerHTML = '<div style="text-align:center; padding:40px 20px; color:#888;"><i class="fa-solid fa-basket-shopping" style="font-size:40px; margin-bottom:10px; opacity:0.5;"></i><p>Sua sacola está vazia.</p></div>';
         if (totalDisplay) totalDisplay.innerText = "R$ 0,00";
         return;
     }
 
+    // 3. Desenha os itens
     let html = '';
     let total = 0;
 
     carrinho.forEach((item, index) => {
+        // Correção de Preço
         let precoNumerico = 0;
         try {
-            // Remove R$, pontos de milhar e troca vírgula por ponto
             let limpo = item.preco.toString().replace('R$', '').replace(/\./g, '').replace(',', '.').trim();
             precoNumerico = parseFloat(limpo);
         } catch(e) { precoNumerico = 0; }
         
         if (!isNaN(precoNumerico)) total += precoNumerico;
 
+        // --- AQUI ESTÁ A CORREÇÃO DO NOME ---
+        // Verificamos se o item tem 'produto' ou 'nome' (para compatibilidade)
+        let nomeProduto = item.produto || item.nome || "Produto sem nome";
+
         html += `
-            <div class="cart-item">
-                <div style="flex:1;">
-                    <div style="font-weight:bold; font-size:14px;">${item.produto}</div>
-                    <div style="font-size:12px; color:#666;">${item.marca}</div>
+            <div class="cart-item" style="display:flex; justify-content:space-between; align-items:center; padding:15px 0; border-bottom:1px solid #eee;">
+                <div style="flex:1; padding-right:10px;">
+                    <div style="font-size:10px; color:#999; text-transform:uppercase; font-weight:700; margin-bottom:2px;">
+                        ${item.marca}
+                    </div>
+                    <div style="font-weight:600; font-size:13px; color:#000; line-height:1.3;">
+                        ${nomeProduto}
+                    </div>
                 </div>
-                <div style="text-align:right;">
-                    <div style="font-weight:bold; color:#333;">${item.preco}</div>
-                    <button onclick="removerDoCarrinho(${index})" class="cart-remove-btn">Remover</button>
+                <div style="text-align:right; display:flex; flex-direction:column; align-items:flex-end; gap:5px;">
+                    <div style="font-weight:700; color:#333; font-size:14px;">${item.preco}</div>
+                    <button onclick="window.removerDoCarrinho(${index})" style="color:#ff4757; background:none; border:none; font-size:11px; cursor:pointer; text-decoration:underline; padding:0;">
+                        Remover
+                    </button>
                 </div>
             </div>
         `;
     });
 
     container.innerHTML = html;
+    
     if (totalDisplay) {
         totalDisplay.innerText = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
     }
+};
+
+// Adicionar (Silencioso)
+window.adicionarAoCarrinho = function(marca, produto, preco) {
+    carrinho.push({ marca: marca, produto: produto, preco: preco });
+    atualizarCarrinhoUI();
+
+    // Efeito Visual no Ícone
+    const cartIcon = document.getElementById('cart-btn') || document.querySelector('.fa-cart-shopping');
+    if (cartIcon) {
+        cartIcon.style.transition = "transform 0.2s";
+        cartIcon.style.transform = "scale(1.3)";
+        setTimeout(() => cartIcon.style.transform = "scale(1)", 300);
+    }
+};
+
+// Remover
+window.removerDoCarrinho = function(index) {
+    carrinho.splice(index, 1);
+    atualizarCarrinhoUI();
+};
+
+/* =====================================================
+   2. RENDERIZAÇÃO DOS CARDS (GARANTINDO O NOME CERTO)
+   ===================================================== */
+function renderCards(selectedBrand, searchTerm, category) {
+  if (!perfumeGrid) return;
+  perfumeGrid.innerHTML = "";
+  
+  const term = (searchTerm || "").trim().toLowerCase();
+  const catFilter = normalizeCat(category || "TODAS");
+  const favoritos = JSON.parse(localStorage.getItem('zeidanFavoritos')) || [];
+
+  const filtered = perfumes.filter((p) => {
+    const brand = p.Marca || "";
+    const name = p.Produto || "";
+    const price = (p.Preco_Venda || "").trim();
+    const catJSON = normalizeCat(p.Categoria || "");
+    const genderDetected = normalizeCat(detectarGenero(p)); // Assumindo que você tem essa função
+
+    if (!price) return false;
+    
+    const matchBrand = selectedBrand === "TODAS" || brand === selectedBrand;
+    const combined = `${name} ${brand}`.toLowerCase();
+    const matchText = combined.includes(term);
+    
+    let matchCategory = false;
+    if (catFilter === "TODAS") matchCategory = true;
+    else if (catFilter === "ARABE" && (catJSON === "ARABE" || brand === "LATTAFA" || brand === "AL HARAMAIN" || brand === "AFNAN" || brand === "ARMAF")) matchCategory = true;
+    else if (catFilter === "DESIGNER" && (catJSON === "DESIGNER" || brand === "DIOR" || brand === "CHANEL" || brand === "YVES SAINT LAURENT" || brand === "JEAN PAUL GAULTIER" || brand === "CAROLINA HERRERA" || brand === "PACO RABANNE")) matchCategory = true;
+    else if (catFilter === "NICHO" && (catJSON === "NICHO" || brand === "CREED" || brand === "PARFUMS DE MARLY" || brand === "XERJOFF" || brand === "ROJA" || brand === "AMOUAGE")) matchCategory = true;
+    else if (catJSON === catFilter || genderDetected === catFilter) matchCategory = true;
+
+    return matchBrand && matchText && matchCategory;
+  });
+
+  const ordenados = [...filtered.filter((p) => p.Destaque === true), ...filtered.filter((p) => p.Destaque !== true)];
+  const limited = ordenados.slice(0, LIMITE_INICIAL);
+
+  limited.forEach((p) => {
+    const card = document.createElement("article");
+    const catClass = normalizeCat(p.Categoria || "").toLowerCase();
+    // Se não tiver detectarGenero, remova o genClass
+    let genClass = "";
+    try { genClass = normalizeCat(detectarGenero(p)).toLowerCase(); } catch(e){}
+
+    card.className = `product-card ${catClass} ${genClass}`;
+
+    let detalheHref = p.Produto ? "produto.html?id=" + encodeURIComponent(p.Produto) : null;
+    
+    const marcaSafe = (p.Marca || "").replace(/'/g, " ");
+    const produtoSafe = (p.Produto || "").replace(/'/g, " ");
+    const precoSafe = p.Preco_Venda || "";
+    
+    const isFav = favoritos.includes(p.Produto);
+    const heartClass = isFav ? "active" : "";
+    const heartIcon = isFav ? "fa-solid fa-heart" : "fa-regular fa-heart";
+
+    card.innerHTML = `
+      <div class="product-image-wrap">
+          <button class="wishlist-btn ${heartClass}" onclick="toggleFavorito('${produtoSafe}', this)">
+             <i class="${heartIcon}"></i>
+          </button>
+          ${detalheHref ? `<a href="${detalheHref}" class="product-link">` : `<div class="product-link">`}
+             ${p.Imagem ? `<img src="${p.Imagem}" alt="${p.Produto ?? ""}" class="product-image" data-full="${p.Imagem}" />` : ""}
+          ${detalheHref ? `</a>` : `</div>`}
+      </div>
+
+      ${detalheHref ? `<a href="${detalheHref}" class="product-link-text">` : ``}
+        <div class="product-name">${p.Produto ?? ""}</div>
+        <div class="product-meta">
+          <span class="product-brand">${p.Marca ?? ""}</span>
+          <span class="product-price">${p.Preco_Venda ?? ""}</span>
+        </div>
+      ${detalheHref ? `</a>` : ``}
+
+      <div class="product-actions">
+        <button class="product-btn" onclick="window.adicionarAoCarrinho('${marcaSafe}', '${produtoSafe}', '${precoSafe}')">
+          Encomende <i class="fa-solid fa-cart-plus"></i>
+        </button>
+      </div>
+    `;
+    perfumeGrid.appendChild(card);
+  });
 }
 
-// Funções Globais (com window.) para serem vistas pelo HTML
-window.adicionarAoCarrinho = function(marca, produto, preco) {
-    carrinho.push({ marca, produto, preco });
-    atualizarCarrinhoUI();
-    toggleCart(); 
-};
+// Inicialização
+document.addEventListener("DOMContentLoaded", window.atualizarCarrinhoUI);
 
 window.removerDoCarrinho = function(index) {
     carrinho.splice(index, 1);
@@ -322,3 +512,4 @@ window.finalizarNoZap = function() {
 
 // Inicializa carrinho assim que o HTML carregar
 document.addEventListener("DOMContentLoaded", atualizarCarrinhoUI);
+

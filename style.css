@@ -993,7 +993,7 @@ button[onclick*="Comprar"] {
   }
   
   .benefits-section {
-    padding: 30px 20px 10px;
+    padding: 10px 20px 10px;
   }
 }
 
@@ -1519,3 +1519,265 @@ body::before {
     /* Mantenha o resto do CSS do botão que já estava lá (background, color, etc) */
 }
 
+/* =========================================
+   CARD DE PRODUTO (CORREÇÃO TOTAL)
+   ========================================= */
+
+/* 1. O Cartão (A moldura do produto) */
+.product-card {
+  background: rgba(3, 12, 40, 0.9); /* Fundo azul escuro */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.2s;
+  
+  /* SEGURANÇA: Impede que o card estique */
+  width: 100%; 
+  overflow: hidden; /* Corta qualquer coisa que tente sair da borda */
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  background: rgba(3, 12, 40, 1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* 2. Container da Imagem (A área reservada para a foto) */
+.product-image-wrap {
+    width: 100% !important;
+    height: 250px !important;      /* ALTURA FIXA: O segredo para alinhar tudo */
+    position: relative !important; /* Para o coração funcionar */
+    overflow: visible !important;  /* Deixa o coração flutuar */
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    
+    background: transparent !important; /* REMOVE O FUNDO BRANCO QUADRADO */
+    margin: 0 auto 10px auto !important;
+    padding: 0 !important;
+    border-radius: 0 !important;   /* Tira a borda do quadrado branco */
+}
+
+/* 3. A Imagem do Perfume (Controlada) */
+.product-image {
+    max-width: 100% !important;    /* Nunca passa da largura do card */
+    max-height: 100% !important;   /* Nunca passa da altura de 250px */
+    width: auto !important;        /* Mantém a proporção correta */
+    height: auto !important;
+    
+    object-fit: contain !important; /* Encaixa a imagem sem cortar nada */
+    display: block !important;
+    margin: 0 auto !important;
+    
+    /* Remove sombras ou fundos da própria imagem */
+    box-shadow: none !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+}
+
+/* 4. O Botão de Favoritos (Coração) */
+.wishlist-btn {
+    position: absolute !important;
+    top: 5px !important;           /* No topo */
+    right: 5px !important;         /* Na direita */
+    width: 32px !important;
+    height: 32px !important;
+    
+    background: rgba(255, 255, 255, 0.9) !important; /* Fundo branco leve */
+    border: 1px solid #ccc !important;
+    border-radius: 50% !important;
+    
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 50 !important;        /* Garante que fique em cima da foto */
+    cursor: pointer;
+    color: #ccc;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important;
+}
+
+.wishlist-btn.active {
+    color: #ff4757 !important;
+    border-color: #ff4757 !important;
+}
+
+/* 5. Ajuste para Celular (Para a imagem não ficar muito pequena) */
+@media (max-width: 600px) {
+    .product-image-wrap {
+        height: 150px !important; /* Altura menor no celular */
+    }
+}
+
+/* ============================================================
+   AJUSTE DE LUXO PARA DESKTOP (CORRIGE O "QUADRADO SOLTO")
+   ============================================================ */
+@media (min-width: 900px) {
+    
+    /* 1. O Truque da Margem Negativa */
+    /* Como o card tem padding (enchimento), a gente usa margem negativa 
+       para puxar a imagem até a borda, criando o efeito "borda a borda" */
+    .product-image-wrap {
+        width: calc(100% + 26px) !important;  /* Compensa o padding do card */
+        margin: -13px -13px 15px -13px !important; /* Puxa para as bordas (Cima, Dir, Baixo, Esq) */
+        
+        height: 210px !important; /* Um pouco mais alto no PC para impor presença */
+        background-color: #ffffff !important; /* Fundo branco total */
+        
+        /* Centralização */
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    /* 2. Ajuste da Imagem dentro do branco */
+    .product-image {
+        padding: 20px !important; /* Dá um respiro para o vidro do perfume não bater na borda */
+        max-height: 90% !important; /* Garante que não fique gigante */
+        width: auto !important;
+        object-fit: contain !important;
+    }
+
+    /* 3. Ajuste do Coração no Desktop */
+    .wishlist-btn {
+        top: 10px !important;
+        right: 10px !important;
+        background: #f5f5f5 !important; /* Um cinza bem clarinho para destacar no branco */
+    }
+    
+    .wishlist-btn:hover {
+        background: #fff !important;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15) !important;
+    }
+}
+
+/* 1. Tira o espaço de cima do NOME */
+.product-name {
+    margin-top: 0 !important; /* Zera a margem de cima (antes devia ter uns 10px) */
+    padding-top: 0px !important; /* Um pequeno respiro interno, se precisar */
+}
+
+/* 3. Tira o espaço de baixo da IMAGEM (Versão Mobile) */
+@media (max-width: 899px) {
+    .product-image-wrap {
+        margin-bottom: 5px !important; /* Reduzido de 10px para 5px */
+    }
+}
+
+/* =========================================
+   CARROSSEL INFINITO DE REVIEWS
+   ========================================= */
+.reviews-section {
+    width: 100%;
+    padding: 0px 0 60px; /* Espaço em cima e embaixo */
+    background: transparent;
+    overflow: hidden; /* Esconde o que sai da tela */
+    position: relative;
+}
+
+/* O Container que segura o trilho */
+.reviews-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    /* Degradê nas pontas para suavizar a entrada/saída */
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+/* O Trilho que anda sozinho */
+.reviews-track {
+    display: flex;
+    gap: 20px; /* Espaço entre os cards */
+    width: max-content; /* Largura baseada no conteúdo */
+    animation: scrollReviews 40s linear infinite; /* Animação lenta e contínua */
+}
+
+/* Pausa a animação quando passa o mouse (para ler) */
+.reviews-track:hover {
+    animation-play-state: paused;
+}
+
+/* O Card de Depoimento */
+.review-card {
+    width: 300px; /* Largura fixa */
+    background: rgba(255, 255, 255, 0.05); /* Vidro escuro */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-shrink: 0; /* Impede de amassar */
+    transition: transform 0.3s;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Cabeçalho do Card (Nome e Cidade) */
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.review-name {
+    font-weight: bold;
+    color: #fff;
+    font-size: 14px;
+}
+
+.review-city {
+    font-size: 10px;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+}
+
+/* Estrelas */
+.review-stars {
+    color: #FFD700; /* Dourado */
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+/* Texto */
+.review-text {
+    font-size: 12px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.5;
+    font-style: italic;
+    min-height: 54px; /* Altura mínima para alinhar */
+}
+
+/* Selo de Verificado */
+.review-verified {
+    font-size: 10px;
+    color: #6be276; /* Verde sucesso */
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: auto; /* Empurra para o fundo */
+}
+
+/* A ANIMAÇÃO (O Segredo do Infinito) */
+@keyframes scrollReviews {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } 
+    /* Move -50% porque duplicamos o conteúdo. 
+       Quando chega na metade, ele volta pro 0 instantaneamente e ninguém percebe. */
+}
+
+/* Mobile: Acelera um pouquinho e diminui card */
+@media (max-width: 600px) {
+    .review-card { width: 260px; }
+    .reviews-track { animation-duration: 30s; }
+}
