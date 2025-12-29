@@ -176,19 +176,57 @@ window.finalizarNoZap = function() {
 };
 
 /* =====================================================
-   CARREGAMENTO DE DADOS
+   CARREGAMENTO DE DADOS (CORRIGIDO)
    ===================================================== */
 async function loadPerfumes() {
   try {
     const response = await fetch("data.json");
     perfumes = await response.json();
 
-    // Se estiver na Home
+    // 1. Se estiver na Home (Grade de Produtos)
     if (brandColumns) populateBrandColumns();
     if (perfumeGrid) renderCards("TODAS", "", "TODAS");
     
-    // Inicializa carrinho
+    // 2. Inicializa carrinho
     atualizarCarrinhoUI();
+
+    // 3. (A PARTE QUE FALTAVA) Se estiver na Página de Produto
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id'); // Pega o nome do perfume na URL
+
+    if (id) {
+        // Acha o perfume na lista
+        const p = perfumes.find(item => item.Produto === id);
+        
+        if (p) {
+            // Preenche os textos da página
+            if(document.getElementById('product-detail-name')) 
+                document.getElementById('product-detail-name').innerText = p.Produto;
+            
+            if(document.getElementById('product-detail-brand')) 
+                document.getElementById('product-detail-brand').innerText = p.Marca;
+            
+            if(document.getElementById('product-detail-price')) 
+                document.getElementById('product-detail-price').innerText = p.Preco_Venda;
+            
+            if(document.getElementById('product-detail-desc')) 
+                document.getElementById('product-detail-desc').innerText = p.Descricao || "Fragrância importada original.";
+
+            // --- AQUI ESTÁ A MÁGICA: CHAMA A GALERIA ---
+            window.montarGaleria(p);
+            // -------------------------------------------
+
+            // Configura o botão do WhatsApp do produto
+            const btnZap = document.getElementById('produtoWhatsapp');
+            if(btnZap) {
+                btnZap.onclick = function() {
+                    const marcaSafe = (p.Marca||"").replace(/'/g," ");
+                    const prodSafe = (p.Produto||"").replace(/'/g," ");
+                    window.adicionarAoCarrinho(marcaSafe, prodSafe, p.Preco_Venda, this);
+                };
+            }
+        }
+    }
 
   } catch (error) {
     console.error("Erro ao carregar data.json:", error);
@@ -393,3 +431,42 @@ if (perfumeGrid) {
     renderCards(marcaSelecionada, "", currentCategory);
   }
 }
+
+/* =====================================================
+   NOVA FUNÇÃO: GALERIA DE 4 FOTOS
+   ===================================================== */
+window.montarGaleria = function(produto) {
+    const mainImg = document.getElementById('main-product-img');
+    const track = document.getElementById('thumbnails-track');
+    
+    if (!mainImg || !track) return;
+
+    // 1. Define a imagem grande
+    mainImg.src = produto.Imagem;
+
+    // 2. Monta a lista (Imagem 1, 2, 3 e 4)
+    let lista = [];
+    if(produto.Imagem) lista.push(produto.Imagem);
+    if(produto.Imagem2) lista.push(produto.Imagem2);
+    if(produto.Imagem3) lista.push(produto.Imagem3);
+    if(produto.Imagem4) lista.push(produto.Imagem4);
+
+    // Se tiver só 1 foto, repete ela 4 vezes
+    if(lista.length === 1) lista = [produto.Imagem, produto.Imagem, produto.Imagem, produto.Imagem];
+    
+    // 3. Desenha os quadradinhos
+    track.innerHTML = '';
+    
+    lista.forEach((imgSrc, index) => {
+        const thumb = document.createElement('div');
+        thumb.className = `thumb-item ${index === 0 ? 'active' : ''}`;
+        thumb.innerHTML = `<img src="${imgSrc}" style="width:100%; height:100%; object-fit:contain; display:block;">`;
+        
+        thumb.onclick = () => {
+            mainImg.src = imgSrc;
+            document.querySelectorAll('.thumb-item').forEach(t => t.classList.remove('active'));
+            thumb.classList.add('active');
+        };
+        track.appendChild(thumb);
+    });
+};

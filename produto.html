@@ -19,32 +19,40 @@
       margin: 0 auto 25px auto;
   }
 
-  /* O Quadrado da Foto Principal */
-  .main-image-container {
-      position: relative;
-      width: 100%;
-      height: 0;
-      padding-bottom: 100%; /* Força ser um quadrado perfeito (1:1) */
-      background-color: #fff;
-      border-radius: 16px;
-      /* Sombra suave e elegante */
-      box-shadow: 0 10px 25px rgba(0,0,0,0.06); 
-      margin-bottom: 15px;
-      overflow: hidden;
-      border: 1px solid #f2f2f2;
-  }
+  /* CONTAINER: Vira um "Cartão" branco elegante */
+.main-image-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%; /* Mantém quadrado */
+    
+    /* FUNDO BRANCO INTENCIONAL */
+    background-color: #fff; 
+    
+    /* Borda arredondada suave */
+    border-radius: 20px; 
+    
+    /* Sombra colorida para integrar com o fundo azul do site */
+    /* Isso faz o branco não "gritar" tanto, ele ganha um brilho azulado em volta */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 
+                0 0 0 1px rgba(255,255,255,0.1); 
+    
+    margin-bottom: 20px;
+    overflow: hidden;
+}
 
-  .main-img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain; /* Mostra o frasco inteiro */
-      padding: 15px; /* Espaço interno para não colar na borda */
-      transition: transform 0.3s ease;
-      cursor: zoom-in;
-  }
+/* IMAGEM: Normal, nítida e centralizada */
+.main-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centraliza perfeitamente */
+    
+    width: 85%;  /* Um pouco menor que a caixa para ter "respiro" */
+    height: 85%;
+    object-fit: contain;
+}
+
   .main-img:hover { transform: scale(1.08); }
 
   /* Faixa de Miniaturas */
@@ -479,7 +487,7 @@
         document.getElementById("produtoOcasiao").textContent = p.Ocasião || "-";
         document.getElementById("produtoIntensidade").textContent = p.Intensidade || "-";
 
-        // --- MONTA A GALERIA PREMIUM ---
+        // --- MONTA A GALERIA PREMIUM (AGORA LÊ FOTOS REAIS) ---
         montarGaleria(p);
         
         // --- ZOOM NA IMAGEM (MODAL) ---
@@ -517,37 +525,31 @@
         if (btnWhatsapp) btnWhatsapp.onclick = acaoClicar;
         if (btnComprar) btnComprar.onclick = acaoClicar;
 
-        // --- SUGESTÕES DE PRODUTOS (Recuperada!) ---
+        // --- SUGESTÕES DE PRODUTOS ---
         const boxSugestoes = document.getElementById("box-sugestoes");
         const listaSugestoes = document.getElementById("lista-sugestoes");
         
         listaSugestoes.innerHTML = "";
         boxSugestoes.style.display = "none";
 
-        // Se o produto tem lista de sugestões no JSON
         if (p.Sugestoes && Array.isArray(p.Sugestoes) && p.Sugestoes.length > 0) {
-            
-            // Filtra os produtos reais baseados nos nomes das sugestões
             const recomendados = p.Sugestoes.map(nomeSugestao => {
                 return lista.find(item => (item.Produto || "").trim().toUpperCase() === nomeSugestao.trim().toUpperCase());
             }).filter(item => item !== undefined);
 
             if (recomendados.length > 0) {
                 boxSugestoes.style.display = "block";
-                
                 recomendados.forEach(sugestao => {
-                    // Cria o card da sugestão
                     const link = document.createElement("a");
                     link.href = `produto.html?id=${encodeURIComponent(sugestao.Produto)}`;
                     link.style.textDecoration = "none";
-                    link.style.width = "140px"; // Largura fixa
+                    link.style.width = "140px";
                     link.style.display = "flex";
                     link.style.flexDirection = "column";
                     link.style.alignItems = "center";
                     link.style.textAlign = "center";
-                    link.style.flexShrink = "0"; // Não esmagar
+                    link.style.flexShrink = "0";
 
-                    // Foto
                     const img = document.createElement("img");
                     img.src = sugestao.Imagem;
                     img.style.width = "100%";
@@ -558,7 +560,6 @@
                     img.style.marginBottom = "8px";
                     img.style.boxShadow = "0 4px 8px rgba(0,0,0,0.1)";
 
-                    // Nome
                     const nome = document.createElement("span");
                     nome.innerText = sugestao.Marca || "Ver"; 
                     nome.style.color = "#fff";
@@ -589,7 +590,7 @@
       }
     }
 
-    // === FUNÇÃO DA GALERIA PREMIUM ===
+    // === FUNÇÃO DA GALERIA PREMIUM (AGORA CORRIGIDA) ===
     function montarGaleria(produto) {
         const mainImg = document.getElementById('main-product-img');
         const track = document.getElementById('thumbnails-track');
@@ -599,8 +600,17 @@
         // 1. Imagem Principal
         mainImg.src = produto.Imagem;
 
-        // 2. Simula fotos (Repete a mesma por enquanto)
-        const imagens = [produto.Imagem, produto.Imagem, produto.Imagem, produto.Imagem];
+        // 2. MONTA A LISTA COM AS FOTOS REAIS DO JSON
+        let imagens = [];
+        if(produto.Imagem) imagens.push(produto.Imagem);
+        if(produto.Imagem2) imagens.push(produto.Imagem2);
+        if(produto.Imagem3) imagens.push(produto.Imagem3);
+        if(produto.Imagem4) imagens.push(produto.Imagem4);
+
+        // Se tiver só 1 foto, aí sim a gente repete pra não ficar feio
+        if (imagens.length === 1) {
+            imagens = [produto.Imagem, produto.Imagem, produto.Imagem, produto.Imagem];
+        }
 
         // 3. Renderiza
         track.innerHTML = '';
@@ -618,6 +628,8 @@
         });
     }
 
+    carregarProduto();
+  </script>
     carregarProduto();
   </script>
 </body>

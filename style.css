@@ -548,7 +548,6 @@ a {
   max-width: 400px; /* Impede que fique gigante */
   height: auto;
   border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   object-fit: contain;
 }
 
@@ -583,7 +582,7 @@ a {
   font-size: 14px;
   line-height: 1.6;
   color: rgba(255,255,255,0.8);
-  text-align: justify !important;
+  text-align: center !important;
 }
 
 /* 5. Arrumar os Botões (Tirar o estilo "barra gigante") */
@@ -1809,7 +1808,6 @@ body::before {
     width: 100%;
     height: 0;
     padding-bottom: 100%; /* Mantém formato quadrado (1:1) */
-    
     background-color: #fff;
     border-radius: 12px;
     /* Sombra suave para destacar do fundo azul */
@@ -1825,8 +1823,10 @@ body::before {
     width: 100%;
     height: 100%;
     object-fit: contain; /* Ajusta a imagem sem cortar */
-    padding: 10px; /* REDUZI O PADDING: O frasco vai ficar MAIOR */
+    border-radius: 20px !important 
+    padding: 0 !important
     transition: transform 0.3s ease;
+    cursor: zoom-in;
 }
 
 /* 2. MINIATURAS (CRISPS & CLEAN) */
@@ -1883,4 +1883,57 @@ body::before {
         width: 55px;
         height: 55px;
     }
+}
+
+/* ==================================================
+   CORREÇÃO FINAL: CENTRALIZAR E PREENCHER (SEM CORTAR)
+   ================================================== */
+#main-product-img {
+    /* 1. Posicionamento para centralizar */
+    position: absolute !important;
+    inset: 0 !important;       /* Cola em todas as bordas (Cima, Baixo, Esq, Dir) */
+    margin: auto !important;   /* A mágica que centraliza imagem absoluta */
+    
+    /* 2. Tamanho */
+    width: 100% !important;    /* Ocupa toda a largura */
+    height: 100% !important;   /* Ocupa toda a altura */
+    padding: 0 !important;     /* Sem borda interna */
+    
+    /* 3. Comportamento da Imagem */
+    object-fit: contain !important; /* Garante que a imagem apareça INTEIRA */
+    background-color: #ffffff !important; /* Fundo branco para mesclar se sobrar espaço */
+    
+    /* 4. Zoom Leve (Opcional: remove se achar que cortou) */
+    transform: scale(1.02) !important; /* Aumenta 2% só para garantir bordas */
+
+}
+
+/* ==================================================
+   CORREÇÃO: CENTRALIZAR MINIATURAS (THUMBNAILS)
+   ================================================== */
+
+/* 1. O Quadradinho (Container) */
+.thumb-item {
+    display: flex !important;           /* Ativa o modo flexível */
+    justify-content: center !important; /* Centraliza na Horizontal (Esquerda/Direita) */
+    align-items: center !important;     /* Centraliza na Vertical (Cima/Baixo) */
+    
+    padding: 0 !important;              /* Remove espaços extras do container */
+    background-color: #fff !important;  /* Garante fundo branco */
+    overflow: hidden !important;        /* Corta o que sobrar */
+}
+
+/* 2. A Imagem dentro do Quadradinho */
+.thumb-item img {
+    width: 100% !important;             /* Tenta ocupar a largura toda */
+    height: 100% !important;            /* Tenta ocupar a altura toda */
+    
+    object-fit: contain !important;     /* O SEGREDO: Encaixa a imagem no centro sem esticar */
+    
+    margin: 0 !important;               /* Remove margens que empurram a imagem */
+    padding: 3px !important;            /* Um pequeno respiro para não colar na borda */
+    
+    /* Remove sombras ou bordas da própria imagem se tiver */
+    box-shadow: none !important;        
+    border: none !important;
 }
