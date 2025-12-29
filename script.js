@@ -196,7 +196,7 @@ async function loadPerfumes() {
 
     if (id) {
         // Acha o perfume na lista
-        const p = perfumes.find(item => item.Produto === id);
+        const p = perfumes.find(item => item.id_slug === id);
         
         if (p) {
             // Preenche os textos da página
@@ -279,7 +279,7 @@ function renderCards(selectedBrand, searchTerm, category) {
 
     card.className = `product-card ${catClass} ${genClass}`;
 
-    let detalheHref = p.Produto ? "produto.html?id=" + encodeURIComponent(p.Produto) : null;
+    let detalheHref = p.id_slug ? "produto.html?id=" + p.id_slug : null;
     
     const marcaSafe = (p.Marca || "").replace(/'/g, " ");
     const produtoSafe = (p.Produto || "").replace(/'/g, " ");
