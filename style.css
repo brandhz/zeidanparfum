@@ -207,7 +207,7 @@ a {
 }
 
 .logo {
-  max-width: 220px;
+  max-width: 300px;
   height: auto;
 }
 
@@ -668,7 +668,7 @@ button[onclick*="Comprar"] {
 /* Puxa a Logo para cima, logo abaixo do menu fixo */
 .logo-wrap {
   margin-top: 160px !important; /* Reduzido de 120/140px para 90px */
-  margin-bottom: 30px !important; /* Reduz espaço entre logo e conteúdo */
+  margin-bottom: 0 !important; /* Reduz espaço entre logo e conteúdo */
 }
 
 /* Garante que o menu fixo fique colado na barra vermelha */
@@ -1010,8 +1010,18 @@ html, body {
 /* Garante que os containers dos carrosséis não estiquem a página */
 .benefits-container, 
 #lista-sugestoes {
-    max-width: 100vw;
-    box-sizing: border-box;
+    flex-wrap: nowrap; /* Não quebra linha */
+    justify-content: flex-start;
+    overflow-x: auto; /* Permite o scroll lateral */
+    padding-bottom: 10px;
+
+    /* --- O SEGREDO PARA ESCONDER A BARRA --- */
+    scrollbar-width: none; /* Padrão moderno (Firefox, etc) */
+    -ms-overflow-style: none;  /* IE e Edge antigo */
+}
+
+/* Mantém este para Chrome e Safari */
+#lista-sugestoes::-webkit-scrollbar { display: none; 
 }
 
 
@@ -1780,4 +1790,97 @@ body::before {
 @media (max-width: 600px) {
     .review-card { width: 260px; }
     .reviews-track { animation-duration: 30s; }
+}
+
+/* =========================================
+   GALERIA PREMIUM (AJUSTE FINO MOBILE)
+   ========================================= */
+
+/* Container da Galeria */
+.product-gallery {
+    width: 100%;
+    max-width: 450px; /* Trava a largura para não estourar em tablets */
+    margin: 0 auto 20px auto;
+}
+
+/* 1. FOTO PRINCIPAL (QUADRADO LIMPO) */
+.main-image-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%; /* Mantém formato quadrado (1:1) */
+    
+    background-color: #fff;
+    border-radius: 12px;
+    /* Sombra suave para destacar do fundo azul */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15); 
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.main-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ajusta a imagem sem cortar */
+    padding: 10px; /* REDUZI O PADDING: O frasco vai ficar MAIOR */
+    transition: transform 0.3s ease;
+}
+
+/* 2. MINIATURAS (CRISPS & CLEAN) */
+.thumbnails-scroll-container {
+    width: 100%;
+    overflow-x: auto;
+    padding: 5px 2px;
+    scrollbar-width: none;
+    display: flex;
+    justify-content: center; /* Centraliza as miniaturas se forem poucas */
+}
+
+.thumbnails-track {
+    display: flex;
+    gap: 10px;
+}
+
+.thumb-item {
+    width: 65px; /* Tamanho bom para dedo */
+    height: 65px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #fff; /* Fundo branco sólido (importante no seu site escuro) */
+    
+    /* Estado normal: sem borda, sombra leve */
+    border: 2px solid transparent; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    opacity: 1; /* REMOVIDA A TRANSPARÊNCIA: Fica nítido */
+}
+
+.thumb-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 3px; /* Espaço mínimo */
+}
+
+/* 3. MINIATURA SELECIONADA (PREMIUM) */
+.thumb-item.active {
+    /* Borda Dourada Metálica (Mais bonita que amarelo liso) */
+    border: 2px solid #C5A059; 
+    transform: scale(0.98); /* Leve clique visual */
+    box-shadow: 0 0 0 2px rgba(197, 160, 89, 0.2); /* Aura dourada */
+}
+
+/* AJUSTE ESPECÍFICO PARA CELULARES PEQUENOS */
+@media (max-width: 400px) {
+    .main-image-container {
+        border-radius: 8px; /* Cantos um pouco menos redondos em telas pequenas */
+    }
+    .thumb-item {
+        width: 55px;
+        height: 55px;
+    }
 }
