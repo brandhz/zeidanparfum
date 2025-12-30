@@ -503,6 +503,34 @@
         document.getElementById("produtoOcasiao").textContent = p.Ocasião || "-";
         document.getElementById("produtoIntensidade").textContent = p.Intensidade || "-";
 
+        // === NOVO: SALVAR NO HISTÓRICO ===
+        try {
+            let historico = JSON.parse(localStorage.getItem('zeidanHistorico')) || [];
+            
+            // 1. Remove se já estiver na lista (para não duplicar o mesmo perfume)
+            // Usamos o Slug ou o Nome como identificador
+            historico = historico.filter(h => h.id_slug !== p.id_slug);
+            
+            // 2. Adiciona o atual no TOPO da lista
+            historico.unshift({
+                id_slug: p.id_slug,
+                Produto: p.Produto,
+                Marca: p.Marca,
+                Imagem: p.Imagem,
+                Preco_Venda: p.Preco_Venda,
+                Categoria: p.Categoria,
+                Destaque: p.Destaque // Opcional
+            });
+
+            // 3. Mantém apenas os últimos 6 vistos (para não pesar)
+            if (historico.length > 6) historico.pop();
+
+            // 4. Salva no navegador do cliente
+            localStorage.setItem('zeidanHistorico', JSON.stringify(historico));
+        } catch (e) {
+            console.log("Erro ao salvar histórico", e);
+        }
+
         // --- GALERIA ---
         montarGaleria(p);
         

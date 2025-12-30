@@ -37,6 +37,83 @@
     /* Esconde a barra de rolagem feia */
     .benefits-container::-webkit-scrollbar { display: none; }
   }
+
+  /* =========================================
+   1. GLOBAL: ALINHAMENTO PERFEITO DOS CARDS
+   (Aplica na Vitrine E no Histórico)
+   ========================================= */
+
+/* Faz o cartão ocupar toda a altura disponível e organiza em coluna */
+.product-card {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    height: 100% !important; /* Estica o card até a altura do vizinho mais alto */
+}
+
+/* O conteúdo de texto cresce para ocupar o buraco vazio */
+.product-link-text {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Texto começa no topo */
+}
+
+/* A imagem não pode encolher */
+.product-image-wrap {
+    flex-shrink: 0;
+}
+
+/* O botão sempre vai para o fundo (chão do prédio) */
+.product-actions {
+    margin-top: auto !important; 
+    width: 100%;
+}
+
+/* =========================================
+   2. AJUSTES ESPECÍFICOS DO HISTÓRICO (CARROSSEL)
+   ========================================= */
+#historicoGrid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    gap: px;
+    padding: 10px 5px 20px 5px;
+    
+    /* Garante que todos os cards tenham a mesma altura */
+    align-items: stretch !important; 
+    
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start !important;
+    
+    /* Remove padding direito para usar o elemento fantasma */
+    padding-right: 0; 
+}
+
+/* Tamanho fixo apenas no histórico */
+#historicoGrid .product-card {
+    min-width: 160px;
+    max-width: 180px;
+    height: auto !important; /* Deixa o Flexbox decidir a altura (vai esticar igual o maior) */
+    align-self: stretch !important; /* Força ele a ir do topo até o chão da linha */
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+}
+
+/* O Elemento Fantasma (Corrige o último card cortado na direita) */
+#historicoGrid::after {
+    content: "";
+    display: block;
+    min-width: 20px; /* Tamanho do respiro final */
+    height: 1px;     /* Altura mínima para não atrapalhar o layout */
+    flex: 0 0 auto;
+}
+
+/* Scrollbar Bonitinha */
+#historicoGrid::-webkit-scrollbar { height: 4px; }
+#historicoGrid::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); border-radius: 10px; }
+#historicoGrid::-webkit-scrollbar-thumb { background: #363636; border-radius: 10px; }
 </style>
   </head>
   <body>
@@ -154,6 +231,13 @@
         <h2 class="section-title">Perfumes</h2>
         <div id="perfumeGrid" class="product-grid"></div>
       </section>
+
+      <section id="historico-section" class="product-section" style="display: none; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 40px; padding-top: 40px;">
+        <h2 class="section-title" style="font-size: 15px; margin-bottom: 20px;">
+            <i class="fa-solid fa-clock-rotate-left"></i> Vistos Recentemente
+        </h2>
+        <div id="historicoGrid" class="product-grid"></div>
+    </section>
     </main>
 
     <div id="imageModal" class="image-modal">

@@ -466,3 +466,77 @@ if (perfumeGrid) {
     renderCards(marcaSelecionada, "", currentCategory);
   }
 }
+
+/* =====================================================
+   RENDERIZAR HISTÓRICO (VISTOS RECENTEMENTE)
+   ===================================================== */
+function renderizarHistorico() {
+    const container = document.getElementById('historicoGrid');
+    const section = document.getElementById('historico-section');
+    
+    // Se não tiver o container na página (ex: página de contato), para.
+    if (!container || !section) return;
+
+    const historico = JSON.parse(localStorage.getItem('zeidanHistorico')) || [];
+
+    // Se histórico vazio, esconde a seção e sai
+    if (historico.length === 0) {
+        section.style.display = 'none';
+        return;
+    }
+
+    // Se tiver itens, mostra a seção e desenha os cards
+    section.style.display = 'block';
+    container.innerHTML = '';
+
+    historico.forEach(p => {
+        // --- Reaproveitando a lógica de criar Card ---
+        const card = document.createElement("article");
+        
+        // Classes básicas para manter o estilo
+        card.className = `product-card`;
+
+        // Link inteligente (Slug ou Nome)
+        let detalheHref = p.id_slug ? "produto.html?id=" + p.id_slug : "produto.html?id=" + encodeURIComponent(p.Produto);
+        
+        // Strings seguras para as funções de clique
+        const marcaSafe = (p.Marca || "").replace(/'/g, " ");
+        const produtoSafe = (p.Produto || "").replace(/'/g, " ");
+        const precoSafe = p.Preco_Venda || "";
+        
+        // Checa favoritos
+        let favoritos = JSON.parse(localStorage.getItem('zeidanFavoritos')) || [];
+        const isFav = favoritos.includes(p.Produto);
+        const heartClass = isFav ? "active" : "";
+        const heartIcon = isFav ? "fa-solid fa-heart" : "fa-regular fa-heart";
+
+        card.innerHTML = `
+          <div class="product-image-wrap">
+              <button class="wishlist-btn ${heartClass}" onclick="toggleFavorito('${produtoSafe}', this)">
+                 <i class="${heartIcon}"></i>
+              </button>
+              <a href="${detalheHref}" class="product-link">
+                 ${p.Imagem ? `<img src="${p.Imagem}" alt="${p.Produto}" class="product-image" />` : ""}
+              </a>
+          </div>
+
+          <a href="${detalheHref}" class="product-link-text">
+            <div class="product-name" style="font-size: 0.9rem;">${p.Produto}</div>
+            <div class="product-meta">
+              <span class="product-brand">${p.Marca}</span>
+              <span class="product-price">${p.Preco_Venda}</span>
+            </div>
+          </a>
+
+          <div class="product-actions">
+            <button class="product-btn" onclick="window.adicionarAoCarrinho('${marcaSafe}', '${produtoSafe}', '${precoSafe}', this)">
+              Encomende <i class="fa-solid fa-cart-plus"></i>
+            </button>
+          </div>
+        `;
+        container.appendChild(card);
+    });
+}
+
+// Chama a função assim que o script carregar
+renderizarHistorico();
