@@ -176,7 +176,7 @@ window.finalizarNoZap = function() {
 };
 
 /* =====================================================
-   CARREGAMENTO DE DADOS (CORRIGIDO)
+   CARREGAMENTO DE DADOS (CORRIGIDO E HÍBRIDO)
    ===================================================== */
 async function loadPerfumes() {
   try {
@@ -188,24 +188,18 @@ async function loadPerfumes() {
     if (perfumeGrid) renderCards("TODAS", "", "TODAS");
     
     // 2. Inicializa carrinho
-    atualizarCarrinhoUI();
+    if(window.atualizarCarrinhoUI) window.atualizarCarrinhoUI();
 
-    // 3. (A PARTE QUE FALTAVA) Se estiver na Página de Produto
-    const urlParams = new URLSearchParams(window.location.search);
-    const id = urlParams.get('id'); // Pega o nome do perfume na URL
-
-    // ... dentro da função loadPerfumes ...
-
+    // 3. LÓGICA HÍBRIDA (Funciona com Link Novo e Velho)
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id'); 
 
     if (id) {
-        // TENTATIVA 1: Busca pelo SLUG (O jeito novo e bonito)
+        // TENTATIVA 1: Busca pelo SLUG (Link novo e bonito)
         let p = perfumes.find(item => item.id_slug === id);
         
-        // TENTATIVA 2: Se não achou, tenta pelo NOME (O jeito antigo - Salva-vidas)
+        // TENTATIVA 2: Se não achou, tenta pelo NOME (Link antigo/Cache)
         if (!p) {
-            // Decodifica os %20 para espaço para tentar achar pelo nome
             const idDecodificado = decodeURIComponent(id); 
             p = perfumes.find(item => item.Produto === idDecodificado);
         }
@@ -216,7 +210,7 @@ async function loadPerfumes() {
              p = perfumes.find(item => (item.Produto || "").toLowerCase() === idLimpo);
         }
         
-        // SE ACHOU O PERFUME (Seja pelo slug ou pelo nome)
+        // SE ACHOU O PERFUME
         if (p) {
             // Preenche os dados na tela
             if(document.getElementById('product-detail-name')) 
@@ -232,7 +226,7 @@ async function loadPerfumes() {
                 document.getElementById('product-detail-desc').innerText = p.Descricao || "Fragrância importada original.";
 
             // Chama a galeria
-            window.montarGaleria(p);
+            if (window.montarGaleria) window.montarGaleria(p);
 
             // Botão do Whatsapp
             const btnZap = document.getElementById('produtoWhatsapp');
@@ -240,19 +234,29 @@ async function loadPerfumes() {
                 btnZap.onclick = function() {
                     const marcaSafe = (p.Marca||"").replace(/'/g," ");
                     const prodSafe = (p.Produto||"").replace(/'/g," ");
-                    window.adicionarAoCarrinho(marcaSafe, prodSafe, p.Preco_Venda, this);
+                    if (window.adicionarAoCarrinho) {
+                        window.adicionarAoCarrinho(marcaSafe, prodSafe, p.Preco_Venda, this);
+                    }
                 };
             }
             
-            // ESCONDE A MENSAGEM DE ERRO (Se ela estiver visível por padrão)
-            const errorMsg = document.querySelector('.product-not-found-msg'); // Se tiver classe
+            // Esconde msg de erro se tiver
+            const errorMsg = document.querySelector('.product-not-found-msg');
             if(errorMsg) errorMsg.style.display = 'none';
+             // Esconde o container principal de erro se for esse o ID
+            const notFoundContainer = document.getElementById('not-found-container');
+             if(notFoundContainer) notFoundContainer.style.display = 'none';
 
         } else {
             console.error('Produto realmente não encontrado no JSON:', id);
-            // Aqui ele mantém a tela de "Produto não encontrado"
+            // Aqui ele mantém a tela de "Produto não encontrado" visível
         }
     }
+
+  } catch (error) {
+    console.error("Erro ao carregar data.json:", error);
+  }
+}
 
 /* =====================================================
    RENDERIZAÇÃO DA HOME (VITRINE)
