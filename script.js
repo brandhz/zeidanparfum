@@ -194,12 +194,31 @@ async function loadPerfumes() {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id'); // Pega o nome do perfume na URL
 
+    // ... dentro da função loadPerfumes ...
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id'); 
+
     if (id) {
-        // Acha o perfume na lista
-        const p = perfumes.find(item => item.id_slug === id);
+        // TENTATIVA 1: Busca pelo SLUG (O jeito novo e bonito)
+        let p = perfumes.find(item => item.id_slug === id);
         
+        // TENTATIVA 2: Se não achou, tenta pelo NOME (O jeito antigo - Salva-vidas)
+        if (!p) {
+            // Decodifica os %20 para espaço para tentar achar pelo nome
+            const idDecodificado = decodeURIComponent(id); 
+            p = perfumes.find(item => item.Produto === idDecodificado);
+        }
+
+        // TENTATIVA 3: Tenta achar ignorando maiúsculas/minúsculas (Último recurso)
+        if (!p) {
+             const idLimpo = id.toLowerCase().replace(/-/g, ' ');
+             p = perfumes.find(item => (item.Produto || "").toLowerCase() === idLimpo);
+        }
+        
+        // SE ACHOU O PERFUME (Seja pelo slug ou pelo nome)
         if (p) {
-            // Preenche os textos da página
+            // Preenche os dados na tela
             if(document.getElementById('product-detail-name')) 
                 document.getElementById('product-detail-name').innerText = p.Produto;
             
@@ -212,11 +231,10 @@ async function loadPerfumes() {
             if(document.getElementById('product-detail-desc')) 
                 document.getElementById('product-detail-desc').innerText = p.Descricao || "Fragrância importada original.";
 
-            // --- AQUI ESTÁ A MÁGICA: CHAMA A GALERIA ---
+            // Chama a galeria
             window.montarGaleria(p);
-            // -------------------------------------------
 
-            // Configura o botão do WhatsApp do produto
+            // Botão do Whatsapp
             const btnZap = document.getElementById('produtoWhatsapp');
             if(btnZap) {
                 btnZap.onclick = function() {
@@ -225,13 +243,16 @@ async function loadPerfumes() {
                     window.adicionarAoCarrinho(marcaSafe, prodSafe, p.Preco_Venda, this);
                 };
             }
+            
+            // ESCONDE A MENSAGEM DE ERRO (Se ela estiver visível por padrão)
+            const errorMsg = document.querySelector('.product-not-found-msg'); // Se tiver classe
+            if(errorMsg) errorMsg.style.display = 'none';
+
+        } else {
+            console.error('Produto realmente não encontrado no JSON:', id);
+            // Aqui ele mantém a tela de "Produto não encontrado"
         }
     }
-
-  } catch (error) {
-    console.error("Erro ao carregar data.json:", error);
-  }
-}
 
 /* =====================================================
    RENDERIZAÇÃO DA HOME (VITRINE)
