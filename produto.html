@@ -449,21 +449,37 @@
   </script>
 
   <script>
+    // === LÓGICA DE CARREGAMENTO INTELIGENTE (HÍBRIDA) ===
     const params = new URLSearchParams(window.location.search);
-    const nomeProduto = params.get("id");
+    const idUrl = params.get("id");
 
     async function carregarProduto() {
       try {
         const resp = await fetch("data.json");
         const lista = await resp.json();
+        let p = null;
 
-        // Encontra o produto (Case insensitive)
-        const p = lista.find(
-          (item) => (item.Produto || "").toUpperCase() === (nomeProduto || "").toUpperCase()
-        );
+        // 1. TENTATIVA: Pelo SLUG (Link novo: 'afnan-9pm')
+        if (idUrl) {
+            p = lista.find(item => item.id_slug === idUrl);
+        }
 
+        // 2. TENTATIVA: Pelo NOME (Link antigo/Cache: 'Afnan%209PM')
+        if (!p && idUrl) {
+            const idDecodificado = decodeURIComponent(idUrl);
+            p = lista.find(item => (item.Produto || "").toUpperCase() === idDecodificado.toUpperCase());
+        }
+
+        // 3. TENTATIVA: Limpeza bruta (Remove traços e compara)
+        if (!p && idUrl) {
+             const idLimpo = idUrl.toLowerCase().replace(/-/g, ' ');
+             p = lista.find(item => (item.Produto || "").toLowerCase() === idLimpo);
+        }
+
+        // SE NÃO ACHAR NADA
         if (!p) {
           document.getElementById("produtoTitulo").textContent = "Produto não encontrado";
+          document.querySelector(".product-detail-content").style.opacity = "0.5";
           return;
         }
 
@@ -487,24 +503,30 @@
         document.getElementById("produtoOcasiao").textContent = p.Ocasião || "-";
         document.getElementById("produtoIntensidade").textContent = p.Intensidade || "-";
 
-        // --- MONTA A GALERIA PREMIUM (AGORA LÊ FOTOS REAIS) ---
+        // --- GALERIA ---
         montarGaleria(p);
         
-        // --- ZOOM NA IMAGEM (MODAL) ---
+        // --- ZOOM ---
         const mainImg = document.getElementById("main-product-img");
         const modal = document.getElementById("imageModal");
         const modalImg = document.getElementById("imageModalImg");
         const modalClose = document.getElementById("imageModalClose");
+        const modalBackdrop = document.getElementById("imageModalBackdrop"); // Adicionado backdrop
         
         if(mainImg && modal) {
             mainImg.onclick = function() {
                 modalImg.src = mainImg.src;
-                modal.classList.add("open");
+                modal.classList.add("open"); // Usa classe CSS em vez de display
+                modal.style.display = "flex"; // Força display flex se o CSS falhar
             }
         }
-        if(modalClose) {
-            modalClose.onclick = function() { modal.classList.remove("open"); }
+        // Função para fechar modal
+        function fecharModal() {
+            modal.classList.remove("open");
+            modal.style.display = "none";
         }
+        if(modalClose) modalClose.onclick = fecharModal;
+        if(modalBackdrop) modalBackdrop.onclick = fecharModal;
 
         // --- BOTÕES DE AÇÃO ---
         const btnWhatsapp = document.getElementById("produtoWhatsapp");
@@ -513,19 +535,19 @@
         const produtoSafe = (p.Produto || "").replace(/'/g, " ");
         const precoSafe = (p.Preco_Venda || "R$ 0,00");
 
-        // Função de clique
         function acaoClicar(e) {
             e.preventDefault();
             if (typeof adicionarAoCarrinho === "function") {
-                // Passa o 'this' (e.target) para fazer a animação no botão
                 adicionarAoCarrinho(marcaSafe, produtoSafe, precoSafe, e.currentTarget);
+            } else if (window.adicionarAoCarrinho) {
+                 window.adicionarAoCarrinho(marcaSafe, produtoSafe, precoSafe, e.currentTarget);
             }
         }
 
         if (btnWhatsapp) btnWhatsapp.onclick = acaoClicar;
         if (btnComprar) btnComprar.onclick = acaoClicar;
 
-        // --- SUGESTÕES DE PRODUTOS ---
+        // --- SUGESTÕES ---
         const boxSugestoes = document.getElementById("box-sugestoes");
         const listaSugestoes = document.getElementById("lista-sugestoes");
         
@@ -534,14 +556,18 @@
 
         if (p.Sugestoes && Array.isArray(p.Sugestoes) && p.Sugestoes.length > 0) {
             const recomendados = p.Sugestoes.map(nomeSugestao => {
+                // Tenta achar sugestão por nome (mais seguro ignorar case)
                 return lista.find(item => (item.Produto || "").trim().toUpperCase() === nomeSugestao.trim().toUpperCase());
             }).filter(item => item !== undefined);
 
             if (recomendados.length > 0) {
                 boxSugestoes.style.display = "block";
                 recomendados.forEach(sugestao => {
+                    // LINK DA SUGESTÃO TAMBÉM PRECISA USAR O SLUG SE TIVER
+                    const linkHref = sugestao.id_slug ? `produto.html?id=${sugestao.id_slug}` : `produto.html?id=${encodeURIComponent(sugestao.Produto)}`;
+                    
                     const link = document.createElement("a");
-                    link.href = `produto.html?id=${encodeURIComponent(sugestao.Produto)}`;
+                    link.href = linkHref;
                     link.style.textDecoration = "none";
                     link.style.width = "140px";
                     link.style.display = "flex";
@@ -590,29 +616,25 @@
       }
     }
 
-    // === FUNÇÃO DA GALERIA PREMIUM (AGORA CORRIGIDA) ===
+    // === FUNÇÃO DA GALERIA PREMIUM ===
     function montarGaleria(produto) {
         const mainImg = document.getElementById('main-product-img');
         const track = document.getElementById('thumbnails-track');
 
         if (!mainImg || !track) return;
 
-        // 1. Imagem Principal
         mainImg.src = produto.Imagem;
 
-        // 2. MONTA A LISTA COM AS FOTOS REAIS DO JSON
         let imagens = [];
         if(produto.Imagem) imagens.push(produto.Imagem);
         if(produto.Imagem2) imagens.push(produto.Imagem2);
         if(produto.Imagem3) imagens.push(produto.Imagem3);
         if(produto.Imagem4) imagens.push(produto.Imagem4);
 
-        // Se tiver só 1 foto, aí sim a gente repete pra não ficar feio
         if (imagens.length === 1) {
             imagens = [produto.Imagem, produto.Imagem, produto.Imagem, produto.Imagem];
         }
 
-        // 3. Renderiza
         track.innerHTML = '';
         imagens.forEach((imgSrc, index) => {
             const thumb = document.createElement('div');
