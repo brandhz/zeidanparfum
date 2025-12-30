@@ -176,7 +176,7 @@ window.finalizarNoZap = function() {
 };
 
 /* =====================================================
-   CARREGAMENTO DE DADOS (CORRIGIDO E HÍBRIDO)
+   CARREGAMENTO DE DADOS (VERSÃO BLINDADA)
    ===================================================== */
 async function loadPerfumes() {
   try {
@@ -184,27 +184,28 @@ async function loadPerfumes() {
     perfumes = await response.json();
 
     // 1. Se estiver na Home (Grade de Produtos)
-    if (brandColumns) populateBrandColumns();
-    if (perfumeGrid) renderCards("TODAS", "", "TODAS");
+    if (typeof brandColumns !== 'undefined' && brandColumns) populateBrandColumns();
+    if (typeof perfumeGrid !== 'undefined' && perfumeGrid) renderCards("TODAS", "", "TODAS");
     
     // 2. Inicializa carrinho
     if(window.atualizarCarrinhoUI) window.atualizarCarrinhoUI();
 
-    // 3. LÓGICA HÍBRIDA (Funciona com Link Novo e Velho)
-    const urlParams = new URLSearchParams(window.location.search);
-    const id = urlParams.get('id'); 
+    // 3. LÓGICA HÍBRIDA (COM NOME DE VARIÁVEL NOVO)
+    // Mudei de 'const urlParams' para 'const paramsDaUrl' para evitar o erro
+    const paramsDaUrl = new URLSearchParams(window.location.search);
+    const id = paramsDaUrl.get('id'); 
 
     if (id) {
-        // TENTATIVA 1: Busca pelo SLUG (Link novo e bonito)
+        // TENTATIVA 1: Busca pelo SLUG
         let p = perfumes.find(item => item.id_slug === id);
         
-        // TENTATIVA 2: Se não achou, tenta pelo NOME (Link antigo/Cache)
+        // TENTATIVA 2: Busca pelo NOME (Decode)
         if (!p) {
             const idDecodificado = decodeURIComponent(id); 
             p = perfumes.find(item => item.Produto === idDecodificado);
         }
 
-        // TENTATIVA 3: Tenta achar ignorando maiúsculas/minúsculas (Último recurso)
+        // TENTATIVA 3: Busca pelo NOME (Minusculo)
         if (!p) {
              const idLimpo = id.toLowerCase().replace(/-/g, ' ');
              p = perfumes.find(item => (item.Produto || "").toLowerCase() === idLimpo);
@@ -212,7 +213,6 @@ async function loadPerfumes() {
         
         // SE ACHOU O PERFUME
         if (p) {
-            // Preenche os dados na tela
             if(document.getElementById('product-detail-name')) 
                 document.getElementById('product-detail-name').innerText = p.Produto;
             
@@ -225,10 +225,8 @@ async function loadPerfumes() {
             if(document.getElementById('product-detail-desc')) 
                 document.getElementById('product-detail-desc').innerText = p.Descricao || "Fragrância importada original.";
 
-            // Chama a galeria
             if (window.montarGaleria) window.montarGaleria(p);
 
-            // Botão do Whatsapp
             const btnZap = document.getElementById('produtoWhatsapp');
             if(btnZap) {
                 btnZap.onclick = function() {
@@ -240,21 +238,19 @@ async function loadPerfumes() {
                 };
             }
             
-            // Esconde msg de erro se tiver
+            // Esconde erros
             const errorMsg = document.querySelector('.product-not-found-msg');
+            const notFoundTitle = document.querySelector('h1');
             if(errorMsg) errorMsg.style.display = 'none';
-             // Esconde o container principal de erro se for esse o ID
-            const notFoundContainer = document.getElementById('not-found-container');
-             if(notFoundContainer) notFoundContainer.style.display = 'none';
-
+            if(notFoundTitle && notFoundTitle.innerText.includes("NÃO ENCONTRADO")) {
+                 notFoundTitle.style.display = 'none';
+            }
         } else {
-            console.error('Produto realmente não encontrado no JSON:', id);
-            // Aqui ele mantém a tela de "Produto não encontrado" visível
+            console.error('Produto não encontrado:', id);
         }
     }
-
   } catch (error) {
-    console.error("Erro ao carregar data.json:", error);
+    console.error("Erro data.json:", error);
   }
 }
 
