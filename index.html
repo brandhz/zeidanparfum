@@ -276,13 +276,16 @@
 
 <div id="cart-modal" class="cart-modal-overlay">
   <div class="cart-modal-content">
+    
     <div class="cart-header">
       <h3>Minha Sacola</h3>
       <button onclick="toggleCart()" class="close-cart">✕</button>
     </div>
+    
     <div id="cart-items" class="cart-items-container">
       <p class="empty-msg">Sua sacola está vazia 🛍️</p>
     </div>
+    
     <div class="cart-footer">
       <div class="cart-total">
         <span>Total Estimado:</span>
@@ -292,12 +295,48 @@
         <i class="fa-brands fa-whatsapp"></i> Finalizar Pedido
       </button>
       <button onclick="toggleCart()" class="btn-continue">Continuar Comprando</button>
+    </div> </div> </div> <div class="whatsapp-widget">
+    <div class="whatsapp-btn" onclick="toggleZapMenu()">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="pulse-ring"></span>
     </div>
-    
-  </div>
+
+    <div class="whatsapp-menu" id="zapMenu">
+        <div class="zap-header">
+            <div class="zap-profile">
+                <img src="logo.png" alt="Zeidan" style="background: #000548; padding: 2px; border-radius: 50%;">
+            </div>
+            <div class="zap-info">
+                <strong>Atendimento Zeidan</strong>
+                <span>Normalmente responde na hora</span>
+            </div>
+            <button onclick="toggleZapMenu()" class="zap-close">×</button>
+        </div>
+        <div class="zap-body">
+            <p class="zap-welcome">Olá! Como podemos te ajudar hoje?</p>
+            
+            <a href="https://wa.me/5531991668430?text=Olá! Vim pelo site e gostaria de tirar dúvidas sobre perfumes." target="_blank" class="zap-option">
+                <div class="zap-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+                <div class="zap-text">
+                    <strong>Falar com Vendas</strong>
+                    <span>Encomendas e Catálogo</span>
+                </div>
+                <div class="zap-arrow">›</div>
+            </a>
+
+            <a href="https://wa.me/5531971789632?text=Olá! Preciso de suporte sobre meu pedido." target="_blank" class="zap-option">
+                <div class="zap-icon"><i class="fa-solid fa-headset"></i></div>
+                <div class="zap-text">
+                    <strong>Suporte / Dúvidas</strong>
+                    <span>Acompanhar pedido</span>
+                </div>
+                <div class="zap-arrow">›</div>
+            </a>
+        </div>
+    </div>
 </div>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 
     <footer class="site-footer">
       

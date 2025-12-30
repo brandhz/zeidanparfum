@@ -211,6 +211,29 @@
           <h1 id="produtoTitulo" class="product-detail-title">Carregando...</h1>
           <p id="produtoMarca" class="product-detail-brand"></p>
           <p id="produtoPreco" class="product-detail-price"></p>
+          <div id="box-decants" class="version-selector-container" style="display: none; margin: 20px 0;">
+    <div class="selector-label" style="font-size: 12px; color: #888; text-transform: uppercase; margin-bottom: 10px; font-weight: 700;">Escolha a versão:</div>
+    
+    <div class="version-options" style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <label class="version-option active" onclick="selecionarVersao('frasco')" style="flex: 1; min-width: 100px; background: #111; border: 1px solid #444; border-radius: 8px; padding: 10px; cursor: pointer; display: flex; flex-direction: column; align-items: center;">
+            <input type="radio" name="versao" checked hidden>
+            <span class="v-name" style="font-size: 13px; color: #fff; font-weight: 600;">Frasco Lacrado</span>
+            <span class="v-tag" style="font-size: 9px; background: #C5A059; color: #000; padding: 2px 6px; border-radius: 4px; font-weight: 800; text-transform: uppercase; margin-top: 4px;">Original</span>
+        </label>
+
+        <label id="label-decant5" class="version-option" onclick="selecionarVersao('decant5')" style="flex: 1; min-width: 100px; background: #111; border: 1px solid #444; border-radius: 8px; padding: 10px; cursor: pointer; display: flex; flex-direction: column; align-items: center;">
+            <input type="radio" name="versao" hidden>
+            <span class="v-name" style="font-size: 13px; color: #fff; font-weight: 600;">Decant (5ml)</span>
+            <span class="v-tag" style="font-size: 9px; background: #2ecc71; color: #000; padding: 2px 6px; border-radius: 4px; font-weight: 800; text-transform: uppercase; margin-top: 4px;">Provador</span>
+        </label>
+
+        <label id="label-decant10" class="version-option" onclick="selecionarVersao('decant10')" style="flex: 1; min-width: 100px; background: #111; border: 1px solid #444; border-radius: 8px; padding: 10px; cursor: pointer; display: flex; flex-direction: column; align-items: center;">
+            <input type="radio" name="versao" hidden>
+            <span class="v-name" style="font-size: 13px; color: #fff; font-weight: 600;">Decant (10ml)</span>
+            <span class="v-tag" style="font-size: 9px; background: #3498db; color: #000; padding: 2px 6px; border-radius: 4px; font-weight: 800; text-transform: uppercase; margin-top: 4px;">Econômico</span>
+        </label>
+    </div>
+</div>
           <p id="produtoDescricao" class="product-detail-description" style="text-align: justify;"></p>
 
           <h3 class="product-detail-subtitle">Principais acordes</h3>
@@ -450,6 +473,82 @@
 
   <script>
     // === LÓGICA DE CARREGAMENTO INTELIGENTE (HÍBRIDA) ===
+    // --- VARIÁVEIS GLOBAIS DE SELEÇÃO ---
+    let produtoAtualDados = {}; 
+    let versaoAtualSelecionada = ""; // Guarda se é "Frasco", "Decant 5ml", etc.
+    let precoAtualSelecionado = "";  // Guarda o preço atual (R$ 350 ou R$ 45)
+
+    // --- FUNÇÃO 1: VERIFICA SE TEM DECANT ---
+    function verificarDisponibilidadeDecants(p) {
+        produtoAtualDados = p; 
+        const boxDecants = document.getElementById('box-decants');
+        const btn5ml = document.getElementById('label-decant5');
+        const btn10ml = document.getElementById('label-decant10');
+
+        // Reseta sempre para o Frasco ao carregar
+        selecionarVersao('frasco');
+
+        // Verifica se existe preço e se não está vazio
+        const temDecant5 = p.Decant5ml && p.Decant5ml.toString().trim() !== "";
+        const temDecant10 = p.Decant10ml && p.Decant10ml.toString().trim() !== "";
+
+        // Mostra/Esconde botões individuais
+        if(btn5ml) btn5ml.style.display = temDecant5 ? 'flex' : 'none';
+        if(btn10ml) btn10ml.style.display = temDecant10 ? 'flex' : 'none';
+
+        // Se tiver pelo menos um decant, mostra a caixa. Se não, esconde.
+        if (boxDecants) {
+            boxDecants.style.display = (temDecant5 || temDecant10) ? 'block' : 'none';
+        }
+    }
+
+    // --- FUNÇÃO 2: CLIQUE NO BOTÃO ---
+    function selecionarVersao(tipo) {
+        // Visual dos botões (Dourado no ativo)
+        document.querySelectorAll('.version-option').forEach(el => {
+            el.style.borderColor = "#444";
+            el.style.background = "#111";
+            el.classList.remove('active');
+        });
+
+        // Tenta achar o botão clicado ou o padrão
+        let elAtivo;
+        if (event && event.currentTarget) elAtivo = event.currentTarget;
+        else elAtivo = document.querySelector('.version-option'); // Padrão (primeiro)
+
+        if(elAtivo) {
+            elAtivo.classList.add('active');
+            elAtivo.style.borderColor = "#C5A059";
+            elAtivo.style.background = "rgba(197, 160, 89, 0.1)";
+        }
+
+        const displayPreco = document.getElementById("produtoPreco");
+        
+        // Salva preço original do frasco na primeira vez
+        if (!window.precoFrascoOriginal && displayPreco) {
+            window.precoFrascoOriginal = displayPreco.textContent;
+        }
+
+        // Define valores baseados na escolha
+        if (tipo === 'frasco') {
+            versaoAtualSelecionada = "Frasco Lacrado";
+            precoAtualSelecionado = window.precoFrascoOriginal || produtoAtualDados.Preco_Venda;
+            if(displayPreco) displayPreco.style.color = "#fff";
+        } 
+        else if (tipo === 'decant5') {
+            versaoAtualSelecionada = "Decant (5ml)";
+            precoAtualSelecionado = produtoAtualDados.Decant5ml;
+            if(displayPreco) displayPreco.style.color = "#2ecc71";
+        } 
+        else if (tipo === 'decant10') {
+            versaoAtualSelecionada = "Decant (10ml)";
+            precoAtualSelecionado = produtoAtualDados.Decant10ml;
+            if(displayPreco) displayPreco.style.color = "#ffffff";
+        }
+
+        // Atualiza Texto na Tela
+        if(displayPreco) displayPreco.textContent = precoAtualSelecionado;
+    }
     const params = new URLSearchParams(window.location.search);
     const idUrl = params.get("id");
 
@@ -502,6 +601,7 @@
         document.getElementById("produtoEstilo").textContent = p.Estilo || "-";
         document.getElementById("produtoOcasiao").textContent = p.Ocasião || "-";
         document.getElementById("produtoIntensidade").textContent = p.Intensidade || "-";
+        verificarDisponibilidadeDecants(p);
 
         // === NOVO: SALVAR NO HISTÓRICO ===
         try {

@@ -550,3 +550,40 @@ if (perfumeGrid) {
     renderCards(marcaSelecionada, "", currentCategory);
   }
 }
+
+// Abrir e Fechar Menu do Zap
+function toggleZapMenu() {
+    const menu = document.getElementById('zapMenu');
+    if (menu.style.display === 'block') {
+        menu.style.display = 'none';
+    } else {
+        menu.style.display = 'block';
+    }
+}
+
+// --- BOTÕES DE AÇÃO (ATUALIZADO PARA DECANTS) ---
+        const btnWhatsapp = document.getElementById("produtoWhatsapp");
+        const btnComprar = document.getElementById("produtoComprar");
+
+        function acaoClicar(e) {
+            e.preventDefault();
+            
+            // Pega o nome: Se for frasco, usa o nome normal. Se for decant, adiciona o sufixo.
+            let nomeFinal = (p.Produto || "").replace(/'/g, " ");
+            if (versaoAtualSelecionada && versaoAtualSelecionada !== "Frasco Lacrado") {
+                nomeFinal = `${nomeFinal} - ${versaoAtualSelecionada}`;
+            }
+
+            const marcaSafe = (p.Marca || "").replace(/'/g, " ");
+            // Usa o preço selecionado (pode ser o do decant)
+            const precoFinal = precoAtualSelecionado || p.Preco_Venda;
+
+            if (typeof adicionarAoCarrinho === "function") {
+                adicionarAoCarrinho(marcaSafe, nomeFinal, precoFinal, e.currentTarget);
+            } else if (window.adicionarAoCarrinho) {
+                 window.adicionarAoCarrinho(marcaSafe, nomeFinal, precoFinal, e.currentTarget);
+            }
+        }
+
+        if (btnWhatsapp) btnWhatsapp.onclick = acaoClicar;
+        if (btnComprar) btnComprar.onclick = acaoClicar;
