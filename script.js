@@ -14,6 +14,17 @@ let currentCategory = "TODAS";
 const LIMITE_INICIAL = 30;
 window.WHATSAPP_NUMBER = "5531991668430";
 
+/* --- 1. OBSERVADOR DE SCROLL (ANIMAÇÃO) --- */
+/* Isso faz os cards aparecerem suavemente quando rola a tela */
+const cardObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+        }
+    });
+}, { root: null, threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
 /* =====================================================
    FUNÇÕES AUXILIARES
    ===================================================== */
@@ -164,7 +175,7 @@ window.finalizarNoZap = function() {
 };
 
 /* =====================================================
-   CARREGAMENTO DE DADOS (VERSÃO CORRIGIDA E HÍBRIDA)
+   CARREGAMENTO DE DADOS
    ===================================================== */
 async function loadPerfumes() {
   try {
@@ -315,6 +326,10 @@ function renderCards(selectedBrand, searchTerm, category) {
         </button>
       </div>
     `;
+    
+    /* --- AQUI: Animação de Entrada --- */
+    cardObserver.observe(card);
+    
     perfumeGrid.appendChild(card);
   });
 }
@@ -339,6 +354,74 @@ window.toggleFavorito = function(nomeProduto, btn) {
     }
     localStorage.setItem('zeidanFavoritos', JSON.stringify(favoritos));
 };
+
+/* =====================================================
+   RENDERIZAR HISTÓRICO (VISTOS RECENTEMENTE)
+   ===================================================== */
+function renderizarHistorico() {
+    const container = document.getElementById('historicoGrid');
+    const section = document.getElementById('historico-section');
+    
+    if (!container || !section) return;
+
+    const historico = JSON.parse(localStorage.getItem('zeidanHistorico')) || [];
+
+    if (historico.length === 0) {
+        section.style.display = 'none';
+        return;
+    }
+
+    section.style.display = 'block';
+    container.innerHTML = '';
+
+    historico.forEach(p => {
+        const card = document.createElement("article");
+        
+        // Classes padrão + Alinhamento
+        card.className = `product-card`;
+
+        let detalheHref = p.id_slug ? "produto.html?id=" + p.id_slug : "produto.html?id=" + encodeURIComponent(p.Produto);
+        
+        const marcaSafe = (p.Marca || "").replace(/'/g, " ");
+        const produtoSafe = (p.Produto || "").replace(/'/g, " ");
+        const precoSafe = p.Preco_Venda || "";
+        
+        let favoritos = JSON.parse(localStorage.getItem('zeidanFavoritos')) || [];
+        const isFav = favoritos.includes(p.Produto);
+        const heartClass = isFav ? "active" : "";
+        const heartIcon = isFav ? "fa-solid fa-heart" : "fa-regular fa-heart";
+
+        card.innerHTML = `
+          <div class="product-image-wrap">
+              <button class="wishlist-btn ${heartClass}" onclick="toggleFavorito('${produtoSafe}', this)">
+                 <i class="${heartIcon}"></i>
+              </button>
+              <a href="${detalheHref}" class="product-link">
+                 ${p.Imagem ? `<img src="${p.Imagem}" alt="${p.Produto}" class="product-image" />` : ""}
+              </a>
+          </div>
+
+          <a href="${detalheHref}" class="product-link-text">
+            <div class="product-name" style="font-size: 0.9rem;">${p.Produto}</div>
+            <div class="product-meta">
+              <span class="product-brand">${p.Marca}</span>
+              <span class="product-price">${p.Preco_Venda}</span>
+            </div>
+          </a>
+
+          <div class="product-actions">
+            <button class="product-btn" onclick="window.adicionarAoCarrinho('${marcaSafe}', '${produtoSafe}', '${precoSafe}', this)">
+              Encomende <i class="fa-solid fa-cart-plus"></i>
+            </button>
+          </div>
+        `;
+        
+        /* --- AQUI: Animação de Entrada --- */
+        cardObserver.observe(card);
+        
+        container.appendChild(card);
+    });
+}
 
 /* =====================================================
    PAINEL DE MARCAS E MENU
@@ -452,6 +535,7 @@ window.montarGaleria = function(produto) {
 
 // Inicialização
 loadPerfumes();
+renderizarHistorico(); // Inicia o histórico
 
 if (localStorage.getItem("abrirMarcas") === "1") {
   localStorage.removeItem("abrirMarcas");
@@ -466,77 +550,3 @@ if (perfumeGrid) {
     renderCards(marcaSelecionada, "", currentCategory);
   }
 }
-
-/* =====================================================
-   RENDERIZAR HISTÓRICO (VISTOS RECENTEMENTE)
-   ===================================================== */
-function renderizarHistorico() {
-    const container = document.getElementById('historicoGrid');
-    const section = document.getElementById('historico-section');
-    
-    // Se não tiver o container na página (ex: página de contato), para.
-    if (!container || !section) return;
-
-    const historico = JSON.parse(localStorage.getItem('zeidanHistorico')) || [];
-
-    // Se histórico vazio, esconde a seção e sai
-    if (historico.length === 0) {
-        section.style.display = 'none';
-        return;
-    }
-
-    // Se tiver itens, mostra a seção e desenha os cards
-    section.style.display = 'block';
-    container.innerHTML = '';
-
-    historico.forEach(p => {
-        // --- Reaproveitando a lógica de criar Card ---
-        const card = document.createElement("article");
-        
-        // Classes básicas para manter o estilo
-        card.className = `product-card`;
-
-        // Link inteligente (Slug ou Nome)
-        let detalheHref = p.id_slug ? "produto.html?id=" + p.id_slug : "produto.html?id=" + encodeURIComponent(p.Produto);
-        
-        // Strings seguras para as funções de clique
-        const marcaSafe = (p.Marca || "").replace(/'/g, " ");
-        const produtoSafe = (p.Produto || "").replace(/'/g, " ");
-        const precoSafe = p.Preco_Venda || "";
-        
-        // Checa favoritos
-        let favoritos = JSON.parse(localStorage.getItem('zeidanFavoritos')) || [];
-        const isFav = favoritos.includes(p.Produto);
-        const heartClass = isFav ? "active" : "";
-        const heartIcon = isFav ? "fa-solid fa-heart" : "fa-regular fa-heart";
-
-        card.innerHTML = `
-          <div class="product-image-wrap">
-              <button class="wishlist-btn ${heartClass}" onclick="toggleFavorito('${produtoSafe}', this)">
-                 <i class="${heartIcon}"></i>
-              </button>
-              <a href="${detalheHref}" class="product-link">
-                 ${p.Imagem ? `<img src="${p.Imagem}" alt="${p.Produto}" class="product-image" />` : ""}
-              </a>
-          </div>
-
-          <a href="${detalheHref}" class="product-link-text">
-            <div class="product-name" style="font-size: 0.9rem;">${p.Produto}</div>
-            <div class="product-meta">
-              <span class="product-brand">${p.Marca}</span>
-              <span class="product-price">${p.Preco_Venda}</span>
-            </div>
-          </a>
-
-          <div class="product-actions">
-            <button class="product-btn" onclick="window.adicionarAoCarrinho('${marcaSafe}', '${produtoSafe}', '${precoSafe}', this)">
-              Encomende <i class="fa-solid fa-cart-plus"></i>
-            </button>
-          </div>
-        `;
-        container.appendChild(card);
-    });
-}
-
-// Chama a função assim que o script carregar
-renderizarHistorico();

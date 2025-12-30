@@ -71,49 +71,67 @@
 }
 
 /* =========================================
-   2. AJUSTES ESPECÍFICOS DO HISTÓRICO (CARROSSEL)
+   2. AJUSTES ESPECÍFICOS DO HISTÓRICO (CORRIGIDO)
    ========================================= */
+
+/* 1. O Container Pai (Segura o Título e o Carrossel) */
+#historico-section {
+    width: 100%;
+    max-width: 1200px !important; /* Trava a largura igual ao resto do site */
+    margin-left: auto !important; /* Centraliza na tela */
+    margin-right: auto !important; /* Centraliza na tela */
+    padding: 0 10px !important;   /* Margem de segurança nas laterais */
+    box-sizing: border-box;
+}
+
+/* 2. O Carrossel de Produtos */
 #historicoGrid {
     display: flex !important;
     flex-wrap: nowrap !important;
     overflow-x: auto;
-    gap: px;
-    padding: 10px 5px 20px 5px;
+    overflow-y: hidden;
+    gap: 8px; /* Espaço entre cards */
     
-    /* Garante que todos os cards tenham a mesma altura */
+    /* ZERAMOS o padding lateral aqui, pois o container pai já tem! */
+    padding: 10px 0 20px 0 !important; 
+    
     align-items: stretch !important; 
-    
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     justify-content: flex-start !important;
     
-    /* Remove padding direito para usar o elemento fantasma */
-    padding-right: 0; 
+    padding-right: 0 !important; 
 }
 
-/* Tamanho fixo apenas no histórico */
+/* 3. Cards */
 #historicoGrid .product-card {
     min-width: 160px;
     max-width: 180px;
-    height: auto !important; /* Deixa o Flexbox decidir a altura (vai esticar igual o maior) */
-    align-self: stretch !important; /* Força ele a ir do topo até o chão da linha */
+    height: auto !important; 
+    align-self: stretch !important; 
     flex: 0 0 auto;
     scroll-snap-align: start;
 }
 
-/* O Elemento Fantasma (Corrige o último card cortado na direita) */
+/* 4. Elemento Fantasma (Respiro na direita) */
 #historicoGrid::after {
     content: "";
     display: block;
-    min-width: 20px; /* Tamanho do respiro final */
-    height: 1px;     /* Altura mínima para não atrapalhar o layout */
+    min-width: 5px; 
+    height: 1px;    
     flex: 0 0 auto;
 }
 
-/* Scrollbar Bonitinha */
+/* 5. Scrollbar */
 #historicoGrid::-webkit-scrollbar { height: 4px; }
 #historicoGrid::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); border-radius: 10px; }
-#historicoGrid::-webkit-scrollbar-thumb { background: #363636; border-radius: 10px; }
+#historicoGrid::-webkit-scrollbar-thumb { background: #737373; border-radius: 10px; }
+
+/* 6. Título (Zera o padding extra para alinhar com a caixa) */
+#historico-section .section-title {
+    padding-left: 0 !important;
+    margin-bottom: 15px;
+}
 </style>
   </head>
   <body>
@@ -142,6 +160,7 @@
             <nav class="main-nav">
               <button id="homeLink" class="nav-button" type="button">Início</button>
               <button id="brandsToggle" class="nav-button" type="button">Marcas</button>
+              <a href="guia.html" class="nav-button nav-link" style="color: #ffffff; text-align: center;">Guia</a>
               
               <div class="brand-panel" id="brandPanel">
                 <div class="brand-panel-inner">
@@ -232,7 +251,7 @@
         <div id="perfumeGrid" class="product-grid"></div>
       </section>
 
-      <section id="historico-section" class="product-section" style="display: none; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 40px; padding-top: 40px;">
+      <section id="historico-section" class="product-section">
         <h2 class="section-title" style="font-size: 15px; margin-bottom: 20px;">
             <i class="fa-solid fa-clock-rotate-left"></i> Vistos Recentemente
         </h2>
@@ -274,6 +293,7 @@
       </button>
       <button onclick="toggleCart()" class="btn-continue">Continuar Comprando</button>
     </div>
+    
   </div>
 </div>
 

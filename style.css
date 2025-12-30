@@ -1937,3 +1937,21 @@ body::before {
     box-shadow: none !important;        
     border: none !important;
 }
+
+/* =========================================
+   SCROLL REVEAL (ANIMAÇÃO AO ROLAR)
+   ========================================= */
+
+/* Estado Inicial: Invisível e um pouco para baixo */
+.product-card {
+    opacity: 0;
+    transform: translateY(30px); /* Empurra para baixo */
+    transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: opacity, transform; /* Avisa o navegador para otimizar */
+}
+
+/* Estado Final: Visível e na posição certa */
+.product-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
