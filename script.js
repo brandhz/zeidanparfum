@@ -36,19 +36,16 @@ function detectarGenero(produto) {
 }
 
 /* =====================================================
-   LÓGICA DO CARRINHO (COM ANIMAÇÃO NO BOTÃO)
+   LÓGICA DO CARRINHO
    ===================================================== */
 let carrinho = JSON.parse(localStorage.getItem('carrinhoZeidan')) || [];
 
-// 1. Atualiza visual da sacola
 window.atualizarCarrinhoUI = function() {
     localStorage.setItem('carrinhoZeidan', JSON.stringify(carrinho));
-
     const container = document.getElementById('cart-items');
     const contador = document.getElementById('cart-count');
     const totalDisplay = document.getElementById('cart-total-value');
 
-    // Bolinha Vermelha
     if (contador) {
         contador.innerText = carrinho.length;
         contador.style.display = carrinho.length > 0 ? 'flex' : 'none';
@@ -100,13 +97,10 @@ window.atualizarCarrinhoUI = function() {
     if (totalDisplay) totalDisplay.innerText = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 };
 
-// 2. Adicionar ao Carrinho (Com Efeito Visual)
 window.adicionarAoCarrinho = function(marca, produto, preco, botao) {
-    // Adiciona
     carrinho.push({ marca, produto, preco });
     atualizarCarrinhoUI();
 
-    // Animação Ícone Carrinho (Pulsar)
     const cartIcon = document.querySelector('.cart-floating-btn i') || document.getElementById('cart-btn');
     if (cartIcon) {
         cartIcon.style.transition = "transform 0.2s, color 0.2s";
@@ -118,31 +112,26 @@ window.adicionarAoCarrinho = function(marca, produto, preco, botao) {
         }, 300);
     }
 
-    // Animação Botão "Encomende" (Fica Verde)
     if (botao) {
         const textoOriginal = botao.innerHTML;
         const estiloOriginal = botao.getAttribute("style");
-
         botao.innerHTML = 'Adicionado! <i class="fa-solid fa-check"></i>';
-        botao.style.background = '#2ecc71'; // Verde
+        botao.style.background = '#2ecc71'; 
         botao.style.color = '#fff';
         botao.style.border = '1px solid #2ecc71';
         botao.style.transform = 'scale(1.05)';
-        
         setTimeout(() => {
             botao.innerHTML = textoOriginal;
-            botao.setAttribute("style", estiloOriginal || ""); // Restaura estilo original
+            botao.setAttribute("style", estiloOriginal || ""); 
         }, 1500);
     }
 };
 
-// 3. Remover
 window.removerDoCarrinho = function(index) {
     carrinho.splice(index, 1);
     atualizarCarrinhoUI();
 };
 
-// 4. Toggle Modal
 window.toggleCart = function() {
     const modal = document.getElementById('cart-modal');
     if (!modal) return;
@@ -154,7 +143,6 @@ window.toggleCart = function() {
     }
 };
 
-// 5. Finalizar WhatsApp
 window.finalizarNoZap = function() {
     if (carrinho.length === 0) return alert("Sua sacola está vazia!");
     let mensagem = "Olá Zeidan! Gostaria de verificar a disponibilidade destes perfumes:\n\n";
@@ -176,42 +164,35 @@ window.finalizarNoZap = function() {
 };
 
 /* =====================================================
-   CARREGAMENTO DE DADOS (VERSÃO BLINDADA)
+   CARREGAMENTO DE DADOS (VERSÃO CORRIGIDA E HÍBRIDA)
    ===================================================== */
 async function loadPerfumes() {
   try {
     const response = await fetch("data.json");
     perfumes = await response.json();
 
-    // 1. Se estiver na Home (Grade de Produtos)
     if (typeof brandColumns !== 'undefined' && brandColumns) populateBrandColumns();
     if (typeof perfumeGrid !== 'undefined' && perfumeGrid) renderCards("TODAS", "", "TODAS");
     
-    // 2. Inicializa carrinho
     if(window.atualizarCarrinhoUI) window.atualizarCarrinhoUI();
 
-    // 3. LÓGICA HÍBRIDA (COM NOME DE VARIÁVEL NOVO)
-    // Mudei de 'const urlParams' para 'const paramsDaUrl' para evitar o erro
+    // LÓGICA HÍBRIDA (Renomeei para paramsDaUrl para evitar conflito)
     const paramsDaUrl = new URLSearchParams(window.location.search);
     const id = paramsDaUrl.get('id'); 
 
     if (id) {
-        // TENTATIVA 1: Busca pelo SLUG
         let p = perfumes.find(item => item.id_slug === id);
         
-        // TENTATIVA 2: Busca pelo NOME (Decode)
         if (!p) {
             const idDecodificado = decodeURIComponent(id); 
             p = perfumes.find(item => item.Produto === idDecodificado);
         }
 
-        // TENTATIVA 3: Busca pelo NOME (Minusculo)
         if (!p) {
              const idLimpo = id.toLowerCase().replace(/-/g, ' ');
              p = perfumes.find(item => (item.Produto || "").toLowerCase() === idLimpo);
         }
         
-        // SE ACHOU O PERFUME
         if (p) {
             if(document.getElementById('product-detail-name')) 
                 document.getElementById('product-detail-name').innerText = p.Produto;
@@ -238,9 +219,9 @@ async function loadPerfumes() {
                 };
             }
             
-            // Esconde erros
             const errorMsg = document.querySelector('.product-not-found-msg');
-            const notFoundTitle = document.querySelector('h1');
+            const notFoundTitle = document.querySelector('h1'); 
+            
             if(errorMsg) errorMsg.style.display = 'none';
             if(notFoundTitle && notFoundTitle.innerText.includes("NÃO ENCONTRADO")) {
                  notFoundTitle.style.display = 'none';
@@ -250,7 +231,7 @@ async function loadPerfumes() {
         }
     }
   } catch (error) {
-    console.error("Erro data.json:", error);
+    console.error("Erro ao carregar data.json:", error);
   }
 }
 
@@ -300,7 +281,7 @@ function renderCards(selectedBrand, searchTerm, category) {
 
     card.className = `product-card ${catClass} ${genClass}`;
 
-    let detalheHref = p.id_slug ? "produto.html?id=" + p.id_slug : null;
+    let detalheHref = p.id_slug ? "produto.html?id=" + p.id_slug : (p.Produto ? "produto.html?id=" + encodeURIComponent(p.Produto) : null);
     
     const marcaSafe = (p.Marca || "").replace(/'/g, " ");
     const produtoSafe = (p.Produto || "").replace(/'/g, " ");
@@ -338,7 +319,6 @@ function renderCards(selectedBrand, searchTerm, category) {
   });
 }
 
-// Favoritos
 window.toggleFavorito = function(nomeProduto, btn) {
     if(event) event.stopPropagation();
     let favoritos = JSON.parse(localStorage.getItem('zeidanFavoritos')) || [];
@@ -354,7 +334,6 @@ window.toggleFavorito = function(nomeProduto, btn) {
         btn.classList.add('active');
         icon.classList.remove('fa-regular');
         icon.classList.add('fa-solid');
-        // Efeito pulso
         icon.style.transform = "scale(1.3)";
         setTimeout(() => icon.style.transform = "scale(1)", 200);
     }
@@ -436,6 +415,41 @@ window.addEventListener('scroll', function() {
   }
 });
 
+/* =====================================================
+   GALERIA DE FOTOS
+   ===================================================== */
+window.montarGaleria = function(produto) {
+    const mainImg = document.getElementById('main-product-img');
+    const track = document.getElementById('thumbnails-track');
+    
+    if (!mainImg || !track) return;
+
+    mainImg.src = produto.Imagem;
+
+    let lista = [];
+    if(produto.Imagem) lista.push(produto.Imagem);
+    if(produto.Imagem2) lista.push(produto.Imagem2);
+    if(produto.Imagem3) lista.push(produto.Imagem3);
+    if(produto.Imagem4) lista.push(produto.Imagem4);
+
+    if(lista.length === 1) lista = [produto.Imagem, produto.Imagem, produto.Imagem, produto.Imagem];
+    
+    track.innerHTML = '';
+    
+    lista.forEach((imgSrc, index) => {
+        const thumb = document.createElement('div');
+        thumb.className = `thumb-item ${index === 0 ? 'active' : ''}`;
+        thumb.innerHTML = `<img src="${imgSrc}" style="width:100%; height:100%; object-fit:contain; display:block;">`;
+        
+        thumb.onclick = () => {
+            mainImg.src = imgSrc;
+            document.querySelectorAll('.thumb-item').forEach(t => t.classList.remove('active'));
+            thumb.classList.add('active');
+        };
+        track.appendChild(thumb);
+    });
+};
+
 // Inicialização
 loadPerfumes();
 
@@ -452,42 +466,3 @@ if (perfumeGrid) {
     renderCards(marcaSelecionada, "", currentCategory);
   }
 }
-
-/* =====================================================
-   NOVA FUNÇÃO: GALERIA DE 4 FOTOS
-   ===================================================== */
-window.montarGaleria = function(produto) {
-    const mainImg = document.getElementById('main-product-img');
-    const track = document.getElementById('thumbnails-track');
-    
-    if (!mainImg || !track) return;
-
-    // 1. Define a imagem grande
-    mainImg.src = produto.Imagem;
-
-    // 2. Monta a lista (Imagem 1, 2, 3 e 4)
-    let lista = [];
-    if(produto.Imagem) lista.push(produto.Imagem);
-    if(produto.Imagem2) lista.push(produto.Imagem2);
-    if(produto.Imagem3) lista.push(produto.Imagem3);
-    if(produto.Imagem4) lista.push(produto.Imagem4);
-
-    // Se tiver só 1 foto, repete ela 4 vezes
-    if(lista.length === 1) lista = [produto.Imagem, produto.Imagem, produto.Imagem, produto.Imagem];
-    
-    // 3. Desenha os quadradinhos
-    track.innerHTML = '';
-    
-    lista.forEach((imgSrc, index) => {
-        const thumb = document.createElement('div');
-        thumb.className = `thumb-item ${index === 0 ? 'active' : ''}`;
-        thumb.innerHTML = `<img src="${imgSrc}" style="width:100%; height:100%; object-fit:contain; display:block;">`;
-        
-        thumb.onclick = () => {
-            mainImg.src = imgSrc;
-            document.querySelectorAll('.thumb-item').forEach(t => t.classList.remove('active'));
-            thumb.classList.add('active');
-        };
-        track.appendChild(thumb);
-    });
-};
