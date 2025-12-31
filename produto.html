@@ -212,7 +212,7 @@
           <p id="produtoMarca" class="product-detail-brand"></p>
           <p id="produtoPreco" class="product-detail-price"></p>
           <div id="box-decants" class="version-selector-container" style="display: none; margin: 20px 0;">
-    <div class="selector-label" style="font-size: 12px; color: #888; text-transform: uppercase; margin-bottom: 10px; font-weight: 700;">Escolha a versão:</div>
+    <div class="selector-label" style="font-size: 12px; color: #ffffff; text-transform: uppercase; margin-bottom: 10px; font-weight: 700;">Escolha a versão:</div>
     
     <div class="version-options" style="display: flex; gap: 10px; flex-wrap: wrap;">
         <label class="version-option active" onclick="selecionarVersao('frasco')" style="flex: 1; min-width: 100px; background: #111; border: 1px solid #444; border-radius: 8px; padding: 10px; cursor: pointer; display: flex; flex-direction: column; align-items: center;">
@@ -656,22 +656,43 @@
         if(modalClose) modalClose.onclick = fecharModal;
         if(modalBackdrop) modalBackdrop.onclick = fecharModal;
 
-        // --- BOTÕES DE AÇÃO ---
+        // --- BOTÕES DE AÇÃO (CORRIGIDO PARA PEGAR O DECANT) ---
         const btnWhatsapp = document.getElementById("produtoWhatsapp");
         const btnComprar = document.getElementById("produtoComprar");
-        const marcaSafe = (p.Marca || "").replace(/'/g, " ");
-        const produtoSafe = (p.Produto || "").replace(/'/g, " ");
-        const precoSafe = (p.Preco_Venda || "R$ 0,00");
 
         function acaoClicar(e) {
-            e.preventDefault();
+            e.preventDefault(); // Evita recarregar a página
+            
+            // 1. DEFINE O NOME DO PRODUTO
+            // Começa com o nome original
+            let nomeFinal = (p.Produto || "").replace(/'/g, " ");
+            
+            // Se tiver uma versão selecionada (e não for o frasco normal), adiciona ao nome
+            // Ex: "Lattafa Asad - Decant (5ml)"
+            if (typeof versaoAtualSelecionada !== 'undefined' && versaoAtualSelecionada && versaoAtualSelecionada !== "Frasco Lacrado") {
+                nomeFinal = `${nomeFinal} - ${versaoAtualSelecionada}`;
+            }
+
+            // 2. DEFINE O PREÇO
+            // Começa com o preço original
+            let precoFinal = p.Preco_Venda || "R$ 0,00";
+            
+            // Se tiver um preço de seleção ativo, usa ele
+            if (typeof precoAtualSelecionado !== 'undefined' && precoAtualSelecionado) {
+                precoFinal = precoAtualSelecionado;
+            }
+
+            const marcaSafe = (p.Marca || "").replace(/'/g, " ");
+
+            // 3. ENVIA PRO CARRINHO COM OS DADOS CERTOS
             if (typeof adicionarAoCarrinho === "function") {
-                adicionarAoCarrinho(marcaSafe, produtoSafe, precoSafe, e.currentTarget);
+                adicionarAoCarrinho(marcaSafe, nomeFinal, precoFinal, e.currentTarget);
             } else if (window.adicionarAoCarrinho) {
-                 window.adicionarAoCarrinho(marcaSafe, produtoSafe, precoSafe, e.currentTarget);
+                 window.adicionarAoCarrinho(marcaSafe, nomeFinal, precoFinal, e.currentTarget);
             }
         }
 
+        // Reconecta o clique dos botões para usar essa nova função inteligente
         if (btnWhatsapp) btnWhatsapp.onclick = acaoClicar;
         if (btnComprar) btnComprar.onclick = acaoClicar;
 
