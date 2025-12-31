@@ -1797,29 +1797,29 @@
         "Produto": "AL HARAMAIN AMBER OUD GOLD 120 ML",
         "Categoria": "Árabe",
         "Custo_Padrao": "R$ 430,00",
-        "Preco_Venda": "",
-        "Imagem": "https://i.etsystatic.com/33858392/r/il/f40b20/4524897619/il_fullxfull.4524897619_bvch.jpg",
-        "Descricao": "AL HARAMAIN AMBER OUD GOLD 120 ML da marca AL HARAMAIN é um perfume árabe ideal para quem busca presença e sofisticação, com destaque para notas de oud envolventes. Disponível na Zeidan Parfum por preço sob consulta.",
-        "Acordes": "",
+        "Preco_Venda": "589,90",
+        "Imagem": "https://m.media-amazon.com/images/I/41EWQvhNGJL._SL500_.jpg",
+        "Descricao": "Amber Oud Gold Edition, da Al Haramain, é uma fragrância frutal-doce-amadeirada unissex lançada em 2018 que encapsula luxo acessível e alegria tropical. Abre com bergamota cítrica fresca e notas verdes vibrantes que trazem luminosidade e energia, evoluindo para um coração exuberante de melão honeyed, abacaxi suculento (com toques de maçã não listados oficialmente), notas gourmand cremosas e âmbar dourado que criam doçura autêntica e frutal sem ser artificial ou enjoativa. A base confortante combina baunilha cremosa, almíscar sensual e notas amadeiradas úmidas com oud sutil, oferecendo profundidade, calor e fixação excepcional. Frequentemente comparada ao icônico Xerjoff Erba Pura (rumores sugerem que ambas compartilham o mesmo perfumista Christian Carbonnel), Amber Oud Gold Edition oferece performance acima da média com projeção moderada e longevidade impressionante a uma fração do preço. Ideal para primavera e verão, é perfeita para quem busca uma fragrância alegre, versátil, refinada e acessível que transmite bom humor e elegância tropical. Disponível na Zeidan Parfum.",
+        "Acordes": "Doce, frutado, ozônico, atalcado, baunilha",
         "Sugestoes": [
-            "",
-            "",
-            ""
+            "XERJOFF ERBA PURA EDP 100 ML",
+            "ORIENTICA LUXU.ROYAL AMBER EDP 80 ML",
+            "ARMAF CLUB DE NUIT OUD PARF. 105 ML"
         ],
-        "Familia": "",
-        "Notas_Topo": "",
-        "Notas_Coracao": "",
-        "Notas_Fundo": "",
-        "Estilo": "",
-        "Ocasião": "",
-        "Intensidade": "",
-        "Gênero": "",
+        "Familia": "Oriental Baunilha Compartilhável",
+        "Notas_Topo": "Bergamota, Notas Verdes",
+        "Notas_Coracao": "Melão, Abacaxi, Âmbar, Acorde Gourmand",
+        "Notas_Fundo": "Baunilha, Almíscar, Notas Amadeiradas",
+        "Estilo": "cerca de 50% diurno e 50% noturno",
+        "Ocasião": "Passeio ao ar livre, café de fim de tarde, evento social, encontro casual",
+        "Intensidade": "cerca de 8 horas de longevidade com rastro forte",
+        "Gênero": "Unissex",
         "_index": 56,
         "Destaque": false,
-        "Imagem2": "https://m.media-amazon.com/images/I/41EWQvhNGJL._SL500_.jpg",
-        "Imagem3": "https://nar.co.il/wp-content/uploads/2022/08/Al-Haramain-Amber-Oud-Gold-Edition-Tester-EDP-120ML-אלחרמין-אמבר-אוד-טסטר.jpg",
-        "Imagem4": "https://alharamainperfumes.co.uk/cdn/shop/products/AHP1049-Amber-Oud-Gold-Edition-120ML.jpg?v=1724057294",
-        "id_slug": "al-haramain-al-haramain-amber-oud-gold-120",
+        "Imagem2": "https://fimgs.net/mdimg/perfume-thumbs/375x500.51816.avif",
+        "Imagem3": "https://fimgs.net/photogram/p1200/oq/vy/aJ1OJIlCOmjzisD0.jpg",
+        "Imagem4": "https://fimgs.net/photogram/p1200/af/av/Qy96TlrwKmXq7zdO.jpg",
+        "id_slug": "al-haramain-amber-oud-gold-120",
         "Decant5ml": "",
         "Decant10ml": ""
     },
@@ -4317,7 +4317,7 @@
         "Imagem4": "https://fragrancemansion.com/cdn/shop/files/4.png?v=1731732232&width=1946",
         "id_slug": "armaf-armaf-club-nuit-int-edt-105",
         "Decant5ml": "",
-        "Decant10ml": "R$ 30,00"
+        "Decant10ml": "R$ 35,00"
     },
     {
         "Marca": "ARMAF",
@@ -4517,29 +4517,29 @@
         "Produto": "ARMAF CLUB DE NUIT OUD PARF. 105 ML",
         "Categoria": "Árabe",
         "Custo_Padrao": "R$ 389,99",
-        "Preco_Venda": "",
-        "Imagem": "https://m.media-amazon.com/images/I/311oi8u3scL._SL500_.jpg",
+        "Preco_Venda": "499,90",
+        "Imagem": "imagensdeperfume/armaf-club-de-nuit-oud.webp",
         "Descricao": "ARMAF CLUB DE NUIT OUD PARF. 105 ML da marca ARMAF é um perfume árabe ideal para quem busca presença e sofisticação, com destaque para notas de oud envolventes. Disponível na Zeidan Parfum por preço sob consulta.",
-        "Acordes": "",
+        "Acordes": "Frutado, doce, amadeirado, almíscarado, atalcado",
         "Sugestoes": [
-            "",
-            "",
-            ""
+            "XERJOFF ERBA PURA EDP 100 ML",
+            "AL HARAMAIN AMBER OUD GOLD 120 ML",
+            "ARMAF CLUB DE NUIT INT. EDT M 105 ML"
         ],
-        "Familia": "",
-        "Notas_Topo": "",
-        "Notas_Coracao": "",
-        "Notas_Fundo": "",
-        "Estilo": "",
-        "Ocasião": "",
-        "Intensidade": "",
-        "Gênero": "",
+        "Familia": "Oriental Compartilhável",
+        "Notas_Topo": "Pêssego, Pera, Maracujá, Abacaxi, Ameixa, Bergamota",
+        "Notas_Coracao": "Madeira de Cashmere, Jasmim, Frésia, Folhas de Violeta",
+        "Notas_Fundo": "Almíscar, Oud de Cambodja, Baunilha, Âmbar Cristal",
+        "Estilo": "cerca de 45% diurno e 55% noturno",
+        "Ocasião": "Reunião de negócios, evento formal, saída noturna, encontro especial",
+        "Intensidade": "cerca de 8 horas de longevidade com rastro forte",
+        "Gênero": "Unissex",
         "_index": 141,
         "Destaque": false,
-        "Imagem2": "https://samawa.ae/cdn/shop/products/ArmafClubDeNuitIntenseMLimitedEditionParfum105mlSpy.jpg?v=1677588689",
+        "Imagem2": "https://media.parfoom.com/products/armaf-club-de-nuit-oud-553649c4-primary.webp",
         "Imagem3": "https://lacasadelperfume.cl/wp-content/uploads/2024/12/club-oud.jpg",
-        "Imagem4": "https://media.parfoom.com/products/armaf-club-de-nuit-oud-553649c4-primary.webp",
-        "id_slug": "armaf-armaf-club-nuit-oud-parf-105",
+        "Imagem4": "https://fimgs.net/photogram/p1200/dt/ez/tHZBEgGtFmHhfq4h.jpg",
+        "id_slug": "armaf-club-nuit-oud-parf-105",
         "Decant5ml": "",
         "Decant10ml": ""
     },
@@ -4712,26 +4712,26 @@
         "Preco_Venda": "R$ 259,90",
         "Imagem": "https://img.fragrancex.com/images/products/sku/large/cdnar36w.webp",
         "Descricao": "ARMAF CLUB DE NUIT WOMAN 105 ML da marca ARMAF é um perfume árabe ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e amadeiradas. Disponível na Zeidan Parfum por R$ 259,90.",
-        "Acordes": "",
+        "Acordes": "Cítrico, patchouli, rosa, fresco especiado, amadeirado",
         "Sugestoes": [
-            "",
-            "",
+            "LA VIE EST BELLE EDP 100 ML",
+            "LATTAFA YARA EDP 100 ML",
             ""
         ],
-        "Familia": "",
-        "Notas_Topo": "",
-        "Notas_Coracao": "",
-        "Notas_Fundo": "",
-        "Estilo": "",
-        "Ocasião": "",
-        "Intensidade": "",
-        "Gênero": "",
+        "Familia": "Floral Frutado Feminino",
+        "Notas_Topo": "Laranja, Bergamota, Toranja, Pêssego",
+        "Notas_Coracao": "Rosa, Jasmim, Gerânio, Lichia",
+        "Notas_Fundo": "Patchouli, Almíscar, Baunilha, Vetiver",
+        "Estilo": "cerca de 60% diurno e 40% noturno",
+        "Ocasião": "Passeio ao ar livre, café de fim de tarde, evento social, encontro casual",
+        "Intensidade": "cerca de 7 horas de longevidade com rastro forte",
+        "Gênero": "Feminino",
         "_index": 147,
         "Destaque": false,
-        "Imagem2": "https://p1.akcdn.net/full/470054215.armaf-club-de-nuit-woman-edp-105-ml.jpg",
-        "Imagem3": "https://www.maxiparfum.hu/images/products/armaf-club-de-nuit-intense-woman-parfumovana-voda-pre-zeny.jpg",
-        "Imagem4": "",
-        "id_slug": "armaf-armaf-club-nuit-woman-105",
+        "Imagem2": "https://fimgs.net/mdimg/perfume-thumbs/375x500.27655.avif",
+        "Imagem3": "https://fimgs.net/photogram/p1200/bo/ul/0Im5S4xEIumqJ0qJ.jpg",
+        "Imagem4": "https://fimgs.net/photogram/p1200/ib/4x/AwIyWo2szGQWocd9.jpg",
+        "id_slug": "armaf-club-nuit-woman-105",
         "Decant5ml": "",
         "Decant10ml": ""
     },
@@ -6907,7 +6907,7 @@
         "Imagem2": "https://fimgs.net/mdimg/perfume-thumbs/375x500.105520.avif",
         "Imagem3": "https://fimgs.net/photogram/p1200/yn/qa/VV6xFUmlkty1KkOC.jpg",
         "Imagem4": "https://fimgs.net/photogram/p1200/y3/9e/qS7fsNVIQKcIyxdR.jpg",
-        "id_slug": "french-avenue-french-avenue-vulcan-feu-100",
+        "id_slug": "french-avenue-vulcan-feu-100",
         "Decant5ml": "",
         "Decant10ml": ""
     },
@@ -7882,9 +7882,9 @@
         "Descricao": "Asad, da Lattafa, é uma fragrância amadeirada-especiada unissex que oferece uma interpretação sofisticada inspirada em Dior Sauvage Elixir. Abre com pimenta preta vibrante, fumo rico e abacaxi suculento em um burst especiado e intrépido que estabelece presença imediata, evoluindo para um coração profundo de café aromático, íris pó e patchouli terroso que entregam sofisticação e warmth balanceado. A base quente e envolvente combina baunilha cremosa, âmbar dourado, madeira seca, benzoína e labdano resinos, criando um rastro duradouro, magnetizado e profundamente masculino. Ideal para noites sofisticadas e climas mais frios, é perfeito para homens que buscam uma fragrância ousada, complexa e sensual que entrega presença marcante. Disponível na Zeidan Parfum..",
         "Acordes": "Âmbar, fresco especiado, amadeirado, baunilha, especiado quente",
         "Sugestoes": [
-            "",
-            "",
-            ""
+            "LATTAFA KHAMRAH EDP 100 ML",
+            "VERSACE DYLAN BLUE EDT 100 ML",
+            "LATTAFA FAKHAR EDP M BLACK 100 ML"
         ],
         "Familia": "Oriental Masculino",
         "Notas_Topo": "Pimenta Preta, Tabaco, Abacaxi",
@@ -7901,7 +7901,7 @@
         "Imagem4": "https://fimgs.net/photogram/p1200/po/tf/YBRiYcAFoI6z07CI.jpg",
         "id_slug": "lattafa-lattafa-asad-edp-100",
         "Decant5ml": "",
-        "Decant10ml": ""
+        "Decant10ml": "R$ 35,00"
     },
     {
         "Marca": "LATTAFA",
@@ -8827,9 +8827,9 @@
         "Imagem2": "https://fimgs.net/mdimg/perfume-thumbs/375x500.70466.avif",
         "Imagem3": "https://fimgs.net/photogram/p1200/zf/3h/qM2uhfG3Fh0h4t2w.jpg",
         "Imagem4": "https://fimgs.net/photogram/p1200/fq/vw/R5wjKc7dF7JXNaKa.jpg",
-        "id_slug": "lattafa-lattafa-fakhar-edp-rose-100",
+        "id_slug": "lattafa-fakhar-edp-rose-100",
         "Decant5ml": "",
-        "Decant10ml": ""
+        "Decant10ml": "R$ 35,00"
     },
     {
         "Marca": "LATTAFA",
@@ -8859,9 +8859,9 @@
         "Imagem2": "https://fimgs.net/mdimg/perfume-thumbs/375x500.70465.avif",
         "Imagem3": "https://fimgs.net/photogram/p1200/zn/go/UB0AbQxXQOK46sy5.jpg",
         "Imagem4": "https://fimgs.net/photogram/p1200/kn/zt/MMgE1FAP83mDPSAZ.jpg",
-        "id_slug": "lattafa-lattafa-fakhar-edp-black-100",
+        "id_slug": "lattafa-fakhar-edp-black-100",
         "Decant5ml": "",
-        "Decant10ml": ""
+        "Decant10ml": "R$ 35,00"
     },
     {
         "Marca": "LATTAFA",
@@ -8891,9 +8891,9 @@
         "Imagem2": "https://fimgs.net/mdimg/perfume-thumbs/375x500.85092.avif",
         "Imagem3": "https://fimgs.net/photogram/p1200/9e/g2/gzujwMzcGa6pkGlA.jpg",
         "Imagem4": "https://fimgs.net/photogram/p1200/lz/fz/fDa5W2ZPf4Ey4v8s.jpg",
-        "id_slug": "lattafa-lattafa-fakhar-extrait-gold-100",
+        "id_slug": "lattafa-fakhar-extrait-gold-100",
         "Decant5ml": "",
-        "Decant10ml": ""
+        "Decant10ml": "R$ 35,00"
     },
     {
         "Marca": "LATTAFA",
@@ -8923,9 +8923,9 @@
         "Imagem2": "https://fimgs.net/mdimg/perfume-thumbs/375x500.107363.avif",
         "Imagem3": "https://fimgs.net/photogram/p1200/5u/vu/ZmmbvFqLDvUwdq58.jpg",
         "Imagem4": "https://fimgs.net/mdimg/secundar/o.133557.jpg",
-        "id_slug": "lattafa-lattafa-fakhar-platin-edp-100",
+        "id_slug": "lattafa-fakhar-platin-edp-100",
         "Decant5ml": "",
-        "Decant10ml": ""
+        "Decant10ml": "R$ 35,00"
     },
     {
         "Marca": "LATTAFA",
@@ -9085,7 +9085,7 @@
         "Imagem4": "",
         "id_slug": "lattafa-lattafa-hayaati-gold-elixir-100",
         "Decant5ml": "",
-        "Decant10ml": ""
+        "Decant10ml": "R$ 25,00"
     },
     {
         "Marca": "LATTAFA",
@@ -12743,14 +12743,14 @@
         "Custo_Padrao": "R$ 170,00",
         "Preco_Venda": "R$ 249,90",
         "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/yara-2-08358c960af5bb384917482852170392-1024-1024.webp",
-        "Descricao": "LATTAFA YARA EDP 100 ML da marca LATTAFA é um perfume árabe ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e doces. Disponível na Zeidan Parfum por R$ 249,90.",
-        "Acordes": "",
+        "Descricao": "Yara EDP, da Lattafa Perfumes, é uma fragrância âmbar-baunilha feminina árabe que encapsula elegância, sensualidade e sofisticação com excelente custo-benefício. Lançada em 2020, abre com orquídea delicada, heliotrópio suave-atalcado e tangerina fresca em um topo floral-cítrico irresistível, evoluindo para um coração indulgente de acorde gourmand cremoso e frutas tropicais exóticas que proporcionam doçura viciante. A base absolutamente envolvente combina baunilha rica, almíscar sensual e sândalo cremoso, criando um rastro doce-amadeirado-atalcado extremamente duradouro e marcante. Frequentemente comparada a fragrâncias de luxo como Lancôme La Vie Est Belle, Yara oferece fixação prolongada e projeção moderada, sendo ideal para ocasiões especiais, eventos noturnos e encontros românticos onde se deseja deixar uma impressão memorável. Perfeita para a mulher moderna que busca uma fragrância árabe sofisticada, cativante e acessível. Disponível na Zeidan Parfum.",
+        "Acordes": "Doce, baunilha, atalcado, tropical, frutado",
         "Sugestoes": [
-            "",
-            "",
-            ""
+            "LATTAFA KHAMRAH EDP 100 ML",
+            "GOOD GIRL EDP 80 ML",
+            "BURBERRY GODDESS EDP 30ML"
         ],
-        "Familia": "floral gourmand",
+        "Familia": "Oriental Baunilha Feminino",
         "Notas_Topo": "Orquídea, Heliotrópio, Tangerina",
         "Notas_Coracao": "Acorde gourmand, frutas tropicais",
         "Notas_Fundo": "Baunilha, Almíscar, Sândalo",
@@ -12763,9 +12763,9 @@
         "Imagem2": "https://fimgs.net/mdimg/perfume-thumbs/375x500.76880.avif",
         "Imagem3": "https://fimgs.net/photogram/p1200/mc/qp/NBk5BXwteWkYWQVk.jpg",
         "Imagem4": "https://fimgs.net/photogram/p1200/15/9k/CtCeRNehu8RpWYHA.jpg",
-        "id_slug": "lattafa-lattafa-yara-edp-100",
+        "id_slug": "lattafa-yara-edp-100",
         "Decant5ml": "",
-        "Decant10ml": ""
+        "Decant10ml": "29,90"
     },
     {
         "Marca": "LATTAFA",
@@ -19515,7 +19515,7 @@
         "Imagem2": "https://fimgs.net/mdimg/perfume-thumbs/375x500.485.avif",
         "Imagem3": "https://fimgs.net/photogram/p1200/kv/xs/b1N8hBI9CPWJm52u.jpg",
         "Imagem4": "https://fimgs.net/photogram/p1200/4j/an/T8SNk90HFgPnsnlJ.jpg",
-        "id_slug": "dolce&gabanna-dolce-gabbana-light-blue-100",
+        "id_slug": "dolce-gabbana-light-blue-100",
         "Decant5ml": "",
         "Decant10ml": ""
     },
@@ -21403,7 +21403,7 @@
         "Imagem2": "",
         "Imagem3": "",
         "Imagem4": "",
-        "id_slug": "stephane-humbert-lucas-lucas-shl-god-of-fire-edp-50",
+        "id_slug": "shl-god-of-fire-edp-50",
         "Decant5ml": "",
         "Decant10ml": ""
     },
@@ -22094,7 +22094,7 @@
             "",
             ""
         ],
-        "Familia": "Citrinos compartilhados",
+        "Familia": "Citrinos compartilháveis",
         "Notas_Topo": "Toranja, Bergamota, Jasmim, Magnólia",
         "Notas_Coracao": "Gengibre, Notas Herbais, Notas Atalcadas",
         "Notas_Fundo": "Almíscar, Cedro, Âmbar, Patchouli, Raíz de Orris",
@@ -22236,8 +22236,8 @@
         "Imagem3": "https://fimgs.net/photogram/p1200/hi/ck/bqGlkIj23SReImXX.jpg",
         "Imagem4": "https://fimgs.net/photogram/p1200/b7/8v/OZLise8lwUDNLlOJ.jpg",
         "id_slug": "xerjoff-erba-pura-edp-100",
-        "Decant5ml": "",
-        "Decant10ml": ""
+        "Decant5ml": "99,90",
+        "Decant10ml": "199,90"
     },
     {
         "Marca": "XERJOFF",
@@ -22245,28 +22245,28 @@
         "Produto": "XERJOFF ERBA GOLD EDP 100 ML",
         "Categoria": "Nicho",
         "Custo_Padrao": "R$ 1.400,00",
-        "Preco_Venda": "R$ 1.849,90",
+        "Preco_Venda": "R$ 1.949,90",
         "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/erba-gold-2-715bf90ccceeb0b71017485691445902-1024-1024.webp",
-        "Descricao": "XERJOFF ERBA GOLD EDP 100 ML da marca XERJOFF é um perfume de nicho ideal para quem busca presença e sofisticação, equilibrando notas frescas, florais e amadeiradas. Disponível na Zeidan Parfum por R$ 1.849,90.",
-        "Acordes": "",
+        "Descricao": "Erba Gold, da Xerjoff, é uma fragrância oriental-cítrica-frutal unissex vibrante e luxuosa lançada em 2016, inspirada na versão Erba Pura com adições de notas frutadas. Abre com limão de Amalfi radiante, laranja brasileira suculenta, bergamota da Calábria e gengibre picante em um topo cítrico energético e luminoso, evoluindo para um coração tropical-especiado de maçã verde, melão, pera, cravo, cardamomo da Guatemala e canela de Madagascar que trazem doçura suculenta e calor aromático. A base quente e envolvente combina almíscar branco suave, âmbar sensual, baunilha de Madagascar cremosa e notas amadeiradas, criando um rastro rico, duradouro e sedutor com profundidade dourada. Com performance excepcional de fixação e projeção moderada a intensa, Erba Gold é versátil para uso diurno e noturno, evocando uma energia jovial, magnética e tropical perfeita para quem busca uma fragrância sofisticada, alegre e luxuosa. Disponível na Zeidan Parfum.",
+        "Acordes": "Cítrico, frutado, fresco, doce, aquático",
         "Sugestoes": [
-            "",
-            "",
-            ""
+            "XERJOFF ERBA PURA EDP 100 ML",
+            "AL HARAMAIN AMBER OUD GOLD 120 ML",
+            "ARMAF CLUB DE NUIT OUD PARF. 105 ML"
         ],
-        "Familia": "",
-        "Notas_Topo": "",
-        "Notas_Coracao": "",
-        "Notas_Fundo": "",
-        "Estilo": "",
-        "Ocasião": "",
-        "Intensidade": "",
-        "Gênero": "",
+        "Familia": "Citrinos compartilháveis",
+        "Notas_Topo": "Laranja Brasileira, Limão Siciliano, Bergamota da Calábria, Gengibre",
+        "Notas_Coracao": "Melão, Pera, Maçã Verde, Canela, Cardamomo da Guatemala, Cravo-da-Índia",
+        "Notas_Fundo": "Almíscar Branco, Baunilha de Madagascar, Âmbar, Notas Amadeiradas",
+        "Estilo": "cerca de 70% diurno e 30% noturno",
+        "Ocasião": "Almoço em família, passeio no parque, encontro especial",
+        "Intensidade": "cerca de 8 horas de longevidade com rastro forte",
+        "Gênero": "Unissex",
         "_index": 690,
         "Destaque": false,
-        "Imagem2": "",
-        "Imagem3": "",
-        "Imagem4": "",
+        "Imagem2": "https://fimgs.net/mdimg/perfume-thumbs/375x500.76683.avif",
+        "Imagem3": "https://fimgs.net/photogram/p1200/q0/ex/No2iTToTKtBYr2Tl.jpg",
+        "Imagem4": "https://fimgs.net/photogram/p1200/1n/nj/mbL6oSOeW1Vw2VUw.jpg",
         "id_slug": "xerjoff-erba-gold-edp-100",
         "Decant5ml": "",
         "Decant10ml": ""

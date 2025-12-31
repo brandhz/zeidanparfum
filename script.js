@@ -143,16 +143,24 @@ window.removerDoCarrinho = function(index) {
     atualizarCarrinhoUI();
 };
 
-window.toggleCart = function() {
-    const modal = document.getElementById('cart-modal');
-    if (!modal) return;
-    if (modal.style.display === 'flex') {
-        modal.style.display = 'none';
-    } else {
-        modal.style.display = 'flex';
-        atualizarCarrinhoUI();
-    }
-};
+// 5. Abre e Fecha a Janela (COM CORREÇÃO DO ZAP)
+    window.toggleCart = function() {
+        const modal = document.getElementById('cart-modal');
+        const widgetZap = document.querySelector('.whatsapp-widget'); // Pega o botão do zap
+        
+        if (!modal) return;
+        
+        if (modal.style.display === 'flex') {
+            // FECHANDO O CARRINHO
+            modal.style.display = 'none';
+            if(widgetZap) widgetZap.style.display = 'block'; // Mostra o zap de volta
+        } else {
+            // ABRINDO O CARRINHO
+            modal.style.display = 'flex';
+            if(widgetZap) widgetZap.style.display = 'none'; // Esconde o zap pra não atrapalhar
+            atualizarCarrinhoUI();
+        }
+    };
 
 window.finalizarNoZap = function() {
     if (carrinho.length === 0) return alert("Sua sacola está vazia!");
@@ -499,37 +507,129 @@ window.addEventListener('scroll', function() {
 });
 
 /* =====================================================
-   GALERIA DE FOTOS
+   GALERIA SNIPER (SEPARAÇÃO TOTAL TOUCH vs MOUSE) 🎯
    ===================================================== */
 window.montarGaleria = function(produto) {
+    console.log("--> Galeria Sniper Ativada");
+
     const mainImg = document.getElementById('main-product-img');
     const track = document.getElementById('thumbnails-track');
-    
+
     if (!mainImg || !track) return;
 
-    mainImg.src = produto.Imagem;
+    // 1. Limpa eventos antigos
+    mainImg.onclick = null;
 
+    // 2. Prepara Imagens
     let lista = [];
     if(produto.Imagem) lista.push(produto.Imagem);
     if(produto.Imagem2) lista.push(produto.Imagem2);
     if(produto.Imagem3) lista.push(produto.Imagem3);
     if(produto.Imagem4) lista.push(produto.Imagem4);
+    if(lista.length === 0) lista = ["placeholder.jpg"];
+    const unicaImagem = lista.length === 1;
 
-    if(lista.length === 1) lista = [produto.Imagem, produto.Imagem, produto.Imagem, produto.Imagem];
-    
+    mainImg.src = lista[0];
+    let indiceAtual = 0;
+
+    // 3. Miniaturas
     track.innerHTML = '';
-    
-    lista.forEach((imgSrc, index) => {
-        const thumb = document.createElement('div');
-        thumb.className = `thumb-item ${index === 0 ? 'active' : ''}`;
-        thumb.innerHTML = `<img src="${imgSrc}" style="width:100%; height:100%; object-fit:contain; display:block;">`;
+    lista.forEach((src, i) => {
+        let thumb = document.createElement("div");
+        thumb.className = `thumb-item ${i===0 ? 'active' : ''}`;
+        thumb.id = `thumb-idx-${i}`;
+        thumb.innerHTML = `<img src="${src}">`;
+        if(unicaImagem) thumb.style.display = 'none';
         
-        thumb.onclick = () => {
-            mainImg.src = imgSrc;
-            document.querySelectorAll('.thumb-item').forEach(t => t.classList.remove('active'));
-            thumb.classList.add('active');
-        };
+        // No thumb, usamos click simples mesmo
+        thumb.onclick = (e) => { e.stopPropagation(); irParaFoto(i); };
         track.appendChild(thumb);
+    });
+
+    function irParaFoto(i) {
+        indiceAtual = i;
+        mainImg.src = lista[i];
+        document.querySelectorAll('.thumb-item').forEach(el => el.classList.remove('active'));
+        let ativo = document.getElementById(`thumb-idx-${i}`);
+        if(ativo) {
+            ativo.classList.add('active');
+            ativo.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+    }
+
+    function abrirZoom() {
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("imageModalImg");
+        if (modal && modalImg) {
+            console.log("Zoom Aberto!");
+            modalImg.src = mainImg.src;
+            modal.classList.add("open");
+            modal.style.display = "flex";
+        }
+    }
+
+    // ============================================================
+    // A LÓGICA SNIPER 🔫
+    // ============================================================
+    
+    let startX = 0;
+    let startY = 0;
+    let isTouch = false; // Variável para saber se o usuário está no celular
+
+    // --- 1. CELULAR (TOUCH) ---
+    
+    mainImg.addEventListener('touchstart', e => {
+        isTouch = true; // Marca que é touch para desativar o clique do mouse depois
+        startX = e.changedTouches[0].clientX;
+        startY = e.changedTouches[0].clientY;
+    }, {passive: false}); // passive: false permite usar preventDefault se precisar
+
+    mainImg.addEventListener('touchend', e => {
+        let endX = e.changedTouches[0].clientX;
+        let endY = e.changedTouches[0].clientY;
+        
+        let diffX = endX - startX;
+        let diffY = endY - startY;
+        
+        // CALCULA A DISTÂNCIA PERCORRIDA (EM QUALQUER DIREÇÃO)
+        // Se moveu mais que 10px (seja pra baixo scrollando ou pro lado), NÃO É CLIQUE.
+        if (Math.abs(diffX) > 10 || Math.abs(diffY) > 10) {
+            
+            // Verifica se foi Swipe Lateral Intencional (> 50px)
+            if (Math.abs(diffX) > 50 && Math.abs(diffY) < 40) {
+                 if (diffX < 0) {
+                     let prox = indiceAtual + 1;
+                     if(prox >= lista.length) prox = 0;
+                     irParaFoto(prox);
+                 } else {
+                     let ant = indiceAtual - 1;
+                     if(ant < 0) ant = lista.length - 1;
+                     irParaFoto(ant);
+                 }
+            }
+            // Se foi só scroll (vertical), não faz nada.
+            return;
+        }
+
+        // SE CHEGOU AQUI: O DEDO NÃO MEXEU! É TAP!
+        // preventDefault() impede que o navegador gere um "clique fantasma" depois
+        if (e.cancelable) e.preventDefault(); 
+        abrirZoom();
+    });
+
+    // --- 2. COMPUTADOR (MOUSE) ---
+    
+    // O evento 'click' no computador funciona normal.
+    // Mas no celular, o navegador dispara 'click' depois do 'touchend'.
+    // A gente bloqueia isso verificando a flag 'isTouch'.
+    mainImg.addEventListener('click', (e) => {
+        if (isTouch) {
+            // Se veio do touch, ignoramos este evento (já tratamos no touchend)
+            isTouch = false; // Reseta para o próximo
+            return;
+        }
+        // Se é mouse de verdade, abre o zoom
+        abrirZoom();
     });
 };
 
@@ -560,30 +660,3 @@ function toggleZapMenu() {
         menu.style.display = 'block';
     }
 }
-
-// --- BOTÕES DE AÇÃO (ATUALIZADO PARA DECANTS) ---
-        const btnWhatsapp = document.getElementById("produtoWhatsapp");
-        const btnComprar = document.getElementById("produtoComprar");
-
-        function acaoClicar(e) {
-            e.preventDefault();
-            
-            // Pega o nome: Se for frasco, usa o nome normal. Se for decant, adiciona o sufixo.
-            let nomeFinal = (p.Produto || "").replace(/'/g, " ");
-            if (versaoAtualSelecionada && versaoAtualSelecionada !== "Frasco Lacrado") {
-                nomeFinal = `${nomeFinal} - ${versaoAtualSelecionada}`;
-            }
-
-            const marcaSafe = (p.Marca || "").replace(/'/g, " ");
-            // Usa o preço selecionado (pode ser o do decant)
-            const precoFinal = precoAtualSelecionado || p.Preco_Venda;
-
-            if (typeof adicionarAoCarrinho === "function") {
-                adicionarAoCarrinho(marcaSafe, nomeFinal, precoFinal, e.currentTarget);
-            } else if (window.adicionarAoCarrinho) {
-                 window.adicionarAoCarrinho(marcaSafe, nomeFinal, precoFinal, e.currentTarget);
-            }
-        }
-
-        if (btnWhatsapp) btnWhatsapp.onclick = acaoClicar;
-        if (btnComprar) btnComprar.onclick = acaoClicar;

@@ -6,6 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta property="og:title" content="Zeidan Parfum | Perfumes Importados & Decants">
+  <meta property="og:description" content="Encontre sua assinatura olfativa. Frascos lacrados e decants originais com envio para todo o Brasil.">
+  <meta property="og:image" content="https://seusite.com/capa-compartilhamento.jpg"> <meta property="og:url" content="https://seusite.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <link rel="shortcut icon" href="logopequena.png" type="image/x-icon">
 
   <style>
     /* ESTILOS ESPECÍFICOS DO QUIZ */
@@ -251,7 +257,7 @@
   </main>
 
   <script>
-   // ESTADO DO QUIZ
+    // ESTADO DO QUIZ
     let respostas = {
         genero: '',
         vibe: '',
@@ -280,67 +286,52 @@
     }
 
     // ============================================================
-    // CÉREBRO NOVO (SISTEMA DE PONTUAÇÃO)
+    // CÉREBRO NOVO (SISTEMA COM SORTEIO INTELIGENTE 🎲)
     // ============================================================
     function processResults(intensidade) {
         respostas.intensidade = intensidade;
         
-        // Tela de carregamento
+        // Tela de carregamento (Com suspense...)
         document.querySelectorAll('.quiz-step').forEach(el => el.classList.remove('active'));
         document.getElementById('step-result').classList.add('active');
-        document.getElementById('results-container').innerHTML = '<p style="color:#fff">Analisando DNA olfativo...</p>';
+        document.getElementById('results-container').innerHTML = 
+            '<div style="color:#fff; padding:40px; font-size:18px;"><i class="fa-solid fa-flask fa-spin" style="font-size:30px; margin-bottom:15px; display:block;"></i>Misturando as melhores essências...</div>';
 
         setTimeout(() => {
             // Palavras-chave para cada Vibe
             const keywords = {
-                'FRESCO':   ['cítrico', 'citrico', 'aquático', 'aquatico', 'marinho', 'fresco', 'fresh', 'azul', 'blue', 'limão', 'bergamota', 'verão', 'calone', 'aromático', 'aromatico'],
-                'DOCE':     ['doce', 'adocicado', 'baunilha', 'vanilla', 'frutado', 'gourmand', 'caramelo', 'fava tonka', 'praliné', 'mel', 'açúcar', 'coco'],
-                'ELEGANTE': ['amadeirado', 'madeira', 'floral', 'rosa', 'jasmim', 'fougére', 'fougere', 'chypre', 'chipre', 'almíscar', 'musk', 'vetiver', 'cedro', 'sândalo', 'classico', 'sofisticado'],
-                'SEDUCAO':  ['oriental', 'especiado', 'couro', 'leather', 'âmbar', 'ambar', 'pimenta', 'canela', 'tabaco', 'noturno', 'intenso', 'quente', 'sensual', 'oud']
+                'FRESCO':   ['cítrico', 'citrico', 'aquático', 'aquatico', 'marinho', 'fresco', 'fresh', 'azul', 'blue', 'limão', 'bergamota', 'verão', 'calone', 'aromático', 'aromatico', 'suave'],
+                'DOCE':     ['doce', 'adocicado', 'baunilha', 'vanilla', 'frutado', 'gourmand', 'caramelo', 'fava tonka', 'praliné', 'mel', 'açúcar', 'coco', 'chocolate'],
+                'ELEGANTE': ['amadeirado', 'madeira', 'floral', 'rosa', 'jasmim', 'fougére', 'fougere', 'chypre', 'chipre', 'almíscar', 'musk', 'vetiver', 'cedro', 'sândalo', 'classico', 'sofisticado', 'escritório'],
+                'SEDUCAO':  ['oriental', 'especiado', 'couro', 'leather', 'âmbar', 'ambar', 'pimenta', 'canela', 'tabaco', 'noturno', 'intenso', 'quente', 'sensual', 'oud', 'balada']
             };
 
-            // Mapeia e pontua cada produto
-            const rankeados = produtos.map(p => {
+            // 1. PONTUAÇÃO
+            let rankeados = produtos.map(p => {
                 let pontos = 0;
                 
-                // Texto completo para busca (Nome + Familia + Notas + Descrição)
                 const textoDNA = [
-                    p.Produto || "",
-                    p.Marca || "",
-                    p.Familia || "",
-                    p.Acordes || "",
-                    p.Notas_Topo || "",
-                    p.Notas_Coracao || "",
-                    p.Notas_Fundo || "",
-                    p.Descricao || ""
+                    p.Produto || "", p.Marca || "", p.Familia || "", p.Acordes || "",
+                    p.Notas_Topo || "", p.Notas_Coracao || "", p.Notas_Fundo || "", p.Descricao || ""
                 ].join(" ").toLowerCase();
 
-                // 1. FILTRO DE GÊNERO (CRÍTICO)
-                // Se o gênero estiver completamente errado, penaliza muito
+                // Filtro de Gênero
                 let generoProduto = "UNISSEX";
                 if (textoDNA.includes("feminino") || textoDNA.includes("woman") || textoDNA.includes("pour elle") || textoDNA.includes("girl")) generoProduto = "FEMININO";
                 else if (textoDNA.includes("masculino") || textoDNA.includes("homem") || textoDNA.includes("pour homme") || textoDNA.includes("man")) generoProduto = "MASCULINO";
                 
-                // Se usuário quer Unissex, aceita tudo (+30). Se quer específico, checa compatibilidade.
-                if (respostas.genero === 'UNISSEX') {
-                    pontos += 30;
-                } else if (respostas.genero === generoProduto) {
-                    pontos += 50; // Match perfeito de gênero
-                } else if (generoProduto === "UNISSEX") {
-                    pontos += 20; // Produto unissex serve para quem quer masc/fem
-                } else {
-                    pontos -= 100; // Gênero oposto (ex: homem querendo feminino) joga lá pra baixo
-                }
+                if (respostas.genero === 'UNISSEX') pontos += 30;
+                else if (respostas.genero === generoProduto) pontos += 50;
+                else if (generoProduto === "UNISSEX") pontos += 20;
+                else pontos -= 100; // Penalidade forte para gênero errado
 
-                // 2. FILTRO DE VIBE (SOMA PONTOS)
+                // Filtro de Vibe
                 const palavrasAlvo = keywords[respostas.vibe] || [];
                 palavrasAlvo.forEach(palavra => {
-                    if (textoDNA.includes(palavra)) {
-                        pontos += 10; // Cada palavra encontrada aumenta a relevância
-                    }
+                    if (textoDNA.includes(palavra)) pontos += 10;
                 });
 
-                // 3. INTENSIDADE (DESEMPATE)
+                // Intensidade
                 if (respostas.intensidade === 'INTENSO') {
                     if (textoDNA.includes('parfum') || textoDNA.includes('intense') || textoDNA.includes('elixir') || textoDNA.includes('absolu')) pontos += 5;
                     if (textoDNA.includes('toilette') || textoDNA.includes('cologne') || textoDNA.includes('fresh')) pontos -= 2;
@@ -349,23 +340,44 @@
                     if (textoDNA.includes('elixir') || textoDNA.includes('absolu')) pontos -= 2;
                 }
 
+                // *** FATOR SORTE (VARIEDADE) ***
+                // Adiciona entre 0 e 5 pontos aleatórios para que produtos com notas iguais troquem de posição
+                pontos += Math.random() * 5;
+
                 return { ...p, score: pontos };
             });
 
-            // Ordena pelos que tem maior pontuação
-            rankeados.sort((a, b) => b.score - a.score);
+            // 2. FILTRAGEM
+            // Pega apenas os que têm pontuação positiva relevante
+            let candidatos = rankeados.filter(p => p.score > 20);
 
-            // Pega os Top 3 (desde que tenham pontuação positiva)
-            const top3 = rankeados.filter(p => p.score > 0).slice(0, 3);
+            // Ordena do maior para o menor score
+            candidatos.sort((a, b) => b.score - a.score);
 
-            // Se não sobrar ninguém (pontuação muito baixa), mostra os destaques
-            if (top3.length === 0) {
-                renderResults(produtos.filter(p => p.Destaque === true).slice(0, 3), true);
-            } else {
-                renderResults(top3, false);
+            // 3. SELEÇÃO COM ALEATORIEDADE (Shuffle no Top Tier)
+            // Em vez de pegar os top 3 fixos, pegamos os Top 12 e sorteamos 3 deles.
+            let topPool = candidatos.slice(0, 12); 
+
+            // Embaralha o Top 12
+            for (let i = topPool.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [topPool[i], topPool[j]] = [topPool[j], topPool[i]];
             }
 
-        }, 800);
+            // Seleciona os 3 primeiros do pool embaralhado
+            const vencedores = topPool.slice(0, 3);
+
+            // Se não encontrou ninguém bom, mostra destaques aleatórios (Fallback)
+            if (vencedores.length === 0) {
+                let destaques = produtos.filter(p => p.Destaque === true);
+                // Embaralha destaques
+                destaques.sort(() => Math.random() - 0.5);
+                renderResults(destaques.slice(0, 3), true);
+            } else {
+                renderResults(vencedores, false);
+            }
+
+        }, 1200); // Tempo para dar sensação de processamento
     }
 
     function renderResults(lista, isFallback) {
@@ -383,7 +395,9 @@
         lista.forEach(p => {
             const card = document.createElement('a');
             card.className = 'result-card';
-            card.href = `produto.html?id=${encodeURIComponent(p.Produto)}`;
+            // Usa o Slug se tiver, senão usa o nome
+            const linkHref = p.id_slug ? `produto.html?id=${p.id_slug}` : `produto.html?id=${encodeURIComponent(p.Produto)}`;
+            card.href = linkHref;
             
             card.innerHTML = `
                 <img src="${p.Imagem}" alt="${p.Produto}" class="result-img">

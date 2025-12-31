@@ -564,6 +564,7 @@ a {
   text-align: left !important;
   font-size: 24px;
   font-weight: 700;
+  letter-spacing: 0cap;
   text-transform: uppercase;
   border-bottom: 1px solid rgba(255,255,255,0.1);
   padding-bottom: 15px;
@@ -1010,7 +1011,7 @@ html, body {
 .benefits-container, 
 #lista-sugestoes {
     flex-wrap: nowrap; /* Não quebra linha */
-    justify-content: flex-start;
+    justify-content: center;
     overflow-x: auto; /* Permite o scroll lateral */
     padding-bottom: 10px;
 
@@ -1681,7 +1682,7 @@ body::before {
    ========================================= */
 .reviews-section {
     width: 100%;
-    padding: 0px 0 60px; /* Espaço em cima e embaixo */
+    padding: 0px 0 15px; /* Espaço em cima e embaixo */
     background: transparent;
     overflow: hidden; /* Esconde o que sai da tela */
     position: relative;
@@ -1823,8 +1824,8 @@ body::before {
     width: 100%;
     height: 100%;
     object-fit: contain; /* Ajusta a imagem sem cortar */
-    border-radius: 20px !important 
-    padding: 0 !important
+    border-radius: 20px !important;
+    padding: 0 !important;
     transition: transform 0.3s ease;
     cursor: zoom-in;
 }

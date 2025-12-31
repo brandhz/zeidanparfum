@@ -6,11 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta property="og:title" content="Zeidan Parfum | Perfumes Importados & Decants">
+  <meta property="og:description" content="Encontre sua assinatura olfativa. Frascos lacrados e decants originais com envio para todo o Brasil.">
+  <meta property="og:image" content="https://seusite.com/capa-compartilhamento.jpg"> <meta property="og:url" content="https://seusite.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <link rel="shortcut icon" href="logopequena.png" type="image/x-icon">
 
   <style>
   /* =========================================
-     CSS ESPECÍFICO DA PÁGINA DE PRODUTO
-     ========================================= */
+      CSS ESPECÍFICO DA PÁGINA DE PRODUTO
+      ========================================= */
 
   /* --- 1. GALERIA PREMIUM (ESTILO FRAGRANTICA/SEPHORA) --- */
   .product-gallery {
@@ -132,7 +138,7 @@
 
     /* Header Compacto */
     .site-header .hero-inner { padding-top: -100px !important; padding-bottom: 10px !important; }
-    .logo { max-width: 300px !important; }
+    .logo { max-width: 150px !important; }
     
     /* Espaçamento do Título */
     .product-detail-title { margin-top: 20px !important; line-height: 1.3 !important; }
@@ -288,10 +294,10 @@
         <p class="empty-msg">Sua sacola está vazia 🛍️</p>
       </div>
       <div class="cart-footer">
-        <div class="cart-total">
-          <span>Total Estimado:</span>
-          <span id="cart-total-value">R$ 0,00</span>
-        </div>
+        <div class="cart-total" style="display: flex; justify-content: space-between; margin-bottom: 15px; border-top: 1px solid #eee; padding-top: 15px;">
+    <span style="font-size: 16px; font-weight: 600;">Subtotal:</span>
+    <span id="cart-total-value" style="font-size: 18px; font-weight: 800; color: #000;">R$ 0,00</span>
+</div>
         <button onclick="finalizarNoZap()" class="btn-whatsapp-checkout">
           <i class="fa-brands fa-whatsapp"></i> Finalizar Pedido
         </button>
@@ -432,14 +438,21 @@
         atualizarCarrinhoUI();
     };
 
-    // 5. Abre e Fecha a Janela
+    // 5. Abre e Fecha a Janela (COM CORREÇÃO DO ZAP)
     window.toggleCart = function() {
         const modal = document.getElementById('cart-modal');
+        const widgetZap = document.querySelector('.whatsapp-widget'); // Pega o botão do zap
+        
         if (!modal) return;
+        
         if (modal.style.display === 'flex') {
+            // FECHANDO O CARRINHO
             modal.style.display = 'none';
+            if(widgetZap) widgetZap.style.display = 'block'; // Mostra o zap de volta
         } else {
+            // ABRINDO O CARRINHO
             modal.style.display = 'flex';
+            if(widgetZap) widgetZap.style.display = 'none'; // Esconde o zap pra não atrapalhar
             atualizarCarrinhoUI();
         }
     };
@@ -538,7 +551,7 @@
         else if (tipo === 'decant5') {
             versaoAtualSelecionada = "Decant (5ml)";
             precoAtualSelecionado = produtoAtualDados.Decant5ml;
-            if(displayPreco) displayPreco.style.color = "#2ecc71";
+            if(displayPreco) displayPreco.style.color = "#ffffff";
         } 
         else if (tipo === 'decant10') {
             versaoAtualSelecionada = "Decant (10ml)";
@@ -631,30 +644,43 @@
             console.log("Erro ao salvar histórico", e);
         }
 
-        // --- GALERIA ---
+        // --- GALERIA COM SWIPE (CORRIGIDO) ---
         montarGaleria(p);
         
-        // --- ZOOM ---
+        // --- ZOOM (MODO FÁCIL DE FECHAR) ---
         const mainImg = document.getElementById("main-product-img");
         const modal = document.getElementById("imageModal");
         const modalImg = document.getElementById("imageModalImg");
         const modalClose = document.getElementById("imageModalClose");
-        const modalBackdrop = document.getElementById("imageModalBackdrop"); // Adicionado backdrop
         
-        if(mainImg && modal) {
-            mainImg.onclick = function() {
-                modalImg.src = mainImg.src;
-                modal.classList.add("open"); // Usa classe CSS em vez de display
-                modal.style.display = "flex"; // Força display flex se o CSS falhar
-            }
-        }
         // Função para fechar modal
         function fecharModal() {
-            modal.classList.remove("open");
-            modal.style.display = "none";
+            if(modal) {
+                modal.classList.remove("open");
+                modal.style.display = "none";
+            }
         }
+
+        // Abre o Zoom (Essa lógica já está conectada no Swipe/MontarGaleria, 
+        // mas deixamos aqui caso precise de backup para clique simples)
+        if(mainImg && modal) {
+             // O clique da imagem é gerenciado pela função montarGaleria agora
+             // para não conflitar com o arraste
+        }
+
+        // 1. Fecha no Botão X
         if(modalClose) modalClose.onclick = fecharModal;
-        if(modalBackdrop) modalBackdrop.onclick = fecharModal;
+
+        // 2. Fecha clicando no FUNDO ESCURO (A Mágica ✨)
+        if(modal) {
+            modal.onclick = function(e) {
+                // Se o alvo do clique for o próprio container do modal (o fundo cinza)
+                // ou o backdrop, fecha. Se for a imagem, não faz nada.
+                if (e.target === modal || e.target.id === "imageModalBackdrop") {
+                    fecharModal();
+                }
+            }
+        }
 
         // --- BOTÕES DE AÇÃO (CORRIGIDO PARA PEGAR O DECANT) ---
         const btnWhatsapp = document.getElementById("produtoWhatsapp");
@@ -765,38 +791,105 @@
       }
     }
 
-    // === FUNÇÃO DA GALERIA PREMIUM ===
+    // === FUNÇÃO DA GALERIA COM SWIPE (ARRASTE) ===
     function montarGaleria(produto) {
         const mainImg = document.getElementById('main-product-img');
         const track = document.getElementById('thumbnails-track');
 
         if (!mainImg || !track) return;
 
-        mainImg.src = produto.Imagem;
+        // 1. Define imagem inicial
+        mainImg.src = produto.Imagem || "";
 
+        // 2. Monta Lista
         let imagens = [];
         if(produto.Imagem) imagens.push(produto.Imagem);
         if(produto.Imagem2) imagens.push(produto.Imagem2);
         if(produto.Imagem3) imagens.push(produto.Imagem3);
         if(produto.Imagem4) imagens.push(produto.Imagem4);
 
-        if (imagens.length === 1) {
-            imagens = [produto.Imagem, produto.Imagem, produto.Imagem, produto.Imagem];
-        }
+        if (imagens.length === 0 && produto.Imagem) imagens = [produto.Imagem];
+        // Opcional: duplicar se só tiver 1
+        // if (imagens.length === 1) imagens = [produto.Imagem, produto.Imagem];
 
+        // 3. Renderiza Miniaturas
         track.innerHTML = '';
         imagens.forEach((imgSrc, index) => {
             const thumb = document.createElement('div');
             thumb.className = `thumb-item ${index === 0 ? 'active' : ''}`;
+            thumb.id = `thumb-id-${index}`;
             thumb.innerHTML = `<img src="${imgSrc}" alt="Ver">`;
 
             thumb.onclick = function() {
-                mainImg.src = imgSrc;
-                document.querySelectorAll('.thumb-item').forEach(t => t.classList.remove('active'));
-                thumb.classList.add('active');
+                irParaFoto(index);
             };
             track.appendChild(thumb);
         });
+
+        // Variável de controle do índice atual
+        let indiceAtual = 0;
+
+        function irParaFoto(index) {
+            indiceAtual = index;
+            mainImg.src = imagens[index];
+            document.querySelectorAll('.thumb-item').forEach(t => t.classList.remove('active'));
+            const atv = document.getElementById(`thumb-id-${index}`);
+            if(atv) {
+                atv.classList.add('active');
+                atv.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
+        }
+
+        // 4. LÓGICA DE SWIPE (ARRASTAR)
+        let startX = 0;
+        let endX = 0;
+
+        // Touch (Celular)
+        mainImg.addEventListener('touchstart', e => {
+            startX = e.changedTouches[0].screenX;
+        }, {passive: true});
+
+        mainImg.addEventListener('touchend', e => {
+            endX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, {passive: true});
+
+        // Mouse (PC)
+        mainImg.addEventListener('mousedown', e => {
+            startX = e.clientX;
+            e.preventDefault(); 
+        });
+
+        mainImg.addEventListener('mouseup', e => {
+            endX = e.clientX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (Math.abs(endX - startX) < 40) {
+                // Se mexeu pouco, considera clique para abrir o zoom
+                const modal = document.getElementById("imageModal");
+                const modalImg = document.getElementById("imageModalImg");
+                if (modal && modalImg) {
+                    modalImg.src = mainImg.src;
+                    modal.classList.add("open");
+                    modal.style.display = "flex";
+                }
+                return; 
+            }
+
+            if (endX < startX) {
+                // Esquerda -> Próxima
+                let prox = indiceAtual + 1;
+                if(prox >= imagens.length) prox = 0;
+                irParaFoto(prox);
+            } else {
+                // Direita -> Anterior
+                let ant = indiceAtual - 1;
+                if(ant < 0) ant = imagens.length - 1;
+                irParaFoto(ant);
+            }
+        }
     }
 
     carregarProduto();
