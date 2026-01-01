@@ -255,23 +255,45 @@ async function loadPerfumes() {
 }
 
 /* =====================================================
-   RENDERIZAÇÃO DA HOME (VITRINE)
+   RENDERIZAÇÃO DA HOME (VITRINE) - VERSÃO SEGURA
    ===================================================== */
 function renderCards(selectedBrand, searchTerm, category) {
-  if (!perfumeGrid) return;
+  // 1. GARANTINDO QUE O ELEMENTO EXISTE
+  // Verifique se no seu HTML a div tem id="grid-produtos" ou class="product-grid"
+  // Ajuste o seletor abaixo conforme seu HTML real:
+  const perfumeGrid = document.getElementById('grid-produtos') || document.querySelector('.product-grid');
+
+  if (!perfumeGrid) {
+      console.error("ERRO: Não achei a div do grid no HTML!");
+      return;
+  }
+  
   perfumeGrid.innerHTML = "";
   
+  // Se a lista de perfumes não existir, para para não dar erro
+  if (typeof perfumes === 'undefined' || !perfumes) {
+      console.error("ERRO: A lista 'perfumes' não foi carregada.");
+      return;
+  }
+
   const term = (searchTerm || "").trim().toLowerCase();
   const catFilter = normalizeCat(category || "TODAS");
   const favoritos = JSON.parse(localStorage.getItem('zeidanFavoritos')) || [];
 
+  // FILTRAGEM
   const filtered = perfumes.filter((p) => {
     const brand = p.Marca || "";
     const name = p.Produto || "";
     const price = (p.Preco_Venda || "").trim();
     const catJSON = normalizeCat(p.Categoria || "");
+    
+    // Tratamento de erro na detecção de gênero
     let genClass = "";
-    try { genClass = normalizeCat(detectarGenero(p)); } catch(e){}
+    try { 
+        if(typeof detectingGenero === 'function') {
+            genClass = normalizeCat(detectarGenero(p)); 
+        }
+    } catch(e){}
 
     if (!price) return false;
     
@@ -289,14 +311,27 @@ function renderCards(selectedBrand, searchTerm, category) {
     return matchBrand && matchText && matchCategory;
   });
 
+  // ORDENAÇÃO
   const ordenados = [...filtered.filter((p) => p.Destaque === true), ...filtered.filter((p) => p.Destaque !== true)];
-  const limited = ordenados.slice(0, LIMITE_INICIAL);
 
+  // LÓGICA DO LIMITE (Correção anterior)
+  const temFiltroAtivo = selectedBrand !== "TODAS" || term !== "" || catFilter !== "TODAS";
+  const limited = temFiltroAtivo ? ordenados : ordenados.slice(0, 30); // Se 30 for o seu LIMITE_INICIAL fixo
+
+  console.log(`Renderizando ${limited.length} produtos.`); // Debug no console
+
+  // CRIAÇÃO DOS CARDS
   limited.forEach((p) => {
     const card = document.createElement("article");
     const catClass = normalizeCat(p.Categoria || "").toLowerCase();
+    
     let genClass = "";
-    try { genClass = normalizeCat(detectarGenero(p)).toLowerCase(); } catch(e){}
+    try { 
+         // Mesma proteção aqui
+         if(typeof detectarGenero === 'function') {
+            genClass = normalizeCat(detectarGenero(p)).toLowerCase(); 
+         }
+    } catch(e){}
 
     card.className = `product-card ${catClass} ${genClass}`;
 
