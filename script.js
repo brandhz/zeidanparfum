@@ -182,12 +182,10 @@ window.finalizarNoZap = function() {
     window.open(url, '_blank');
 };
 
-/* =====================================================
-   CARREGAMENTO DE DADOS
-   ===================================================== */
 async function loadPerfumes() {
   try {
-    const response = await fetch("data.json");
+    // Adiciona um timestamp para evitar que o navegador use um JSON velho do cache
+    const response = await fetch("data.json?" + new Date().getTime());
     perfumes = await response.json();
 
     if (typeof brandColumns !== 'undefined' && brandColumns) populateBrandColumns();
@@ -195,7 +193,6 @@ async function loadPerfumes() {
     
     if(window.atualizarCarrinhoUI) window.atualizarCarrinhoUI();
 
-    // LÓGICA HÍBRIDA (Renomeei para paramsDaUrl para evitar conflito)
     const paramsDaUrl = new URLSearchParams(window.location.search);
     const id = paramsDaUrl.get('id'); 
 
@@ -206,51 +203,130 @@ async function loadPerfumes() {
             const idDecodificado = decodeURIComponent(id); 
             p = perfumes.find(item => item.Produto === idDecodificado);
         }
-
         if (!p) {
              const idLimpo = id.toLowerCase().replace(/-/g, ' ');
              p = perfumes.find(item => (item.Produto || "").toLowerCase() === idLimpo);
         }
         
         if (p) {
+            console.log("Produto carregado:", p.Produto); // Debug
+
+            // --- PREENCHIMENTO BÁSICO ---
             if(document.getElementById('product-detail-name')) 
                 document.getElementById('product-detail-name').innerText = p.Produto;
-            
             if(document.getElementById('product-detail-brand')) 
                 document.getElementById('product-detail-brand').innerText = p.Marca;
-            
-            if(document.getElementById('product-detail-price')) 
-                document.getElementById('product-detail-price').innerText = p.Preco_Venda;
-            
             if(document.getElementById('product-detail-desc')) 
-                document.getElementById('product-detail-desc').innerText = p.Descricao || "Fragrância importada original.";
+                document.getElementById('product-detail-desc').innerText = p.Descricao || "";
+
+            const priceEl = document.getElementById('product-detail-price');
+            if(priceEl) priceEl.innerText = p.Preco_Venda;
 
             if (window.montarGaleria) window.montarGaleria(p);
 
-            const btnZap = document.getElementById('produtoWhatsapp');
-            if(btnZap) {
-                btnZap.onclick = function() {
+            // --- LÓGICA DO SELETOR DE TAMANHO (ROBUSTA) ---
+            
+            // 1. Acha o container ou cria se não existir (Evita erro se esqueceu o HTML)
+            let containerSeletor = document.getElementById('seletor-tamanho');
+            if (!containerSeletor) {
+                console.warn("Criando div seletor-tamanho via JS pois não existia no HTML.");
+                containerSeletor = document.createElement('div');
+                containerSeletor.id = "seletor-tamanho";
+                containerSeletor.className = "size-selector-container";
+                // Tenta inserir logo após o preço
+                if(priceEl) priceEl.parentNode.insertBefore(containerSeletor, priceEl.nextSibling);
+            }
+
+            containerSeletor.innerHTML = ""; // Limpa
+
+            // Variáveis de estado
+            let precoAtual = p.Preco_Venda;
+            let tamanhoNome = ""; 
+
+            // 2. Monta a lista completa de opções (Original + Variações)
+            let opcoes = [];
+
+            // Tenta descobrir o tamanho original pelo nome (ex: "212... 80 ML")
+            let tamanhoOriginal = "Padrão";
+            const match = p.Produto.match(/(\d+\s?[Mm][Ll])/); // Procura algo como "80 ML" ou "100ml"
+            if (match) tamanhoOriginal = match[0];
+
+            // Adiciona a opção original (do cadastro principal)
+            opcoes.push({
+                tamanho: tamanhoOriginal,
+                preco: p.Preco_Venda,
+                original: true
+            });
+
+            // Adiciona as variações do JSON (se houver)
+            if (p.Variacoes && Array.isArray(p.Variacoes)) {
+                console.log("Variações encontradas:", p.Variacoes.length);
+                p.Variacoes.forEach(v => opcoes.push(v));
+            }
+
+            // 3. Renderiza os botões APENAS se houver mais de 1 opção (Original + pelo menos 1 variação)
+            if (opcoes.length > 1) {
+                opcoes.forEach((opcao, index) => {
+                    const btn = document.createElement('button');
+                    btn.className = 'size-btn';
+                    btn.innerText = opcao.tamanho;
+                    
+                    // Se for o primeiro (original), já começa ativo
+                    if (index === 0) btn.classList.add('active');
+
+                    btn.onclick = function() {
+                        // Estilo visual
+                        document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+                        this.classList.add('active');
+
+                        // Lógica de Preço
+                        if(priceEl) priceEl.innerText = opcao.preco;
+                        precoAtual = opcao.preco;
+                        
+                        // Define o nome do tamanho para o carrinho
+                        // Se for o original, deixamos vazio para não duplicar informação
+                        tamanhoNome = opcao.original ? "" : opcao.tamanho;
+                    };
+
+                    containerSeletor.appendChild(btn);
+                });
+            }
+
+            // --- BOTÃO DE AÇÃO (WHATSAPP OU CARRINHO) ---
+            const btnAcao = document.getElementById('produtoWhatsapp') || document.querySelector('.product-buy-btn'); // Tenta achar o botão
+            
+            if(btnAcao) {
+                // Sobrescreve o clique para usar o preço dinâmico
+                btnAcao.onclick = function(e) {
+                    if(e) e.preventDefault();
+                    
                     const marcaSafe = (p.Marca||"").replace(/'/g," ");
-                    const prodSafe = (p.Produto||"").replace(/'/g," ");
+                    
+                    // Limpa o nome do produto para não ficar "212 VIP 80ML - 50ml"
+                    // Tenta remover o tamanho original do nome se selecionou outro tamanho
+                    let nomeFinal = (p.Produto||"").replace(/'/g," ");
+                    
+                    if (tamanhoNome !== "") {
+                        // Se selecionou uma variação (ex: 50ml), adiciona ao nome
+                        nomeFinal += ` - ${tamanhoNome}`;
+                    }
+
                     if (window.adicionarAoCarrinho) {
-                        window.adicionarAoCarrinho(marcaSafe, prodSafe, p.Preco_Venda, this);
+                        window.adicionarAoCarrinho(marcaSafe, nomeFinal, precoAtual, this);
                     }
                 };
             }
-            
+
+            // Remove telas de erro se existirem
             const errorMsg = document.querySelector('.product-not-found-msg');
-            const notFoundTitle = document.querySelector('h1'); 
-            
             if(errorMsg) errorMsg.style.display = 'none';
-            if(notFoundTitle && notFoundTitle.innerText.includes("NÃO ENCONTRADO")) {
-                 notFoundTitle.style.display = 'none';
-            }
+
         } else {
-            console.error('Produto não encontrado:', id);
+            console.error('Produto não encontrado ID:', id);
         }
     }
   } catch (error) {
-    console.error("Erro ao carregar data.json:", error);
+    console.error("Erro CRÍTICO no loadPerfumes:", error);
   }
 }
 
@@ -288,12 +364,24 @@ function renderCards(selectedBrand, searchTerm, category) {
     const catJSON = normalizeCat(p.Categoria || "");
     
     // Tratamento de erro na detecção de gênero
-    let genClass = "";
-    try { 
-        if(typeof detectingGenero === 'function') {
-            genClass = normalizeCat(detectarGenero(p)); 
-        }
-    } catch(e){}
+    // --- INICIO DA CORREÇÃO ---
+    // 1. Tenta ler o Gênero direto do JSON (com ou sem acento)
+    let rawGender = p["Gênero"] || p["Genero"] || ""; 
+
+    // 2. Se não achar, aí sim tenta a função antiga (só por garantia)
+    if (!rawGender) {
+        try { 
+             if(typeof detectingGenero === 'function') {
+                rawGender = detectarGenero(p); 
+             } else if (typeof detectarGenero === 'function') {
+                rawGender = detectarGenero(p);
+             }
+        } catch(e){}
+    }
+
+    // 3. Normaliza (transforma "Masculino" em "MASCULINO" para bater com o filtro)
+    let genClass = normalizeCat(rawGender);
+    // --- FIM DA CORREÇÃO ---
 
     if (!price) return false;
     

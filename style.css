@@ -574,7 +574,7 @@ a {
 .product-detail-price {
   font-size: 28px;
   font-weight: 700;
-  color: #6be276; /* Verde destaque */
+  color: #ffffff; /* Verde destaque */
   text-align: left !important;
 }
 
@@ -1922,6 +1922,7 @@ body::before {
     padding: 0 !important;              /* Remove espaços extras do container */
     background-color: #fff !important;  /* Garante fundo branco */
     overflow: hidden !important;        /* Corta o que sobrar */
+    box-shadow: #ffffff !important;
 }
 
 /* 2. A Imagem dentro do Quadradinho */
@@ -2050,3 +2051,4 @@ body::before {
 .zap-text strong { font-size: 14px; }
 .zap-text span { font-size: 11px; color: #888; }
 .zap-arrow { color: #ccc; font-weight: bold; }
+
