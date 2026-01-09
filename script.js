@@ -17,12 +17,12 @@ window.WHATSAPP_NUMBER = "5531991668430";
 /* --- 1. OBSERVADOR DE SCROLL (ANIMAÇÃO) --- */
 /* Isso faz os cards aparecerem suavemente quando rola a tela */
 const cardObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-        }
-    });
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
 }, { root: null, threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
 
 /* =====================================================
@@ -34,16 +34,16 @@ function normalizeCat(value) {
 
 function detectarGenero(produto) {
   const textoCompleto = (
-    (produto.Produto || "") + " " + 
-    (produto.Familia || "") + " " + 
+    (produto.Produto || "") + " " +
+    (produto.Familia || "") + " " +
     (produto.Descricao || "") + " " +
-    (produto["Gênero"] || produto.Genero || "") 
+    (produto["Gênero"] || produto.Genero || "")
   ).toLowerCase();
 
   if (textoCompleto.includes("compartilhável") || textoCompleto.includes("unissex") || textoCompleto.includes("shared")) return "UNISSEX";
   if (textoCompleto.includes("feminino") || textoCompleto.includes("woman") || textoCompleto.includes("femme") || textoCompleto.includes("pour elle")) return "FEMININO";
   if (textoCompleto.includes("masculino") || textoCompleto.includes("homem") || textoCompleto.includes("homme") || textoCompleto.includes("pour homme")) return "MASCULINO";
-  return "UNISSEX"; 
+  return "UNISSEX";
 }
 
 /* =====================================================
@@ -51,40 +51,40 @@ function detectarGenero(produto) {
    ===================================================== */
 let carrinho = JSON.parse(localStorage.getItem('carrinhoZeidan')) || [];
 
-window.atualizarCarrinhoUI = function() {
-    localStorage.setItem('carrinhoZeidan', JSON.stringify(carrinho));
-    const container = document.getElementById('cart-items');
-    const contador = document.getElementById('cart-count');
-    const totalDisplay = document.getElementById('cart-total-value');
+window.atualizarCarrinhoUI = function () {
+  localStorage.setItem('carrinhoZeidan', JSON.stringify(carrinho));
+  const container = document.getElementById('cart-items');
+  const contador = document.getElementById('cart-count');
+  const totalDisplay = document.getElementById('cart-total-value');
 
-    if (contador) {
-        contador.innerText = carrinho.length;
-        contador.style.display = carrinho.length > 0 ? 'flex' : 'none';
-    }
+  if (contador) {
+    contador.innerText = carrinho.length;
+    contador.style.display = carrinho.length > 0 ? 'flex' : 'none';
+  }
 
-    if (!container) return;
+  if (!container) return;
 
-    if (carrinho.length === 0) {
-        container.innerHTML = '<div style="text-align:center; padding:40px 20px; color:#888;"><i class="fa-solid fa-basket-shopping" style="font-size:40px; margin-bottom:10px; opacity:0.5;"></i><p>Sua sacola está vazia.</p></div>';
-        if (totalDisplay) totalDisplay.innerText = "R$ 0,00";
-        return;
-    }
+  if (carrinho.length === 0) {
+    container.innerHTML = '<div style="text-align:center; padding:40px 20px; color:#888;"><i class="fa-solid fa-basket-shopping" style="font-size:40px; margin-bottom:10px; opacity:0.5;"></i><p>Sua sacola está vazia.</p></div>';
+    if (totalDisplay) totalDisplay.innerText = "R$ 0,00";
+    return;
+  }
 
-    let html = '';
-    let total = 0;
+  let html = '';
+  let total = 0;
 
-    carrinho.forEach((item, index) => {
-        let precoNumerico = 0;
-        try {
-            let limpo = item.preco.toString().replace('R$', '').replace(/\./g, '').replace(',', '.').trim();
-            precoNumerico = parseFloat(limpo);
-        } catch(e) { precoNumerico = 0; }
-        
-        if (!isNaN(precoNumerico)) total += precoNumerico;
+  carrinho.forEach((item, index) => {
+    let precoNumerico = 0;
+    try {
+      let limpo = item.preco.toString().replace('R$', '').replace(/\./g, '').replace(',', '.').trim();
+      precoNumerico = parseFloat(limpo);
+    } catch (e) { precoNumerico = 0; }
 
-        let nomeExibicao = item.produto || item.nome || "Produto";
+    if (!isNaN(precoNumerico)) total += precoNumerico;
 
-        html += `
+    let nomeExibicao = item.produto || item.nome || "Produto";
+
+    html += `
             <div class="cart-item" style="display:flex; justify-content:space-between; align-items:center; padding:15px 0; border-bottom:1px solid #eee;">
                 <div style="flex:1; padding-right:10px;">
                     <div style="font-size:10px; color:#999; text-transform:uppercase; font-weight:700; margin-bottom:2px;">
@@ -102,103 +102,123 @@ window.atualizarCarrinhoUI = function() {
                 </div>
             </div>
         `;
-    });
+  });
 
-    container.innerHTML = html;
-    if (totalDisplay) totalDisplay.innerText = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  container.innerHTML = html;
+  if (totalDisplay) totalDisplay.innerText = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 };
 
-window.adicionarAoCarrinho = function(marca, produto, preco, botao) {
-    carrinho.push({ marca, produto, preco });
-    atualizarCarrinhoUI();
+window.adicionarAoCarrinho = function (marca, produto, preco, botao) {
+  carrinho.push({ marca, produto, preco });
+  atualizarCarrinhoUI();
 
-    const cartIcon = document.querySelector('.cart-floating-btn i') || document.getElementById('cart-btn');
-    if (cartIcon) {
-        cartIcon.style.transition = "transform 0.2s, color 0.2s";
-        cartIcon.style.transform = "scale(1.4)";
-        cartIcon.style.color = "#2ecc71";
-        setTimeout(() => {
-            cartIcon.style.transform = "scale(1)";
-            cartIcon.style.color = ""; 
-        }, 300);
-    }
+  const cartIcon = document.querySelector('.cart-floating-btn i') || document.getElementById('cart-btn');
+  if (cartIcon) {
+    cartIcon.style.transition = "transform 0.2s, color 0.2s";
+    cartIcon.style.transform = "scale(1.4)";
+    cartIcon.style.color = "#2ecc71";
+    setTimeout(() => {
+      cartIcon.style.transform = "scale(1)";
+      cartIcon.style.color = "";
+    }, 300);
+  }
 
-    if (botao) {
-        const textoOriginal = botao.innerHTML;
-        const estiloOriginal = botao.getAttribute("style");
-        botao.innerHTML = 'Adicionado! <i class="fa-solid fa-check"></i>';
-        botao.style.background = '#2ecc71'; 
-        botao.style.color = '#fff';
-        botao.style.border = '1px solid #2ecc71';
-        botao.style.transform = 'scale(1.05)';
-        setTimeout(() => {
-            botao.innerHTML = textoOriginal;
-            botao.setAttribute("style", estiloOriginal || ""); 
-        }, 1500);
-    }
+  if (botao) {
+    const textoOriginal = botao.innerHTML;
+    const estiloOriginal = botao.getAttribute("style");
+    botao.innerHTML = 'Adicionado! <i class="fa-solid fa-check"></i>';
+    botao.style.background = '#2ecc71';
+    botao.style.color = '#fff';
+    botao.style.border = '1px solid #2ecc71';
+    botao.style.transform = 'scale(1.05)';
+    setTimeout(() => {
+      botao.innerHTML = textoOriginal;
+      botao.setAttribute("style", estiloOriginal || "");
+    }, 1500);
+  }
 };
 
-window.removerDoCarrinho = function(index) {
-    carrinho.splice(index, 1);
-    atualizarCarrinhoUI();
+window.removerDoCarrinho = function (index) {
+  carrinho.splice(index, 1);
+  atualizarCarrinhoUI();
 };
 
 // 5. Abre e Fecha a Janela (COM CORREÇÃO DO ZAP)
-    window.toggleCart = function() {
-        const modal = document.getElementById('cart-modal');
-        const widgetZap = document.querySelector('.whatsapp-widget'); // Pega o botão do zap
-        
-        if (!modal) return;
-        
-        if (modal.style.display === 'flex') {
-            // FECHANDO O CARRINHO
-            modal.style.display = 'none';
-            if(widgetZap) widgetZap.style.display = 'block'; // Mostra o zap de volta
-        } else {
-            // ABRINDO O CARRINHO
-            modal.style.display = 'flex';
-            if(widgetZap) widgetZap.style.display = 'none'; // Esconde o zap pra não atrapalhar
-            atualizarCarrinhoUI();
-        }
-    };
+window.toggleCart = function () {
+  const modal = document.getElementById('cart-modal');
+  const widgetZap = document.querySelector('.whatsapp-widget'); // Pega o botão do zap
 
-window.finalizarNoZap = function() {
-    if (carrinho.length === 0) return alert("Sua sacola está vazia!");
-    let mensagem = "Olá Zeidan! Gostaria de verificar a disponibilidade destes perfumes:\n\n";
-    let totalEstimado = 0;
+  if (!modal) return;
 
-    carrinho.forEach(item => {
-        mensagem += `▪️ *${item.produto}* (${item.marca}) - ${item.preco}\n`;
-        try {
-            let limpo = item.preco.toString().replace('R$', '').replace(/\./g, '').replace(',', '.').trim();
-            let valor = parseFloat(limpo);
-            if(!isNaN(valor)) totalEstimado += valor;
-        } catch(e){}
-    });
+  if (modal.style.display === 'flex') {
+    // FECHANDO O CARRINHO
+    modal.style.display = 'none';
+    if (widgetZap) widgetZap.style.display = 'block'; // Mostra o zap de volta
+  } else {
+    // ABRINDO O CARRINHO
+    modal.style.display = 'flex';
+    if (widgetZap) widgetZap.style.display = 'none'; // Esconde o zap pra não atrapalhar
+    atualizarCarrinhoUI();
+  }
+};
 
-    mensagem += `\n💰 *Total Estimado:* ${totalEstimado.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
-    mensagem += `\n\nAguardo a confirmação e o link de pagamento!`;
-    let url = `https://wa.me/${window.WHATSAPP_NUMBER}?text=${encodeURIComponent(mensagem)}`;
-    window.open(url, '_blank');
+window.finalizarNoZap = function () {
+  if (carrinho.length === 0) return alert("Sua sacola está vazia!");
+  let mensagem = "Olá Zeidan! Gostaria de verificar a disponibilidade destes perfumes:\n\n";
+  let totalEstimado = 0;
+
+  carrinho.forEach(item => {
+    mensagem += `▪️ *${item.produto}* (${item.marca}) - ${item.preco}\n`;
+    try {
+      let limpo = item.preco.toString().replace('R$', '').replace(/\./g, '').replace(',', '.').trim();
+      let valor = parseFloat(limpo);
+      if (!isNaN(valor)) totalEstimado += valor;
+    } catch (e) { }
+  });
+
+  mensagem += `\n💰 *Total Estimado:* ${totalEstimado.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
+  mensagem += `\n\nAguardo a confirmação e o link de pagamento!`;
+  let url = `https://wa.me/${window.WHATSAPP_NUMBER}?text=${encodeURIComponent(mensagem)}`;
+  window.open(url, '_blank');
 };
 
 async function loadPerfumes() {
   try {
-    // Adiciona um timestamp para evitar que o navegador use um JSON velho do cache
+    // Adiciona timestamp para evitar cache antigo
     const response = await fetch("data.json?" + new Date().getTime());
     perfumes = await response.json();
 
-    if (typeof brandColumns !== 'undefined' && brandColumns) populateBrandColumns();
-    if (typeof perfumeGrid !== 'undefined' && perfumeGrid) renderCards("TODAS", "", "TODAS");
+    // --- AQUI ESTA O SEGREDO: Só renderiza depois que tem os dados ---
     
+    // 1. Se estiver na Home (tem grid), verifica se tem filtro salvo no localStorage
+    if (typeof perfumeGrid !== 'undefined' && perfumeGrid) {
+        
+        // Verifica se clicou numa marca na outra página
+        const marcaSalva = localStorage.getItem("marcaSelecionada");
+        
+        if (marcaSalva) {
+            console.log("Aplicando filtro de marca:", marcaSalva);
+            renderCards(marcaSalva, "", "TODAS");
+            localStorage.removeItem("marcaSelecionada"); // Limpa para não ficar travado nela pra sempre
+        } else {
+            // Se não tem nada salvo, carrega normal
+            renderCards("TODAS", "", "TODAS");
+        }
+        
+        if (typeof brandColumns !== 'undefined' && brandColumns) populateBrandColumns();
+    }
+    
+    // Atualiza carrinho se a função existir
     if(window.atualizarCarrinhoUI) window.atualizarCarrinhoUI();
 
+    // 2. Se estiver na Página de Produto (tem id na URL)
     const paramsDaUrl = new URLSearchParams(window.location.search);
     const id = paramsDaUrl.get('id'); 
 
     if (id) {
         let p = perfumes.find(item => item.id_slug === id);
         
+        // Tentativas de encontrar o produto se não achou pelo slug
         if (!p) {
             const idDecodificado = decodeURIComponent(id); 
             p = perfumes.find(item => item.Produto === idDecodificado);
@@ -209,115 +229,85 @@ async function loadPerfumes() {
         }
         
         if (p) {
-            console.log("Produto carregado:", p.Produto); // Debug
-
-            // --- PREENCHIMENTO BÁSICO ---
+            // Preenche dados da tela de detalhes
             if(document.getElementById('product-detail-name')) 
                 document.getElementById('product-detail-name').innerText = p.Produto;
-            if(document.getElementById('product-detail-brand')) 
-                document.getElementById('product-detail-brand').innerText = p.Marca;
+            
             if(document.getElementById('product-detail-desc')) 
                 document.getElementById('product-detail-desc').innerText = p.Descricao || "";
 
             const priceEl = document.getElementById('product-detail-price');
             if(priceEl) priceEl.innerText = p.Preco_Venda;
 
+            // --- AQUI A CORREÇÃO DO CLIQUE NA MARCA ---
+            const brandEl = document.getElementById('product-detail-brand');
+            if (brandEl) {
+                brandEl.innerText = p.Marca;
+                brandEl.style.cursor = "pointer";
+                brandEl.style.textDecoration = "underline";
+                
+                // Evento de clique corrigido
+                brandEl.onclick = function(e) {
+                    e.preventDefault(); // Impede comportamento padrão
+                    console.log("Marca clicada:", p.Marca);
+                    localStorage.setItem("marcaSelecionada", p.Marca);
+                    window.location.href = "index.html";
+                };
+            }
+
             if (window.montarGaleria) window.montarGaleria(p);
 
-            // --- LÓGICA DO SELETOR DE TAMANHO (ROBUSTA) ---
-            
-            // 1. Acha o container ou cria se não existir (Evita erro se esqueceu o HTML)
+            // --- LÓGICA DO SELETOR DE TAMANHO ---
             let containerSeletor = document.getElementById('seletor-tamanho');
             if (!containerSeletor) {
-                console.warn("Criando div seletor-tamanho via JS pois não existia no HTML.");
                 containerSeletor = document.createElement('div');
                 containerSeletor.id = "seletor-tamanho";
                 containerSeletor.className = "size-selector-container";
-                // Tenta inserir logo após o preço
                 if(priceEl) priceEl.parentNode.insertBefore(containerSeletor, priceEl.nextSibling);
             }
+            containerSeletor.innerHTML = ""; 
 
-            containerSeletor.innerHTML = ""; // Limpa
-
-            // Variáveis de estado
             let precoAtual = p.Preco_Venda;
             let tamanhoNome = ""; 
-
-            // 2. Monta a lista completa de opções (Original + Variações)
             let opcoes = [];
-
-            // Tenta descobrir o tamanho original pelo nome (ex: "212... 80 ML")
             let tamanhoOriginal = "Padrão";
-            const match = p.Produto.match(/(\d+\s?[Mm][Ll])/); // Procura algo como "80 ML" ou "100ml"
+            const match = p.Produto.match(/(\d+\s?[Mm][Ll])/);
             if (match) tamanhoOriginal = match[0];
 
-            // Adiciona a opção original (do cadastro principal)
-            opcoes.push({
-                tamanho: tamanhoOriginal,
-                preco: p.Preco_Venda,
-                original: true
-            });
+            opcoes.push({ tamanho: tamanhoOriginal, preco: p.Preco_Venda, original: true });
 
-            // Adiciona as variações do JSON (se houver)
             if (p.Variacoes && Array.isArray(p.Variacoes)) {
-                console.log("Variações encontradas:", p.Variacoes.length);
                 p.Variacoes.forEach(v => opcoes.push(v));
             }
 
-            // 3. Renderiza os botões APENAS se houver mais de 1 opção (Original + pelo menos 1 variação)
             if (opcoes.length > 1) {
                 opcoes.forEach((opcao, index) => {
                     const btn = document.createElement('button');
                     btn.className = 'size-btn';
                     btn.innerText = opcao.tamanho;
-                    
-                    // Se for o primeiro (original), já começa ativo
                     if (index === 0) btn.classList.add('active');
 
                     btn.onclick = function() {
-                        // Estilo visual
                         document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
                         this.classList.add('active');
-
-                        // Lógica de Preço
                         if(priceEl) priceEl.innerText = opcao.preco;
                         precoAtual = opcao.preco;
-                        
-                        // Define o nome do tamanho para o carrinho
-                        // Se for o original, deixamos vazio para não duplicar informação
                         tamanhoNome = opcao.original ? "" : opcao.tamanho;
                     };
-
                     containerSeletor.appendChild(btn);
                 });
             }
 
-            // --- BOTÃO DE AÇÃO (WHATSAPP OU CARRINHO) ---
-            const btnAcao = document.getElementById('produtoWhatsapp') || document.querySelector('.product-buy-btn'); // Tenta achar o botão
-            
+            const btnAcao = document.getElementById('produtoWhatsapp') || document.querySelector('.product-buy-btn');
             if(btnAcao) {
-                // Sobrescreve o clique para usar o preço dinâmico
                 btnAcao.onclick = function(e) {
                     if(e) e.preventDefault();
-                    
                     const marcaSafe = (p.Marca||"").replace(/'/g," ");
-                    
-                    // Limpa o nome do produto para não ficar "212 VIP 80ML - 50ml"
-                    // Tenta remover o tamanho original do nome se selecionou outro tamanho
                     let nomeFinal = (p.Produto||"").replace(/'/g," ");
-                    
-                    if (tamanhoNome !== "") {
-                        // Se selecionou uma variação (ex: 50ml), adiciona ao nome
-                        nomeFinal += ` - ${tamanhoNome}`;
-                    }
-
-                    if (window.adicionarAoCarrinho) {
-                        window.adicionarAoCarrinho(marcaSafe, nomeFinal, precoAtual, this);
-                    }
+                    if (tamanhoNome !== "") nomeFinal += ` - ${tamanhoNome}`;
+                    if (window.adicionarAoCarrinho) window.adicionarAoCarrinho(marcaSafe, nomeFinal, precoAtual, this);
                 };
             }
-
-            // Remove telas de erro se existirem
             const errorMsg = document.querySelector('.product-not-found-msg');
             if(errorMsg) errorMsg.style.display = 'none';
 
@@ -329,7 +319,6 @@ async function loadPerfumes() {
     console.error("Erro CRÍTICO no loadPerfumes:", error);
   }
 }
-
 /* =====================================================
    RENDERIZAÇÃO DA HOME (VITRINE) - VERSÃO SEGURA
    ===================================================== */
@@ -340,16 +329,16 @@ function renderCards(selectedBrand, searchTerm, category) {
   const perfumeGrid = document.getElementById('grid-produtos') || document.querySelector('.product-grid');
 
   if (!perfumeGrid) {
-      console.error("ERRO: Não achei a div do grid no HTML!");
-      return;
+    console.error("ERRO: Não achei a div do grid no HTML!");
+    return;
   }
-  
+
   perfumeGrid.innerHTML = "";
-  
+
   // Se a lista de perfumes não existir, para para não dar erro
   if (typeof perfumes === 'undefined' || !perfumes) {
-      console.error("ERRO: A lista 'perfumes' não foi carregada.");
-      return;
+    console.error("ERRO: A lista 'perfumes' não foi carregada.");
+    return;
   }
 
   const term = (searchTerm || "").trim().toLowerCase();
@@ -362,21 +351,21 @@ function renderCards(selectedBrand, searchTerm, category) {
     const name = p.Produto || "";
     const price = (p.Preco_Venda || "").trim();
     const catJSON = normalizeCat(p.Categoria || "");
-    
+
     // Tratamento de erro na detecção de gênero
     // --- INICIO DA CORREÇÃO ---
     // 1. Tenta ler o Gênero direto do JSON (com ou sem acento)
-    let rawGender = p["Gênero"] || p["Genero"] || ""; 
+    let rawGender = p["Gênero"] || p["Genero"] || "";
 
     // 2. Se não achar, aí sim tenta a função antiga (só por garantia)
     if (!rawGender) {
-        try { 
-             if(typeof detectingGenero === 'function') {
-                rawGender = detectarGenero(p); 
-             } else if (typeof detectarGenero === 'function') {
-                rawGender = detectarGenero(p);
-             }
-        } catch(e){}
+      try {
+        if (typeof detectingGenero === 'function') {
+          rawGender = detectarGenero(p);
+        } else if (typeof detectarGenero === 'function') {
+          rawGender = detectarGenero(p);
+        }
+      } catch (e) { }
     }
 
     // 3. Normaliza (transforma "Masculino" em "MASCULINO" para bater com o filtro)
@@ -384,11 +373,11 @@ function renderCards(selectedBrand, searchTerm, category) {
     // --- FIM DA CORREÇÃO ---
 
     if (!price) return false;
-    
+
     const matchBrand = selectedBrand === "TODAS" || brand === selectedBrand;
     const combined = `${name} ${brand}`.toLowerCase();
     const matchText = combined.includes(term);
-    
+
     let matchCategory = false;
     if (catFilter === "TODAS") matchCategory = true;
     else if (catFilter === "ARABE" && (catJSON === "ARABE" || brand === "LATTAFA" || brand === "AL HARAMAIN" || brand === "AFNAN" || brand === "ARMAF")) matchCategory = true;
@@ -412,26 +401,39 @@ function renderCards(selectedBrand, searchTerm, category) {
   limited.forEach((p) => {
     const card = document.createElement("article");
     const catClass = normalizeCat(p.Categoria || "").toLowerCase();
-    
+
     let genClass = "";
-    try { 
-         // Mesma proteção aqui
-         if(typeof detectarGenero === 'function') {
-            genClass = normalizeCat(detectarGenero(p)).toLowerCase(); 
-         }
-    } catch(e){}
+    try {
+      // Mesma proteção aqui
+      if (typeof detectarGenero === 'function') {
+        genClass = normalizeCat(detectarGenero(p)).toLowerCase();
+      }
+    } catch (e) { }
 
     card.className = `product-card ${catClass} ${genClass}`;
 
     let detalheHref = p.id_slug ? "produto.html?id=" + p.id_slug : (p.Produto ? "produto.html?id=" + encodeURIComponent(p.Produto) : null);
-    
+
     const marcaSafe = (p.Marca || "").replace(/'/g, " ");
     const produtoSafe = (p.Produto || "").replace(/'/g, " ");
     const precoSafe = p.Preco_Venda || "";
-    
+
     const isFav = favoritos.includes(p.Produto);
     const heartClass = isFav ? "active" : "";
     const heartIcon = isFav ? "fa-solid fa-heart" : "fa-regular fa-heart";
+
+    let valorParcela = "0,00";
+
+    if (p.Preco_Venda) {
+      // Limpa o preço: tira "R$", tira pontos de milhar, troca vírgula por ponto
+      let precoLimpo = p.Preco_Venda.toString().replace('R$', '').replace(/\./g, '').replace(',', '.').trim();
+      let precoNumero = parseFloat(precoLimpo);
+
+      // Divide por 3, fixa em 2 casas decimais e troca ponto por vírgula de novo
+      if (!isNaN(precoNumero)) {
+        valorParcela = (precoNumero / 3).toFixed(2).replace('.', ',');
+      }
+    }
 
     card.innerHTML = `
       <div class="product-image-wrap">
@@ -447,7 +449,12 @@ function renderCards(selectedBrand, searchTerm, category) {
         <div class="product-name">${p.Produto ?? ""}</div>
         <div class="product-meta">
           <span class="product-brand">${p.Marca ?? ""}</span>
-          <span class="product-price">${p.Preco_Venda ?? ""}</span>
+          
+          <div style="display:flex; flex-direction:column; gap:2px;">
+              <span class="product-price">${p.Preco_Venda ?? ""}</span>
+              <span style="font-size:11px; color:#888;">3x R$ ${valorParcela}</span>
+          </div>
+
         </div>
       ${detalheHref ? `</a>` : ``}
 
@@ -457,72 +464,72 @@ function renderCards(selectedBrand, searchTerm, category) {
         </button>
       </div>
     `;
-    
+
     /* --- AQUI: Animação de Entrada --- */
     cardObserver.observe(card);
-    
+
     perfumeGrid.appendChild(card);
   });
 }
 
-window.toggleFavorito = function(nomeProduto, btn) {
-    if(event) event.stopPropagation();
-    let favoritos = JSON.parse(localStorage.getItem('zeidanFavoritos')) || [];
-    const icon = btn.querySelector('i');
+window.toggleFavorito = function (nomeProduto, btn) {
+  if (event) event.stopPropagation();
+  let favoritos = JSON.parse(localStorage.getItem('zeidanFavoritos')) || [];
+  const icon = btn.querySelector('i');
 
-    if (favoritos.includes(nomeProduto)) {
-        favoritos = favoritos.filter(f => f !== nomeProduto);
-        btn.classList.remove('active');
-        icon.classList.remove('fa-solid');
-        icon.classList.add('fa-regular');
-    } else {
-        favoritos.push(nomeProduto);
-        btn.classList.add('active');
-        icon.classList.remove('fa-regular');
-        icon.classList.add('fa-solid');
-        icon.style.transform = "scale(1.3)";
-        setTimeout(() => icon.style.transform = "scale(1)", 200);
-    }
-    localStorage.setItem('zeidanFavoritos', JSON.stringify(favoritos));
+  if (favoritos.includes(nomeProduto)) {
+    favoritos = favoritos.filter(f => f !== nomeProduto);
+    btn.classList.remove('active');
+    icon.classList.remove('fa-solid');
+    icon.classList.add('fa-regular');
+  } else {
+    favoritos.push(nomeProduto);
+    btn.classList.add('active');
+    icon.classList.remove('fa-regular');
+    icon.classList.add('fa-solid');
+    icon.style.transform = "scale(1.3)";
+    setTimeout(() => icon.style.transform = "scale(1)", 200);
+  }
+  localStorage.setItem('zeidanFavoritos', JSON.stringify(favoritos));
 };
 
 /* =====================================================
    RENDERIZAR HISTÓRICO (VISTOS RECENTEMENTE)
    ===================================================== */
 function renderizarHistorico() {
-    const container = document.getElementById('historicoGrid');
-    const section = document.getElementById('historico-section');
-    
-    if (!container || !section) return;
+  const container = document.getElementById('historicoGrid');
+  const section = document.getElementById('historico-section');
 
-    const historico = JSON.parse(localStorage.getItem('zeidanHistorico')) || [];
+  if (!container || !section) return;
 
-    if (historico.length === 0) {
-        section.style.display = 'none';
-        return;
-    }
+  const historico = JSON.parse(localStorage.getItem('zeidanHistorico')) || [];
 
-    section.style.display = 'block';
-    container.innerHTML = '';
+  if (historico.length === 0) {
+    section.style.display = 'none';
+    return;
+  }
 
-    historico.forEach(p => {
-        const card = document.createElement("article");
-        
-        // Classes padrão + Alinhamento
-        card.className = `product-card`;
+  section.style.display = 'block';
+  container.innerHTML = '';
 
-        let detalheHref = p.id_slug ? "produto.html?id=" + p.id_slug : "produto.html?id=" + encodeURIComponent(p.Produto);
-        
-        const marcaSafe = (p.Marca || "").replace(/'/g, " ");
-        const produtoSafe = (p.Produto || "").replace(/'/g, " ");
-        const precoSafe = p.Preco_Venda || "";
-        
-        let favoritos = JSON.parse(localStorage.getItem('zeidanFavoritos')) || [];
-        const isFav = favoritos.includes(p.Produto);
-        const heartClass = isFav ? "active" : "";
-        const heartIcon = isFav ? "fa-solid fa-heart" : "fa-regular fa-heart";
+  historico.forEach(p => {
+    const card = document.createElement("article");
 
-        card.innerHTML = `
+    // Classes padrão + Alinhamento
+    card.className = `product-card`;
+
+    let detalheHref = p.id_slug ? "produto.html?id=" + p.id_slug : "produto.html?id=" + encodeURIComponent(p.Produto);
+
+    const marcaSafe = (p.Marca || "").replace(/'/g, " ");
+    const produtoSafe = (p.Produto || "").replace(/'/g, " ");
+    const precoSafe = p.Preco_Venda || "";
+
+    let favoritos = JSON.parse(localStorage.getItem('zeidanFavoritos')) || [];
+    const isFav = favoritos.includes(p.Produto);
+    const heartClass = isFav ? "active" : "";
+    const heartIcon = isFav ? "fa-solid fa-heart" : "fa-regular fa-heart";
+
+    card.innerHTML = `
           <div class="product-image-wrap">
               <button class="wishlist-btn ${heartClass}" onclick="toggleFavorito('${produtoSafe}', this)">
                  <i class="${heartIcon}"></i>
@@ -546,12 +553,12 @@ function renderizarHistorico() {
             </button>
           </div>
         `;
-        
-        /* --- AQUI: Animação de Entrada --- */
-        cardObserver.observe(card);
-        
-        container.appendChild(card);
-    });
+
+    /* --- AQUI: Animação de Entrada --- */
+    cardObserver.observe(card);
+
+    container.appendChild(card);
+  });
 }
 
 /* =====================================================
@@ -622,7 +629,7 @@ if (categoryButtons.length && perfumeGrid) {
     });
   });
 }
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
   const header = document.querySelector('.hero-bar');
   if (header) {
     if (window.scrollY > 50) header.classList.add('scrolled'); else header.classList.remove('scrolled');
@@ -632,128 +639,128 @@ window.addEventListener('scroll', function() {
 /* =====================================================
    GALERIA SNIPER (SEPARAÇÃO TOTAL TOUCH vs MOUSE) 🎯
    ===================================================== */
-window.montarGaleria = function(produto) {
-    console.log("--> Galeria Sniper Ativada");
+window.montarGaleria = function (produto) {
+  console.log("--> Galeria Sniper Ativada");
 
-    const mainImg = document.getElementById('main-product-img');
-    const track = document.getElementById('thumbnails-track');
+  const mainImg = document.getElementById('main-product-img');
+  const track = document.getElementById('thumbnails-track');
 
-    if (!mainImg || !track) return;
+  if (!mainImg || !track) return;
 
-    // 1. Limpa eventos antigos
-    mainImg.onclick = null;
+  // 1. Limpa eventos antigos
+  mainImg.onclick = null;
 
-    // 2. Prepara Imagens
-    let lista = [];
-    if(produto.Imagem) lista.push(produto.Imagem);
-    if(produto.Imagem2) lista.push(produto.Imagem2);
-    if(produto.Imagem3) lista.push(produto.Imagem3);
-    if(produto.Imagem4) lista.push(produto.Imagem4);
-    if(lista.length === 0) lista = ["placeholder.jpg"];
-    const unicaImagem = lista.length === 1;
+  // 2. Prepara Imagens
+  let lista = [];
+  if (produto.Imagem) lista.push(produto.Imagem);
+  if (produto.Imagem2) lista.push(produto.Imagem2);
+  if (produto.Imagem3) lista.push(produto.Imagem3);
+  if (produto.Imagem4) lista.push(produto.Imagem4);
+  if (lista.length === 0) lista = ["placeholder.jpg"];
+  const unicaImagem = lista.length === 1;
 
-    mainImg.src = lista[0];
-    let indiceAtual = 0;
+  mainImg.src = lista[0];
+  let indiceAtual = 0;
 
-    // 3. Miniaturas
-    track.innerHTML = '';
-    lista.forEach((src, i) => {
-        let thumb = document.createElement("div");
-        thumb.className = `thumb-item ${i===0 ? 'active' : ''}`;
-        thumb.id = `thumb-idx-${i}`;
-        thumb.innerHTML = `<img src="${src}">`;
-        if(unicaImagem) thumb.style.display = 'none';
-        
-        // No thumb, usamos click simples mesmo
-        thumb.onclick = (e) => { e.stopPropagation(); irParaFoto(i); };
-        track.appendChild(thumb);
-    });
+  // 3. Miniaturas
+  track.innerHTML = '';
+  lista.forEach((src, i) => {
+    let thumb = document.createElement("div");
+    thumb.className = `thumb-item ${i === 0 ? 'active' : ''}`;
+    thumb.id = `thumb-idx-${i}`;
+    thumb.innerHTML = `<img src="${src}">`;
+    if (unicaImagem) thumb.style.display = 'none';
 
-    function irParaFoto(i) {
-        indiceAtual = i;
-        mainImg.src = lista[i];
-        document.querySelectorAll('.thumb-item').forEach(el => el.classList.remove('active'));
-        let ativo = document.getElementById(`thumb-idx-${i}`);
-        if(ativo) {
-            ativo.classList.add('active');
-            ativo.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    // No thumb, usamos click simples mesmo
+    thumb.onclick = (e) => { e.stopPropagation(); irParaFoto(i); };
+    track.appendChild(thumb);
+  });
+
+  function irParaFoto(i) {
+    indiceAtual = i;
+    mainImg.src = lista[i];
+    document.querySelectorAll('.thumb-item').forEach(el => el.classList.remove('active'));
+    let ativo = document.getElementById(`thumb-idx-${i}`);
+    if (ativo) {
+      ativo.classList.add('active');
+      ativo.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+  }
+
+  function abrirZoom() {
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("imageModalImg");
+    if (modal && modalImg) {
+      console.log("Zoom Aberto!");
+      modalImg.src = mainImg.src;
+      modal.classList.add("open");
+      modal.style.display = "flex";
+    }
+  }
+
+  // ============================================================
+  // A LÓGICA SNIPER 🔫
+  // ============================================================
+
+  let startX = 0;
+  let startY = 0;
+  let isTouch = false; // Variável para saber se o usuário está no celular
+
+  // --- 1. CELULAR (TOUCH) ---
+
+  mainImg.addEventListener('touchstart', e => {
+    isTouch = true; // Marca que é touch para desativar o clique do mouse depois
+    startX = e.changedTouches[0].clientX;
+    startY = e.changedTouches[0].clientY;
+  }, { passive: false }); // passive: false permite usar preventDefault se precisar
+
+  mainImg.addEventListener('touchend', e => {
+    let endX = e.changedTouches[0].clientX;
+    let endY = e.changedTouches[0].clientY;
+
+    let diffX = endX - startX;
+    let diffY = endY - startY;
+
+    // CALCULA A DISTÂNCIA PERCORRIDA (EM QUALQUER DIREÇÃO)
+    // Se moveu mais que 10px (seja pra baixo scrollando ou pro lado), NÃO É CLIQUE.
+    if (Math.abs(diffX) > 10 || Math.abs(diffY) > 10) {
+
+      // Verifica se foi Swipe Lateral Intencional (> 50px)
+      if (Math.abs(diffX) > 50 && Math.abs(diffY) < 40) {
+        if (diffX < 0) {
+          let prox = indiceAtual + 1;
+          if (prox >= lista.length) prox = 0;
+          irParaFoto(prox);
+        } else {
+          let ant = indiceAtual - 1;
+          if (ant < 0) ant = lista.length - 1;
+          irParaFoto(ant);
         }
+      }
+      // Se foi só scroll (vertical), não faz nada.
+      return;
     }
 
-    function abrirZoom() {
-        const modal = document.getElementById("imageModal");
-        const modalImg = document.getElementById("imageModalImg");
-        if (modal && modalImg) {
-            console.log("Zoom Aberto!");
-            modalImg.src = mainImg.src;
-            modal.classList.add("open");
-            modal.style.display = "flex";
-        }
+    // SE CHEGOU AQUI: O DEDO NÃO MEXEU! É TAP!
+    // preventDefault() impede que o navegador gere um "clique fantasma" depois
+    if (e.cancelable) e.preventDefault();
+    abrirZoom();
+  });
+
+  // --- 2. COMPUTADOR (MOUSE) ---
+
+  // O evento 'click' no computador funciona normal.
+  // Mas no celular, o navegador dispara 'click' depois do 'touchend'.
+  // A gente bloqueia isso verificando a flag 'isTouch'.
+  mainImg.addEventListener('click', (e) => {
+    if (isTouch) {
+      // Se veio do touch, ignoramos este evento (já tratamos no touchend)
+      isTouch = false; // Reseta para o próximo
+      return;
     }
-
-    // ============================================================
-    // A LÓGICA SNIPER 🔫
-    // ============================================================
-    
-    let startX = 0;
-    let startY = 0;
-    let isTouch = false; // Variável para saber se o usuário está no celular
-
-    // --- 1. CELULAR (TOUCH) ---
-    
-    mainImg.addEventListener('touchstart', e => {
-        isTouch = true; // Marca que é touch para desativar o clique do mouse depois
-        startX = e.changedTouches[0].clientX;
-        startY = e.changedTouches[0].clientY;
-    }, {passive: false}); // passive: false permite usar preventDefault se precisar
-
-    mainImg.addEventListener('touchend', e => {
-        let endX = e.changedTouches[0].clientX;
-        let endY = e.changedTouches[0].clientY;
-        
-        let diffX = endX - startX;
-        let diffY = endY - startY;
-        
-        // CALCULA A DISTÂNCIA PERCORRIDA (EM QUALQUER DIREÇÃO)
-        // Se moveu mais que 10px (seja pra baixo scrollando ou pro lado), NÃO É CLIQUE.
-        if (Math.abs(diffX) > 10 || Math.abs(diffY) > 10) {
-            
-            // Verifica se foi Swipe Lateral Intencional (> 50px)
-            if (Math.abs(diffX) > 50 && Math.abs(diffY) < 40) {
-                 if (diffX < 0) {
-                     let prox = indiceAtual + 1;
-                     if(prox >= lista.length) prox = 0;
-                     irParaFoto(prox);
-                 } else {
-                     let ant = indiceAtual - 1;
-                     if(ant < 0) ant = lista.length - 1;
-                     irParaFoto(ant);
-                 }
-            }
-            // Se foi só scroll (vertical), não faz nada.
-            return;
-        }
-
-        // SE CHEGOU AQUI: O DEDO NÃO MEXEU! É TAP!
-        // preventDefault() impede que o navegador gere um "clique fantasma" depois
-        if (e.cancelable) e.preventDefault(); 
-        abrirZoom();
-    });
-
-    // --- 2. COMPUTADOR (MOUSE) ---
-    
-    // O evento 'click' no computador funciona normal.
-    // Mas no celular, o navegador dispara 'click' depois do 'touchend'.
-    // A gente bloqueia isso verificando a flag 'isTouch'.
-    mainImg.addEventListener('click', (e) => {
-        if (isTouch) {
-            // Se veio do touch, ignoramos este evento (já tratamos no touchend)
-            isTouch = false; // Reseta para o próximo
-            return;
-        }
-        // Se é mouse de verdade, abre o zoom
-        abrirZoom();
-    });
+    // Se é mouse de verdade, abre o zoom
+    abrirZoom();
+  });
 };
 
 // Inicialização
@@ -766,20 +773,37 @@ if (localStorage.getItem("abrirMarcas") === "1") {
   const marcasSection = document.getElementById("marcas") || document.getElementById("produtos");
   if (marcasSection) marcasSection.scrollIntoView({ behavior: "smooth" });
 }
-if (perfumeGrid) {
-  const marcaSelecionada = localStorage.getItem("marcaSelecionada");
-  if (marcaSelecionada) {
-    localStorage.removeItem("marcaSelecionada");
-    renderCards(marcaSelecionada, "", currentCategory);
-  }
-}
 
 // Abrir e Fechar Menu do Zap
 function toggleZapMenu() {
-    const menu = document.getElementById('zapMenu');
-    if (menu.style.display === 'block') {
-        menu.style.display = 'none';
+  const menu = document.getElementById('zapMenu');
+  if (menu.style.display === 'block') {
+    menu.style.display = 'none';
+  } else {
+    menu.style.display = 'block';
+  }
+}
+
+// Verifica se o botão de compartilhar existe na página
+const btnShare = document.getElementById('btnCompartilhar');
+
+if (btnShare) {
+  btnShare.addEventListener('click', () => {
+    // Dados do compartilhamento
+    const shareData = {
+      title: "Zeidan Shoes",
+      text: 'Dá uma olhada nesse modelo que achei na Zeidan:',
+      url: window.location.href
+    };
+
+    // Lógica: Tenta nativo (Celular), se não der, copia Link (PC)
+    if (navigator.share) {
+      navigator.share(shareData)
+        .catch((err) => console.log('Erro ou cancelado:', err));
     } else {
-        menu.style.display = 'block';
+      navigator.clipboard.writeText(window.location.href)
+        .then(() => alert("Link copiado para a área de transferência!"))
+        .catch(() => alert("Não foi possível copiar o link via navegador."));
     }
+  });
 }

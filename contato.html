@@ -12,6 +12,24 @@
     <meta property="og:locale" content="pt_BR">
     <link rel="shortcut icon" href="logopequena.png" type="image/x-icon">
   </head>
+  <style>/* --- CORREÇÃO DO BANNER GIGANTE (PÁGINA DE CONTATO) --- */
+
+/* Só aplica essa regra em telas de PC (acima de 768px) */
+@media (min-width: 768px) {
+    .full-width-banner {
+        /* Define uma altura fixa para não tomar a tela toda */
+        height: 400px !important; 
+        
+        /* Garante largura total */
+        width: 100% !important;   
+        
+        /* A MÁGICA: Corta o excesso (cima/baixo) em vez de esticar */
+        object-fit: cover !important; 
+        
+        /* Garante que o centro da imagem (onde geralmente está o texto/logo) apareça */
+        object-position: center !important; 
+    }    
+}</style>
   <body class="contact-body">
     <header class="top-bar">
       <div class="top-bar-inner">
@@ -20,9 +38,14 @@
         </div>
       </div>
     </header>
-
+      <section class="banner-section">
+        <img src="imagensdeperfume/bannerFALE.jpg" alt="Banner Fale com a Zeidan" class="full-width-banner" style="width:100%; margin-bottom: 50px;">
+        <div class="banner-text">
+            <div class="banner-text align-left">
+        </div>
+      </section>
     <main class="contact-main">
-      <div class="contact-card">
+      <div class="contact-card" style="margin-top: -450px; position: relative; z-index: 10;">
         <h1>Contato</h1>
         <p>
           Clique no botão abaixo para falar diretamente com a equipe Zeidan
@@ -40,6 +63,12 @@
         <a href="index.html" class="contact-back">Voltar para o catálogo</a>
       </div>
     </main>
+    <section class="banner-section" style="margin-top: -320px; margin-bottom: -70px; position: relative; z-index: 1;">
+        <img src="imagensdeperfume/bannerFALE.jpg" alt="Banner Fale Com a Zeidan" class="full-width-banner" style="width:100%; margin-bottom: 50px;">
+        <div class="banner-text">
+            <div class="banner-text align-left">
+        </div>
+      </section>
     <footer class="site-footer">
     <div class="footer-inner">
       <a href="https://instagram.com/zeidanparfum" target="_blank" class="footer-instagram">

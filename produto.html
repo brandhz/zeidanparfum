@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <title>Detalhes do perfume | Zeidan Parfum</title>
@@ -7,68 +8,75 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <meta property="og:title" content="Zeidan Parfum | Perfumes Importados & Decants">
-  <meta property="og:description" content="Encontre sua assinatura olfativa. Frascos lacrados e decants originais com envio para todo o Brasil.">
-  <meta property="og:image" content="https://seusite.com/capa-compartilhamento.jpg"> 
+  <meta property="og:description"
+    content="Encontre sua assinatura olfativa. Frascos lacrados e decants originais com envio para todo o Brasil.">
+  <meta property="og:image" content="https://seusite.com/capa-compartilhamento.jpg">
   <meta property="og:url" content="https://seusite.com/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
   <link rel="shortcut icon" href="logopequena.png" type="image/x-icon">
 
   <style>
-  /* =========================================
+    /* =========================================
       CSS ESPECÍFICO DA PÁGINA DE PRODUTO
       ========================================= */
 
-  /* --- 1. GALERIA PREMIUM --- */
-  .product-gallery {
+    /* --- 1. GALERIA PREMIUM --- */
+    .product-gallery {
       width: 100%;
       max-width: 450px;
       margin: 0 auto 25px auto;
-  }
+    }
 
-  /* CONTAINER: Vira um "Cartão" branco elegante */
-  .main-image-container {
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding-bottom: 100%; /* Mantém quadrado */
-    background-color: #fff; 
-    border-radius: 20px; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 
-                0 0 0 1px rgba(255,255,255,0.1); 
-    margin-bottom: 10px;
-    overflow: hidden;
-  }
+    /* CONTAINER: Vira um "Cartão" branco elegante */
+    .main-image-container {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 100%;
+      /* Mantém quadrado */
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
 
-  /* IMAGEM: Normal, nítida e centralizada */
-  .main-img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 85%;
-    height: 85%;
-    object-fit: contain;
-  }
+    /* IMAGEM: Normal, nítida e centralizada */
+    .main-img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 85%;
+      height: 85%;
+      object-fit: contain;
+    }
 
-  .main-img:hover { transform: scale(1.08); }
+    .main-img:hover {
+      transform: scale(1.08);
+    }
 
-  /* Faixa de Miniaturas */
-  .thumbnails-scroll-container {
+    /* Faixa de Miniaturas */
+    .thumbnails-scroll-container {
       width: 100%;
       overflow-x: auto;
       padding: 5px;
       display: flex;
       justify-content: center;
-  }
-  .thumbnails-scroll-container::-webkit-scrollbar { display: none; }
+    }
 
-  .thumbnails-track {
+    .thumbnails-scroll-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .thumbnails-track {
       display: flex;
       gap: 12px;
-  }
+    }
 
-  .thumb-item {
+    .thumb-item {
       width: 60px;
       height: 60px;
       border-radius: 10px;
@@ -77,113 +85,211 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      border: 2px solid transparent; 
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      border: 2px solid transparent;
       transition: all 0.2s;
-  }
+    }
 
-  .thumb-item img {
+    .thumb-item img {
       width: 80%;
       height: 80%;
       object-fit: contain;
-  }
+    }
 
-  .thumb-item.active {
-      border-color: #C5A059; 
+    .thumb-item.active {
+      border-color: #C5A059;
       transform: translateY(-3px);
       box-shadow: 0 5px 15px rgba(197, 160, 89, 0.25);
-  }
+    }
 
-  /* --- 2. SUGESTÕES --- */
-  #lista-sugestoes {
+    /* --- 2. SUGESTÕES --- */
+    #lista-sugestoes {
       display: flex;
       gap: 15px;
       justify-content: center;
       flex-wrap: wrap;
-  }
-
-  /* --- 3. ESTILO DO SELETOR DE TAMANHO (NOVO) --- */
-  .size-selector-container {
-    display: flex;
-    gap: 10px;
-    margin: 15px 0;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .size-btn {
-    padding: 10px 20px;
-    border: 1px solid #444;
-    background: #111;
-    color: #fff;
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: 600;
-    border-radius: 8px;
-    transition: all 0.2s ease;
-    min-width: 80px;
-  }
-
-  .size-btn:hover {
-    border-color: #C5A059;
-  }
-
-  .size-btn.active {
-    background: rgba(197, 160, 89, 0.1);
-    color: #fff;
-    border-color: #C5A059;
-    box-shadow: 0 0 10px rgba(197, 160, 89, 0.2);
-  }
-
-  /* --- 4. RESPONSIVIDADE --- */
-  @media (max-width: 768px) {
-    .product-gallery { max-width: 100%; }
-    
-    .product-detail-content {
-      padding: 0 15px !important;
-      box-sizing: border-box !important;
-      width: 100% !important;
     }
 
-    #lista-sugestoes {
-      flex-wrap: nowrap !important;
-      justify-content: flex-start !important;
-      overflow-x: auto;
-      padding-bottom: 15px;
-      scroll-snap-type: x mandatory;
-    }
-    #lista-sugestoes a {
-      flex: 0 0 auto;
-      scroll-snap-align: center;
+    /* --- 3. ESTILO DO SELETOR DE TAMANHO (NOVO) --- */
+    .size-selector-container {
+      display: flex;
+      gap: 10px;
+      margin: 15px 0;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
-    .site-header .hero-inner { padding-top: -100px !important; padding-bottom: 10px !important; }
-    .logo { max-width: 150px !important; }
-    
-    .product-detail-title { margin-top: 20px !important; line-height: 1.3 !important; }
+    .size-btn {
+      padding: 10px 20px;
+      border: 1px solid #444;
+      background: #111;
+      color: #fff;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      min-width: 80px;
+    }
 
-    .logo-wrap {
-          margin-top: 20px !important; 
-          margin-bottom: 10px !important;
+    .size-btn:hover {
+      border-color: #C5A059;
+    }
+
+    .size-btn.active {
+      background: rgba(197, 160, 89, 0.1);
+      color: #fff;
+      border-color: #C5A059;
+      box-shadow: 0 0 10px rgba(197, 160, 89, 0.2);
+    }
+
+    /* --- 4. RESPONSIVIDADE --- */
+    @media (max-width: 768px) {
+      .product-gallery {
+        max-width: 100%;
+      }
+
+      .product-detail-content {
+        padding: 0 15px !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+      }
+
+      #lista-sugestoes {
+        flex-wrap: nowrap !important;
+        justify-content: flex-start !important;
+        overflow-x: auto;
+        padding-bottom: 15px;
+        scroll-snap-type: x mandatory;
+      }
+
+      #lista-sugestoes a {
+        flex: 0 0 auto;
+        scroll-snap-align: center;
+      }
+
+      .site-header .hero-inner {
+        padding-top: -100px !important;
+        padding-bottom: 10px !important;
+      }
+
+      .logo {
+        max-width: 150px !important;
+      }
+
+      .product-detail-title {
+        margin-top: 20px !important;
+        line-height: 1.3 !important;
+      }
+
+      .logo-wrap {
+        margin-top: 0px !important;
+        margin-bottom: 10px !important;
       }
 
       .product-detail {
-          margin-top: 0 !important;
-          padding-top: 0 !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
       }
-      
+
       .hero-bar {
-          position: absolute !important;
+        position: absolute !important;
       }
-  }
+    }
+
+    .btn-share {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      /* Espaço entre ícone e texto */
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      /* Separa do botão de comprar */
+      background-color: #f5f5f5;
+      /* Cinza clarinho */
+      color: #333;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      /* Cantos arredondados */
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-share:hover {
+      background-color: #e0e0e0;
+    }
+
+    /* Opcional: Efeito de clique */
+    .btn-share:active {
+      transform: scale(0.98);
+    }
+
+    #breadcrumb-container {
+      font-size: 13px;
+      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 15px;
+      margin-left: 0px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      width: 100%;
+      padding: 0 15px;
+      box-sizing: border-box;
+      color: #ccc;
+      z-index: 10;
+      position: relative;
+      flex-wrap: wrap;
+    }
+
+    /* Link Home */
+    .bread-link {
+      text-decoration: none;
+      color: #e0e0e0;
+      /* Branco gelo */
+      font-weight: 400;
+    }
+
+    /* Link da Marca (Destaque) */
+    .bread-link-marca {
+      color: #ffffff;
+      font-weight: 700;
+      text-decoration: underline;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+
+    .bread-link-marca:hover {
+      color: #e0e0e0;
+
+    }
+
+    /* Nome do Modelo (Onde você está agora) */
+    .bread-current {
+      color: #e0e0e0;
+      /* Cinza mais escuro pois não é link */
+      font-weight: 400;
+      text-transform: uppercase;
+
+      /* Garante que se o nome for longo, não quebre o layout */
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 200px;
+    }
   </style>
 </head>
+
 <body>
 
   <div class="top-bar">
     <div class="top-bar-inner">
       <p class="top-message">
-        ENTRE EM CONTATO COM A NOSSA EQUIPE PARA ENCOMENDAR O SEU PERFUME - (31) 99166-8430
+        ENTRE EM CONTATO COM A NOSSA EQUIPE PARA ENCOMENDAR O SEU PERFUME - (31) 99166-8430/(31) 97178-9632
       </p>
     </div>
   </div>
@@ -192,7 +298,7 @@
     <div class="hero-inner">
       <div class="logo-wrap">
         <a href="index.html">
-            <img src="logo.png" alt="ZEIDAN PARFUM" class="logo" />
+          <img src="logo.png" alt="ZEIDAN PARFUM" class="logo" />
         </a>
       </div>
       <nav class="main-nav">
@@ -203,24 +309,36 @@
   </header>
 
   <main class="page-content">
-    
+
     <section id="marcas" class="brand-panel">
       <div class="brand-panel-inner">
         <div id="brandColumns" class="brand-columns"></div>
       </div>
     </section>
 
+    <div id="breadcrumb-container" style="display: none;">
+      <a href="index.html" class="bread-link">Home</a>
+
+      <span class="bread-separator">></span>
+
+      <span id="breadcrumb-marca-dinamica" class="bread-link-marca">Carregando...</span>
+
+      <span class="bread-separator">></span>
+
+      <span id="breadcrumb-modelo" class="bread-current">Modelo...</span>
+    </div>
+
     <section class="product-detail">
       <div class="product-detail-inner">
-        
+
         <div class="product-detail-image">
           <div class="product-gallery">
-              <div class="main-image-container">
-                  <img id="main-product-img" src="" alt="Carregando..." class="main-img">
-              </div>
-              <div class="thumbnails-scroll-container">
-                  <div class="thumbnails-track" id="thumbnails-track"></div>
-              </div>
+            <div class="main-image-container">
+              <img id="main-product-img" src="" alt="Carregando..." class="main-img">
+            </div>
+            <div class="thumbnails-scroll-container">
+              <div class="thumbnails-track" id="thumbnails-track"></div>
+            </div>
           </div>
         </div>
 
@@ -228,45 +346,57 @@
           <h1 id="produtoTitulo" class="product-detail-title">Carregando...</h1>
           <p id="produtoMarca" class="product-detail-brand"></p>
           <p id="produtoPreco" class="product-detail-price"></p>
-          
+          <p id="produtoParcelas" class="product-detail-installments"></p>
+
           <div id="seletor-tamanho" class="size-selector-container"></div>
-          
+
           <div id="box-decants" class="version-selector-container" style="display: none; margin: 20px 0;">
-            <div class="selector-label" style="font-size: 12px; color: #ffffff; text-transform: uppercase; margin-bottom: 10px; font-weight: 700;">Escolha a versão:</div>
-            
+            <div class="selector-label"
+              style="font-size: 12px; color: #ffffff; text-transform: uppercase; margin-bottom: 10px; font-weight: 700;">
+              Escolha a versão:</div>
+
             <div class="version-options" style="display: flex; gap: 10px; flex-wrap: wrap;">
-                <label class="version-option active" onclick="selecionarVersao('frasco')" style="flex: 1; min-width: 100px; background: #111; border: 1px solid #444; border-radius: 8px; padding: 10px; cursor: pointer; display: flex; flex-direction: column; align-items: center;">
-                    <input type="radio" name="versao" checked hidden>
-                    <span class="v-name" style="font-size: 13px; color: #fff; font-weight: 600;">Frasco Lacrado</span>
-                    <span class="v-tag" style="font-size: 9px; background: #C5A059; color: #000; padding: 2px 6px; border-radius: 4px; font-weight: 800; text-transform: uppercase; margin-top: 4px;">Original</span>
-                </label>
+              <label class="version-option active" onclick="selecionarVersao('frasco')"
+                style="flex: 1; min-width: 100px; background: #111; border: 1px solid #444; border-radius: 8px; padding: 10px; cursor: pointer; display: flex; flex-direction: column; align-items: center;">
+                <input type="radio" name="versao" checked hidden>
+                <span class="v-name" style="font-size: 13px; color: #fff; font-weight: 600;">Frasco Lacrado</span>
+                <span class="v-tag"
+                  style="font-size: 9px; background: #C5A059; color: #000; padding: 2px 6px; border-radius: 4px; font-weight: 800; text-transform: uppercase; margin-top: 4px;">Original</span>
+              </label>
 
-                <label id="label-decant5" class="version-option" onclick="selecionarVersao('decant5')" style="flex: 1; min-width: 100px; background: #111; border: 1px solid #444; border-radius: 8px; padding: 10px; cursor: pointer; display: flex; flex-direction: column; align-items: center;">
-                    <input type="radio" name="versao" hidden>
-                    <span class="v-name" style="font-size: 13px; color: #fff; font-weight: 600;">Decant (5ml)</span>
-                    <span class="v-tag" style="font-size: 9px; background: #2ecc71; color: #000; padding: 2px 6px; border-radius: 4px; font-weight: 800; text-transform: uppercase; margin-top: 4px;">Provador</span>
-                </label>
+              <label id="label-decant5" class="version-option" onclick="selecionarVersao('decant5')"
+                style="flex: 1; min-width: 100px; background: #111; border: 1px solid #444; border-radius: 8px; padding: 10px; cursor: pointer; display: flex; flex-direction: column; align-items: center;">
+                <input type="radio" name="versao" hidden>
+                <span class="v-name" style="font-size: 13px; color: #fff; font-weight: 600;">Decant (5ml)</span>
+                <span class="v-tag"
+                  style="font-size: 9px; background: #2ecc71; color: #000; padding: 2px 6px; border-radius: 4px; font-weight: 800; text-transform: uppercase; margin-top: 4px;">Provador</span>
+              </label>
 
-                <label id="label-decant10" class="version-option" onclick="selecionarVersao('decant10')" style="flex: 1; min-width: 100px; background: #111; border: 1px solid #444; border-radius: 8px; padding: 10px; cursor: pointer; display: flex; flex-direction: column; align-items: center;">
-                    <input type="radio" name="versao" hidden>
-                    <span class="v-name" style="font-size: 13px; color: #fff; font-weight: 600;">Decant (10ml)</span>
-                    <span class="v-tag" style="font-size: 9px; background: #3498db; color: #000; padding: 2px 6px; border-radius: 4px; font-weight: 800; text-transform: uppercase; margin-top: 4px;">Econômico</span>
-                </label>
+              <label id="label-decant10" class="version-option" onclick="selecionarVersao('decant10')"
+                style="flex: 1; min-width: 100px; background: #111; border: 1px solid #444; border-radius: 8px; padding: 10px; cursor: pointer; display: flex; flex-direction: column; align-items: center;">
+                <input type="radio" name="versao" hidden>
+                <span class="v-name" style="font-size: 13px; color: #fff; font-weight: 600;">Decant (10ml)</span>
+                <span class="v-tag"
+                  style="font-size: 9px; background: #3498db; color: #000; padding: 2px 6px; border-radius: 4px; font-weight: 800; text-transform: uppercase; margin-top: 4px;">Econômico</span>
+              </label>
             </div>
           </div>
 
           <p id="produtoDescricao" class="product-detail-description" style="text-align: justify;"></p>
 
           <h3 class="product-detail-subtitle">Principais acordes</h3>
-          <p id="produtoAcordes" class="product-detail-accords" style="margin-top: 5px; color: #fff; text-align: center;"></p>
+          <p id="produtoAcordes" class="product-detail-accords"
+            style="margin-top: 5px; color: #fff; text-align: center;"></p>
 
           <h3 class="product-detail-subtitle">Pirâmide olfativa</h3>
           <p id="produtoNotas" class="product-detail-notes" style="text-align: center;"></p>
-          
+
           <h3 class="product-detail-subtitle" style="margin-top: 20px;">Especificações</h3>
           <ul class="product-specs" style="list-style: none; padding: 0; color: #ccc; text-align: center;">
-            <li style="margin-bottom: 8px;"><strong style="color: #fff;">Estilo:</strong> <span id="produtoEstilo">-</span></li>
-            <li style="margin-bottom: 8px;"><strong style="color: #fff;">Ocasião:</strong> <span id="produtoOcasiao">-</span></li>
+            <li style="margin-bottom: 8px;"><strong style="color: #fff;">Estilo:</strong> <span
+                id="produtoEstilo">-</span></li>
+            <li style="margin-bottom: 8px;"><strong style="color: #fff;">Ocasião:</strong> <span
+                id="produtoOcasiao">-</span></li>
             <li><strong style="color: #fff;">Intensidade:</strong> <span id="produtoIntensidade">-</span></li>
           </ul>
 
@@ -275,13 +405,27 @@
             <a id="produtoComprar" href="#" class="product-btn" style="margin-top:10px;">Comprar</a>
           </div>
 
-          <div id="box-sugestoes" style="display: none; margin-top: 40px; border-top: 1px solid #333; padding-top: 20px;">
-            <h3 class="product-detail-subtitle" style="text-align: center; margin-bottom: 20px;">Quem gosta deste, também gosta de:</h3>
+          <button id="btnCompartilhar" class="btn-share">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="5" r="3"></circle>
+              <circle cx="6" cy="12" r="3"></circle>
+              <circle cx="18" cy="19" r="3"></circle>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+            Compartilhar
+          </button>
+
+          <div id="box-sugestoes"
+            style="display: none; margin-top: 40px; border-top: 1px solid #333; padding-top: 20px;">
+            <h3 class="product-detail-subtitle" style="text-align: center; margin-bottom: 20px;">Quem gosta deste,
+              também gosta de:</h3>
             <div id="lista-sugestoes"></div>
           </div>
 
           <a href="index.html" class="contact-back">← Voltar para a vitrine</a>
-        </div> 
+        </div>
       </div>
     </section>
   </main>
@@ -309,10 +453,11 @@
         <p class="empty-msg">Sua sacola está vazia 🛍️</p>
       </div>
       <div class="cart-footer">
-        <div class="cart-total" style="display: flex; justify-content: space-between; margin-bottom: 15px; border-top: 1px solid #eee; padding-top: 15px;">
-    <span style="font-size: 16px; font-weight: 600;">Subtotal:</span>
-    <span id="cart-total-value" style="font-size: 18px; font-weight: 800; color: #000;">R$ 0,00</span>
-</div>
+        <div class="cart-total"
+          style="display: flex; justify-content: space-between; margin-bottom: 15px; border-top: 1px solid #eee; padding-top: 15px;">
+          <span style="font-size: 16px; font-weight: 600;">Subtotal:</span>
+          <span id="cart-total-value" style="font-size: 18px; font-weight: 800; color: #000;">R$ 0,00</span>
+        </div>
         <button onclick="finalizarNoZap()" class="btn-whatsapp-checkout">
           <i class="fa-brands fa-whatsapp"></i> Finalizar Pedido
         </button>
@@ -357,42 +502,42 @@
 
     // 2. Atualiza o visual da sacola
     function atualizarCarrinhoUI() {
-        const container = document.getElementById('cart-items');
-        const contador = document.getElementById('cart-count');
-        const totalDisplay = document.getElementById('cart-total-value');
-        
-        localStorage.setItem('carrinhoZeidan', JSON.stringify(carrinho));
+      const container = document.getElementById('cart-items');
+      const contador = document.getElementById('cart-count');
+      const totalDisplay = document.getElementById('cart-total-value');
 
-        // Bolinha vermelha (some se zero)
-        if (contador) {
-            contador.innerText = carrinho.length;
-            contador.style.display = carrinho.length > 0 ? 'flex' : 'none';
-        }
+      localStorage.setItem('carrinhoZeidan', JSON.stringify(carrinho));
 
-        if (!container) return;
+      // Bolinha vermelha (some se zero)
+      if (contador) {
+        contador.innerText = carrinho.length;
+        contador.style.display = carrinho.length > 0 ? 'flex' : 'none';
+      }
 
-        if (carrinho.length === 0) {
-            container.innerHTML = '<div style="text-align:center; padding:40px 20px; color:#888;"><i class="fa-solid fa-basket-shopping" style="font-size:40px; margin-bottom:10px; opacity:0.5;"></i><p>Sua sacola está vazia.</p></div>';
-            if(totalDisplay) totalDisplay.innerText = "R$ 0,00";
-            return;
-        }
+      if (!container) return;
 
-        let html = '';
-        let total = 0;
+      if (carrinho.length === 0) {
+        container.innerHTML = '<div style="text-align:center; padding:40px 20px; color:#888;"><i class="fa-solid fa-basket-shopping" style="font-size:40px; margin-bottom:10px; opacity:0.5;"></i><p>Sua sacola está vazia.</p></div>';
+        if (totalDisplay) totalDisplay.innerText = "R$ 0,00";
+        return;
+      }
 
-        carrinho.forEach((item, index) => {
-            let precoNumerico = 0;
-            try {
-                let limpo = item.preco.toString().replace('R$', '').replace(/\./g, '').replace(',', '.').trim();
-                precoNumerico = parseFloat(limpo);
-            } catch(e) { precoNumerico = 0; }
-            
-            if (!isNaN(precoNumerico)) total += precoNumerico;
+      let html = '';
+      let total = 0;
 
-            // Visual: Marca Pequena / Nome Grande
-            let nomeExibicao = item.produto || item.nome || "Produto";
+      carrinho.forEach((item, index) => {
+        let precoNumerico = 0;
+        try {
+          let limpo = item.preco.toString().replace('R$', '').replace(/\./g, '').replace(',', '.').trim();
+          precoNumerico = parseFloat(limpo);
+        } catch (e) { precoNumerico = 0; }
 
-            html += `
+        if (!isNaN(precoNumerico)) total += precoNumerico;
+
+        // Visual: Marca Pequena / Nome Grande
+        let nomeExibicao = item.produto || item.nome || "Produto";
+
+        html += `
                 <div class="cart-item" style="display:flex; justify-content:space-between; align-items:center; padding:15px 0; border-bottom:1px solid #eee;">
                     <div style="flex:1; padding-right:10px;">
                         <div style="font-size:10px; color:#999; text-transform:uppercase; font-weight:700; margin-bottom:2px;">
@@ -410,90 +555,90 @@
                     </div>
                 </div>
             `;
-        });
+      });
 
-        container.innerHTML = html;
-        if(totalDisplay) totalDisplay.innerText = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+      container.innerHTML = html;
+      if (totalDisplay) totalDisplay.innerText = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
     }
 
     // 3. Função Global para Adicionar (Silenciosa + Animação)
-    window.adicionarAoCarrinho = function(marca, produto, preco, botao) {
-        carrinho.push({ marca, produto, preco });
-        atualizarCarrinhoUI();
+    window.adicionarAoCarrinho = function (marca, produto, preco, botao) {
+      carrinho.push({ marca, produto, preco });
+      atualizarCarrinhoUI();
 
-        // Animação Ícone Carrinho
-        const cartIcon = document.querySelector('.cart-floating-btn i') || document.querySelector('.fa-cart-shopping');
-        if (cartIcon) {
-            cartIcon.style.transition = "transform 0.2s, color 0.2s";
-            cartIcon.style.transform = "scale(1.4)";
-            cartIcon.style.color = "#2ecc71";
-            setTimeout(() => {
-                cartIcon.style.transform = "scale(1)";
-                cartIcon.style.color = "";
-            }, 300);
-        }
+      // Animação Ícone Carrinho
+      const cartIcon = document.querySelector('.cart-floating-btn i') || document.querySelector('.fa-cart-shopping');
+      if (cartIcon) {
+        cartIcon.style.transition = "transform 0.2s, color 0.2s";
+        cartIcon.style.transform = "scale(1.4)";
+        cartIcon.style.color = "#2ecc71";
+        setTimeout(() => {
+          cartIcon.style.transform = "scale(1)";
+          cartIcon.style.color = "";
+        }, 300);
+      }
 
-        // Animação Botão (Se passado)
-        if (botao) {
-           const textoOriginal = botao.innerHTML;
-           botao.innerHTML = 'Adicionado! <i class="fa-solid fa-check"></i>';
-           botao.style.background = '#2ecc71';
-           botao.style.color = '#fff';
-           setTimeout(() => {
-               botao.innerHTML = textoOriginal;
-               botao.style.background = '';
-               botao.style.color = '';
-           }, 1500);
-        }
+      // Animação Botão (Se passado)
+      if (botao) {
+        const textoOriginal = botao.innerHTML;
+        botao.innerHTML = 'Adicionado! <i class="fa-solid fa-check"></i>';
+        botao.style.background = '#2ecc71';
+        botao.style.color = '#fff';
+        setTimeout(() => {
+          botao.innerHTML = textoOriginal;
+          botao.style.background = '';
+          botao.style.color = '';
+        }, 1500);
+      }
     };
 
     // 4. Remove item
-    window.removerDoCarrinho = function(index) {
-        carrinho.splice(index, 1);
-        atualizarCarrinhoUI();
+    window.removerDoCarrinho = function (index) {
+      carrinho.splice(index, 1);
+      atualizarCarrinhoUI();
     };
 
     // 5. Abre e Fecha a Janela (COM CORREÇÃO DO ZAP)
-    window.toggleCart = function() {
-        const modal = document.getElementById('cart-modal');
-        const widgetZap = document.querySelector('.whatsapp-widget'); // Pega o botão do zap
-        
-        if (!modal) return;
-        
-        if (modal.style.display === 'flex') {
-            // FECHANDO O CARRINHO
-            modal.style.display = 'none';
-            if(widgetZap) widgetZap.style.display = 'block'; // Mostra o zap de volta
-        } else {
-            // ABRINDO O CARRINHO
-            modal.style.display = 'flex';
-            if(widgetZap) widgetZap.style.display = 'none'; // Esconde o zap pra não atrapalhar
-            atualizarCarrinhoUI();
-        }
+    window.toggleCart = function () {
+      const modal = document.getElementById('cart-modal');
+      const widgetZap = document.querySelector('.whatsapp-widget'); // Pega o botão do zap
+
+      if (!modal) return;
+
+      if (modal.style.display === 'flex') {
+        // FECHANDO O CARRINHO
+        modal.style.display = 'none';
+        if (widgetZap) widgetZap.style.display = 'block'; // Mostra o zap de volta
+      } else {
+        // ABRINDO O CARRINHO
+        modal.style.display = 'flex';
+        if (widgetZap) widgetZap.style.display = 'none'; // Esconde o zap pra não atrapalhar
+        atualizarCarrinhoUI();
+      }
     };
 
     // 6. Botão Finalizar no WhatsApp
-    window.finalizarNoZap = function() {
-        if (carrinho.length === 0) return alert("Sua sacola está vazia!");
+    window.finalizarNoZap = function () {
+      if (carrinho.length === 0) return alert("Sua sacola está vazia!");
 
-        let mensagem = "Olá Zeidan! Gostaria de verificar a disponibilidade destes perfumes:\n\n";
-        let totalEstimado = 0;
+      let mensagem = "Olá Zeidan! Gostaria de verificar a disponibilidade destes perfumes:\n\n";
+      let totalEstimado = 0;
 
-        carrinho.forEach(item => {
-            mensagem += `▪️ *${item.produto}* (${item.marca}) - ${item.preco}\n`;
-            try {
-                let limpo = item.preco.toString().replace('R$', '').replace(/\./g, '').replace(',', '.').trim();
-                let valor = parseFloat(limpo);
-                if(!isNaN(valor)) totalEstimado += valor;
-            } catch(e){}
-        });
+      carrinho.forEach(item => {
+        mensagem += `▪️ *${item.produto}* (${item.marca}) - ${item.preco}\n`;
+        try {
+          let limpo = item.preco.toString().replace('R$', '').replace(/\./g, '').replace(',', '.').trim();
+          let valor = parseFloat(limpo);
+          if (!isNaN(valor)) totalEstimado += valor;
+        } catch (e) { }
+      });
 
-        mensagem += `\n💰 *Total Estimado:* ${totalEstimado.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
-        mensagem += `\n\nAguardo a confirmação e o link de pagamento!`;
+      mensagem += `\n💰 *Total Estimado:* ${totalEstimado.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
+      mensagem += `\n\nAguardo a confirmação e o link de pagamento!`;
 
-        let telefone = "5531991668430"; 
-        let url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
-        window.open(url, '_blank');
+      let telefone = "5531991668430";
+      let url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
+      window.open(url, '_blank');
     };
 
     document.addEventListener("DOMContentLoaded", atualizarCarrinhoUI);
@@ -501,126 +646,126 @@
 
   <script>
     // === LÓGICA DE CARREGAMENTO INTELIGENTE (HÍBRIDA + VARIAÇÕES) ===
-    
+
     // --- VARIÁVEIS GLOBAIS DE SELEÇÃO ---
-    let produtoAtualDados = {}; 
-    let versaoAtualSelecionada = ""; 
-    let precoAtualSelecionado = ""; 
+    let produtoAtualDados = {};
+    let versaoAtualSelecionada = "";
+    let precoAtualSelecionado = "";
 
     // --- FUNÇÃO 1: VERIFICA SE TEM DECANT ---
     function verificarDisponibilidadeDecants(p) {
-        produtoAtualDados = p; 
-        const boxDecants = document.getElementById('box-decants');
-        const btn5ml = document.getElementById('label-decant5');
-        const btn10ml = document.getElementById('label-decant10');
+      produtoAtualDados = p;
+      const boxDecants = document.getElementById('box-decants');
+      const btn5ml = document.getElementById('label-decant5');
+      const btn10ml = document.getElementById('label-decant10');
 
-        const temDecant5 = p.Decant5ml && p.Decant5ml.toString().trim() !== "";
-        const temDecant10 = p.Decant10ml && p.Decant10ml.toString().trim() !== "";
+      const temDecant5 = p.Decant5ml && p.Decant5ml.toString().trim() !== "";
+      const temDecant10 = p.Decant10ml && p.Decant10ml.toString().trim() !== "";
 
-        if(btn5ml) btn5ml.style.display = temDecant5 ? 'flex' : 'none';
-        if(btn10ml) btn10ml.style.display = temDecant10 ? 'flex' : 'none';
+      if (btn5ml) btn5ml.style.display = temDecant5 ? 'flex' : 'none';
+      if (btn10ml) btn10ml.style.display = temDecant10 ? 'flex' : 'none';
 
-        if (boxDecants) {
-            boxDecants.style.display = (temDecant5 || temDecant10) ? 'block' : 'none';
-        }
+      if (boxDecants) {
+        boxDecants.style.display = (temDecant5 || temDecant10) ? 'block' : 'none';
+      }
     }
 
     // --- FUNÇÃO 2: RENDERIZA OS TAMANHOS (NOVO!) ---
     function renderizarSeletorTamanho(p) {
-        const container = document.getElementById('seletor-tamanho');
-        if (!container) return;
-        
-        container.innerHTML = ""; // Limpa
+      const container = document.getElementById('seletor-tamanho');
+      if (!container) return;
 
-        // Verifica se tem variações
-        if (p.Variacoes && Array.isArray(p.Variacoes) && p.Variacoes.length > 0) {
-            console.log("Criando botões de tamanho...");
+      container.innerHTML = ""; // Limpa
 
-            // 1. Cria opção "Padrão" (se quiser voltar ao original)
-            // Se o produto original já tem um tamanho (ex: 80ml), usamos ele.
-            let tamanhoPadrao = "Padrão";
-            const match = (p.Produto || "").match(/(\d+\s?[Mm][Ll])/);
-            if (match) tamanhoPadrao = match[0];
+      // Verifica se tem variações
+      if (p.Variacoes && Array.isArray(p.Variacoes) && p.Variacoes.length > 0) {
+        console.log("Criando botões de tamanho...");
 
-            // Cria lista combinada
-            const todasOpcoes = [
-                { tamanho: tamanhoPadrao, preco: p.Preco_Venda, original: true },
-                ...p.Variacoes
-            ];
+        // 1. Cria opção "Padrão" (se quiser voltar ao original)
+        // Se o produto original já tem um tamanho (ex: 80ml), usamos ele.
+        let tamanhoPadrao = "Padrão";
+        const match = (p.Produto || "").match(/(\d+\s?[Mm][Ll])/);
+        if (match) tamanhoPadrao = match[0];
 
-            todasOpcoes.forEach((opcao, index) => {
-                const btn = document.createElement('button');
-                btn.className = 'size-btn';
-                if (index === 0) btn.classList.add('active'); // Primeiro ativo
-                btn.innerText = opcao.tamanho;
-                
-                btn.onclick = function() {
-                    // Reseta visual dos Tamanhos
-                    document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
+        // Cria lista combinada
+        const todasOpcoes = [
+          { tamanho: tamanhoPadrao, preco: p.Preco_Venda, original: true },
+          ...p.Variacoes
+        ];
 
-                    // Reseta visual dos Decants (para não confundir)
-                    document.querySelectorAll('.version-option').forEach(d => {
-                        d.classList.remove('active');
-                        d.style.borderColor = "#444";
-                        d.style.background = "#111";
-                    });
+        todasOpcoes.forEach((opcao, index) => {
+          const btn = document.createElement('button');
+          btn.className = 'size-btn';
+          if (index === 0) btn.classList.add('active'); // Primeiro ativo
+          btn.innerText = opcao.tamanho;
 
-                    // Atualiza Dados
-                    precoAtualSelecionado = opcao.preco;
-                    // Se for o original, limpa a versão para não duplicar nome. Se for variação, grava.
-                    versaoAtualSelecionada = opcao.original ? "" : opcao.tamanho;
+          btn.onclick = function () {
+            // Reseta visual dos Tamanhos
+            document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
 
-                    // Atualiza Tela
-                    const displayPreco = document.getElementById("produtoPreco");
-                    if(displayPreco) displayPreco.innerText = opcao.preco;
-                };
-
-                container.appendChild(btn);
+            // Reseta visual dos Decants (para não confundir)
+            document.querySelectorAll('.version-option').forEach(d => {
+              d.classList.remove('active');
+              d.style.borderColor = "#444";
+              d.style.background = "#111";
             });
-        }
+
+            // Atualiza Dados
+            precoAtualSelecionado = opcao.preco;
+            // Se for o original, limpa a versão para não duplicar nome. Se for variação, grava.
+            versaoAtualSelecionada = opcao.original ? "" : opcao.tamanho;
+
+            // Atualiza Tela
+            const displayPreco = document.getElementById("produtoPreco");
+            if (displayPreco) displayPreco.innerText = opcao.preco;
+          };
+
+          container.appendChild(btn);
+        });
+      }
     }
 
     // --- FUNÇÃO 3: CLIQUE NO DECANT ---
-    window.selecionarVersao = function(tipo) {
-        // Remove seleção dos Botões de Tamanho (pois agora é decant)
-        document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+    window.selecionarVersao = function (tipo) {
+      // Remove seleção dos Botões de Tamanho (pois agora é decant)
+      document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
 
-        // Visual dos botões Decant
-        document.querySelectorAll('.version-option').forEach(el => {
-            el.style.borderColor = "#444";
-            el.style.background = "#111";
-            el.classList.remove('active');
-        });
+      // Visual dos botões Decant
+      document.querySelectorAll('.version-option').forEach(el => {
+        el.style.borderColor = "#444";
+        el.style.background = "#111";
+        el.classList.remove('active');
+      });
 
-        let elAtivo;
-        if (event && event.currentTarget) elAtivo = event.currentTarget;
-        else elAtivo = document.querySelector('.version-option'); 
+      let elAtivo;
+      if (event && event.currentTarget) elAtivo = event.currentTarget;
+      else elAtivo = document.querySelector('.version-option');
 
-        if(elAtivo) {
-            elAtivo.classList.add('active');
-            elAtivo.style.borderColor = "#C5A059";
-            elAtivo.style.background = "rgba(197, 160, 89, 0.1)";
-        }
+      if (elAtivo) {
+        elAtivo.classList.add('active');
+        elAtivo.style.borderColor = "#C5A059";
+        elAtivo.style.background = "rgba(197, 160, 89, 0.1)";
+      }
 
-        const displayPreco = document.getElementById("produtoPreco");
-        
-        // Define valores baseados na escolha
-        if (tipo === 'frasco') {
-            // Se clicou em "Frasco Lacrado" nos decants, volta para o preço base do produto
-            versaoAtualSelecionada = "Frasco Lacrado";
-            precoAtualSelecionado = produtoAtualDados.Preco_Venda;
-        } 
-        else if (tipo === 'decant5') {
-            versaoAtualSelecionada = "Decant (5ml)";
-            precoAtualSelecionado = produtoAtualDados.Decant5ml;
-        } 
-        else if (tipo === 'decant10') {
-            versaoAtualSelecionada = "Decant (10ml)";
-            precoAtualSelecionado = produtoAtualDados.Decant10ml;
-        }
+      const displayPreco = document.getElementById("produtoPreco");
 
-        if(displayPreco) displayPreco.textContent = precoAtualSelecionado;
+      // Define valores baseados na escolha
+      if (tipo === 'frasco') {
+        // Se clicou em "Frasco Lacrado" nos decants, volta para o preço base do produto
+        versaoAtualSelecionada = "Frasco Lacrado";
+        precoAtualSelecionado = produtoAtualDados.Preco_Venda;
+      }
+      else if (tipo === 'decant5') {
+        versaoAtualSelecionada = "Decant (5ml)";
+        precoAtualSelecionado = produtoAtualDados.Decant5ml;
+      }
+      else if (tipo === 'decant10') {
+        versaoAtualSelecionada = "Decant (10ml)";
+        precoAtualSelecionado = produtoAtualDados.Decant10ml;
+      }
+
+      if (displayPreco) displayPreco.textContent = precoAtualSelecionado;
     };
 
     // --- CARREGAMENTO PRINCIPAL ---
@@ -635,15 +780,15 @@
         let p = null;
 
         if (idUrl) {
-            p = lista.find(item => item.id_slug === idUrl);
+          p = lista.find(item => item.id_slug === idUrl);
         }
         if (!p && idUrl) {
-            const idDecodificado = decodeURIComponent(idUrl);
-            p = lista.find(item => (item.Produto || "").toUpperCase() === idDecodificado.toUpperCase());
+          const idDecodificado = decodeURIComponent(idUrl);
+          p = lista.find(item => (item.Produto || "").toUpperCase() === idDecodificado.toUpperCase());
         }
         if (!p && idUrl) {
-             const idLimpo = idUrl.toLowerCase().replace(/-/g, ' ');
-             p = lista.find(item => (item.Produto || "").toLowerCase() === idLimpo);
+          const idLimpo = idUrl.toLowerCase().replace(/-/g, ' ');
+          p = lista.find(item => (item.Produto || "").toLowerCase() === idLimpo);
         }
 
         if (!p) {
@@ -656,9 +801,19 @@
         // --- PREENCHE OS TEXTOS ---
         document.title = (p.Produto || "Detalhes") + " | Zeidan Parfum";
         document.getElementById("produtoTitulo").textContent = p.Produto || "";
-        document.getElementById("produtoMarca").textContent =
-          (p.Marca || "") + (p.Categoria ? " • " + p.Categoria.toUpperCase() : "");
-        
+        const elMarca = document.getElementById("produtoMarca");
+        elMarca.textContent = (p.Marca || "") + (p.Categoria ? " • " + p.Categoria.toUpperCase() : "");
+
+        // Deixa visualmente clicável
+        elMarca.style.cursor = "pointer";
+        elMarca.style.textDecoration = "underline";
+
+        // O clique que salva e redireciona
+        elMarca.onclick = function () {
+          localStorage.setItem("marcaSelecionada", p.Marca); // Salva a marca
+          window.location.href = "index.html"; // Vai para a home filtrada
+        };
+
         // Preço Inicial
         document.getElementById("produtoPreco").textContent = p.Preco_Venda || "";
         // Reset das variáveis globais
@@ -677,50 +832,50 @@
         document.getElementById("produtoEstilo").textContent = p.Estilo || "-";
         document.getElementById("produtoOcasiao").textContent = p.Ocasião || "-";
         document.getElementById("produtoIntensidade").textContent = p.Intensidade || "-";
-        
+
         // === ATIVA AS FUNÇÕES DE ESCOLHA ===
         verificarDisponibilidadeDecants(p);
-        renderizarSeletorTamanho(p); 
+        renderizarSeletorTamanho(p);
 
         // Histórico
         try {
-            let historico = JSON.parse(localStorage.getItem('zeidanHistorico')) || [];
-            historico = historico.filter(h => h.id_slug !== p.id_slug);
-            historico.unshift({
-                id_slug: p.id_slug,
-                Produto: p.Produto,
-                Marca: p.Marca,
-                Imagem: p.Imagem,
-                Preco_Venda: p.Preco_Venda,
-                Categoria: p.Categoria
-            });
-            if (historico.length > 6) historico.pop();
-            localStorage.setItem('zeidanHistorico', JSON.stringify(historico));
-        } catch (e) {}
+          let historico = JSON.parse(localStorage.getItem('zeidanHistorico')) || [];
+          historico = historico.filter(h => h.id_slug !== p.id_slug);
+          historico.unshift({
+            id_slug: p.id_slug,
+            Produto: p.Produto,
+            Marca: p.Marca,
+            Imagem: p.Imagem,
+            Preco_Venda: p.Preco_Venda,
+            Categoria: p.Categoria
+          });
+          if (historico.length > 6) historico.pop();
+          localStorage.setItem('zeidanHistorico', JSON.stringify(historico));
+        } catch (e) { }
 
         // Galeria
-        if(window.montarGaleria) window.montarGaleria(p);
+        if (window.montarGaleria) window.montarGaleria(p);
         else montarGaleria(p);
 
         // --- LÓGICA DO ZOOM (ADICIONADA AGORA) ---
         const modal = document.getElementById("imageModal");
         const modalClose = document.getElementById("imageModalClose");
-        
+
         function fecharModal() {
-            if(modal) {
-                modal.classList.remove("open");
-                modal.style.display = "none";
-            }
+          if (modal) {
+            modal.classList.remove("open");
+            modal.style.display = "none";
+          }
         }
         // 1. Fecha no Botão X
-        if(modalClose) modalClose.onclick = fecharModal;
+        if (modalClose) modalClose.onclick = fecharModal;
         // 2. Fecha clicando no FUNDO ESCURO
-        if(modal) {
-            modal.onclick = function(e) {
-                if (e.target === modal || e.target.id === "imageModalBackdrop") {
-                    fecharModal();
-                }
+        if (modal) {
+          modal.onclick = function (e) {
+            if (e.target === modal || e.target.id === "imageModalBackdrop") {
+              fecharModal();
             }
+          }
         }
 
         // Configurar Botões de Ação
@@ -728,22 +883,22 @@
         const btnComprar = document.getElementById("produtoComprar");
 
         function acaoClicar(e) {
-            e.preventDefault();
-            let nomeFinal = (p.Produto || "").replace(/'/g, " ");
-            
-            // Se tiver versão (50ml, 100ml ou Decant), adiciona ao nome
-            if (versaoAtualSelecionada && versaoAtualSelecionada !== "Frasco Lacrado") {
-                nomeFinal += ` - ${versaoAtualSelecionada}`;
-            }
+          e.preventDefault();
+          let nomeFinal = (p.Produto || "").replace(/'/g, " ");
 
-            let precoFinal = precoAtualSelecionado || p.Preco_Venda;
-            const marcaSafe = (p.Marca || "").replace(/'/g, " ");
+          // Se tiver versão (50ml, 100ml ou Decant), adiciona ao nome
+          if (versaoAtualSelecionada && versaoAtualSelecionada !== "Frasco Lacrado") {
+            nomeFinal += ` - ${versaoAtualSelecionada}`;
+          }
 
-            if (typeof adicionarAoCarrinho === "function") {
-                adicionarAoCarrinho(marcaSafe, nomeFinal, precoFinal, e.currentTarget);
-            } else if (window.adicionarAoCarrinho) {
-                 window.adicionarAoCarrinho(marcaSafe, nomeFinal, precoFinal, e.currentTarget);
-            }
+          let precoFinal = precoAtualSelecionado || p.Preco_Venda;
+          const marcaSafe = (p.Marca || "").replace(/'/g, " ");
+
+          if (typeof adicionarAoCarrinho === "function") {
+            adicionarAoCarrinho(marcaSafe, nomeFinal, precoFinal, e.currentTarget);
+          } else if (window.adicionarAoCarrinho) {
+            window.adicionarAoCarrinho(marcaSafe, nomeFinal, precoFinal, e.currentTarget);
+          }
         }
 
         if (btnWhatsapp) btnWhatsapp.onclick = acaoClicar;
@@ -759,130 +914,219 @@
 
     // Função Auxiliar de Sugestões (Separada para organizar)
     function carregarSugestoes(p, lista) {
-        const boxSugestoes = document.getElementById("box-sugestoes");
-        const listaSugestoes = document.getElementById("lista-sugestoes");
-        listaSugestoes.innerHTML = "";
-        boxSugestoes.style.display = "none";
+      const boxSugestoes = document.getElementById("box-sugestoes");
+      const listaSugestoes = document.getElementById("lista-sugestoes");
+      listaSugestoes.innerHTML = "";
+      boxSugestoes.style.display = "none";
 
-        if (p.Sugestoes && Array.isArray(p.Sugestoes) && p.Sugestoes.length > 0) {
-            const recomendados = p.Sugestoes.map(nomeSugestao => {
-                return lista.find(item => (item.Produto || "").trim().toUpperCase() === nomeSugestao.trim().toUpperCase());
-            }).filter(item => item !== undefined);
+      if (p.Sugestoes && Array.isArray(p.Sugestoes) && p.Sugestoes.length > 0) {
+        const recomendados = p.Sugestoes.map(nomeSugestao => {
+          return lista.find(item => (item.Produto || "").trim().toUpperCase() === nomeSugestao.trim().toUpperCase());
+        }).filter(item => item !== undefined);
 
-            if (recomendados.length > 0) {
-                boxSugestoes.style.display = "block";
-                recomendados.forEach(sugestao => {
-                    const linkHref = sugestao.id_slug ? `produto.html?id=${sugestao.id_slug}` : `produto.html?id=${encodeURIComponent(sugestao.Produto)}`;
-                    const link = document.createElement("a");
-                    link.href = linkHref;
-                    link.style.textDecoration = "none";
-                    link.style.width = "140px";
-                    link.style.display = "flex";
-                    link.style.flexDirection = "column";
-                    link.style.alignItems = "center";
-                    link.style.textAlign = "center";
-                    link.style.flexShrink = "0";
+        if (recomendados.length > 0) {
+          boxSugestoes.style.display = "block";
+          recomendados.forEach(sugestao => {
+            const linkHref = sugestao.id_slug ? `produto.html?id=${sugestao.id_slug}` : `produto.html?id=${encodeURIComponent(sugestao.Produto)}`;
+            const link = document.createElement("a");
+            link.href = linkHref;
+            link.style.textDecoration = "none";
+            link.style.width = "140px";
+            link.style.display = "flex";
+            link.style.flexDirection = "column";
+            link.style.alignItems = "center";
+            link.style.textAlign = "center";
+            link.style.flexShrink = "0";
 
-                    link.innerHTML = `
+            link.innerHTML = `
                         <img src="${sugestao.Imagem}" style="width:100%; height:140px; object-fit:contain; background:#fff; border-radius:12px; margin-bottom:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1)">
                         <span style="color:#fff; font-size:12px; font-weight:bold">${sugestao.Marca}</span>
                         <span style="color:#ccc; font-size:11px; margin-top:2px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; width:100%">${sugestao.Produto}</span>
                     `;
-                    listaSugestoes.appendChild(link);
-                });
-            }
+            listaSugestoes.appendChild(link);
+          });
         }
+      }
     }
 
     // === REPETE A FUNÇÃO DA GALERIA (Igual a que você já tem, só para garantir) ===
     function montarGaleria(produto) {
-        const mainImg = document.getElementById('main-product-img');
-        const track = document.getElementById('thumbnails-track');
-        if (!mainImg || !track) return;
-        mainImg.src = produto.Imagem || "";
+      const mainImg = document.getElementById('main-product-img');
+      const track = document.getElementById('thumbnails-track');
+      if (!mainImg || !track) return;
+      mainImg.src = produto.Imagem || "";
 
-        let imagens = [];
-        if(produto.Imagem) imagens.push(produto.Imagem);
-        if(produto.Imagem2) imagens.push(produto.Imagem2);
-        if(produto.Imagem3) imagens.push(produto.Imagem3);
-        if(produto.Imagem4) imagens.push(produto.Imagem4);
-        if (imagens.length === 0 && produto.Imagem) imagens = [produto.Imagem];
+      let imagens = [];
+      if (produto.Imagem) imagens.push(produto.Imagem);
+      if (produto.Imagem2) imagens.push(produto.Imagem2);
+      if (produto.Imagem3) imagens.push(produto.Imagem3);
+      if (produto.Imagem4) imagens.push(produto.Imagem4);
+      if (imagens.length === 0 && produto.Imagem) imagens = [produto.Imagem];
 
-        track.innerHTML = '';
-        imagens.forEach((imgSrc, index) => {
-            const thumb = document.createElement('div');
-            thumb.className = `thumb-item ${index === 0 ? 'active' : ''}`;
-            thumb.id = `thumb-id-${index}`;
-            thumb.innerHTML = `<img src="${imgSrc}">`;
-            thumb.onclick = function() { irParaFoto(index); };
-            track.appendChild(thumb);
-        });
+      track.innerHTML = '';
+      imagens.forEach((imgSrc, index) => {
+        const thumb = document.createElement('div');
+        thumb.className = `thumb-item ${index === 0 ? 'active' : ''}`;
+        thumb.id = `thumb-id-${index}`;
+        thumb.innerHTML = `<img src="${imgSrc}">`;
+        thumb.onclick = function () { irParaFoto(index); };
+        track.appendChild(thumb);
+      });
 
-        let indiceAtual = 0;
-        function irParaFoto(index) {
-            indiceAtual = index;
-            mainImg.src = imagens[index];
-            document.querySelectorAll('.thumb-item').forEach(t => t.classList.remove('active'));
-            const atv = document.getElementById(`thumb-id-${index}`);
-            if(atv) {
-                atv.classList.add('active');
-                atv.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-            }
+      let indiceAtual = 0;
+      function irParaFoto(index) {
+        indiceAtual = index;
+        mainImg.src = imagens[index];
+        document.querySelectorAll('.thumb-item').forEach(t => t.classList.remove('active'));
+        const atv = document.getElementById(`thumb-id-${index}`);
+        if (atv) {
+          atv.classList.add('active');
+          atv.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+      }
+
+      // 4. LÓGICA DE SWIPE (ARRASTAR)
+      let startX = 0;
+      let endX = 0;
+
+      // Touch (Celular)
+      mainImg.addEventListener('touchstart', e => {
+        startX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      mainImg.addEventListener('touchend', e => {
+        endX = e.changedTouches[0].screenX;
+        handleSwipe();
+      }, { passive: true });
+
+      // Mouse (PC)
+      mainImg.addEventListener('mousedown', e => {
+        startX = e.clientX;
+        e.preventDefault();
+      });
+
+      mainImg.addEventListener('mouseup', e => {
+        endX = e.clientX;
+        handleSwipe();
+      });
+
+      function handleSwipe() {
+        if (Math.abs(endX - startX) < 40) {
+          // Se mexeu pouco, considera clique para abrir o zoom
+          const modal = document.getElementById("imageModal");
+          const modalImg = document.getElementById("imageModalImg");
+          if (modal && modalImg) {
+            modalImg.src = mainImg.src;
+            modal.classList.add("open");
+            modal.style.display = "flex";
+          }
+          return;
         }
 
-        // 4. LÓGICA DE SWIPE (ARRASTAR)
-        let startX = 0;
-        let endX = 0;
-
-        // Touch (Celular)
-        mainImg.addEventListener('touchstart', e => {
-            startX = e.changedTouches[0].screenX;
-        }, {passive: true});
-
-        mainImg.addEventListener('touchend', e => {
-            endX = e.changedTouches[0].screenX;
-            handleSwipe();
-        }, {passive: true});
-
-        // Mouse (PC)
-        mainImg.addEventListener('mousedown', e => {
-            startX = e.clientX;
-            e.preventDefault(); 
-        });
-
-        mainImg.addEventListener('mouseup', e => {
-            endX = e.clientX;
-            handleSwipe();
-        });
-
-        function handleSwipe() {
-            if (Math.abs(endX - startX) < 40) {
-                // Se mexeu pouco, considera clique para abrir o zoom
-                const modal = document.getElementById("imageModal");
-                const modalImg = document.getElementById("imageModalImg");
-                if (modal && modalImg) {
-                    modalImg.src = mainImg.src;
-                    modal.classList.add("open");
-                    modal.style.display = "flex";
-                }
-                return; 
-            }
-
-            if (endX < startX) {
-                // Esquerda -> Próxima
-                let prox = indiceAtual + 1;
-                if(prox >= imagens.length) prox = 0;
-                irParaFoto(prox);
-            } else {
-                // Direita -> Anterior
-                let ant = indiceAtual - 1;
-                if(ant < 0) ant = imagens.length - 1;
-                irParaFoto(ant);
-            }
+        if (endX < startX) {
+          // Esquerda -> Próxima
+          let prox = indiceAtual + 1;
+          if (prox >= imagens.length) prox = 0;
+          irParaFoto(prox);
+        } else {
+          // Direita -> Anterior
+          let ant = indiceAtual - 1;
+          if (ant < 0) ant = imagens.length - 1;
+          irParaFoto(ant);
         }
+      }
     }
 
     carregarProduto();
   </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      // Configuração
+      const idPreco = "produtoPreco";
+      const idParcelas = "produtoParcelas";
+
+      // Função que faz a mágica
+      function atualizarParcelas() {
+        const elementoPreco = document.getElementById(idPreco);
+        const elementoParcelas = document.getElementById(idParcelas);
+
+        if (!elementoPreco || !elementoParcelas) return;
+
+        // Limpa e converte o valor (R$ 1.000,00 -> 1000.00)
+        let texto = elementoPreco.innerText || elementoPreco.textContent;
+        let valorLimpo = texto.replace(/[^0-9,]/g, '').replace(',', '.');
+        let valor = parseFloat(valorLimpo);
+
+        // Se o valor for válido, calcula e mostra
+        if (!isNaN(valor) && valor > 0) {
+          let parcela = valor / 3;
+          let formatado = parcela.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+          elementoParcelas.innerText = "3x " + formatado;
+          elementoParcelas.style.display = "block"; // Garante que apareça
+        } else {
+          elementoParcelas.style.display = "none"; // Esconde se não tiver preço
+        }
+      }
+
+      // --- A PARTE ESPERTA (OBSERVER) ---
+      // Isso cria um vigia que roda a função sempre que o texto do preço mudar
+      const alvo = document.getElementById(idPreco);
+      if (alvo) {
+        const observador = new MutationObserver(atualizarParcelas);
+        observador.observe(alvo, { childList: true, characterData: true, subtree: true });
+      }
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const elMarcaOriginal = document.getElementById('produtoMarca');
+      const elTituloOriginal = document.getElementById('produtoTitulo'); // Pega o H1 com o nome do perfume
+
+      const elBreadContainer = document.getElementById('breadcrumb-container');
+      const elBreadMarca = document.getElementById('breadcrumb-marca-dinamica');
+      const elBreadModelo = document.getElementById('breadcrumb-modelo');
+
+      function configurarBreadcrumb() {
+        // Verifica se a marca e o título já carregaram
+        if (elMarcaOriginal && elMarcaOriginal.innerText.length > 0) {
+
+          // 1. LIMPEZA DA MARCA
+          let textoSujo = elMarcaOriginal.innerText; // "LATTAFA • ÁRABE"
+          let marcaLimpa = textoSujo.split('•')[0].trim(); // Pega só a primeira parte: "LATTAFA"
+
+          // 2. PEGAR O MODELO (TÍTULO)
+          let nomeModelo = "Produto";
+          if (elTituloOriginal) {
+            nomeModelo = elTituloOriginal.innerText;
+          }
+
+          // 3. Joga no HTML
+          elBreadMarca.innerText = marcaLimpa;
+          elBreadModelo.innerText = nomeModelo;
+
+          // Mostra o breadcrumb
+          elBreadContainer.style.display = "flex";
+
+          // 4. CLIQUE PARA VOLTAR (Só na marca)
+          elBreadMarca.onclick = function () {
+            // Pega a marca limpa que já calculamos acima (sem o "• Árabe")
+            localStorage.setItem("marcaSelecionada", marcaLimpa);
+            window.location.href = "index.html";
+          };
+        }
+      }
+
+      // Observador para esperar os dados carregarem
+      if (elMarcaOriginal) {
+        const observador = new MutationObserver(configurarBreadcrumb);
+        observador.observe(elMarcaOriginal, { childList: true, characterData: true, subtree: true });
+        // Se também precisar esperar o título carregar, pode observar ele também, 
+        // mas geralmente eles carregam juntos.
+      }
+    });
+  </script>
 </body>
+
 </html>

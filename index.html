@@ -14,6 +14,7 @@
     <link rel="shortcut icon" href="logopequena.png" type="image/x-icon">
 
     <style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
   /* --- ESTILO PARA CELULAR (Telas menores que 768px) --- */
   @media (max-width: 768px) {
     
@@ -138,6 +139,52 @@
     padding-left: 0 !important;
     margin-bottom: 15px;
 }
+/* --- ESTILO GERAL (Celular e PC) --- */
+.banner-section {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 90%;
+    color: #ffffff;
+    z-index: 2;
+    font-style: italic;
+    font-family: 'Montserrat', sans-serif !important
+}
+
+/* --- A MÁGICA DO TAMANHO --- */
+
+/* 1. No Celular: Altura automática (para não cortar) */
+.full-width-banner {
+    width: 100%;
+    height: auto; 
+    display: block;
+    filter: brightness(0.5); /* Escurece para ler o texto */
+}
+
+/* 2. No PC (Telas maiores que 1000px): TRAVA A ALTURA */
+@media (min-width: 1000px) {
+    .full-width-banner {
+        /* Trava a altura em 600px (pode diminuir para 500px se quiser menor) */
+        height: 600px !important; 
+        
+        /* Garante que a largura continue total */
+        width: 100% !important;   
+        
+        /* CORTA a imagem para caber nesse espaço sem esticar/achatatar */
+        object-fit: cover !important; 
+        
+        /* Alinha o topo da imagem (corta a parte de baixo, prioriza cabeças/frascos) */
+        object-position: top center; 
+    }
+}
 </style>
   </head>
   <body>
@@ -187,7 +234,7 @@
           </div>
 
           <div class="logo-wrap">
-            <img src="logo.png" alt="ZEIDAN PARFUM" class="logo" />
+            <img src="logo1.png" alt="ZEIDAN PARFUM" class="logo" />
           </div>
         </div>
       </div>
@@ -229,6 +276,15 @@
   </div>
 </section>
 
+<section class="banner-section">
+    <img src="imagensdeperfume/banner.jpg" alt="Banner Zeidan Parfum" class="full-width-banner">
+    
+    <div class="banner-text" style="color: #ffffff; letter-spacing: 0cap;";>
+       <img src="logo1.png" alt="Logo Zeidan" class="banner-brand-logo" style="width: 50%;">
+       <p style="font-weight: 400; font-size: 10px;">Sua essência, sua marca.</p>    
+    </div>
+</section>
+
   </div>
 </section>
 
@@ -256,6 +312,14 @@
         <h2 class="section-title">Perfumes</h2>
         <div id="perfumeGrid" class="product-grid"></div>
       </section>
+
+    <section class="banner-section">
+        <img src="imagensdeperfume/banner2.jpg" alt="Banner Zeidan Parfum" class="full-width-banner">
+      <div class="banner-text" style="color: #ffffff; letter-spacing: 0cap;";>
+       <img src="logo1.png" alt="Logo Zeidan" class="banner-brand-logo" style="width: 50%;">
+       <p style="font-weight: 400; font-size: 10px;">Para todos os momentos.</p>    
+      </div>
+    </section>
 
       <section id="historico-section" class="product-section">
         <h2 class="section-title" style="font-size: 15px; margin-bottom: 20px;">
@@ -514,5 +578,130 @@
     Copyright ZEIDAN PARFUM - 2025. Todos os direitos reservados.
 </p>
 
-</footer> </body>
+</footer> 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // --- PARTE 1: O PORTEIRO (Recebe a marca e filtra) ---
+    const params = new URLSearchParams(window.location.search);
+    const marcaAlvo = params.get('marca');
+
+    // Mapeamento dos elementos de busca (ajuste os seletores se precisar)
+    const campoBusca = document.querySelector('input[type="search"], input[type="text"].search, #searchInput');
+    const botaoBusca = document.querySelector('.search-button, button[type="submit"]');
+
+    if (marcaAlvo) {
+        console.log("Filtrando por: " + marcaAlvo);
+
+        // 1. Esconde o produto que estava aberto (A Marretada)
+        const bloqueios = ['.product-detail-content', '#product-detail', '.modal-produto'];
+        bloqueios.forEach(sel => {
+            const el = document.querySelector(sel);
+            if (el) {
+                if(el.parentElement && el.parentElement.tagName === 'DIV') el.parentElement.style.display = 'none'; 
+                el.style.display = 'none';
+            }
+        });
+
+        // 2. Preenche a busca e ativa
+        setTimeout(() => {
+            if (campoBusca) {
+                campoBusca.value = marcaAlvo;
+                campoBusca.dispatchEvent(new Event('input', { bubbles: true }));
+                campoBusca.dispatchEvent(new KeyboardEvent('keyup', {'key': 'Enter'})); // Tenta dar Enter
+                if (botaoBusca) botaoBusca.click();
+            }
+        }, 300);
+
+        // 3. LIMPEZA DA URL (O Segredo!)
+        // Isso remove o "?marca=Lattafa" da barra de endereço visualmente.
+        // Assim, se você atualizar a página, ele não trava a busca de novo.
+        window.history.replaceState({}, document.title, window.location.pathname);
+    }
+
+    // --- PARTE 2: A FAXINEIRA (Destrava a barra ao clicar no menu) ---
+    // Monitora cliques em links de navegação para limpar a busca antiga
+    document.body.addEventListener('click', function(e) {
+        // Verifica se clicou em um Link (A) ou Botão (BUTTON)
+        const elementoClicado = e.target.closest('a, button, .nav-link, .menu-item');
+
+        // Se clicou em algo clicável E NÃO FOI na própria busca
+        if (elementoClicado && campoBusca && elementoClicado !== campoBusca && elementoClicado !== botaoBusca) {
+            
+            // Verifica se o elemento clicado não faz parte da barra de busca
+            if (!elementoClicado.closest('.search-box') && !elementoClicado.closest('form')) {
+                
+                // Se a busca tiver texto, limpa ela!
+                if (campoBusca.value !== '') {
+                    console.log("Limpando a busca para nova navegação...");
+                    campoBusca.value = ''; 
+                    campoBusca.dispatchEvent(new Event('input', { bubbles: true })); // Avisa o site que limpou
+                }
+            }
+        }
+    });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // --- PARTE 1: O PORTEIRO (Recebe a marca e filtra) ---
+    const params = new URLSearchParams(window.location.search);
+    const marcaAlvo = params.get('marca');
+
+    // Mapeamento dos elementos de busca (ajuste os seletores se precisar)
+    const campoBusca = document.querySelector('input[type="search"], input[type="text"].search, #searchInput');
+    const botaoBusca = document.querySelector('.search-button, button[type="submit"]');
+
+    if (marcaAlvo) {
+        console.log("Filtrando por: " + marcaAlvo);
+
+        // 1. Esconde o produto que estava aberto (A Marretada)
+        const bloqueios = ['.product-detail-content', '#product-detail', '.modal-produto'];
+        bloqueios.forEach(sel => {
+            const el = document.querySelector(sel);
+            if (el) {
+                if(el.parentElement && el.parentElement.tagName === 'DIV') el.parentElement.style.display = 'none'; 
+                el.style.display = 'none';
+            }
+        });
+
+        // 2. Preenche a busca e ativa
+        setTimeout(() => {
+            if (campoBusca) {
+                campoBusca.value = marcaAlvo;
+                campoBusca.dispatchEvent(new Event('input', { bubbles: true }));
+                campoBusca.dispatchEvent(new KeyboardEvent('keyup', {'key': 'Enter'})); // Tenta dar Enter
+                if (botaoBusca) botaoBusca.click();
+            }
+        }, 300);
+
+        // 3. LIMPEZA DA URL (O Segredo!)
+        // Isso remove o "?marca=Lattafa" da barra de endereço visualmente.
+        // Assim, se você atualizar a página, ele não trava a busca de novo.
+        window.history.replaceState({}, document.title, window.location.pathname);
+    }
+
+    // --- PARTE 2: A FAXINEIRA (Destrava a barra ao clicar no menu) ---
+    // Monitora cliques em links de navegação para limpar a busca antiga
+    document.body.addEventListener('click', function(e) {
+        // Verifica se clicou em um Link (A) ou Botão (BUTTON)
+        const elementoClicado = e.target.closest('a, button, .nav-link, .menu-item');
+
+        // Se clicou em algo clicável E NÃO FOI na própria busca
+        if (elementoClicado && campoBusca && elementoClicado !== campoBusca && elementoClicado !== botaoBusca) {
+            
+            // Verifica se o elemento clicado não faz parte da barra de busca
+            if (!elementoClicado.closest('.search-box') && !elementoClicado.closest('form')) {
+                
+                // Se a busca tiver texto, limpa ela!
+                if (campoBusca.value !== '') {
+                    console.log("Limpando a busca para nova navegação...");
+                    campoBusca.value = ''; 
+                    campoBusca.dispatchEvent(new Event('input', { bubbles: true })); // Avisa o site que limpou
+                }
+            }
+        }
+    });
+});
+</script>
+</body>
 </html>

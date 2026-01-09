@@ -202,8 +202,8 @@ a {
 .logo-wrap {
   display: flex;
   justify-content: center;
-  margin-top: 120px;
-  margin-bottom: 30px;
+  margin-top: 150px;
+  margin-bottom: 50px;
 }
 
 .logo {
@@ -578,6 +578,15 @@ a {
   text-align: left !important;
 }
 
+.product-detail-installments {
+    margin-top: -5px !important; /* Puxa para cima */
+    margin-bottom: -25px !important;
+    font-size: 16px !important;  /* Ajuste o tamanho conforme preferir */
+    color: #d1d1d1 !important;      /* Cor cinza */
+    font-weight: normal !important;
+    line-height: 1.2 !important;
+}
+
 .product-detail-description,
 .product-detail-notes {
   font-size: 14px;
@@ -667,7 +676,7 @@ button[onclick*="Comprar"] {
 /* 1. REMOVER O GIGANTESCO GAP DO TOPO */
 /* Puxa a Logo para cima, logo abaixo do menu fixo */
 .logo-wrap {
-  margin-top: 160px !important; /* Reduzido de 120/140px para 90px */
+  margin-top: 180px !important; /* Reduzido de 120/140px para 90px */
   margin-bottom: 0 !important; /* Reduz espaço entre logo e conteúdo */
 }
 
@@ -886,7 +895,7 @@ button[onclick*="Comprar"] {
   /* 2. Empurra a Logo mais para baixo ainda */
   /* Como a busca desceu, a logo precisa descer também para não bater nela */
   .logo-wrap {
-    margin-top: 150px !important; 
+    margin-top: 180px !important; 
   }
 }
 
@@ -1156,18 +1165,27 @@ body::before {
 }
 
 /* 4. O PREÇO (que é um <span>) */
+/* 1. PRIMEIRO: Garante que o preço de cima não empurre o de baixo */
 .product-price {
-    display: block !important;    /* Força o span a se comportar como bloco */
+    display: block !important;
     width: 100% !important;
     text-align: center !important;
+    margin-bottom: 0px !important; /* Removemos o espaço extra */
+    font-size: 20px;
+}
+
+/* 2. SEGUNDO: Estiliza o parcelamento (o span sem classe) */
+.product-price + span {
+    display: block !important;      /* Faz ele ocupar a linha toda para poder centralizar */
+    width: 100% !important;
+    text-align: center !important;  /* Centraliza o texto */
     
-    /* Seu estilo bonitão */
-    font-size: 20px !important;
-    font-weight: 800 !important;
-    color: #ffffff !important;
+    /* Ajustes para subir */
+    margin-top: -2px !important;    /* Puxa ele um pouco pra cima (compensa o gap) */
+    position: relative !important;  /* Ajuda no posicionamento */
     
-    white-space: nowrap !important; /* Não quebra linha no R$ */
-    margin-bottom: 10px !important;
+    /* Mantendo o estilo visual (opcional, já que ele tem estilo inline) */
+    font-size: 11px !important;     
 }
 
 /* 5. Ajuste no Nome do Produto */
