@@ -852,4 +852,7 @@ function tentarMetodoAntigo(texto) {
     
     // Limpa a bagunça
     document.body.removeChild(textArea);
+    
+    // Limpa a bagunça
+    document.body.removeChild(textArea);
 }
