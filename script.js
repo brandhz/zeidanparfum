@@ -782,8 +782,6 @@ function toggleZapMenu() {
   } else {
     menu.style.display = 'block';
   }
-}
-  });
 }
 
 /* =====================================================
