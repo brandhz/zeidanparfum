@@ -50,9 +50,11 @@ a {
    BARRA VERMELHA (Topo)
    ========================================= */
 .top-bar {
-  background-color: #c34733;
+  background-color: #0f1f3c;
+;
   color: #fff;
   font-size: 11px;
+  font-weight: 300;
   text-transform: uppercase;
   letter-spacing: 0.12em;
 }
