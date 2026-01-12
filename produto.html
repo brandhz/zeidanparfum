@@ -21,20 +21,17 @@
       CSS ESPECÍFICO DA PÁGINA DE PRODUTO
       ========================================= */
 
-    /* --- 1. GALERIA PREMIUM --- */
     .product-gallery {
       width: 100%;
       max-width: 450px;
       margin: 0 auto 25px auto;
     }
 
-    /* CONTAINER: Vira um "Cartão" branco elegante */
     .main-image-container {
       position: relative;
       width: 100%;
       height: 0;
       padding-bottom: 100%;
-      /* Mantém quadrado */
       background-color: #fff;
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5),
@@ -43,7 +40,6 @@
       overflow: hidden;
     }
 
-    /* IMAGEM: Normal, nítida e centralizada */
     .main-img {
       position: absolute;
       top: 50%;
@@ -58,7 +54,6 @@
       transform: scale(1.08);
     }
 
-    /* Faixa de Miniaturas */
     .thumbnails-scroll-container {
       width: 100%;
       overflow-x: auto;
@@ -102,7 +97,6 @@
       box-shadow: 0 5px 15px rgba(197, 160, 89, 0.25);
     }
 
-    /* --- 2. SUGESTÕES --- */
     #lista-sugestoes {
       display: flex;
       gap: 15px;
@@ -110,7 +104,6 @@
       flex-wrap: wrap;
     }
 
-    /* --- 3. ESTILO DO SELETOR DE TAMANHO (NOVO) --- */
     .size-selector-container {
       display: flex;
       gap: 10px;
@@ -143,7 +136,7 @@
       box-shadow: 0 0 10px rgba(197, 160, 89, 0.2);
     }
 
-    /* --- 4. RESPONSIVIDADE --- */
+    /* --- RESPONSIVIDADE --- */
     @media (max-width: 768px) {
       .product-gallery {
         max-width: 100%;
@@ -202,17 +195,13 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      /* Espaço entre ícone e texto */
       width: 100%;
       padding: 12px;
       margin-top: 15px;
-      /* Separa do botão de comprar */
       background-color: #f5f5f5;
-      /* Cinza clarinho */
       color: #333;
       border: 1px solid #ddd;
       border-radius: 8px;
-      /* Cantos arredondados */
       font-size: 1rem;
       font-weight: 600;
       cursor: pointer;
@@ -223,7 +212,6 @@
       background-color: #e0e0e0;
     }
 
-    /* Opcional: Efeito de clique */
     .btn-share:active {
       transform: scale(0.98);
     }
@@ -246,15 +234,12 @@
       flex-wrap: wrap;
     }
 
-    /* Link Home */
     .bread-link {
       text-decoration: none;
       color: #e0e0e0;
-      /* Branco gelo */
       font-weight: 400;
     }
 
-    /* Link da Marca (Destaque) */
     .bread-link-marca {
       color: #ffffff;
       font-weight: 700;
@@ -268,14 +253,10 @@
 
     }
 
-    /* Nome do Modelo (Onde você está agora) */
     .bread-current {
       color: #e0e0e0;
-      /* Cinza mais escuro pois não é link */
       font-weight: 400;
       text-transform: uppercase;
-
-      /* Garante que se o nome for longo, não quebre o layout */
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -287,13 +268,13 @@
       margin-bottom: 30px;
       text-align: center;
       border-radius: 8px;
-      overflow: hidden; /* Arredonda cantos da imagem */
+      overflow: hidden;
     }
 
     .banner-section-img {
-      width: 100%;       /* Ocupa a largura disponível */
-      max-width: 100%;   /* Nunca ultrapassa a tela */
-      height: auto;      /* Altura ajusta sozinha */
+      width: 100%;
+      max-width: 100%;
+      height: auto;
       display: block;
       margin-top: -15px;
       margin-bottom: 15px;
@@ -307,7 +288,7 @@
     <div class="top-bar-inner">
       <p class="top-message">
         ENTRE EM CONTATO COM A NOSSA EQUIPE PARA ENCOMENDAR O SEU PERFUME
-        <div class="top-message" style="font-weight: 700;">(31) 99166-8430/(31) 97178-9632</div>
+      <div class="top-message" style="font-weight: 700;">(31) 99166-8430/(31) 97178-9632</div>
       </p>
     </div>
   </div>
@@ -321,14 +302,15 @@
       </div>
       <nav class="main-nav">
         <a href="index.html" class="nav-link">Início</a>
+        <a href="guia.html" class="nav-button nav-link" style="color: #ffffff; text-align: center;">Guia</a>
         <a href="contato.html" class="nav-link">Contato</a>
       </nav>
     </div>
   </header>
 
   <section class="banner-arabia">
-        <img src="imagensdeperfume/bannersite.jpg" alt="Banner Arabia" class="banner-section-img">
-      </section>
+    <img src="imagensdeperfume/bannersite.jpg" alt="Banner Arabia" class="banner-section-img">
+  </section>
 
   <main class="page-content">
 
@@ -497,6 +479,7 @@
         <div class="footer-column">
           <h4 class="footer-title">MENU</h4>
           <a href="index.html" class="footer-link">Início</a>
+          <a href="guia.html" class="footer-link">Guia</a>
           <a href="contato.html" class="footer-link">Contato</a>
         </div>
       </div>
@@ -521,10 +504,8 @@
   <script src="script.js"></script>
 
   <script>
-    // 1. Array que guarda os produtos (Lê da memória do navegador)
     let carrinho = JSON.parse(localStorage.getItem('carrinhoZeidan')) || [];
 
-    // 2. Atualiza o visual da sacola
     function atualizarCarrinhoUI() {
       const container = document.getElementById('cart-items');
       const contador = document.getElementById('cart-count');
@@ -532,7 +513,6 @@
 
       localStorage.setItem('carrinhoZeidan', JSON.stringify(carrinho));
 
-      // Bolinha vermelha (some se zero)
       if (contador) {
         contador.innerText = carrinho.length;
         contador.style.display = carrinho.length > 0 ? 'flex' : 'none';
@@ -558,7 +538,6 @@
 
         if (!isNaN(precoNumerico)) total += precoNumerico;
 
-        // Visual: Marca Pequena / Nome Grande
         let nomeExibicao = item.produto || item.nome || "Produto";
 
         html += `
@@ -585,12 +564,10 @@
       if (totalDisplay) totalDisplay.innerText = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
     }
 
-    // 3. Função Global para Adicionar (Silenciosa + Animação)
     window.adicionarAoCarrinho = function (marca, produto, preco, botao) {
       carrinho.push({ marca, produto, preco });
       atualizarCarrinhoUI();
 
-      // Animação Ícone Carrinho
       const cartIcon = document.querySelector('.cart-floating-btn i') || document.querySelector('.fa-cart-shopping');
       if (cartIcon) {
         cartIcon.style.transition = "transform 0.2s, color 0.2s";
@@ -602,7 +579,6 @@
         }, 300);
       }
 
-      // Animação Botão (Se passado)
       if (botao) {
         const textoOriginal = botao.innerHTML;
         botao.innerHTML = 'Adicionado! <i class="fa-solid fa-check"></i>';
@@ -616,32 +592,27 @@
       }
     };
 
-    // 4. Remove item
     window.removerDoCarrinho = function (index) {
       carrinho.splice(index, 1);
       atualizarCarrinhoUI();
     };
 
-    // 5. Abre e Fecha a Janela (COM CORREÇÃO DO ZAP)
     window.toggleCart = function () {
       const modal = document.getElementById('cart-modal');
-      const widgetZap = document.querySelector('.whatsapp-widget'); // Pega o botão do zap
+      const widgetZap = document.querySelector('.whatsapp-widget');
 
       if (!modal) return;
 
       if (modal.style.display === 'flex') {
-        // FECHANDO O CARRINHO
         modal.style.display = 'none';
-        if (widgetZap) widgetZap.style.display = 'block'; // Mostra o zap de volta
+        if (widgetZap) widgetZap.style.display = 'block';
       } else {
-        // ABRINDO O CARRINHO
         modal.style.display = 'flex';
-        if (widgetZap) widgetZap.style.display = 'none'; // Esconde o zap pra não atrapalhar
+        if (widgetZap) widgetZap.style.display = 'none';
         atualizarCarrinhoUI();
       }
     };
 
-    // 6. Botão Finalizar no WhatsApp
     window.finalizarNoZap = function () {
       if (carrinho.length === 0) return alert("Sua sacola está vazia!");
 
@@ -669,14 +640,12 @@
   </script>
 
   <script>
-    // === LÓGICA DE CARREGAMENTO INTELIGENTE (HÍBRIDA + VARIAÇÕES) ===
-
-    // --- VARIÁVEIS GLOBAIS DE SELEÇÃO ---
+    // === LÓGICA DE CARREGAMENTO INTELIGENTE ===
     let produtoAtualDados = {};
     let versaoAtualSelecionada = "";
     let precoAtualSelecionado = "";
 
-    // --- FUNÇÃO 1: VERIFICA SE TEM DECANT ---
+    // FUNÇÃO: VERIFICA SE TEM DECANT ---
     function verificarDisponibilidadeDecants(p) {
       produtoAtualDados = p;
       const boxDecants = document.getElementById('box-decants');
@@ -694,19 +663,18 @@
       }
     }
 
-    // --- FUNÇÃO 2: RENDERIZA OS TAMANHOS (NOVO!) ---
+    // --- RENDERIZA OS TAMANHOS ---
     function renderizarSeletorTamanho(p) {
       const container = document.getElementById('seletor-tamanho');
       if (!container) return;
 
-      container.innerHTML = ""; // Limpa
+      container.innerHTML = "";
 
       // Verifica se tem variações
       if (p.Variacoes && Array.isArray(p.Variacoes) && p.Variacoes.length > 0) {
         console.log("Criando botões de tamanho...");
 
-        // 1. Cria opção "Padrão" (se quiser voltar ao original)
-        // Se o produto original já tem um tamanho (ex: 80ml), usamos ele.
+        // Cria opção "Padrão" (se quiser voltar ao original)
         let tamanhoPadrao = "Padrão";
         const match = (p.Produto || "").match(/(\d+\s?[Mm][Ll])/);
         if (match) tamanhoPadrao = match[0];
@@ -720,27 +688,22 @@
         todasOpcoes.forEach((opcao, index) => {
           const btn = document.createElement('button');
           btn.className = 'size-btn';
-          if (index === 0) btn.classList.add('active'); // Primeiro ativo
+          if (index === 0) btn.classList.add('active');
           btn.innerText = opcao.tamanho;
 
           btn.onclick = function () {
-            // Reseta visual dos Tamanhos
             document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
             this.classList.add('active');
 
-            // Reseta visual dos Decants (para não confundir)
             document.querySelectorAll('.version-option').forEach(d => {
               d.classList.remove('active');
               d.style.borderColor = "#444";
               d.style.background = "#111";
             });
 
-            // Atualiza Dados
             precoAtualSelecionado = opcao.preco;
-            // Se for o original, limpa a versão para não duplicar nome. Se for variação, grava.
             versaoAtualSelecionada = opcao.original ? "" : opcao.tamanho;
 
-            // Atualiza Tela
             const displayPreco = document.getElementById("produtoPreco");
             if (displayPreco) displayPreco.innerText = opcao.preco;
           };
@@ -750,12 +713,10 @@
       }
     }
 
-    // --- FUNÇÃO 3: CLIQUE NO DECANT ---
+    // --- FUNÇÃO: CLIQUE NO DECANT ---
     window.selecionarVersao = function (tipo) {
-      // Remove seleção dos Botões de Tamanho (pois agora é decant)
       document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
 
-      // Visual dos botões Decant
       document.querySelectorAll('.version-option').forEach(el => {
         el.style.borderColor = "#444";
         el.style.background = "#111";
@@ -774,9 +735,7 @@
 
       const displayPreco = document.getElementById("produtoPreco");
 
-      // Define valores baseados na escolha
       if (tipo === 'frasco') {
-        // Se clicou em "Frasco Lacrado" nos decants, volta para o preço base do produto
         versaoAtualSelecionada = "Frasco Lacrado";
         precoAtualSelecionado = produtoAtualDados.Preco_Venda;
       }
@@ -820,27 +779,22 @@
           return;
         }
 
-        produtoAtualDados = p; // Salva globalmente
+        produtoAtualDados = p;
 
-        // --- PREENCHE OS TEXTOS ---
         document.title = (p.Produto || "Detalhes") + " | Zeidan Parfum";
         document.getElementById("produtoTitulo").textContent = p.Produto || "";
         const elMarca = document.getElementById("produtoMarca");
         elMarca.textContent = (p.Marca || "") + (p.Categoria ? " • " + p.Categoria.toUpperCase() : "");
 
-        // Deixa visualmente clicável
         elMarca.style.cursor = "pointer";
         elMarca.style.textDecoration = "underline";
 
-        // O clique que salva e redireciona
         elMarca.onclick = function () {
-          localStorage.setItem("marcaSelecionada", p.Marca); // Salva a marca
-          window.location.href = "index.html"; // Vai para a home filtrada
+          localStorage.setItem("marcaSelecionada", p.Marca);
+          window.location.href = "index.html";
         };
 
-        // Preço Inicial
         document.getElementById("produtoPreco").textContent = p.Preco_Venda || "";
-        // Reset das variáveis globais
         precoAtualSelecionado = p.Preco_Venda;
         versaoAtualSelecionada = "";
 
@@ -857,7 +811,6 @@
         document.getElementById("produtoOcasiao").textContent = p.Ocasião || "-";
         document.getElementById("produtoIntensidade").textContent = p.Intensidade || "-";
 
-        // === ATIVA AS FUNÇÕES DE ESCOLHA ===
         verificarDisponibilidadeDecants(p);
         renderizarSeletorTamanho(p);
 
@@ -877,11 +830,10 @@
           localStorage.setItem('zeidanHistorico', JSON.stringify(historico));
         } catch (e) { }
 
-        // Galeria
         if (window.montarGaleria) window.montarGaleria(p);
         else montarGaleria(p);
 
-        // --- LÓGICA DO ZOOM (ADICIONADA AGORA) ---
+        // --- LÓGICA DO ZOOM ---
         const modal = document.getElementById("imageModal");
         const modalClose = document.getElementById("imageModalClose");
 
@@ -891,9 +843,7 @@
             modal.style.display = "none";
           }
         }
-        // 1. Fecha no Botão X
         if (modalClose) modalClose.onclick = fecharModal;
-        // 2. Fecha clicando no FUNDO ESCURO
         if (modal) {
           modal.onclick = function (e) {
             if (e.target === modal || e.target.id === "imageModalBackdrop") {
@@ -902,7 +852,6 @@
           }
         }
 
-        // Configurar Botões de Ação
         const btnWhatsapp = document.getElementById("produtoWhatsapp");
         const btnComprar = document.getElementById("produtoComprar");
 
@@ -910,7 +859,6 @@
           e.preventDefault();
           let nomeFinal = (p.Produto || "").replace(/'/g, " ");
 
-          // Se tiver versão (50ml, 100ml ou Decant), adiciona ao nome
           if (versaoAtualSelecionada && versaoAtualSelecionada !== "Frasco Lacrado") {
             nomeFinal += ` - ${versaoAtualSelecionada}`;
           }
@@ -928,7 +876,6 @@
         if (btnWhatsapp) btnWhatsapp.onclick = acaoClicar;
         if (btnComprar) btnComprar.onclick = acaoClicar;
 
-        // Sugestões
         carregarSugestoes(p, lista);
 
       } catch (e) {
@@ -936,7 +883,6 @@
       }
     }
 
-    // Função Auxiliar de Sugestões (Separada para organizar)
     function carregarSugestoes(p, lista) {
       const boxSugestoes = document.getElementById("box-sugestoes");
       const listaSugestoes = document.getElementById("lista-sugestoes");
@@ -973,7 +919,6 @@
       }
     }
 
-    // === REPETE A FUNÇÃO DA GALERIA (Igual a que você já tem, só para garantir) ===
     function montarGaleria(produto) {
       const mainImg = document.getElementById('main-product-img');
       const track = document.getElementById('thumbnails-track');
@@ -1009,7 +954,7 @@
         }
       }
 
-      // 4. LÓGICA DE SWIPE (ARRASTAR)
+      // LÓGICA DE SWIPE 
       let startX = 0;
       let endX = 0;
 
@@ -1035,7 +980,7 @@
       });
 
       function handleSwipe() {
-        if (Math.abs(endX - startX) < 40) {
+        if (Math.abs(endX - startX) < 10) {
           // Se mexeu pouco, considera clique para abrir o zoom
           const modal = document.getElementById("imageModal");
           const modalImg = document.getElementById("imageModalImg");
@@ -1048,12 +993,10 @@
         }
 
         if (endX < startX) {
-          // Esquerda -> Próxima
           let prox = indiceAtual + 1;
           if (prox >= imagens.length) prox = 0;
           irParaFoto(prox);
         } else {
-          // Direita -> Anterior
           let ant = indiceAtual - 1;
           if (ant < 0) ant = imagens.length - 1;
           irParaFoto(ant);
@@ -1066,36 +1009,30 @@
   <script>
     document.addEventListener("DOMContentLoaded", function () {
 
-      // Configuração
       const idPreco = "produtoPreco";
       const idParcelas = "produtoParcelas";
 
-      // Função que faz a mágica
       function atualizarParcelas() {
         const elementoPreco = document.getElementById(idPreco);
         const elementoParcelas = document.getElementById(idParcelas);
 
         if (!elementoPreco || !elementoParcelas) return;
 
-        // Limpa e converte o valor (R$ 1.000,00 -> 1000.00)
         let texto = elementoPreco.innerText || elementoPreco.textContent;
         let valorLimpo = texto.replace(/[^0-9,]/g, '').replace(',', '.');
         let valor = parseFloat(valorLimpo);
 
-        // Se o valor for válido, calcula e mostra
         if (!isNaN(valor) && valor > 0) {
           let parcela = valor / 3;
           let formatado = parcela.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
           elementoParcelas.innerText = "3x " + formatado;
-          elementoParcelas.style.display = "block"; // Garante que apareça
+          elementoParcelas.style.display = "block";
         } else {
-          elementoParcelas.style.display = "none"; // Esconde se não tiver preço
+          elementoParcelas.style.display = "none";
         }
       }
 
-      // --- A PARTE ESPERTA (OBSERVER) ---
-      // Isso cria um vigia que roda a função sempre que o texto do preço mudar
       const alvo = document.getElementById(idPreco);
       if (alvo) {
         const observador = new MutationObserver(atualizarParcelas);
@@ -1104,50 +1041,42 @@
     });
   </script>
   <script>
+    /*LÓGICA DO BREADCRUMB*/
+
     document.addEventListener("DOMContentLoaded", function () {
       const elMarcaOriginal = document.getElementById('produtoMarca');
-      const elTituloOriginal = document.getElementById('produtoTitulo'); // Pega o H1 com o nome do perfume
+      const elTituloOriginal = document.getElementById('produtoTitulo');
 
       const elBreadContainer = document.getElementById('breadcrumb-container');
       const elBreadMarca = document.getElementById('breadcrumb-marca-dinamica');
       const elBreadModelo = document.getElementById('breadcrumb-modelo');
 
       function configurarBreadcrumb() {
-        // Verifica se a marca e o título já carregaram
         if (elMarcaOriginal && elMarcaOriginal.innerText.length > 0) {
 
-          // 1. LIMPEZA DA MARCA
-          let textoSujo = elMarcaOriginal.innerText; // "LATTAFA • ÁRABE"
-          let marcaLimpa = textoSujo.split('•')[0].trim(); // Pega só a primeira parte: "LATTAFA"
+          let textoSujo = elMarcaOriginal.innerText;
+          let marcaLimpa = textoSujo.split('•')[0].trim();
 
-          // 2. PEGAR O MODELO (TÍTULO)
           let nomeModelo = "Produto";
           if (elTituloOriginal) {
             nomeModelo = elTituloOriginal.innerText;
           }
 
-          // 3. Joga no HTML
           elBreadMarca.innerText = marcaLimpa;
           elBreadModelo.innerText = nomeModelo;
 
-          // Mostra o breadcrumb
           elBreadContainer.style.display = "flex";
 
-          // 4. CLIQUE PARA VOLTAR (Só na marca)
           elBreadMarca.onclick = function () {
-            // Pega a marca limpa que já calculamos acima (sem o "• Árabe")
             localStorage.setItem("marcaSelecionada", marcaLimpa);
             window.location.href = "index.html";
           };
         }
       }
 
-      // Observador para esperar os dados carregarem
       if (elMarcaOriginal) {
         const observador = new MutationObserver(configurarBreadcrumb);
         observador.observe(elMarcaOriginal, { childList: true, characterData: true, subtree: true });
-        // Se também precisar esperar o título carregar, pode observar ele também, 
-        // mas geralmente eles carregam juntos.
       }
     });
   </script>
