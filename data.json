@@ -8901,7 +8901,7 @@
         "Produto": "LATTAFA FAKHAR EXTRAIT GOLD 100 ML",
         "Categoria": "Árabe",
         "Custo_Padrao": "R$ 160,00",
-        "Preco_Venda": "R$ 300,00",
+        "Preco_Venda": "R$ 299,90",
         "Imagem": "https://fimgs.net/mdimg/secundar/o.107747.jpg",
         "Descricao": "Fakhar Extrait Gold, da Lattafa, é uma fragrância floral-oriental unissex sofisticada que oferece uma interpretação luxuosa inspirada em Tom Ford Bitter Peach. Abre com toranja vibrante, pimenta rosa e cardamomo em um burst cítrico-especiado refrescante e intrigante, evoluindo para um coração floral exuberante de tuberosa opulenta, notas solares radiantes e artemísia herbácea que entregam complexidade e profundidade. A base rica e sensual reúne cashmeran aveludado, âmbar quente, ládano resinoso e couro nobre, criando um rastro envolvente, misterioso e duradouro. Ideal para ocasiões especiais, é perfeita para quem busca uma fragrância única, elegante e inesquecível que combina frescor com sensualidade sofisticada. Disponível na Zeidan Parfum.",
         "Acordes": "Âmbar, tuberosa, floral branco, animálico, almíscarado",
@@ -16901,7 +16901,7 @@
         "Produto": "ORIENTICA LUXU.ROYAL AMBER EDP 150 ML",
         "Categoria": "Árabe",
         "Custo_Padrao": "R$ 510,00",
-        "Preco_Venda": "R$ 599,90",
+        "Preco_Venda": "",
         "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/royal-amber-edp-2-bd3359b1d17a8d41eb17531959492682-1024-1024.webp",
         "Descricao": "ORIENTICA LUXU.ROYAL AMBER EDP 150 ML da marca ORIENTICA é um perfume árabe ideal para quem busca presença e sofisticação, com um fundo âmbar quente e elegante. Disponível na Zeidan Parfum por R$ 599,90.",
         "Acordes": "",
@@ -16933,7 +16933,7 @@
         "Produto": "ORIENTICA LUXU.ROYAL AMBER EDP 30 ML",
         "Categoria": "Árabe",
         "Custo_Padrao": "R$ 230,00",
-        "Preco_Venda": "R$ 329,90",
+        "Preco_Venda": "",
         "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/royal-amber-edp-2-bd3359b1d17a8d41eb17531959492682-1024-1024.webp",
         "Descricao": "ORIENTICA LUXU.ROYAL AMBER EDP 30 ML da marca ORIENTICA é um perfume árabe ideal para quem busca presença e sofisticação, com um fundo âmbar quente e elegante. Disponível na Zeidan Parfum por R$ 329,90.",
         "Acordes": "",
@@ -16962,12 +16962,12 @@
     {
         "Marca": "ORIENTICA",
         "ID": "3476",
-        "Produto": "ORIENTICA LUXU.ROYAL AMBER EDP 80 ML",
+        "Produto": "ORIENTICA LUXURY ROYAL AMBER",
         "Categoria": "Árabe",
         "Custo_Padrao": "R$ 440,00",
         "Preco_Venda": "R$ 549,90",
         "Imagem": "https://acdn-us.mitiendanube.com/stores/003/804/568/products/royal-amber-edp-2-bd3359b1d17a8d41eb17531959492682-1024-1024.webp",
-        "Descricao": "ORIENTICA LUXU.ROYAL AMBER EDP 80 ML da marca ORIENTICA é um perfume árabe ideal para quem busca presença e sofisticação, com um fundo âmbar quente e elegante. Disponível na Zeidan Parfum por R$ 549,90.",
+        "Descricao": "Royal Amber, da Orientica (Luxury Collection), é um âmbar‑baunilha frutado compartilhável que abre com bergamota cítrica e notas verdes frescas, evolui para um coração gourmand de melão, abacaxi, âmbar e notas doces, e seca em uma base cremosa de baunilha com madeira e musk, soando como “frutas tropicais cremosas com âmbar doce e baunilha amadeirada”, bem na linha Herba Pura mais acessível. Funciona muito bem em dias e noites amenos ou levemente quentes, para baladas, encontros e uso casual arrumado, com performance em geral alta (fixação de 8–12 horas, rastro marcante nas primeiras horas e bastante elogios quando o clima ajuda). Disponível na Zeidan Parfum.",
         "Acordes": "Doce, frutado, almíscarado, atalcado, âmbar",
         "Sugestoes": [
             "XERJOFF ERBA PURA EDP 100 ML",
@@ -16988,8 +16988,13 @@
         "Imagem3": "https://fimgs.net/photogram/p1200/qj/fz/g2Q3M9ZS3nVRonXl.jpg",
         "Imagem4": "https://fimgs.net/photogram/p1200/yc/vg/ZvQqqGBKvVgRRo7h.jpg",
         "id_slug": "orientica-orientica-luxu-royal-amber-edp-80",
-        "Decant5ml": "",
-        "Decant10ml": ""
+        "Decant5ml": "29,90",
+        "Decant10ml": "59,90",
+        "Variacoes": [  
+            { "tamanho": "30ml", "preco": "R$ 329,90" },
+            { "tamanho": "80ml", "preco": "R$ 549,90" },
+            { "tamanho": "150ml", "preco": "R$ 599,90" }
+    ]
     },
     {
         "Marca": "ORIENTICA",
